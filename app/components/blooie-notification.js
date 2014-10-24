@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    classNameBindings: ['notification.type'],
+    classNameBindings: [':dash-notification', 'notification.type'],
 
     actions: {
         removeNotification: function() {
