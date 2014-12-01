@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Blooie alerts
+   ========================================================================== */
+
+
+/* Base alert style
+   ========================================================================== */
+
+%alert {
+    padding: $alert-padding;
+    margin-bottom: $line-height-computed;
+    border: {
+        width: 1px;
+        style: solid;
+        color: transparent;
+        radius: $alert-border-radius;
+    }
+
+    /* Alert headings */
+    h4 {
+        margin-top: 0;
+        color: inherit;
+    }
+    
+    .alert-link {
+        font-weight: $alert-link-font-weight;
+    }
+
+    /* Improve alignment and spacing of alert content */
+    > p,
+    > ul {
+        margin-bottom: 0;
+    }
+    
+    > p + p {
+        margin-top: 5px;
+    }
+}
+
+
+/* Dismissable alerts
+   ========================================================================== */
+
+.alert-dismissable {
+    padding-right: ($alert-padding + 20);
+
+    /* Adjust position */
+    .close {
+        position: relative;
+        top: -2px;
+        right: -21px;
+        color: inherit;
+    }
+}
+
+
+/* Alert themes
+   ========================================================================== */
+
+.alert-success {
+    @include alert-theme($alert-success-bg, $alert-success-border, $alert-success-text);
+}
+
+.alert-info {
+    @include alert-theme($alert-info-bg, $alert-info-border, $alert-info-text);
+}
+
+.alert-warning {
+    @include alert-theme($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}
+
+.alert-danger {
+    @include alert-theme($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
