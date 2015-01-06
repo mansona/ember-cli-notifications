@@ -6,7 +6,7 @@
 /* Base alert style
    ========================================================================== */
 
-%alert {
+.alert {
     padding: $alert-padding;
     margin-bottom: $line-height-computed;
     border: {
@@ -21,9 +21,10 @@
         margin-top: 0;
         color: inherit;
     }
-    
+
     .alert-link {
         font-weight: $alert-link-font-weight;
+        text-decoration: underline;
     }
 
     /* Improve alignment and spacing of alert content */
@@ -31,7 +32,7 @@
     > ul {
         margin-bottom: 0;
     }
-    
+
     > p + p {
         margin-top: 5px;
     }
