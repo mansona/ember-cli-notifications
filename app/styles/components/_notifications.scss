@@ -1,0 +1,74 @@
+//
+// Notifications
+// --------------------------------------------------
+
+
+// Comtainer that houses the notification messages
+.notifications-container {
+  position: fixed;
+  top: 10px;
+  right: 0;
+  left: 0;
+  z-index: $zindex-notification;
+}
+
+.notification {
+  @include clearfix();
+  @include animation(hide 250ms cubic-bezier(.33859, -.42, 1, -.22), shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1)); // Animate dismissal
+  animation-fill-mode: forwards;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+  top: 10px;
+  overflow: hidden;
+  border-radius: $notification-border-radius;
+  margin-bottom: $notification-spacing;
+  max-height: $notification-max-height;
+
+  // Animate entrance
+  &.in { @include animation(show 180ms cubic-bezier(.175, .885, .32, 1.27499)); }
+
+  .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: $notification-icon-width;
+    padding-top: $notification-icon-padding;
+  }
+
+  .content { padding-left: $notification-icon-width; }
+
+  .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    opacity: .3;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+
+// Notification themes
+// --------------------------------------------------
+
+.notification.info {
+  @include notification-theme($state-info-bg, $state-info-text);
+}
+.notification.success {
+  @include notification-theme($state-success-bg, $state-success-text);
+}
+.notification.error {
+  @include notification-theme($state-error-bg, $state-error-text);
+
+  // Space for close icon
+  .content { padding-right: $notification-icon-width; }
+}
+.notification.warning {
+  @include notification-theme($state-warning-bg, $state-warning-text);
+}

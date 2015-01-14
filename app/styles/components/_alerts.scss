@@ -58,18 +58,18 @@
 /* Alert themes
    ========================================================================== */
 
-.alert-success {
+.alert.success {
     @include alert-theme($alert-success-bg, $alert-success-border, $alert-success-text);
 }
 
-.alert-info {
+.alert.info {
     @include alert-theme($alert-info-bg, $alert-info-border, $alert-info-text);
 }
 
-.alert-warning {
+.alert.warning {
     @include alert-theme($alert-warning-bg, $alert-warning-border, $alert-warning-text);
 }
 
-.alert-danger {
-    @include alert-theme($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+.alert.error {
+    @include alert-theme($alert-error-bg, $alert-error-border, $alert-error-text);
 }
