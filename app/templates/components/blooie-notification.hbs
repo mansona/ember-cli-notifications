@@ -1,8 +1,11 @@
-<div class="section-controls">
-  <div class="section-action">
-    <span {{action "removeNotification"}}>
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
+<div class="icon text-center">
+  <i {{bind-attr class=":fa notificationIcon"}}></i>
 </div>
-{{notification.message}}
+<div class="content text-small">
+  {{notification.message}}
+</div>
+{{#unless notification.autoClear}}
+  <span class="close" {{action "removeNotification"}}>
+    <i class="fa fa-times"></i>
+  </span>
+{{/unless}}
