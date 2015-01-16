@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    classNameBindings: [':notification', 'notification.type', 'notification.dismiss::in', ':pad1', ':center-block'],
+    classNameBindings: [':notification', 'notification.type', 'notification.dismiss::in', ':pad1'],
 
     // Set icon depending on notification type
     notificationIcon: function() {
