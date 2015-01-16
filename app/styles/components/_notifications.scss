@@ -10,16 +10,16 @@
   right: 0;
   left: 0;
   z-index: $zindex-notification;
+  width: $notification-width;
+  max-width: $notification-max-width;
+  margin: auto;
 }
 
 .notification {
   @include clearfix();
   @include animation(hide 250ms cubic-bezier(.33859, -.42, 1, -.22), shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1)); // Animate dismissal
   animation-fill-mode: forwards;
-  width: 80%;
-  max-width: 400px;
   position: relative;
-  top: 10px;
   overflow: hidden;
   border-radius: $notification-border-radius;
   margin-bottom: $notification-spacing;
