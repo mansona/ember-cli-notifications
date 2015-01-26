@@ -24,6 +24,7 @@
   border-radius: $notification-border-radius;
   margin-bottom: $notification-spacing;
   max-height: $notification-max-height;
+  color: #fff;
 
   // Animate entrance
   &.in { @include animation(show 180ms cubic-bezier(.175, .885, .32, 1.27499)); }
@@ -35,6 +36,7 @@
     height: 100%;
     width: $notification-icon-width;
     padding-top: $notification-icon-padding;
+    color: rgba(#fff,.74);
   }
 
   .content { padding-left: $notification-icon-width; }
@@ -58,17 +60,17 @@
 // --------------------------------------------------
 
 .notification.info {
-  @include notification-theme($state-info-bg, $state-info-text);
+  @include notification-theme($notification-info-bg, $notification-info-text);
 }
 .notification.success {
-  @include notification-theme($state-success-bg, $state-success-text);
+  @include notification-theme($notification-success-bg, $notification-success-text);
 }
 .notification.error {
-  @include notification-theme($state-error-bg, $state-error-text);
+  @include notification-theme($notification-error-bg, $notification-error-text);
 
   // Space for close icon
   .content { padding-right: $notification-icon-width; }
 }
 .notification.warning {
-  @include notification-theme($state-warning-bg, $state-warning-text);
+  @include notification-theme($notification-warning-bg, $notification-warning-text);
 }
