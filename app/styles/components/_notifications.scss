@@ -60,17 +60,17 @@
 // --------------------------------------------------
 
 .notification.info {
-  @include notification-theme($notification-info-bg, $notification-info-text);
+  @include notification-theme($notification-info-bg, $notification-info-alt);
 }
 .notification.success {
-  @include notification-theme($notification-success-bg, $notification-success-text);
+  @include notification-theme($notification-success-bg, $notification-success-alt);
 }
 .notification.error {
-  @include notification-theme($notification-error-bg, $notification-error-text);
+  @include notification-theme($notification-error-bg, $notification-error-alt);
 
   // Space for close icon
   .content { padding-right: $notification-icon-width; }
 }
 .notification.warning {
-  @include notification-theme($notification-warning-bg, $notification-warning-text);
+  @include notification-theme($notification-warning-bg, $notification-warning-alt);
 }
