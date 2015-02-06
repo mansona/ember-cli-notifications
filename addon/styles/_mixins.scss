@@ -1,0 +1,12 @@
+//
+// Notification mixins
+// --------------------------------------------------
+
+
+@mixin notification-theme($background, $alt) {
+  background-color: $background;
+
+  .#{$notification-css-prefix}-icon { background-color: $alt; }
+
+  .#{$notification-css-prefix}-close { color: $alt; }
+}

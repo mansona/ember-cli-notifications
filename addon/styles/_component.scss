@@ -1,0 +1,95 @@
+//
+// Notification component
+// --------------------------------------------------
+
+
+// Comtainer that houses the notification messages
+.notifications-container {
+  position: fixed;
+  top: 10px;
+  right: 0;
+  left: 0;
+  z-index: $notification-zindex;
+  width: $notification-width;
+  max-width: $notification-max-width;
+  margin: auto;
+}
+
+
+// Base notification
+// -------------------------
+
+.#{$notification-css-prefix} {
+  font: #{$notification-font-weight} #{$notification-font-size} #{$notification-font-family}, Helvetica, Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  padding: $notification-padding;
+  border-radius: $notification-border-radius;
+  margin-bottom: $notification-spacing;
+  max-height: $notification-max-height;
+  color: #fff;
+  animation-fill-mode: forwards;
+  -webkit-animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
+          animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
+
+  // Animate show
+  &.in {
+    -webkit-animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
+            animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
+  }
+}
+
+
+// Base notification
+// -------------------------
+.#{$notification-css-prefix}-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: $notification-icon-width;
+  color: $notification-icon-color;
+  text-align: center;
+
+  span {
+    position: relative;
+    top: $notification-icon-position;
+  }
+}
+
+.#{$notification-css-prefix}-content {
+  padding-left: $notification-icon-width;
+
+  // Allow space for close icon
+  &.dismissable { padding-right: $notification-icon-width; }
+}
+
+.#{$notification-css-prefix}-close {
+  position: absolute;
+  top: $notification-icon-position;
+  right: $notification-icon-position;
+  opacity: .3;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+
+// Notification themes
+// --------------------------------------------------
+
+.#{$notification-css-prefix}.info {
+  @include notification-theme($notification-info-bg, $notification-info-alt);
+}
+.#{$notification-css-prefix}.success {
+  @include notification-theme($notification-success-bg, $notification-success-alt);
+}
+.#{$notification-css-prefix}.error {
+  @include notification-theme($notification-error-bg, $notification-error-alt);
+}
+.#{$notification-css-prefix}.warning {
+  @include notification-theme($notification-warning-bg, $notification-warning-alt);
+}
