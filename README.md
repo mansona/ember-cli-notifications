@@ -1,25 +1,130 @@
-# Ember-cli-notifications
+# ember-cli-notifications
 
-This README outlines the details of collaborating on this Ember addon.
+An `ember-cli` addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
+
+![ember-cli-notifications](https://s3.amazonaws.com/f.cl.ly/items/1F1W2M10063i3w032w0D/ember-cli-notifications.png)
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```shell
+ember install:addon ember-cli-notifications
+```
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+From within your controller or route.
 
-## Running Tests
+```js
+actions: {
+    saveOptions: function() {
+        this.notifications.addNotification({
+            message: 'Saved successfully!',
+            type: 'success'
+        });
+    }
+}
+```
+```js
+actions: {
+    saveOptions: function() {
+        this.get('model').save()
+        .then(function(){
+            this.notifications.addNotification({
+                message: 'Successfully saved your settings',
+                type: 'success',
+                autoClear: true
+            });
+        }.bind(this),
+        .catch(function(err) {
+            this.notifications.addNotification({
+                message: 'Something went wrong'
+                type: 'error'
+            });
+        }.bind(this));
+    }
+}
+```
 
-* `ember test`
-* `ember test --server`
+### Template
 
-## Building
+Include this snippet in your Handlebars template to display the notifications.
 
-* `ember build`
+```hbs
+{{#each notifications}}
+    {{notification-message notification=this}}
+{{/each}}
+```
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+## Options
+
+### Message
+
+The string that is displayed within the notification. This is the only **required** option.
+
+#### Example
+
+```js
+this.notifications.addNotification({
+    message: 'Successfully saved your settings'
+});
+```
+
+### Type
+
+Define the type of notification that should be presented. This sets the CSS of the notification, as well as the [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon.
+
+*Default value is `info`*
+
+#### Options
+
+* `error`
+* `info` (default)
+* `success`
+* `warning`
+
+#### Example
+
+```js
+this.notifications.addNotification({
+    message: 'Successfully saved your settings',
+    type: 'success'
+});
+```
+
+### Auto clear
+
+Boolean value that defines whether the notification message dismisses automatically, or whether it needs to be dismissed manually by the user. Inherit the default `clearDuration` value unless specified.
+
+*Default value is `false`*
+
+#### Options
+
+* `false` (default)
+* `true`
+
+#### Example
+
+```js
+this.notifications.addNotification({
+    message: 'Successfully saved your settings',
+    type: 'success',
+    autoClear: true
+});
+```
+
+### Clear duration
+
+The time in milliseconds that the notification will automatically dismiss after, if `autoClear` is `true`.
+
+*Default value is `3200`*
+
+#### Example
+
+```js
+this.notifications.addNotification({
+    message: 'Successfully saved your settings',
+    type: 'success',
+    autoClear: true,
+    clearDuration: 1200
+});
+```
