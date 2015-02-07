@@ -20,7 +20,7 @@
 // -------------------------
 
 .#{$notification-css-prefix} {
-  font: #{$notification-font-weight} #{$notification-font-size} #{$notification-font-family}, Helvetica, Arial, sans-serif;
+  font: #{$notification-font-size} #{$notification-font-family};
   position: relative;
   overflow: hidden;
   padding: $notification-padding;
