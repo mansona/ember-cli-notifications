@@ -1,6 +1,6 @@
 # ember-cli-notifications
 
-An `ember-cli` addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
+An [Ember CLI](http://ember-cli.com) addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
 
 ![ember-cli-notifications](https://s3.amazonaws.com/f.cl.ly/items/1F1W2M10063i3w032w0D/ember-cli-notifications.png)
 
@@ -78,7 +78,7 @@ Define the type of notification that should be presented. This sets the CSS of t
 #### Options
 
 * `error`
-* `info` (default)
+* `info`
 * `success`
 * `warning`
 
@@ -93,13 +93,15 @@ this.notifications.addNotification({
 
 ### Auto clear
 
-Boolean value that defines whether the notification message dismisses automatically, or whether it needs to be dismissed manually by the user. Inherit the default `clearDuration` value unless specified.
+Boolean value that defines whether the notification message dismisses automatically, or whether it needs to be dismissed manually by the user.
+
+If true, inherits the default `clearDuration` value unless specified.
 
 *Default value is `false`*
 
 #### Options
 
-* `false` (default)
+* `false`
 * `true`
 
 #### Example
