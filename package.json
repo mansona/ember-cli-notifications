@@ -1,9 +1,8 @@
 {
   "name": "ember-cli-notifications",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Atom inspired notification messages for ember-cli",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "scripts": {
@@ -11,7 +10,10 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/Blooie/ember-cli-notifications",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Blooie/ember-cli-notifications"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -46,5 +48,10 @@
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Blooie/ember-cli-notifications/issues"
+  },
+  "homepage": "https://github.com/Blooie/ember-cli-notifications",
+  "main": "index.js"
 }

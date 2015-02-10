@@ -1,4 +1,5 @@
 # ember-cli-notifications
+[![Build Status](https://travis-ci.org/Blooie/ember-cli-notifications.svg)](https://travis-ci.org/Blooie/ember-cli-notifications)
 
 An [Ember CLI](http://ember-cli.com) addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
 
