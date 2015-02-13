@@ -1,10 +1,11 @@
-<h2 id="title">Welcome to Ember.js</h2>
-
 <div class="notifications-container">
   {{#each notifications}}
     {{notification-message notification=this}}
   {{/each}}
 </div>
+
+<h2>ember-cli-notifications</h2>
+<p>Push a button below to trigger a notification</p>
 
 <button {{action 'showSuccess'}} title="Show a success notification">Success</button>
 <button {{action 'showInfo'}} title="Show an info notification">Info</button>
