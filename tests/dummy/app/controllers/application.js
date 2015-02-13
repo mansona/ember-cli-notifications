@@ -5,7 +5,8 @@ export default Ember.ObjectController.extend({
         showSuccess: function() {
             this.notifications.addNotification({
                 message: "A success notification",
-                type: 'success'
+                type: 'success',
+                autoClear: true
             });
         },
         showInfo: function() {
