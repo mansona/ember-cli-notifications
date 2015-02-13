@@ -3,6 +3,8 @@
 
 An [Ember CLI](http://ember-cli.com) addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
 
+Check out the [demo](http://blooie.github.io/ember-cli-notifications/).
+
 ![ember-cli-notifications](https://s3.amazonaws.com/f.cl.ly/items/1F1W2M10063i3w032w0D/ember-cli-notifications.png)
 
 ## Installation
