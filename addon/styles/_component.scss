@@ -23,7 +23,6 @@
   font: #{$notification-font-size} #{$notification-font-family};
   position: relative;
   overflow: hidden;
-  padding: $notification-padding;
   border-radius: $notification-border-radius;
   margin-bottom: $notification-spacing;
   max-height: $notification-max-height;
@@ -58,7 +57,11 @@
 }
 
 .#{$notification-css-prefix}-content {
-  padding-left: $notification-icon-width;
+  padding: {
+    top: $notification-padding;
+    bottom: $notification-padding;
+    left: $notification-icon-width + 10;
+  }
 
   // Allow space for close icon
   &.dismissable { padding-right: $notification-icon-width; }
@@ -75,6 +78,19 @@
   &:focus {
     opacity: 1;
   }
+}
+
+
+// Auto clear countdown
+// -------------------------
+
+.#{$notification-css-prefix}-countdown {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  -webkit-animation: notification-countdown linear 1;
+          animation: notification-countdown linear 1;
 }
 
 
