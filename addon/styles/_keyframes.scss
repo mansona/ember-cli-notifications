@@ -6,31 +6,15 @@
 // Show keyframes
 // -------------------------
 
-@-webkit-keyframes notification-show {
-  0% {
-    opacity: 0;
-    -webkit-transform: perspective(450px) translate(0, -30px) rotateX(90deg);
-            transform: perspective(450px) translate(0, -30px) rotateX(90deg);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: perspective(450px) translate(0, 0) rotateX(0deg);
-            transform: perspective(450px) translate(0, 0) rotateX(0deg);
-  }
-}
-
 @keyframes notification-show {
   0% {
     opacity: 0;
-    -webkit-transform: perspective(450px) translate(0, -30px) rotateX(90deg);
-            transform: perspective(450px) translate(0, -30px) rotateX(90deg);
+    transform: perspective(450px) translate(0, -30px) rotateX(90deg);
   }
 
   100% {
     opacity: 1;
-    -webkit-transform: perspective(450px) translate(0, 0) rotateX(0deg);
-            transform: perspective(450px) translate(0, 0) rotateX(0deg);
+    transform: perspective(450px) translate(0, 0) rotateX(0deg);
   }
 }
 
@@ -38,39 +22,19 @@
 // Shrink keyframes
 // -------------------------
 
-@-webkit-keyframes notification-shrink {
-  0% {
-    opacity: 0;
-    max-height: $notification-max-height;
-    margin-bottom: $notification-spacing;
-    -webkit-transform: scale(.8);
-            transform: scale(.8);
-  }
-
-  100% {
-    opacity: 0;
-    max-height: 0;
-    margin-bottom: 0;
-    -webkit-transform: scale(.8);
-            transform: scale(.8);
-  }
-}
-
 @keyframes notification-shrink {
   0% {
     opacity: 0;
     max-height: $notification-max-height;
     margin-bottom: $notification-spacing;
-    -webkit-transform: scale(.8);
-            transform: scale(.8);
+    transform: scale(.8);
   }
 
   100% {
     opacity: 0;
     max-height: 0;
     margin-bottom: 0;
-    -webkit-transform: scale(.8);
-            transform: scale(.8);
+    transform: scale(.8);
   }
 }
 
@@ -78,47 +42,21 @@
 // Hide keyframes
 // -------------------------
 
-@-webkit-keyframes notification-hide {
-  0% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(.8);
-            transform: scale(.8);
-  }
-}
-
 @keyframes notification-hide {
   0% {
     opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
 
   100% {
     opacity: 0;
-    -webkit-transform: scale(.8);
-            transform: scale(.8);
+    transform: scale(.8);
   }
 }
 
 
 // Countdown keyframes
 // -------------------------
-
-@-webkit-keyframes notification-countdown {
-  0% {
-    width: 100%;
-  }
-
-  100% {
-    width: 0%;
-  }
-}
 
 @keyframes notification-countdown {
   0% {
