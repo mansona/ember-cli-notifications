@@ -28,14 +28,10 @@
   max-height: $notification-max-height;
   color: #fff;
   animation-fill-mode: forwards;
-  -webkit-animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
-          animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
+  animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
 
   // Animate show
-  &.in {
-    -webkit-animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
-            animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
-  }
+  &.in { animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499); }
 }
 
 
@@ -89,8 +85,7 @@
   bottom: 0;
   width: 0;
   height: 4px;
-  -webkit-animation: notification-countdown linear 1;
-          animation: notification-countdown linear 1;
+  animation: notification-countdown linear 1;
 }
 
 
