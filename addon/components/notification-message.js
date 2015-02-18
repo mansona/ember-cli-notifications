@@ -19,7 +19,7 @@ export default Ember.Component.extend({
 
     // Apply the clear animation duration rule inline
     notificationClearDuration: function() {
-        return '-webkit-animation-duration: '+this.get('notification.clearDuration')+'ms; animation-duration: '+this.get('notification.clearDuration')+'ms';
+        return "-webkit-animation-duration: %@ms".fmt(this.get('notification.clearDuration'))+"; animation-duration: %@ms".fmt(this.get('notification.clearDuration'));
     }.property('notification.clearDuration'),
 
     actions: {
