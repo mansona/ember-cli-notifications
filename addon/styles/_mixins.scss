@@ -8,5 +8,7 @@
 
   .#{$notification-css-prefix}-icon { background-color: $alt; }
 
+  .#{$notification-css-prefix}-countdown { background-color: lighten($background,10%); }
+
   .#{$notification-css-prefix}-close { color: $alt; }
 }

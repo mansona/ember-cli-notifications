@@ -105,3 +105,29 @@
             transform: scale(.8);
   }
 }
+
+
+// Countdown keyframes
+// -------------------------
+
+@-webkit-keyframes notification-countdown {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes notification-countdown {
+  0% {
+    opacity: 1;
+    width: 100%;
+  }
+
+  100% {
+    opacity: 0;
+    width: 0%;
+  }
+}
