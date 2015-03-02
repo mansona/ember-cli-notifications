@@ -1,9 +1,9 @@
 # ember-cli-notifications
 [![Build Status](https://travis-ci.org/Blooie/ember-cli-notifications.svg)](https://travis-ci.org/Blooie/ember-cli-notifications)
 
-An [Ember CLI](http://ember-cli.com) addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
+An [Ember CLI] addon that adds [Atom] inspired notification messages to your app.
 
-Check out the [demo](http://blooie.github.io/ember-cli-notifications/).
+Check out the [demo].
 
 ![ember-cli-notifications](https://s3.amazonaws.com/f.cl.ly/items/1F1W2M10063i3w032w0D/ember-cli-notifications.png)
 
@@ -12,6 +12,12 @@ Check out the [demo](http://blooie.github.io/ember-cli-notifications/).
 ```shell
 ember install:addon ember-cli-notifications
 ```
+
+### Dependencies
+
+This addon requires [broccoli-sass] to compile CSS for the included message themes.
+
+If not already a part of your project, install using `ember install:npm broccoli-sass` in your project directory.
 
 ## Usage
 
@@ -74,7 +80,7 @@ this.notifications.addNotification({
 
 ### Type
 
-Define the type of notification that should be presented. This sets the CSS of the notification, as well as the [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icon.
+Define the type of notification that should be presented. This sets the CSS of the notification, as well as the [Font Awesome] icon.
 
 *Default value is `info`*
 
@@ -133,3 +139,9 @@ this.notifications.addNotification({
     clearDuration: 1200
 });
 ```
+
+[Ember CLI]: http://ember-cli.com
+[Atom]: https://github.com/atom/notifications
+[demo]: http://blooie.github.io/ember-cli-notifications
+[broccoli-sass]: https://www.npmjs.com/package/broccoli-sass
+[Font Awesome]: http://fortawesome.github.io/Font-Awesome
