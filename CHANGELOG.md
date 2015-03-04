@@ -1,5 +1,10 @@
 # Changelog for ember-cli-notifications
 
+### 1.1.2
+
+* [#9](https://github.com/Blooie/ember-cli-notifications/pull/9) [BUGFIX] Fixed an interpolated variable issue that prevented CSS from compiling correctly in some instances.
+* [#10](https://github.com/Blooie/ember-cli-notifications/pull/10) [DOCS] Added the required `.notifications-container` for templating to the README.
+
 ### 1.1.1
 
 * [#5](https://github.com/Blooie/ember-cli-notifications/pull/5) [FEATURE] Added autoprefixer to build.
