@@ -60,7 +60,7 @@ Include this snippet in your Handlebars template to display the notifications.
 
 ```hbs
 <div class="notifications-container">
-    {{#each notifications}}
+    {{#each notification in notifications}}
         {{notification-message notification=this}}
     {{/each}}
 </div>
