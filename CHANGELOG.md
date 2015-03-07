@@ -1,5 +1,10 @@
 # Changelog for ember-cli-notifications
 
+### 1.1.3
+
+* [#13](https://github.com/Blooie/ember-cli-notifications/pull/13), [#16](https://github.com/Blooie/ember-cli-notifications/pull/16) [BUGFIX] Fixing the use of a deprecated implementation of `{{each}}`.
+* [#14](https://github.com/Blooie/ember-cli-notifications/pull/14) [ENHANCEMENT] Import of Font Awesome is now set by consuming application config. See [documentation](https://github.com/Blooie/ember-cli-notifications/blob/master/README.md#font-awesome).
+
 ### 1.1.2
 
 * [#9](https://github.com/Blooie/ember-cli-notifications/pull/9) [BUGFIX] Fixed an interpolated variable issue that prevented CSS from compiling correctly in some instances.
