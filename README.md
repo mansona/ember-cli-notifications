@@ -66,6 +66,18 @@ Include this snippet in your Handlebars template to display the notifications.
 </div>
 ```
 
+## Font Awesome
+
+[Font Awesome] is required as part of the addon to display the message type icons on the notifications.
+
+If Font Awesome is not already included in the consuming application, add the following your applications `config/environment.js` file.
+
+```js
+'ember-cli-notifications': {
+    includeFontAwesome: true
+}
+```
+
 ## Options
 
 ### Message
