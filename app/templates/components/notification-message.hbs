@@ -8,8 +8,7 @@
 </div>
 {{#if notification.autoClear}}
   <div class="notification-countdown" {{bind-attr style="notificationClearDuration"}}></div>
-{{else}}
-  <span class="notification-close" {{action "removeNotification"}} title="Dismiss this notification">
-    <i class="fa fa-times"></i>
-  </span>
-{{/if}}
+  {{/if}}
+<span class="notification-close" {{action "removeNotification"}} title="Dismiss this notification">
+  <i class="fa fa-times"></i>
+</span>
