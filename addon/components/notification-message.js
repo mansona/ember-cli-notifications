@@ -13,7 +13,7 @@ export default Ember.Component.extend({
             case "warning":
                 return 'fa-warning';
             case "error":
-                return 'fa-times-circle';
+                return 'fa-exclamation-circle';
         }
     }.property('notification.type'),
 
