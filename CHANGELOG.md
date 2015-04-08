@@ -1,5 +1,12 @@
 # Changelog for ember-cli-notifications
 
+### 1.1.4
+
+* [#12](https://github.com/Blooie/ember-cli-notifications/pull/12) [ENHANCEMENT] Using different glyph for error messages to prevent conflicts with dismiss button.
+* [#19](https://github.com/Blooie/ember-cli-notifications/pull/19) [ENHANCEMENT] Prevent the dismiss button from being hidden on auto clearing messages.
+* [#21](https://github.com/Blooie/ember-cli-notifications/pull/21) [DOCS] Added npm package badge and link to README.
+* [#25](https://github.com/Blooie/ember-cli-notifications/pull/25) [BUGFIX] Fixing instances where the message animations wouldn't trigger.
+
 ### 1.1.3
 
 * [#13](https://github.com/Blooie/ember-cli-notifications/pull/13), [#16](https://github.com/Blooie/ember-cli-notifications/pull/16) [BUGFIX] Fixing the use of a deprecated implementation of `{{each}}`.
