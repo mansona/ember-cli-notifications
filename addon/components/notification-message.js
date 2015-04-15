@@ -4,7 +4,7 @@ export default Ember.Component.extend({
     classNameBindings: [':notification', 'notification.type', 'notification.dismiss::in'],
 
     // Set icon depending on notification type
-    notificationIcon: function() {
+    notificationIcon: Ember.computed('notification.type', function() {
         switch(this.get('notification.type')){
             case "info":
                 return 'fa-info-circle';
@@ -15,12 +15,15 @@ export default Ember.Component.extend({
             case "error":
                 return 'fa-exclamation-circle';
         }
-    }.property('notification.type'),
+    }),
 
     // Apply the clear animation duration rule inline
-    notificationClearDuration: function() {
-        return "-webkit-animation-duration: %@ms".fmt(this.get('notification.clearDuration'))+"; animation-duration: %@ms".fmt(this.get('notification.clearDuration'));
-    }.property('notification.clearDuration'),
+    notificationClearDuration: Ember.computed('notification.clearDuration', function() {
+        return Ember.String.fmt("-webkit-animation-duration: %@ms; animation-duration: %@ms",
+          this.get('notification.clearDuration'),
+          this.get('notification.clearDuration')
+        );
+    }),
 
     actions: {
         removeNotification: function() {
