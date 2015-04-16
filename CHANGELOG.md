@@ -1,5 +1,9 @@
 # Changelog for ember-cli-notifications
 
+### 1.2.0
+
+* [#27](https://github.com/Blooie/ember-cli-notifications/pull/27) [ENHANCEMENT] Removing dependency for broccoli-sass in consuming application.
+
 ### 1.1.4
 
 * [#12](https://github.com/Blooie/ember-cli-notifications/pull/12) [ENHANCEMENT] Using different glyph for error messages to prevent conflicts with dismiss button.

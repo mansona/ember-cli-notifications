@@ -5,19 +5,11 @@ An [Ember CLI] addon that adds [Atom] inspired notification messages to your app
 
 Check out the [demo].
 
-![ember-cli-notifications](https://s3.amazonaws.com/f.cl.ly/items/1F1W2M10063i3w032w0D/ember-cli-notifications.png)
-
 ## Installation
 
 ```shell
-ember install:addon ember-cli-notifications
+ember install ember-cli-notifications
 ```
-
-### Dependencies
-
-This addon requires [broccoli-sass] to compile CSS for the included message themes.
-
-If not already a part of your project, install using `ember install:npm broccoli-sass` in your project directory.
 
 ## Usage
 
