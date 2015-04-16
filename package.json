@@ -21,7 +21,6 @@
   "author": "Jonathan Steele",
   "license": "MIT",
   "devDependencies": {
-    "broccoli-sass": "^0.6.0",
     "broccoli-asset-rev": "^2.0.2",
     "ember-cli": "0.2.3",
     "ember-cli-app-version": "0.3.3",
@@ -46,7 +45,8 @@
     "alerts"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.0.0"
+    "ember-cli-babel": "^5.0.0",
+    "ember-cli-sass": "^4.0.0-beta.5"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
