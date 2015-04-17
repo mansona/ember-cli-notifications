@@ -15,6 +15,7 @@ ember install ember-cli-notifications
 
 From within your controller or route.
 
+Add a notification
 ```js
 actions: {
     saveOptions: function() {
@@ -25,6 +26,8 @@ actions: {
     }
 }
 ```
+
+Add a notification with autoClear
 ```js
 actions: {
     saveOptions: function() {
@@ -46,6 +49,21 @@ actions: {
 }
 ```
 
+Remove all active notifications using clearAll() before adding a new notification
+```js
+actions: {
+    saveOptions: function() {
+        this.get('model').save()
+        .then(function(){
+            this.notifications.clearAll();
+            this.notifications.addNotification({
+                message: 'Successfully saved your settings',
+                type: 'success'
+            });
+        }.bind(this))
+    }
+}
+```
 ### Template
 
 Include this snippet in your Handlebars template to display the notifications.
