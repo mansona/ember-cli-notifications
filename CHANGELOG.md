@@ -1,5 +1,9 @@
 # Changelog for ember-cli-notifications
 
+### 1.2.1
+
+* [#28](https://github.com/Blooie/ember-cli-notifications/pull/28) [BUGFIX] Added prefixed animation properties to relevant selectors and removed autoprefixer dependency.
+
 ### 1.2.0
 
 * [#27](https://github.com/Blooie/ember-cli-notifications/pull/27) [ENHANCEMENT] Removing dependency for broccoli-sass in consuming application.
