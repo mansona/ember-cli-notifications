@@ -4,10 +4,9 @@
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 var app = new EmberAddon({
-    autoprefixer: {
-        browsers: ['last 2 versions', 'ie >= 10', 'android 3'],
-        cascade: true
-    }
+  minifyCSS: {
+    enabled: true
+  }
 });
 
 // Use `app.import` to add additional libraries to the generated
