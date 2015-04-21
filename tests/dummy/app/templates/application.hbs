@@ -7,9 +7,13 @@
 <h2>ember-cli-notifications</h2>
 <p>Push a button below to trigger a notification</p>
 
+<h3>Notifications</h3>
 <button {{action 'showSuccess'}} title="Show a success notification">Success (auto clear)</button>
 <button {{action 'showInfo'}} title="Show an info notification">Info</button>
 <button {{action 'showError'}} title="Show an error notification">Error</button>
 <button {{action 'showWarning'}} title="Show a warning notification">Warning</button>
+
+<h3>Clear</h3>
+<button {{action 'clearAll'}} title="Clear all present notifications">Clear all</button>
 
 {{outlet}}
