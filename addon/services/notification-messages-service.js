@@ -46,5 +46,9 @@ export default Ember.ArrayProxy.extend({
                 this.removeNotification(notification);
             }
         }.bind(this), notification.clearDuration);
+    },
+
+    clearAll: function() {
+        this.set('content', Ember.A());
     }
 });

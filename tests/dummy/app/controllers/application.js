@@ -26,6 +26,9 @@ export default Ember.Controller.extend({
                 message: "A warning notification",
                 type: 'warning'
             });
+        },
+        clearAll: function() {
+            this.notifications.clearAll();
         }
     }
 });
