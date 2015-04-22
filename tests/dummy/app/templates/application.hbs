@@ -5,15 +5,46 @@
 </div>
 
 <h2>ember-cli-notifications</h2>
-<p>Push a button below to trigger a notification</p>
-
-<h3>Notifications</h3>
-<button {{action 'showSuccess'}} title="Show a success notification">Success (auto clear)</button>
-<button {{action 'showInfo'}} title="Show an info notification">Info</button>
-<button {{action 'showError'}} title="Show an error notification">Error</button>
-<button {{action 'showWarning'}} title="Show a warning notification">Warning</button>
-
-<h3>Clear</h3>
-<button {{action 'clearAll'}} title="Clear all present notifications">Clear all</button>
+<div>
+  <h4>Message</h4>
+  {{input type="text" value=message}}
+</div>
+<div>
+  <h4>Type</h4>
+  <div>
+    {{radio-button value="success" groupValue=type}}
+    <label>Success</label>
+  </div>
+  <div>
+    {{radio-button value="info" groupValue=type}}
+    <label>Info</label>
+  </div>
+  <div>
+    {{radio-button value="error" groupValue=type}}
+    <label>Error</label>
+  </div>
+  <div>
+    {{radio-button value="warning" groupValue=type}}
+    <label>Warning</label>
+  </div>
+</div>
+<div>
+  <h4>Clear</h4>
+  <div>
+    {{input type="checkbox" checked=autoClear}}
+    <label>Clear automatically</label>
+  </div>
+  {{#if autoClear}}
+    <div>
+      {{input type="text" value=clearDuration}}
+      <label>Timeout</label>
+    </div>
+  {{/if}}
+  <div>
+    {{input type="checkbox" checked=clearAll}}
+    <label>Clear all</label>
+  </div>
+</div>
+<button {{action 'showNotifcation'}}>Show</button>
 
 {{outlet}}
