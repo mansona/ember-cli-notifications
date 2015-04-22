@@ -3,48 +3,46 @@
     {{notification-message notification=notification}}
   {{/each}}
 </div>
-
 <h2>ember-cli-notifications</h2>
-<div>
-  <h4>Message</h4>
-  {{input type="text" value=message}}
+<div class="mb2">
+  <h3>Message</h3>
+  {{input class="field-light" type="text" value=message}}
 </div>
-<div>
-  <h4>Type</h4>
-  <div>
+<div class="mb2">
+  <h3>Type</h3>
+  <div class="mb1">
     {{radio-button value="success" groupValue=type}}
     <label>Success</label>
   </div>
-  <div>
+  <div class="mb1">
     {{radio-button value="info" groupValue=type}}
     <label>Info</label>
   </div>
-  <div>
+  <div class="mb1">
     {{radio-button value="error" groupValue=type}}
     <label>Error</label>
   </div>
-  <div>
+  <div class="mb1">
     {{radio-button value="warning" groupValue=type}}
     <label>Warning</label>
   </div>
 </div>
-<div>
-  <h4>Clear</h4>
-  <div>
+<div class="mb2">
+  <h3>Clear</h3>
+  <div class="mb2">
     {{input type="checkbox" checked=autoClear}}
     <label>Clear automatically</label>
   </div>
   {{#if autoClear}}
-    <div>
-      {{input type="text" value=clearDuration}}
+    <div class="mb2">
       <label>Timeout</label>
+      {{input class="block field-light" type="text" value=clearDuration}}
     </div>
   {{/if}}
-  <div>
+  <div class="mb2">
     {{input type="checkbox" checked=clearAll}}
     <label>Clear all</label>
   </div>
 </div>
-<button {{action 'showNotifcation'}}>Show</button>
-
+<button class="button" {{action 'showNotifcation'}}>Show</button>
 {{outlet}}

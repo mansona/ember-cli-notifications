@@ -14,6 +14,7 @@
     "qunit": "~1.17.1"
   },
   "devDependencies": {
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "basscss": "~6.0.2"
   }
 }
