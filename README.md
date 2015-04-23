@@ -18,7 +18,7 @@ From within your controller or route.
 Add a notification
 ```js
 actions: {
-    saveOptions: function() {
+    saveOptions() {
         this.notifications.addNotification({
             message: 'Saved successfully!',
             type: 'success'
@@ -30,21 +30,21 @@ actions: {
 Add a notification with autoClear
 ```js
 actions: {
-    saveOptions: function() {
+    saveOptions() {
         this.get('model').save()
-        .then(function(){
+        .then(() => {
             this.notifications.addNotification({
                 message: 'Successfully saved your settings',
                 type: 'success',
                 autoClear: true
             });
-        }.bind(this),
-        .catch(function(err) {
+        }),
+        .catch((err) => {
             this.notifications.addNotification({
                 message: 'Something went wrong'
                 type: 'error'
             });
-        }.bind(this));
+        });
     }
 }
 ```
@@ -52,15 +52,15 @@ actions: {
 Remove all active notifications using clearAll() before adding a new notification
 ```js
 actions: {
-    saveOptions: function() {
+    saveOptions() {
         this.get('model').save()
-        .then(function(){
+        .then(() => {
             this.notifications.clearAll();
             this.notifications.addNotification({
                 message: 'Successfully saved your settings',
                 type: 'success'
             });
-        }.bind(this))
+        })
     }
 }
 ```
@@ -70,7 +70,7 @@ Include this snippet in your Handlebars template to display the notifications.
 
 ```hbs
 <div class="notifications-container">
-    {{#each notification in notifications}}
+    {{#each notifications as |notification|}}
         {{notification-message notification=notification}}
     {{/each}}
 </div>
