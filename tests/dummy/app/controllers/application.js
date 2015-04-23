@@ -7,8 +7,8 @@ export default Ember.Controller.extend({
   clearDuration: 2400,
 
   actions: {
-    showNotifcation: function(message) {
-      if(this.get('clearAll') === true) {
+    showNotifcation(message) {
+      if(this.get('clearAll')) {
         this.notifications.clearAll();
       }
       this.notifications.addNotification({
