@@ -1,19 +1,48 @@
 <div class="notifications-container">
-  {{#each notification in notifications}}
+  {{#each notifications as |notification|}}
     {{notification-message notification=notification}}
   {{/each}}
 </div>
-
 <h2>ember-cli-notifications</h2>
-<p>Push a button below to trigger a notification</p>
-
-<h3>Notifications</h3>
-<button {{action 'showSuccess'}} title="Show a success notification">Success (auto clear)</button>
-<button {{action 'showInfo'}} title="Show an info notification">Info</button>
-<button {{action 'showError'}} title="Show an error notification">Error</button>
-<button {{action 'showWarning'}} title="Show a warning notification">Warning</button>
-
-<h3>Clear</h3>
-<button {{action 'clearAll'}} title="Clear all present notifications">Clear all</button>
-
+<div class="mb2">
+  <h3>Message</h3>
+  {{input class="field-light" type="text" value=message}}
+</div>
+<div class="mb2">
+  <h3>Type</h3>
+  <div class="mb1">
+    {{radio-button value="success" groupValue=type}}
+    <label>Success</label>
+  </div>
+  <div class="mb1">
+    {{radio-button value="info" groupValue=type}}
+    <label>Info</label>
+  </div>
+  <div class="mb1">
+    {{radio-button value="error" groupValue=type}}
+    <label>Error</label>
+  </div>
+  <div class="mb1">
+    {{radio-button value="warning" groupValue=type}}
+    <label>Warning</label>
+  </div>
+</div>
+<div class="mb2">
+  <h3>Clear</h3>
+  <div class="mb2">
+    {{input type="checkbox" checked=autoClear}}
+    <label>Clear automatically</label>
+  </div>
+  {{#if autoClear}}
+    <div class="mb2">
+      <label>Timeout</label>
+      {{input class="block field-light" type="text" value=clearDuration}}
+    </div>
+  {{/if}}
+  <div class="mb2">
+    {{input type="checkbox" checked=clearAll}}
+    <label>Clear all</label>
+  </div>
+</div>
+<button class="button" {{action 'showNotifcation'}}>Show</button>
 {{outlet}}

@@ -1,34 +1,22 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    actions: {
-        showSuccess: function() {
-            this.notifications.addNotification({
-                message: "A success notification",
-                type: 'success',
-                autoClear: true
-            });
-        },
-        showInfo: function() {
-            this.notifications.addNotification({
-                message: "An info notification",
-                type: 'info'
-            });
-        },
-        showError: function() {
-            this.notifications.addNotification({
-                message: "An error notification",
-                type: 'error'
-            });
-        },
-        showWarning: function() {
-            this.notifications.addNotification({
-                message: "A warning notification",
-                type: 'warning'
-            });
-        },
-        clearAll: function() {
-            this.notifications.clearAll();
-        }
+  message: 'Notification message',
+  type: 'success',
+  autoClear: true,
+  clearDuration: 2400,
+
+  actions: {
+    showNotifcation(message) {
+      if(this.get('clearAll')) {
+        this.notifications.clearAll();
+      }
+      this.notifications.addNotification({
+        message: this.get('message'),
+        type: this.get('type'),
+        autoClear: this.get('autoClear'),
+        clearDuration: this.get('clearDuration')
+      });
     }
+  }
 });
