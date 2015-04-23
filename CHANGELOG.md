@@ -1,5 +1,9 @@
 # Changelog for ember-cli-notifications
 
+### 1.2.2
+
+* [#30](https://github.com/Blooie/ember-cli-notifications/pull/30) [ENHANCEMENT] Added a `clearAll` helper to remove all active notifications.
+
 ### 1.2.1
 
 * [#28](https://github.com/Blooie/ember-cli-notifications/pull/28) [BUGFIX] Added prefixed animation properties to relevant selectors and removed autoprefixer dependency.
