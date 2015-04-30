@@ -1,5 +1,9 @@
 # Changelog for ember-cli-notifications
 
+### 1.2.3
+
+* [#38](https://github.com/Blooie/ember-cli-notifications/pull/38) [BUGFIX] Fixing Sass build errors.
+
 ### 1.2.2
 
 * [#30](https://github.com/Blooie/ember-cli-notifications/pull/30) [ENHANCEMENT] Added a `clearAll` helper to remove all active notifications.

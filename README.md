@@ -15,7 +15,8 @@ ember install ember-cli-notifications
 
 From within your controller or route.
 
-Add a notification
+### Add a notification
+
 ```js
 actions: {
     saveOptions() {
@@ -27,7 +28,8 @@ actions: {
 }
 ```
 
-Add a notification with autoClear
+### Add a notification with autoClear
+
 ```js
 actions: {
     saveOptions() {
@@ -49,7 +51,8 @@ actions: {
 }
 ```
 
-Remove all active notifications using clearAll() before adding a new notification
+### Remove all active notifications using clearAll() before adding a new notification
+
 ```js
 actions: {
     saveOptions() {
