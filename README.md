@@ -1,4 +1,6 @@
-# ember-cli-notifications [![NPM package](https://img.shields.io/npm/v/ember-cli-notifications.svg)](https://www.npmjs.com/package/ember-cli-notifications) [![Build Status](https://img.shields.io/travis/Blooie/ember-cli-notifications.svg)](https://travis-ci.org/Blooie/ember-cli-notifications)
+# ember-cli-notifications
+
+[![NPM package](https://img.shields.io/npm/v/ember-cli-notifications.svg)](https://www.npmjs.com/package/ember-cli-notifications) [![Build Status](https://img.shields.io/travis/Blooie/ember-cli-notifications.svg)](https://travis-ci.org/Blooie/ember-cli-notifications) [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-notifications.svg)](http://emberobserver.com/addons/ember-cli-notifications)
 
 
 An [Ember CLI] addon that adds [Atom] inspired notification messages to your app.
