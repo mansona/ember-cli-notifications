@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    classNameBindings: [':notification', 'notification.type', 'notification.dismiss::in'],
+    classNameBindings: [':c-notification', 'processedType', 'notification.dismiss::c-notification--in', 'autoClear::c-notification--dismissable'],
 
     // Set icon depending on notification type
     notificationIcon: Ember.computed('notification.type', function() {
@@ -15,6 +15,12 @@ export default Ember.Component.extend({
             case "error":
                 return 'fa-exclamation-circle';
         }
+    }),
+
+    processedType: Ember.computed('notification.type', function() {
+      if(this.get('notification.type') && Ember.A(['info', 'success', 'warning', 'error']).contains(this.get('notification.type'))){
+        return "c-notification--" + this.get('notification.type');
+      }
     }),
 
     // Apply the clear animation duration rule inline
