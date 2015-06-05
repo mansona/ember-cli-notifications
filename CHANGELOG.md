@@ -1,5 +1,9 @@
 # Changelog for ember-cli-notifications
 
+### 1.3.0
+
+* [#42](https://github.com/Blooie/ember-cli-notifications/pull/42) [ENHANCEMENT] CSS improvements, including less generic class names.
+
 ### 1.2.3
 
 * [#38](https://github.com/Blooie/ember-cli-notifications/pull/38) [BUGFIX] Fixing Sass build errors.
