@@ -1,4 +1,11 @@
-# Changelog for ember-cli-notifications
+
+1.3.1 / 2015-07-07
+==================
+
+  * Revert "Merge pull request #42 from Blooie/better-css"
+  * Undo SemVer breaking change
+  * Merge pull request #44 from briancollins/master
+  * Replace bind-attr with new handlebars attribute syntax
 
 ### 1.3.0
 
