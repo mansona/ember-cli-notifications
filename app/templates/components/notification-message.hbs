@@ -1,14 +1,14 @@
-<div class="c-notification__icon">
+<div class="notification-icon">
   <span>
     <i class="fa {{notificationIcon}}"></i>
   </span>
 </div>
-<div class="c-notification__content">
+<div {{bind-attr class=":notification-content autoClear::dismissable"}}>
   {{notification.message}}
 </div>
 {{#if notification.autoClear}}
-  <div class="c-notification__countdown" style={{notificationClearDuration}}></div>
+  <div class="notification-countdown" style={{notificationClearDuration}}></div>
 {{/if}}
-<span class="c-notification__close" {{action "removeNotification"}} title="Dismiss this notification">
+<span class="notification-close" {{action "removeNotification"}} title="Dismiss this notification">
   <i class="fa fa-times"></i>
 </span>
