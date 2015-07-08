@@ -4,7 +4,7 @@
 
 
 // Comtainer that houses the notification messages
-.notifications-container {
+.#{$notification-css-prefix}__container {
   position: fixed;
   top: 10px;
   right: 0;
@@ -27,22 +27,26 @@
   margin-bottom: $notification-spacing;
   max-height: $notification-max-height;
   color: #fff;
-  animation: #{$notification-css-prefix}-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), #{$notification-css-prefix}-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
-  -webkit-animation: #{$notification-css-prefix}-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), #{$notification-css-prefix}-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
+  animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
+  -webkit-animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
-
-  // Animate show
-  &.in {
-    animation: #{$notification-css-prefix}-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
-    -webkit-animation: #{$notification-css-prefix}-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
-  }
 }
 
 
-// Base notification
+// Notification in
 // -------------------------
-.#{$notification-css-prefix}-icon {
+
+&.#{$notification-css-prefix}--in {
+  animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
+  -webkit-animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
+}
+
+
+// Notification content
+// -------------------------
+
+.#{$notification-css-prefix}__icon {
   position: absolute;
   left: 0;
   top: 0;
@@ -57,7 +61,7 @@
   }
 }
 
-.#{$notification-css-prefix}-content {
+.#{$notification-css-prefix}__content {
   padding: {
     top: $notification-padding;
     bottom: $notification-padding;
@@ -65,10 +69,10 @@
   }
 
   // Allow space for close icon
-  &.dismissable { padding-right: $notification-icon-width; }
+  .#{$notification-css-prefix}--dismissable & { padding-right: $notification-icon-width; }
 }
 
-.#{$notification-css-prefix}-close {
+.#{$notification-css-prefix}__close {
   position: absolute;
   top: $notification-icon-position;
   right: $notification-icon-position;
@@ -85,28 +89,28 @@
 // Auto clear countdown
 // -------------------------
 
-.#{$notification-css-prefix}-countdown {
+.#{$notification-css-prefix}__countdown {
   position: absolute;
   bottom: 0;
   width: 0;
   height: 4px;
-  animation: #{$notification-css-prefix}-countdown linear 1;
-  -webkit-animation: #{$notification-css-prefix}-countdown linear 1;
+  animation: notification-countdown linear 1;
+  -webkit-animation: notification-countdown linear 1;
 }
 
 
 // Notification themes
-// --------------------------------------------------
+// -------------------------
 
-.#{$notification-css-prefix}.info {
+.#{$notification-css-prefix}--info {
   @include notification-theme($notification-info-bg, $notification-info-alt);
 }
-.#{$notification-css-prefix}.success {
+.#{$notification-css-prefix}--success {
   @include notification-theme($notification-success-bg, $notification-success-alt);
 }
-.#{$notification-css-prefix}.error {
+.#{$notification-css-prefix}--error {
   @include notification-theme($notification-error-bg, $notification-error-alt);
 }
-.#{$notification-css-prefix}.warning {
+.#{$notification-css-prefix}--warning {
   @include notification-theme($notification-warning-bg, $notification-warning-alt);
 }

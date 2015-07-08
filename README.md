@@ -74,7 +74,7 @@ actions: {
 Include this snippet in your Handlebars template to display the notifications.
 
 ```hbs
-<div class="notifications-container">
+<div class="c-notification__container">
     {{#each notifications as |notification|}}
         {{notification-message notification=notification}}
     {{/each}}
