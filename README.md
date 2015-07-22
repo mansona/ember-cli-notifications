@@ -171,6 +171,12 @@ this.notifications.addNotification({
 });
 ```
 
+#### Change the default duration time
+```js
+//this code only needs to be called in one place such as your application route
+this.notifications.setDefaultClearNotification(1000);
+```
+
 [Ember CLI]: http://ember-cli.com
 [Atom]: https://github.com/atom/notifications
 [demo]: http://blooie.github.io/ember-cli-notifications

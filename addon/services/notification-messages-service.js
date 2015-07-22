@@ -50,5 +50,13 @@ export default Ember.ArrayProxy.extend({
 
     clearAll: function() {
         this.set('content', Ember.A());
+    },
+
+    setDefaultClearNotification: function (clearDuration) {
+      if (Ember.typeOf(clearDuration) !== 'number') {
+        throw new Error('Clear duration must be a number');
+      }
+
+      this.set('defaultClearDuration', clearDuration);
     }
 });
