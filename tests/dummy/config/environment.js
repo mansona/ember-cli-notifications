@@ -19,12 +19,13 @@ module.exports = function(environment) {
     },
 
     'ember-cli-notifications': {
-        includeFontAwesome: true
+      icons: 'font-awesome',
+      importFontAwesome: true
     },
 
     // Allow inline styling for animation duration
     contentSecurityPolicy: {
-        'style-src': "'self' 'unsafe-inline'",
+      'style-src': "'self' 'unsafe-inline'",
     }
   };
 
