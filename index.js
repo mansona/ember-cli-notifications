@@ -10,7 +10,7 @@ module.exports = {
     this.importFontAwesome(app);
   },
 
-  importFontAwesome(app) {
+  importFontAwesome: function(app) {
     var projectConfig = this.project.config(app.env);
     var config = projectConfig['ember-cli-notifications'];
 
