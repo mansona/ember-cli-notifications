@@ -21,12 +21,12 @@ From within your controller or route.
 
 ```js
 actions: {
-    saveOptions() {
-        this.notifications.addNotification({
-            message: 'Saved successfully!',
-            type: 'success'
-        });
-    }
+  saveOptions() {
+    this.notifications.addNotification({
+      message: 'Saved successfully!',
+      type: 'success'
+    });
+  }
 }
 ```
 
@@ -34,22 +34,22 @@ actions: {
 
 ```js
 actions: {
-    saveOptions() {
-        this.get('model').save()
-        .then(() => {
-            this.notifications.addNotification({
-                message: 'Successfully saved your settings',
-                type: 'success',
-                autoClear: true
-            });
-        }),
-        .catch((err) => {
-            this.notifications.addNotification({
-                message: 'Something went wrong'
-                type: 'error'
-            });
-        });
-    }
+  saveOptions() {
+    this.get('model').save()
+    .then(() => {
+      this.notifications.addNotification({
+        message: 'Successfully saved your settings',
+        type: 'success',
+        autoClear: true
+      });
+    }),
+    .catch((err) => {
+      this.notifications.addNotification({
+        message: 'Something went wrong'
+        type: 'error'
+      });
+    });
+  }
 }
 ```
 
@@ -57,40 +57,52 @@ actions: {
 
 ```js
 actions: {
-    saveOptions() {
-        this.get('model').save()
-        .then(() => {
-            this.notifications.clearAll();
-            this.notifications.addNotification({
-                message: 'Successfully saved your settings',
-                type: 'success'
-            });
-        })
-    }
+  saveOptions() {
+    this.get('model').save()
+    .then(() => {
+      this.notifications.clearAll();
+      this.notifications.addNotification({
+        message: 'Successfully saved your settings',
+        type: 'success'
+      });
+    })
+  }
 }
 ```
+
+### Set a global, default duration time
+
+This code only needs to be called in one place such as your application route.
+
+```js
+this.notifications.setDefaultClearNotification(1000);
+```
+
 ### Template
 
 Include this snippet in your Handlebars template to display the notifications.
 
 ```hbs
 <div class="c-notification__container">
-    {{#each notifications as |notification|}}
-        {{notification-message notification=notification}}
-    {{/each}}
+  {{#each notifications as |notification|}}
+    {{notification-message notification=notification}}
+  {{/each}}
 </div>
 ```
 
-## Font Awesome
+## Icons
 
-[Font Awesome] is required as part of the addon to display the message type icons on the notifications.
+By default, [Font Awesome] is used for the message type icons on the notifications. Alternatively, you can use [Glyphicons] that are packaged with Bootstrap.
 
-If Font Awesome is not already included in the consuming application, add the following to your applications `config/environment.js` file as a property of the `ENV` object.
+If Font Awesome is not already included in the consuming application, the addon can add it via Bower. Glyphicons can **not** be added to your application via this addon.
+
+Add the following to your applications `config/environment.js` file as a property of the `ENV` object.
 
 ```js
 var ENV = {
   'ember-cli-notifications': {
-    includeFontAwesome: true
+    icons: 'font-awesome', // Or 'bootstrap'
+    importFontAwesome: true
   }
 }
 ```
@@ -105,7 +117,7 @@ The string that is displayed within the notification. This is the only **require
 
 ```js
 this.notifications.addNotification({
-    message: 'Successfully saved your settings'
+  message: 'Successfully saved your settings'
 });
 ```
 
@@ -126,8 +138,8 @@ Define the type of notification that should be presented. This sets the CSS of t
 
 ```js
 this.notifications.addNotification({
-    message: 'Successfully saved your settings',
-    type: 'success'
+  message: 'Successfully saved your settings',
+  type: 'success'
 });
 ```
 
@@ -148,9 +160,9 @@ If true, inherits the default `clearDuration` value unless specified.
 
 ```js
 this.notifications.addNotification({
-    message: 'Successfully saved your settings',
-    type: 'success',
-    autoClear: true
+  message: 'Successfully saved your settings',
+  type: 'success',
+  autoClear: true
 });
 ```
 
@@ -164,17 +176,11 @@ The time in milliseconds that the notification will automatically dismiss after,
 
 ```js
 this.notifications.addNotification({
-    message: 'Successfully saved your settings',
-    type: 'success',
-    autoClear: true,
-    clearDuration: 1200
+  message: 'Successfully saved your settings',
+  type: 'success',
+  autoClear: true,
+  clearDuration: 1200
 });
-```
-
-#### Change the default duration time
-```js
-//this code only needs to be called in one place such as your application route
-this.notifications.setDefaultClearNotification(1000);
 ```
 
 [Ember CLI]: http://ember-cli.com
@@ -182,3 +188,4 @@ this.notifications.setDefaultClearNotification(1000);
 [demo]: http://blooie.github.io/ember-cli-notifications
 [broccoli-sass]: https://www.npmjs.com/package/broccoli-sass
 [Font Awesome]: http://fortawesome.github.io/Font-Awesome
+[Glyphicons]: http://getbootstrap.com/components/#glyphicons
