@@ -4,5 +4,5 @@ import ENV from '../config/environment';
 var config = ENV['ember-cli-notifications'] || {};
 
 export default NotificationMessage.extend({
-  icons: config.icons
+  icons: config.icons || 'font-awesome'
 });
