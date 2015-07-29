@@ -1,3 +1,7 @@
+### 2.1.0
+
+* [#48](https://github.com/Blooie/ember-cli-notifications/pull/48) [ENHANCEMENT] Set global clear duration for all notification messages.
+* [#50](https://github.com/Blooie/ember-cli-notifications/pull/50) [ENHANCEMENT] Allow use of Bootstrap icons in place of Font Awesome.
 
 1.3.1 / 2015-07-07
 ==================
