@@ -18,11 +18,6 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    'ember-cli-notifications': {
-      icons: 'font-awesome',
-      importFontAwesome: true
-    },
-
     // Allow inline styling for animation duration
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",

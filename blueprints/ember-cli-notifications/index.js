@@ -9,10 +9,8 @@ module.exports = {
     var projectConfig = this.project.config(app.env);
     var config = projectConfig['ember-cli-notifications'];
 
-    if (config) {
-      if (config.importFontAwesome) {
-        return this.addBowerPackageToProject('font-awesome');
-      }
+    if (!config || config.icons !== 'bootstrap') {
+      return this.addBowerPackageToProject('font-awesome');
     }
   }
 };

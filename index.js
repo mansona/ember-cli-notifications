@@ -14,25 +14,23 @@ module.exports = {
     var projectConfig = this.project.config(app.env);
     var config = projectConfig['ember-cli-notifications'];
 
-    if (config) {
-      if (config.importFontAwesome) {
-        app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.eot', {
-          destDir: 'fonts'
-        });
-        app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.svg', {
-          destDir: 'fonts'
-        });
-        app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.ttf', {
-          destDir: 'fonts'
-        });
-        app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.woff', {
-          destDir: 'fonts'
-        });
-        app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.woff2', {
-          destDir: 'fonts'
-        });
-        app.import(app.bowerDirectory + '/font-awesome/css/font-awesome.css');
-      }
+    if (!config || config.icons !== 'bootstrap') {
+      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.eot', {
+        destDir: 'fonts'
+      });
+      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.svg', {
+        destDir: 'fonts'
+      });
+      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.ttf', {
+        destDir: 'fonts'
+      });
+      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.woff', {
+        destDir: 'fonts'
+      });
+      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.woff2', {
+        destDir: 'fonts'
+      });
+      app.import(app.bowerDirectory + '/font-awesome/css/font-awesome.css');
     }
   }
 };
