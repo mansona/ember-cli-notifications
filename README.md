@@ -92,17 +92,16 @@ Include this snippet in your Handlebars template to display the notifications.
 
 ## Icons
 
-By default, [Font Awesome] is used for the message type icons on the notifications. Alternatively, you can use [Glyphicons] that are packaged with Bootstrap.
+By default, [Font Awesome] is used by the addon for the message type icons and is added to the consuming application via Bower.
 
-If Font Awesome is not already included in the consuming application, the addon can add it via Bower. Glyphicons can **not** be added to your application via this addon.
+Alternatively, you can use [Glyphicons] that are packaged with Bootstrap. Glyphicons are **not** added to your application via this addon.
 
 Add the following to your applications `config/environment.js` file as a property of the `ENV` object.
 
 ```js
 var ENV = {
   'ember-cli-notifications': {
-    icons: 'font-awesome', // Or 'bootstrap'
-    importFontAwesome: true
+    icons: 'bootstrap'
   }
 }
 ```
