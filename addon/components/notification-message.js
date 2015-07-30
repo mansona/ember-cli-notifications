@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   ],
 
   // Set icon depending on notification type
-  notificationIcon: Ember.computed('notification.type', 'theme', function() {
+  notificationIcon: Ember.computed('notification.type', 'icons', function() {
     var icons = this.get('icons');
 
     if (icons === 'font-awesome') {
