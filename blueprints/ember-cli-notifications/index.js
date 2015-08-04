@@ -7,9 +7,10 @@ module.exports = {
   // Use config to determine whether Font Awesome is imported into consuming app
   afterInstall: function(app) {
     var projectConfig = this.project.config(app.env);
-    var config = projectConfig['ember-cli-notifications'];
+    var config = projectConfig['ember-cli-notifications'] ||
+                 { includeFontAwesome: false };
 
-    if (!config || config.icons !== 'bootstrap') {
+    if (config.includeFontAwesome) {
       return this.addBowerPackageToProject('font-awesome');
     }
   }
