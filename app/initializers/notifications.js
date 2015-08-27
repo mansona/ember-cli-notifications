@@ -6,7 +6,7 @@ export default {
     initialize: function(container, application) {
         application.register('notification-messages:service', NotificationMessagesService);
 
-        ['controller', 'component', 'route', 'router'].forEach(function(injectionTarget) {
+        ['controller', 'component', 'route', 'router', 'service'].forEach(function(injectionTarget) {
             application.inject(injectionTarget, 'notifications', 'notification-messages:service');
         });
     }
