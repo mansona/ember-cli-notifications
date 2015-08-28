@@ -1,3 +1,7 @@
+### 2.1.2
+
+* [#56](https://github.com/Blooie/ember-cli-notifications/pull/56) [ENHANCEMENT] Allow injection into services.
+
 ### 2.1.1
 
 * [#53](https://github.com/Blooie/ember-cli-notifications/pull/53) [ENHANCEMENT] Make inclusion of the font-awesome assets in project configurable.
