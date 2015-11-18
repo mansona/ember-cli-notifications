@@ -3,7 +3,8 @@ import NotificationMessagesService from 'ember-cli-notifications/services/notifi
 export default {
     name: 'notification-messages-service',
 
-    initialize: function(container, application) {
+    initialize: function() {
+        let application = arguments[1] || arguments[0];
         application.register('notification-messages:service', NotificationMessagesService);
 
         ['controller', 'component', 'route', 'router', 'service'].forEach(function(injectionTarget) {
