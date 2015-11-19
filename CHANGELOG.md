@@ -1,3 +1,7 @@
+### 2.1.3
+
+* [#59](https://github.com/Blooie/ember-cli-notifications/pull/56) [BUGFIX] Fixing initializer deprecation.
+
 ### 2.1.2
 
 * [#56](https://github.com/Blooie/ember-cli-notifications/pull/56) [ENHANCEMENT] Allow injection into services.
