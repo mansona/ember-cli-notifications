@@ -1,3 +1,7 @@
+### 2.1.4
+
+* [#63](https://github.com/Blooie/ember-cli-notifications/pull/63) [BUGFIX] Adding close icon for when Bootstrap theme used.
+
 ### 2.1.3
 
 * [#59](https://github.com/Blooie/ember-cli-notifications/pull/56) [BUGFIX] Fixing initializer deprecation.
