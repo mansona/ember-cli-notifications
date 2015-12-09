@@ -8,6 +8,13 @@ export default Ember.Component.extend({
     'autoClear::c-notification--dismissable'
   ],
 
+  // Set the correct close icon depending on chosen icon font
+  closeIcon: Ember.computed('icons', function() {
+    if (this.get('icons') === 'bootstrap') return 'glyphicon glyphicon-remove';
+
+    return 'fa fa-times';
+  }),
+
   // Set icon depending on notification type
   notificationIcon: Ember.computed('notification.type', 'icons', function() {
     var icons = this.get('icons');
