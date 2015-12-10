@@ -5,14 +5,14 @@ export default Ember.ArrayProxy.extend({
 
     defaultClearDuration: 3200,
 
-    addNotification: function(options) {
+    addNotification(options) {
 
         // If no message is set, throw an error
         if (!options.message) {
             throw new Error("No notification message set");
         }
 
-        var notification = Ember.Object.create({
+        const notification = Ember.Object.create({
             message: options.message,
             type: options.type || 'info', // info, success, warning, error
             autoClear: options.autoClear || false,
@@ -29,15 +29,15 @@ export default Ember.ArrayProxy.extend({
         return notification;
     },
 
-    removeNotification: function(notification) {
+    removeNotification(notification) {
         if (!notification) {
             return;
         }
         notification.set('dismiss', true);
         // Delay removal from DOM for dismissal animation
-        Ember.run.later(this, function() {
+        Ember.run.later(this, () => {
             this.removeObject(notification);
-        }.bind(this), 500);
+        }, 500);
     },
 
     setupAutoClear(notification) {
@@ -61,11 +61,11 @@ export default Ember.ArrayProxy.extend({
         notification.set('remaining', remaining);
     },
 
-    clearAll: function() {
+    clearAll() {
         this.set('content', Ember.A());
     },
 
-    setDefaultClearNotification: function (clearDuration) {
+    setDefaultClearNotification(clearDuration) {
       if (Ember.typeOf(clearDuration) !== 'number') {
         throw new Error('Clear duration must be a number');
       }
