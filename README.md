@@ -83,11 +83,7 @@ this.notifications.setDefaultClearNotification(1000);
 Include this snippet in your Handlebars template to display the notifications.
 
 ```hbs
-<div class="c-notification__container">
-  {{#each notifications as |notification|}}
-    {{notification-message notification=notification}}
-  {{/each}}
-</div>
+{{notification-container notifications=notifications}}
 ```
 
 ## Icons
