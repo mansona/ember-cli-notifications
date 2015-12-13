@@ -22,6 +22,7 @@ export default Ember.ArrayProxy.extend({
         this.pushObject(notification);
 
         if (notification.autoClear) {
+            notification.set('remaining', notification.get('clearDuration'));
             this.setupAutoClear(notification);
         }
 
@@ -39,13 +40,25 @@ export default Ember.ArrayProxy.extend({
         }.bind(this), 500);
     },
 
-    setupAutoClear: function(notification) {
-        Ember.run.later(this, function() {
+    setupAutoClear(notification) {
+        notification.set('startTime', Date.now());
+
+        const timer = Ember.run.later(this, () => {
             // Hasn't been closed manually
             if (this.indexOf(notification) >= 0) {
                 this.removeNotification(notification);
             }
-        }.bind(this), notification.clearDuration);
+        }, notification.get('remaining'));
+
+        notification.set('timer', timer);
+    },
+
+    pauseAutoClear(notification) {
+        Ember.run.cancel(notification.get('timer'));
+
+        const elapsed = Date.now() - notification.get('startTime');
+        const remaining = notification.get('clearDuration') - elapsed;
+        notification.set('remaining', remaining);
     },
 
     clearAll: function() {

@@ -8,6 +8,8 @@ export default Ember.Component.extend({
     'autoClear::c-notification--dismissable'
   ],
 
+  paused: false,
+
   // Set the correct close icon depending on chosen icon font
   closeIcon: Ember.computed('icons', function() {
     if (this.get('icons') === 'bootstrap') return 'glyphicon glyphicon-remove';
@@ -45,6 +47,20 @@ export default Ember.Component.extend({
     }
   }),
 
+  mouseEnter() {
+    if (this.get('notification.autoClear')) {
+      this.set('paused', true);
+      this.notifications.pauseAutoClear(this.get('notification'));
+    }
+  },
+
+  mouseLeave() {
+    if (this.get('notification.autoClear')) {
+      this.set('paused', false);
+      this.notifications.setupAutoClear(this.get('notification'));
+    }
+  },
+
   processedType: Ember.computed('notification.type', function() {
     if(this.get('notification.type') && Ember.A(['info', 'success', 'warning', 'error']).contains(this.get('notification.type'))){
       return "c-notification--" + this.get('notification.type');
@@ -52,9 +68,10 @@ export default Ember.Component.extend({
   }),
 
   // Apply the clear animation duration rule inline
-  notificationClearDuration: Ember.computed('notification.clearDuration', function() {
+  notificationClearDuration: Ember.computed('paused', 'notification.clearDuration', function() {
     var duration = Ember.Handlebars.Utils.escapeExpression(this.get('notification.clearDuration'));
-    return Ember.String.htmlSafe(`animation-duration: ${duration}ms; -webkit-animation-duration: ${duration}ms`);
+    const playState = this.get('paused') ? 'paused' : 'running';
+    return Ember.String.htmlSafe(`animation-duration: ${duration}ms; -webkit-animation-duration: ${duration}ms; animation-play-state: ${playState}; -webkit-animation-play-state: ${playState}`);
   }),
 
   actions: {
