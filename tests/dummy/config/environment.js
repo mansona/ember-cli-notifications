@@ -21,6 +21,10 @@ module.exports = function(environment) {
     // Allow inline styling for animation duration
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",
+    },
+
+    'ember-cli-notifications': {
+      includeFontAwesome: true
     }
   };
 
@@ -45,7 +49,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/ember-cli-notifications';
   }
 
   return ENV;
