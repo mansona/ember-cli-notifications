@@ -19,10 +19,10 @@ export default Ember.Component.extend({
 
   // Set icon depending on notification type
   notificationIcon: Ember.computed('notification.type', 'icons', function() {
-    var icons = this.get('icons');
+    const icons = this.get('icons');
 
     if (icons === 'font-awesome') {
-      switch(this.get('notification.type')){
+      switch (this.get('notification.type')){
         case "info":
           return 'fa fa-info-circle';
         case "success":
@@ -35,7 +35,7 @@ export default Ember.Component.extend({
     }
 
     if (icons === 'bootstrap') {
-      switch(this.get('notification.type')){
+      switch (this.get('notification.type')){
         case "info":
           return 'glyphicon glyphicon-info-sign';
         case "success":
@@ -62,14 +62,14 @@ export default Ember.Component.extend({
   },
 
   processedType: Ember.computed('notification.type', function() {
-    if(this.get('notification.type') && Ember.A(['info', 'success', 'warning', 'error']).contains(this.get('notification.type'))){
-      return "c-notification--" + this.get('notification.type');
+    if (this.get('notification.type') && Ember.A(['info', 'success', 'warning', 'error']).contains(this.get('notification.type'))) {
+      return `c-notification--${this.get('notification.type')}`;
     }
   }),
 
   // Apply the clear animation duration rule inline
   notificationClearDuration: Ember.computed('paused', 'notification.clearDuration', function() {
-    var duration = Ember.Handlebars.Utils.escapeExpression(this.get('notification.clearDuration'));
+    const duration = Ember.Handlebars.Utils.escapeExpression(this.get('notification.clearDuration'));
     const playState = this.get('paused') ? 'paused' : 'running';
     return Ember.String.htmlSafe(`animation-duration: ${duration}ms; -webkit-animation-duration: ${duration}ms; animation-play-state: ${playState}; -webkit-animation-play-state: ${playState}`);
   }),
