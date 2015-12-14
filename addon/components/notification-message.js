@@ -20,19 +20,6 @@ export default Ember.Component.extend({
   notificationIcon: Ember.computed('notification.type', 'icons', function() {
     const icons = this.get('icons');
 
-    if (icons === 'font-awesome') {
-      switch (this.get('notification.type')){
-        case "info":
-          return 'fa fa-info-circle';
-        case "success":
-          return 'fa fa-check';
-        case "warning":
-          return 'fa fa-warning';
-        case "error":
-          return 'fa fa-exclamation-circle';
-      }
-    }
-
     if (icons === 'bootstrap') {
       switch (this.get('notification.type')){
         case "info":
@@ -43,6 +30,17 @@ export default Ember.Component.extend({
         case "error":
           return 'glyphicon glyphicon-exclamation-sign';
       }
+    }
+
+    switch (this.get('notification.type')){
+      case "info":
+        return 'fa fa-info-circle';
+      case "success":
+        return 'fa fa-check';
+      case "warning":
+        return 'fa fa-warning';
+      case "error":
+        return 'fa fa-exclamation-circle';
     }
   }),
 
