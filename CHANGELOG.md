@@ -1,3 +1,9 @@
+### 3.0.0
+
+* [#64](https://github.com/Blooie/ember-cli-notifications/pull/64) [ENHANCEMENT] Using ES6 syntax.
+* [#65](https://github.com/Blooie/ember-cli-notifications/pull/65) [ENHANCEMENT] Pause auto clearing notifications on hover.
+* [#66](https://github.com/Blooie/ember-cli-notifications/pull/66) [ENHANCEMENT] New component helper for simplifying installs.
+
 ### 2.1.4
 
 * [#63](https://github.com/Blooie/ember-cli-notifications/pull/63) [BUGFIX] Adding close icon for when Bootstrap theme used.
