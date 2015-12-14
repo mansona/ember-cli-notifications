@@ -64,12 +64,10 @@
 .#{$notification-css-prefix}__content {
   padding: {
     top: $notification-padding;
+    right: $notification-icon-width;
     bottom: $notification-padding;
     left: $notification-icon-width + 10;
   }
-
-  // Allow space for close icon
-  .#{$notification-css-prefix}--dismissable & { padding-right: $notification-icon-width; }
 }
 
 .#{$notification-css-prefix}__close {

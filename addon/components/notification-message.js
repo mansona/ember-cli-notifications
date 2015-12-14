@@ -4,8 +4,7 @@ export default Ember.Component.extend({
   classNames: ['c-notification'],
   classNameBindings: [
     'processedType',
-    'notification.dismiss::c-notification--in',
-    'autoClear::c-notification--dismissable'
+    'notification.dismiss::c-notification--in'
   ],
 
   paused: false,
