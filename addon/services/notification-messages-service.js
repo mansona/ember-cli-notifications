@@ -6,7 +6,6 @@ export default Ember.ArrayProxy.extend({
     defaultClearDuration: 3200,
 
     addNotification(options) {
-
         // If no message is set, throw an error
         if (!options.message) {
             throw new Error("No notification message set");
@@ -27,6 +26,35 @@ export default Ember.ArrayProxy.extend({
         }
 
         return notification;
+    },
+
+    // Helper methods for each type of notification
+    error(message, options) {
+      this.addNotification(Ember.merge({
+        message: message,
+        type: 'error'
+      }, options));
+    },
+
+    success(message, options) {
+      this.addNotification(Ember.merge({
+        message: message,
+        type: 'success'
+      }, options));
+    },
+
+    info(message, options) {
+      this.addNotification(Ember.merge({
+        message: message,
+        type: 'info'
+      }, options));
+    },
+
+    warning(message, options) {
+      this.addNotification(Ember.merge({
+        message: message,
+        type: 'warning'
+      }, options));
     },
 
     removeNotification(notification) {
