@@ -15,6 +15,10 @@ ember install ember-cli-notifications
 
 ## Usage
 
+In v3.1.0 we simplified the API for calling notifications in your Ember application. These were **not** breaking changes and using the pre v3.1.0 API will still work today.
+
+The old API documentation can be viewed [here](https://github.com/Blooie/ember-cli-notifications/blob/v3.0.0/README.md).
+
 ### Add a notification
 
 There are four types of notification available.
