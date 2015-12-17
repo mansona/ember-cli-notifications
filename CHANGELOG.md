@@ -1,3 +1,7 @@
+### 3.1.0
+
+* [#69](https://github.com/Blooie/ember-cli-notifications/pull/69) [ENHANCEMENT] Adding helper methods for each notification type.
+
 ### 3.0.1
 
 * [#67](https://github.com/Blooie/ember-cli-notifications/pull/67) [BUGFIX] Fixing asset issues with demo/dummy app.
