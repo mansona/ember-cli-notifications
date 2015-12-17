@@ -15,19 +15,22 @@ ember install ember-cli-notifications
 
 ## Usage
 
-From within your controller or route.
-
 ### Add a notification
 
+There are four types of notification available.
+
 ```js
-actions: {
-  saveOptions() {
-    this.notifications.addNotification({
-      message: 'Saved successfully!',
-      type: 'success'
-    });
-  }
-}
+// Info
+this.notifications.info('You have one unread message');
+
+// Error
+this.notifications.error('Something went wrong');
+
+// Success
+this.notifications.success('Saved successfully!');
+
+// Warning
+this.notifications.warning('You have unsaved changes');
 ```
 
 ### Add a notification with autoClear
@@ -37,17 +40,12 @@ actions: {
   saveOptions() {
     this.get('model').save()
     .then(() => {
-      this.notifications.addNotification({
-        message: 'Successfully saved your settings',
-        type: 'success',
+      this.notifications.success('Successfully saved your settings', {
         autoClear: true
       });
     }),
     .catch((err) => {
-      this.notifications.addNotification({
-        message: 'Something went wrong'
-        type: 'error'
-      });
+      this.notifications.error('Something went wrong');
     });
   }
 }
@@ -61,10 +59,7 @@ actions: {
     this.get('model').save()
     .then(() => {
       this.notifications.clearAll();
-      this.notifications.addNotification({
-        message: 'Successfully saved your settings',
-        type: 'success'
-      });
+      this.notifications.success('Successfully saved your settings');
     })
   }
 }
@@ -112,40 +107,6 @@ var ENV = {
 
 ## Options
 
-### Message
-
-The string that is displayed within the notification. This is the only **required** option.
-
-#### Example
-
-```js
-this.notifications.addNotification({
-  message: 'Successfully saved your settings'
-});
-```
-
-### Type
-
-Define the type of notification that should be presented. This sets the CSS of the notification, as well as the [Font Awesome] icon.
-
-*Default value is `info`*
-
-#### Options
-
-* `error`
-* `info`
-* `success`
-* `warning`
-
-#### Example
-
-```js
-this.notifications.addNotification({
-  message: 'Successfully saved your settings',
-  type: 'success'
-});
-```
-
 ### Auto clear
 
 Boolean value that defines whether the notification message dismisses automatically, or whether it needs to be dismissed manually by the user.
@@ -154,17 +115,10 @@ If true, inherits the default `clearDuration` value unless specified.
 
 *Default value is `false`*
 
-#### Options
-
-* `false`
-* `true`
-
 #### Example
 
 ```js
-this.notifications.addNotification({
-  message: 'Successfully saved your settings',
-  type: 'success',
+this.notifications.success('Successfully saved your settings', {
   autoClear: true
 });
 ```
@@ -178,9 +132,7 @@ The time in milliseconds that the notification will automatically dismiss after,
 #### Example
 
 ```js
-this.notifications.addNotification({
-  message: 'Successfully saved your settings',
-  type: 'success',
+this.notifications.success('Successfully saved your settings', {
   autoClear: true,
   clearDuration: 1200
 });
