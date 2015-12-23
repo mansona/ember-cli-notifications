@@ -77,6 +77,14 @@ This code only needs to be called in one place such as your application route.
 this.notifications.setDefaultClearNotification(1000);
 ```
 
+### Set a global, default auto clear option
+
+This code only needs to be called in one place such as your application route.
+
+```js
+this.notifications.setDefaultAutoClear(true);
+```
+
 ### Template
 
 Include this snippet in your Handlebars template to display the notifications.
