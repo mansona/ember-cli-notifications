@@ -96,7 +96,7 @@ export default Ember.ArrayProxy.extend({
 
     setDefaultAutoClear(autoClear) {
       if (Ember.typeOf(autoClear) !== 'boolean') {
-        throw new Error('Clear duration must be a boolean');
+        throw new Error('Default auto clear preference must be a boolean');
       }
 
       this.set('defaultAutoClear', autoClear);
