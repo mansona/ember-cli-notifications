@@ -144,7 +144,7 @@ this.notifications.success('Successfully saved your settings', {
 
 [Ember CLI]: http://ember-cli.com
 [Atom]: https://github.com/atom/notifications
-[demo]: http://blooie.github.io/ember-cli-notifications
+[demo]: http://stonecircle.github.io/ember-cli-notifications
 [broccoli-sass]: https://www.npmjs.com/package/broccoli-sass
 [Font Awesome]: http://fortawesome.github.io/Font-Awesome
 [Glyphicons]: http://getbootstrap.com/components/#glyphicons
