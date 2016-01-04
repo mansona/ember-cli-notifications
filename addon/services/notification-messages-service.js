@@ -4,6 +4,7 @@ export default Ember.ArrayProxy.extend({
     content: Ember.A(),
 
     defaultClearDuration: 3200,
+    defaultAutoClear: false,
 
     addNotification(options) {
         // If no message is set, throw an error
@@ -14,7 +15,7 @@ export default Ember.ArrayProxy.extend({
         const notification = Ember.Object.create({
             message: options.message,
             type: options.type || 'info', // info, success, warning, error
-            autoClear: options.autoClear || false,
+            autoClear: options.autoClear || this.get('defaultAutoClear'),
             clearDuration: options.clearDuration || this.get('defaultClearDuration')
         });
 
@@ -91,6 +92,14 @@ export default Ember.ArrayProxy.extend({
 
     clearAll() {
         this.set('content', Ember.A());
+    },
+
+    setDefaultAutoClear(autoClear) {
+      if (Ember.typeOf(autoClear) !== 'boolean') {
+        throw new Error('Default auto clear preference must be a boolean');
+      }
+
+      this.set('defaultAutoClear', autoClear);
     },
 
     setDefaultClearNotification(clearDuration) {
