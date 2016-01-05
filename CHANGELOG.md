@@ -1,3 +1,7 @@
+### 3.1.1
+
+* [#71](https://github.com/Blooie/ember-cli-notifications/pull/71) [ENHANCEMENT] Allow global auto clear option for notification messages.
+
 ### 3.1.0
 
 * [#69](https://github.com/Blooie/ember-cli-notifications/pull/69) [ENHANCEMENT] Adding helper methods for each notification type.
