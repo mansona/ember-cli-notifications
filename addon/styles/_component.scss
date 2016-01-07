@@ -43,6 +43,11 @@
 }
 
 
+// Notification clickable
+&.#{$notification-css-prefix}--clickable {
+  cursor:pointer;
+}
+
 // Notification content
 // -------------------------
 

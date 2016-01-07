@@ -4,7 +4,8 @@ export default Ember.Component.extend({
   classNames: ['c-notification'],
   classNameBindings: [
     'processedType',
-    'notification.dismiss::c-notification--in'
+    'notification.dismiss::c-notification--in',
+    'notification.onClick:c-notification--clickable'
   ],
 
   paused: false,
@@ -44,6 +45,11 @@ export default Ember.Component.extend({
     }
   }),
 
+  mouseDown() {
+    if (this.get('notification.onClick')) {
+      this.get('notification.onClick')(this.get('notification'));
+    }
+  },
   mouseEnter() {
     if (this.get('notification.autoClear')) {
       this.set('paused', true);
