@@ -1,3 +1,8 @@
+### 3.2.0
+
+* [#73](https://github.com/Blooie/ember-cli-notifications/pull/73) [ENHANCEMENT] Added ability to provide a click handler to the notification.
+* [#75](https://github.com/Blooie/ember-cli-notifications/pull/75) [ENHANCEMENT] Updating ember-cli to 1.13.15.
+
 ### 3.1.1
 
 * [#71](https://github.com/Blooie/ember-cli-notifications/pull/71) [ENHANCEMENT] Allow global auto clear option for notification messages.
