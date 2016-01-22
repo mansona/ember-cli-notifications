@@ -55,6 +55,26 @@ actions: {
 }
 ```
 
+### Add a clickable notification with callback
+```js
+actions: {
+  saveOptions() {
+    this.get('model').save()
+    .then(() => {
+      this.notifications.success('Successfully saved your settings', {
+        autoClear: true
+      });
+    }),
+    .catch((err) => {
+      this.notifications.error('Something went wrong - click to retry.', {
+        onClick: (notification) => {
+            this.get('model').save();
+        }
+      });
+    });
+  }
+}
+```
 ### Remove all active notifications using clearAll() before adding a new notification
 
 ```js
