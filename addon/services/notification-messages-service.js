@@ -15,9 +15,14 @@ export default Ember.ArrayProxy.extend({
         const notification = Ember.Object.create({
             message: options.message,
             type: options.type || 'info', // info, success, warning, error
-            autoClear: options.autoClear || this.get('defaultAutoClear'),
+            autoClear: this.get('defaultAutoClear'),
             clearDuration: options.clearDuration || this.get('defaultClearDuration')
         });
+
+        //override default autoCgilear if specified
+            if(!Ember.isEmpty(options.autoClear)){
+            notification.autoClear = options.autoClear;
+        }
 
         this.pushObject(notification);
 
