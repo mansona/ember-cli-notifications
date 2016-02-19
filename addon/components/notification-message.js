@@ -45,8 +45,11 @@ export default Ember.Component.extend({
     }
   }),
 
-  mouseDown() {
-    if (this.get('notification.onClick')) {
+  mouseDown(element) {
+    //when close button (or any of its children) is clicked, do not call onClick callback
+    let removeNotificationClicked = Ember.$(element.target).closest('.c-notification__close').length !== 0;
+
+    if (this.get('notification.onClick') && !removeNotificationClicked) {
       this.get('notification.onClick')(this.get('notification'));
     }
   },
@@ -79,6 +82,10 @@ export default Ember.Component.extend({
 
   actions: {
     removeNotification() {
+      if ( this.get('notification.onClose')){
+        this.get('notification.onClose')(this.get('notification'));
+      }
+
       this.notifications.removeNotification(this.get('notification'));
     }
   }

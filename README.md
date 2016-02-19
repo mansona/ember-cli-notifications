@@ -75,6 +75,23 @@ actions: {
   }
 }
 ```
+
+### Callback for closing a notification (by clicking on the cross icon on the right)
+```js
+actions: {
+  saveOptions() {
+    this.get('model').save()
+    .then(() => {
+      this.notifications.success('Successfully saved your settings', {
+        onClose: function(notification){
+          alert('Notification closed');
+        }
+      });
+    });
+  }
+}
+```
+
 ### Remove all active notifications using clearAll() before adding a new notification
 
 ```js

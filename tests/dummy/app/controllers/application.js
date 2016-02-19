@@ -17,7 +17,13 @@ export default Ember.Controller.extend({
         type: this.get('type'),
         autoClear: this.get('autoClear'),
         clearDuration: this.get('clearDuration'),
-        htmlContent: this.get('htmlContent')
+        htmlContent: this.get('htmlContent'),
+        onClick: function(){
+          alert('Yes, you clicked on me! I hope, you are happy now :()');
+        },
+        onClose: function(){
+          alert('Noooooo, why did you close me?');
+        }
       });
     }
   }
