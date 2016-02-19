@@ -91,6 +91,8 @@ actions: {
 
 ### Add a notification with HTML content
 
+*Warning:* this introduces a potential security risk, since notification message will no longer be escaped by Ember (only when _htmlContent_ option is enabled).
+
 ```js
 actions: {
   saveOptions() {
