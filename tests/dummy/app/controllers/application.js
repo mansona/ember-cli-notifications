@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   type: 'success',
   autoClear: true,
   clearDuration: 2400,
+  htmlContent: false,
 
   actions: {
     showNotifcation() {
@@ -15,7 +16,8 @@ export default Ember.Controller.extend({
         message: this.get('message'),
         type: this.get('type'),
         autoClear: this.get('autoClear'),
-        clearDuration: this.get('clearDuration')
+        clearDuration: this.get('clearDuration'),
+        htmlContent: this.get('htmlContent')
       });
     }
   }

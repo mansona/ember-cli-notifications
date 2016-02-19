@@ -89,6 +89,24 @@ actions: {
 }
 ```
 
+### Add a notification with HTML content
+
+```js
+actions: {
+  saveOptions() {
+    this.get('model').save()
+    .then(() => {
+      this.notifications.success('<b>Successfully</b> <u>saved</u> your settings', {
+        htmlContent: true
+      });
+    }),
+    .catch((err) => {
+      this.notifications.error('Something went wrong');
+    });
+  }
+}
+```
+
 ### Set a global, default duration time
 
 This code only needs to be called in one place such as your application route.

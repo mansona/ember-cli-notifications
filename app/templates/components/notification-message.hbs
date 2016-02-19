@@ -4,7 +4,11 @@
   </span>
 </div>
 <div class="c-notification__content">
-  {{notification.message}}
+  {{#if notification.htmlContent}}
+    {{{notification.message}}}
+  {{else}}
+    {{notification.message}}
+  {{/if}}
 </div>
 {{#if notification.autoClear}}
   <div class="c-notification__countdown" style={{notificationClearDuration}}></div>
