@@ -17,7 +17,8 @@ export default Ember.ArrayProxy.extend({
             type: options.type || 'info', // info, success, warning, error
             autoClear: (Ember.isEmpty(options.autoClear) ? this.get('defaultAutoClear') : options.autoClear),
             clearDuration: options.clearDuration || this.get('defaultClearDuration'),
-            onClick: options.onClick
+            onClick: options.onClick,
+            htmlContent: options.htmlContent || false
         });
 
         this.pushObject(notification);
