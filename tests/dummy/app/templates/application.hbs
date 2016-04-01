@@ -1,4 +1,4 @@
-{{notification-container notifications=notifications}}
+{{notification-container notifications=notifications position=position}}
 
 <h2>ember-cli-notifications</h2>
 <div class="mb2">
@@ -22,6 +22,33 @@
   <div class="mb1">
     {{radio-button value="warning" groupValue=type}}
     <label>Warning</label>
+  </div>
+</div>
+<div class="mb2">
+  <h3>Position</h3>
+  <div class="mb1">
+    {{radio-button value="top" groupValue=position}}
+    <label>Top</label>
+  </div>
+  <div class="mb1">
+    {{radio-button value="top-left" groupValue=position}}
+    <label>Top left</label>
+  </div>
+  <div class="mb1">
+    {{radio-button value="top-right" groupValue=position}}
+    <label>Top right</label>
+  </div>
+  <div class="mb1">
+    {{radio-button value="bottom" groupValue=position}}
+    <label>Bottom</label>
+  </div>
+  <div class="mb1">
+    {{radio-button value="bottom-left" groupValue=position}}
+    <label>Bottom left</label>
+  </div>
+  <div class="mb1">
+    {{radio-button value="bottom-right" groupValue=position}}
+    <label>Bottom right</label>
   </div>
 </div>
 <div class="mb2">

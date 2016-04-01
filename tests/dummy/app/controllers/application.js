@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   autoClear: true,
   clearDuration: 2400,
   htmlContent: false,
+  position: 'top',
 
   actions: {
     showNotifcation() {
