@@ -1,3 +1,10 @@
+### 3.3.0
+
+* [#82](https://github.com/Blooie/ember-cli-notifications/pull/82) [ENHANCEMENT] Optional component property for notification container positioning.
+* [#81](https://github.com/Blooie/ember-cli-notifications/pull/81) [ENHANCEMENT] Updating to ember-cli 2.4.3.
+* [#78](https://github.com/Blooie/ember-cli-notifications/pull/78) [ENHANCEMENT] Basic HTML code in notification messages.
+* [#77](https://github.com/Blooie/ember-cli-notifications/pull/77) [ENHANCEMENT] Notification specific `autoClear` setting should take precedence over default value.
+
 ### 3.2.0
 
 * [#73](https://github.com/Blooie/ember-cli-notifications/pull/73) [ENHANCEMENT] Added ability to provide a click handler to the notification.
