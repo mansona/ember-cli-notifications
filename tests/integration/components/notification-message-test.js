@@ -12,13 +12,4 @@ test('it renders', function(assert) {
   this.render(hbs`{{notification-message}}`);
 
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#notification-message}}
-      template block text
-    {{/notification-message}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
