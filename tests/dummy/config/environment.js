@@ -49,7 +49,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/ember-cli-notifications';
+    ENV.locationType = 'hash';
+    ENV.baseURL = '/ember-cli-notifications/';
   }
 
   return ENV;

@@ -7,7 +7,7 @@
     "ember-qunit-notifications": "0.1.0"
   },
   "devDependencies": {
-    "font-awesome": "~4.3.0",
+    "font-awesome": "~4.5.0",
     "basscss": "~6.0.2"
   }
 }
