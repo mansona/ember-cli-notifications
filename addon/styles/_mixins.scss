@@ -12,3 +12,10 @@
 
   .#{$notification-css-prefix}__close { color: $alt; }
 }
+
+@mixin container-position($right, $left, $top: auto, $bottom: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}

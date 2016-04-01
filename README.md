@@ -133,6 +133,14 @@ Include this snippet in your Handlebars template to display the notifications.
 {{notification-container notifications=notifications}}
 ```
 
+Optionally change the position of the notifications container with the `position` property.
+
+```hbs
+{{notification-container notifications=notifications position="top-right"}}
+```
+
+Accepted values are `top`, `top-right`, `top-left`, `bottom`, `bottom-right` and `bottom-left`.
+
 ## Icons
 
 [Font Awesome] is required as part of the addon to display the message type icons on the notifications.

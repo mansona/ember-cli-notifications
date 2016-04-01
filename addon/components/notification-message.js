@@ -1,6 +1,9 @@
 import Ember from 'ember';
+import layout from '../templates/components/notification-message';
 
 export default Ember.Component.extend({
+  layout: layout,
+
   classNames: ['c-notification'],
   classNameBindings: [
     'processedType',

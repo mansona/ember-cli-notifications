@@ -6,14 +6,36 @@
 // Comtainer that houses the notification messages
 .#{$notification-css-prefix}__container {
   position: fixed;
-  top: 10px;
-  right: 0;
-  left: 0;
   z-index: $notification-zindex;
   width: $notification-width;
   max-width: $notification-max-width;
   margin: auto;
 }
+
+.#{$notification-css-prefix}__container--top {
+  @include container-position($top: $notification-container-position, $right: 0, $left: 0);
+}
+
+.#{$notification-css-prefix}__container--top-left {
+  @include container-position($top: $notification-container-position, $right: auto, $left: $notification-container-position);
+}
+
+.#{$notification-css-prefix}__container--top-right {
+  @include container-position($top: $notification-container-position, $right: $notification-container-position, $left: auto);
+}
+
+.#{$notification-css-prefix}__container--bottom {
+  @include container-position($right: 0, $left: 0, $bottom: $notification-container-position);
+}
+
+.#{$notification-css-prefix}__container--bottom-left {
+  @include container-position($right: auto, $left: $notification-container-position, $bottom: $notification-container-position);
+}
+
+.#{$notification-css-prefix}__container--bottom-right {
+  @include container-position($right: $notification-container-position, $left: auto, $bottom: $notification-container-position);
+}
+
 
 
 // Base notification
@@ -45,7 +67,7 @@
 
 // Notification clickable
 &.#{$notification-css-prefix}--clickable {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 // Notification content
@@ -72,6 +94,12 @@
     right: $notification-icon-width;
     bottom: $notification-padding;
     left: $notification-icon-width + 10;
+  }
+  word-break: break-word;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
   }
 }
 
