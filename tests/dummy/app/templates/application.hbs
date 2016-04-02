@@ -1,81 +1,192 @@
 {{notification-container notifications=notifications position=position}}
-
-<h2>ember-cli-notifications</h2>
-<div class="mb2">
-  <h3>Message</h3>
-  {{input class="field-light" type="text" value=message}}
-</div>
-<div class="mb2">
-  <h3>Type</h3>
-  <div class="mb1">
-    {{radio-button value="success" groupValue=type}}
-    <label>Success</label>
-  </div>
-  <div class="mb1">
-    {{radio-button value="info" groupValue=type}}
-    <label>Info</label>
-  </div>
-  <div class="mb1">
-    {{radio-button value="error" groupValue=type}}
-    <label>Error</label>
-  </div>
-  <div class="mb1">
-    {{radio-button value="warning" groupValue=type}}
-    <label>Warning</label>
-  </div>
-</div>
-<div class="mb2">
-  <h3>Position</h3>
-  <div class="mb1">
-    {{radio-button value="top" groupValue=position}}
-    <label>Top</label>
-  </div>
-  <div class="mb1">
-    {{radio-button value="top-left" groupValue=position}}
-    <label>Top left</label>
-  </div>
-  <div class="mb1">
-    {{radio-button value="top-right" groupValue=position}}
-    <label>Top right</label>
-  </div>
-  <div class="mb1">
-    {{radio-button value="bottom" groupValue=position}}
-    <label>Bottom</label>
-  </div>
-  <div class="mb1">
-    {{radio-button value="bottom-left" groupValue=position}}
-    <label>Bottom left</label>
-  </div>
-  <div class="mb1">
-    {{radio-button value="bottom-right" groupValue=position}}
-    <label>Bottom right</label>
-  </div>
-</div>
-<div class="mb2">
-  <h3>Clear</h3>
-  <div class="mb2">
-    {{input type="checkbox" checked=autoClear}}
-    <label>Clear automatically</label>
-  </div>
-  {{#if autoClear}}
-    <div class="mb2">
-      <label>Timeout</label>
-      {{input class="block field-light" type="text" value=clearDuration}}
+<div class="bg-blue white py4 px2 center">
+  <div class="container">
+    <div class="mb3">
+      <h1 class="m0">ember-cli-notifications</h1>
+      <p class="h3 muted">Atom inspired notifications for ember-cli</p>
     </div>
-  {{/if}}
-  <div class="mb2">
-    {{input type="checkbox" checked=clearAll}}
-    <label>Clear all</label>
+    <a class="button button-big button-outline" href="http://github.com/stonecircle/ember-cli-notifications" target="_blank">View on GitHub</a>
   </div>
 </div>
+<div class="container px2">
+  <div class="py2">
+    <h2>Installation</h2>
+    <hr>
+    {{#themed-syntax lang="bash" theme="dark" class="h5"}}
+ember install ember-cli-notifications
+    {{/themed-syntax}}
+  </div>
+  <div class="py2">
+    <h2>Usage</h2>
+    <hr>
+    <p>Include the component in your template.</p>
+    {{#themed-syntax lang="htmlbars" theme="dark" class="h5"}}
+&#123;&#123;notification-container notifications=notifications position=position&#125;&#125;
+    {{/themed-syntax}}
 
-<div class="mb2">
-  <h3>HTML content</h3>
-  <div class="mb2">
-    {{input type="checkbox" checked=htmlContent}}
-    <label>Enable HMTL</label>
+    <p>There are four styles of notification available.</p>
+    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+// Info
+this.notifications.info('You have one unread message');
+
+// Error
+this.notifications.error('Something went wrong');
+
+// Success
+this.notifications.success('Saved successfully!');
+
+// Warning
+this.notifications.warning('You have unsaved changes');
+    {{/themed-syntax}}
+
+    <h3>Clearing notifications</h3>
+
+    <p>Set a notification to automatically clear.</p>
+    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+this.notifications.success('Saved successfully!', {
+  autoClear: true
+});
+    {{/themed-syntax}}
+
+    <p>Set a notification to automatically clear.</p>
+    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+this.notifications.success('Saved successfully!', {
+  autoClear: true,
+  clearDuration: 1200
+});
+    {{/themed-syntax}}
+
+    <p>Alternatively</p>
+    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+this.notifications.setDefaultAutoClear(true);
+this.notifications.setDefaultClearNotification(1200);
+    {{/themed-syntax}}
+
+    <p>Alternatively</p>
+    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+this.notifications.clearAll();
+    {{/themed-syntax}}
+
+    <h3>Notification with callback</h3>
+    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+this.notifications.error('Something went wrong. Click to try again', {
+  onClick: (notification) => {
+      this.get('model').save();
+  }
+});
+    {{/themed-syntax}}
+  </div>
+  <div class="py2">
+    <h2>Config</h2>
+    <hr>
+    <h3>Icons</h3>
+    <p><a href="http://fortawesome.github.io/Font-Awesome" target="_blank">Font Awesome</a> is a requirement to display the icons on the notifications.</p>
+
+    <p>If Font Awesome is not already included in the consuming application, add the following to the `config/environment.js` file as a property of the `ENV` object.</p>
+
+    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+var ENV = {
+  'ember-cli-notifications': {
+    includeFontAwesome: true
+  }
+}
+    {{/themed-syntax}}
+
+    <p>Alternatively, the notifications can use the <a href="http://getbootstrap.com/components/#glyphicons" target="_blank">Glyphicons</a> icon package. Glyphicons will <b>not</b> added to your application via this addon.</p>
+
+    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+var ENV = {
+  'ember-cli-notifications': {
+    icons: 'bootstrap'
+  }
+}
+    {{/themed-syntax}}
+  </div>
+  <div class="py2">
+    <h2>Demo</h2>
+    <hr>
+    <div class="mb2">
+      <h3>Message</h3>
+        {{input class="field-light" type="text" value=(if htmlContent htmlMessage message)}}
+      <div class="mt1">
+        {{input type="checkbox" checked=htmlContent}}
+        <label class="h5">Enable HMTL content</label>
+      </div>
+    </div>
+    <div class="mb2">
+      <h3>Type</h3>
+      <div class="sm-flex mxn1">
+        <div class="px1 mb1">
+          {{radio-button value="success" groupValue=type}}
+          <label>Success</label>
+        </div>
+        <div class="px1 mb1">
+          {{radio-button value="info" groupValue=type}}
+          <label>Info</label>
+        </div>
+        <div class="px1 mb1">
+          {{radio-button value="error" groupValue=type}}
+          <label>Error</label>
+        </div>
+        <div class="px1 mb1">
+          {{radio-button value="warning" groupValue=type}}
+          <label>Warning</label>
+        </div>
+      </div>
+    </div>
+    <div class="mb2">
+      <h3>Position</h3>
+      <div class="sm-flex mxn1">
+        <div class="px1 mb1">
+          {{radio-button value="top" groupValue=position}}
+          <label>Top</label>
+        </div>
+        <div class="px1 mb1">
+          {{radio-button value="top-left" groupValue=position}}
+          <label>Top left</label>
+        </div>
+        <div class="px1 mb1">
+          {{radio-button value="top-right" groupValue=position}}
+          <label>Top right</label>
+        </div>
+        <div class="px1 mb1">
+          {{radio-button value="bottom" groupValue=position}}
+          <label>Bottom</label>
+        </div>
+        <div class="px1 mb1">
+          {{radio-button value="bottom-left" groupValue=position}}
+          <label>Bottom left</label>
+        </div>
+        <div class="px1 mb1">
+          {{radio-button value="bottom-right" groupValue=position}}
+          <label>Bottom right</label>
+        </div>
+      </div>
+    </div>
+    <div class="mb2">
+      <h3>Clear</h3>
+      <div class="sm-flex mxn1">
+        <div class="px1 mb1">
+          {{input type="checkbox" checked=autoClear}}
+          <label>Clear automatically</label>
+          {{#if autoClear}}
+            <div class="mt1">
+              <label class="h5">Timeout</label>
+              {{input class="block field-light" type="text" value=clearDuration}}
+            </div>
+          {{/if}}
+        </div>
+        <div class="px1 mb1">
+          {{input type="checkbox" checked=clearAll}}
+          <label>Clear all</label>
+        </div>
+      </div>
+    </div>
+    <button class="button" {{action "showNotifcation"}}>Show</button>
   </div>
 </div>
-
-<button class="button" {{action "showNotifcation"}}>Show</button>
-{{outlet}}
+<footer class="bg-darken-1 p2">
+  <div class="container px2">
+    <p class="h5">&copy; Stone Circle 2016</p>
+  </div>
+</footer>
