@@ -5,7 +5,7 @@
 
 An [Ember CLI] addon that adds [Atom] inspired notification messages to your app.
 
-Interactive documentation can be found here [here].
+Interactive documentation can be found [here].
 
 ## Installation
 
