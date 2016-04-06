@@ -9,6 +9,8 @@ export default Ember.Controller.extend({
   htmlContent: false,
   position: 'top',
 
+  disableTimeoutInput: Ember.computed.not('autoClear'),
+
   computedMessage: Ember.computed('htmlContent', function() {
     if (this.get('htmlContent')) return this.get('htmlMessage');
 

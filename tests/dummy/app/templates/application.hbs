@@ -167,12 +167,10 @@ this.notifications.success('Saved successfully!', {
           <h4>Clear automatically</h4>
           {{input type="checkbox" checked=autoClear}}
           <label>Enable</label>
-          {{#if autoClear}}
-            <div class="mt1">
-              <label class="h5">Timeout (ms)</label>
-              {{input class="block field-light" type="text" value=clearDuration disabled=autoClear}}
-            </div>
-          {{/if}}
+          <div class="mt1">
+            <label class="h5">Timeout (ms)</label>
+            {{input class="block field-light" type="text" value=clearDuration disabled=disableTimeoutInput}}
+          </div>
         </div>
         <div class="px2">
           <h4>Clear all</h4>
@@ -199,9 +197,9 @@ this.notifications.error('Something went wrong. Click to try again', {
     <h2>Config</h2>
     <hr>
     <h3>Icons</h3>
-    <p><a href="http://fortawesome.github.io/Font-Awesome" target="_blank">Font Awesome</a> is a requirement to display the icons on the notifications.</p>
+    <p><a href="http://fontawesome.io/" target="_blank">Font Awesome</a> is a requirement to display the icons on the notifications.</p>
 
-    <p>If Font Awesome is not already included in the consuming application, add the following to the `config/environment.js` file as a property of the `ENV` object.</p>
+    <p>If Font Awesome is not already included in the consuming application, add the following to your environment config file.</p>
 
     {{#themed-syntax lang="js" theme="dark" class="h5"}}
 var ENV = {
