@@ -1,3 +1,7 @@
+### 3.3.1
+
+* [#83](https://github.com/Blooie/ember-cli-notifications/pull/83) [ENHANCEMENT] New demo, interactive docs.
+
 ### 3.3.0
 
 * [#82](https://github.com/Blooie/ember-cli-notifications/pull/82) [ENHANCEMENT] Optional component property for notification container positioning.
