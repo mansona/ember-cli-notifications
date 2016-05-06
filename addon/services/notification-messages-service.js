@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const assign = Ember.assign || Ember.merge;
+
 export default Ember.ArrayProxy.extend({
     content: Ember.A(),
 
@@ -33,28 +35,28 @@ export default Ember.ArrayProxy.extend({
 
     // Helper methods for each type of notification
     error(message, options) {
-      this.addNotification(Ember.merge({
+      this.addNotification(assign({
         message: message,
         type: 'error'
       }, options));
     },
 
     success(message, options) {
-      this.addNotification(Ember.merge({
+      this.addNotification(assign({
         message: message,
         type: 'success'
       }, options));
     },
 
     info(message, options) {
-      this.addNotification(Ember.merge({
+      this.addNotification(assign({
         message: message,
         type: 'info'
       }, options));
     },
 
     warning(message, options) {
-      this.addNotification(Ember.merge({
+      this.addNotification(assign({
         message: message,
         type: 'warning'
       }, options));

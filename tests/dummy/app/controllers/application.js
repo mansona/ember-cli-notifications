@@ -9,6 +9,8 @@ export default Ember.Controller.extend({
   htmlContent: false,
   position: 'top',
 
+  notifications: Ember.inject.service('notification-messages'),
+
   disableTimeoutInput: Ember.computed.not('autoClear'),
 
   computedMessage: Ember.computed('htmlContent', function() {
@@ -20,9 +22,9 @@ export default Ember.Controller.extend({
   actions: {
     showNotifcation() {
       if (this.get('clearAll')) {
-        this.notifications.clearAll();
+        this.get('notifications').clearAll();
       }
-      this.notifications.addNotification({
+      this.get('notifications').addNotification({
         message: this.get('computedMessage'),
         type: this.get('type'),
         autoClear: this.get('autoClear'),
