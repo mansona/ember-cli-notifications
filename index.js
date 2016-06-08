@@ -3,17 +3,29 @@
 
 module.exports = {
   name: 'ember-cli-notifications',
+
+  options: {
+    cssModules: {
+      plugins: [
+        require('postcss-import'),
+        require('postcss-color-function'),
+        require('postcss-custom-media'),
+        require('postcss-custom-properties'),
+        require('postcss-nested'),
+        require('autoprefixer')
+      ]
+    }
+  },
+
   included: function(app) {
     this._super.included(app);
 
-    // Use config to determine whether Font Awesome is imported into consuming app
     this.importFontAwesome(app);
   },
 
   importFontAwesome: function(app) {
     var projectConfig = this.project.config(app.env);
-    var config = projectConfig['ember-cli-notifications'] ||
-                 { includeFontAwesome: false };
+    var config = projectConfig['ember-cli-notifications'] || { includeFontAwesome: false };
 
     if (config.includeFontAwesome) {
       app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.eot', {
