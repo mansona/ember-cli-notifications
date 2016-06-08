@@ -1,6 +1,6 @@
 <div class="flex items-stretch">
   <div class={{styles.c-notification__icon}}>
-    <i class={{notificationIcon}}>&times;</i>
+    <i class={{notificationIcon}}></i>
   </div>
   <div class={{styles.c-notification__content}}>
     <div class="mr2">
@@ -10,7 +10,9 @@
         {{notification.message}}
       {{/if}}
     </div>
-    <span class={{styles.c-notification__close}} {{action "removeNotification"}} title="Dismiss this notification">&times;</span>
+    <div class={{styles.c-notification__close}} {{action "removeNotification"}} title="Dismiss this notification">
+      <i class={{closeIcon}}></i>
+    </div>
   </div>
 </div>
 {{#if notification.autoClear}}

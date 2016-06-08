@@ -2,9 +2,9 @@
 @value --icon-width: 30px;
 @value --icon-position: 10px;
 @value --icon-color: color(#fff a(.74));
-@value --icon-lighten-background: color(#fff a(.3));
+@value --icon-lighten-background: color(#fff a(.2));
 
-@value --countdown-lighten-background: color(#fff a(.6));
+@value --countdown-lighten-background: color(#fff a(.4));
 
 @value --notification-max-height: 800px;
 
@@ -25,7 +25,7 @@
 }
 
 .c-notification__content {
-  composes: flex flex-auto items-center justify-between py1 px2 from global;
+  composes: flex flex-auto justify-between py1 px2 from global;
   word-break: break-word;
 
   a {
@@ -42,7 +42,6 @@
 }
 
 .c-notification__close {
-  composes: h3 from global;
   opacity: .5;
   cursor: pointer;
 
