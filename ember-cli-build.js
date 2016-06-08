@@ -7,10 +7,8 @@ module.exports = function(defaults) {
     cssModules: {
       plugins: [
         require('postcss-import'),
-        require('postcss-color-function'),
-        require('postcss-custom-media'),
-        require('postcss-custom-properties'),
-        require('autoprefixer')
+        require('postcss-cssnext'),
+        require('postcss-nested')
       ]
     }
   });

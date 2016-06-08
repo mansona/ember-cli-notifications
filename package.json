@@ -22,7 +22,6 @@
   "author": "Jonathan Steele",
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
     "basscss": "^8.0.1",
     "basscss-background-colors": "^2.1.0",
     "basscss-basic": "^1.0.0",
@@ -54,9 +53,7 @@
     "ember-resolver": "^2.0.3",
     "ember-themed-syntax": "0.0.6",
     "loader.js": "^4.0.1",
-    "postcss-color-function": "^2.0.1",
-    "postcss-custom-media": "^5.0.1",
-    "postcss-custom-properties": "^5.0.1",
+    "postcss-cssnext": "^2.6.0",
     "postcss-import": "^8.1.2",
     "postcss-nested": "^1.0.0"
   },

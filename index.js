@@ -8,17 +8,14 @@ module.exports = {
     cssModules: {
       plugins: [
         require('postcss-import'),
-        require('postcss-color-function'),
-        require('postcss-custom-media'),
-        require('postcss-custom-properties'),
-        require('postcss-nested'),
-        require('autoprefixer')
+        require('postcss-cssnext'),
+        require('postcss-nested')
       ]
     }
   },
 
   included: function(app) {
-    this._super.included(app);
+    this._super.included.call(this, app);
 
     this.importFontAwesome(app);
   },
