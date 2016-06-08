@@ -1,0 +1,128 @@
+/*Values*/
+@value --icon-width: 30px;
+@value --icon-position: 10px;
+@value --icon-color: color(#fff a(.74));
+@value --icon-lighten-background: color(#fff a(.3));
+
+@value --countdown-lighten-background: color(#fff a(.6));
+
+@value --notification-max-height: 800px;
+
+/*Base*/
+.c-notification {
+  composes: relative overflow-hidden rounded mb2 from global;
+  max-height: --notification-max-height;
+  animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
+  animation-fill-mode: forwards;
+}
+
+.c-notification--clickable {
+  cursor: pointer;
+}
+
+.c-notification--in {
+  animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
+}
+
+.c-notification__content {
+  composes: flex flex-auto items-center justify-between py1 px2 from global;
+  word-break: break-word;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+.c-notification__icon {
+  composes: flex-none py1 center from global;
+  background-color: --icon-lighten-background;
+  width: --icon-width;
+  color: --icon-color;
+}
+
+.c-notification__close {
+  composes: h3 from global;
+  opacity: .5;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.c-notification__countdown {
+  composes: absolute bottom-0 from global;
+  background-color: --countdown-lighten-background;
+  width: 0;
+  height: 4px;
+  animation: notification-countdown linear 1;
+}
+
+/*Theme*/
+.c-notification--info {
+  composes: bg-blue white from global;
+}
+
+.c-notification--success {
+  composes: bg-green white from global;
+}
+
+.c-notification--warning {
+  composes: bg-orange white from global;
+}
+
+.c-notification--error {
+  composes: bg-red white from global;
+}
+
+
+/*Keyframes*/
+@keyframes notification-show {
+  0% {
+    opacity: 0;
+    transform: perspective(450px) translate(0, -30px) rotateX(90deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(450px) translate(0, 0) rotateX(0deg);
+  }
+}
+
+@keyframes notification-shrink {
+  0% {
+    opacity: 0;
+    max-height: --notification-max-height;
+    transform: scale(.8);
+  }
+
+  100% {
+    opacity: 0;
+    max-height: 0;
+    transform: scale(.8);
+  }
+}
+
+@keyframes notification-hide {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(.8);
+  }
+}
+
+@keyframes notification-countdown {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}

@@ -1,0 +1,48 @@
+/*Values*/
+@value --container-position: 10px;
+@value --container-zindex: 1060;
+@value --container-width: 80%;
+@value --container-max-with: 400px;
+
+/*Base*/
+.c-notification__container {
+  composes: mx-auto fixed from global;
+  z-index: --container-zindex;
+  width: --container-width;
+  max-width: --container-max-with;
+}
+
+/*Position*/
+.c-notification__container--top {
+  composes: right-0 left-0 from global;
+  top: --container-position;
+}
+
+.c-notification__container--top-left {
+  top: --container-position;
+  right: auto;
+  left: --container-position;
+}
+
+.c-notification__container--top-right {
+  top: --container-position;
+  right: --container-position;
+  left: auto;
+}
+
+.c-notification__container--bottom {
+  composes: right-0 left-0 from global;
+  bottom: --container-position;
+}
+
+.c-notification__container--bottom-left {
+  right: auto;
+  bottom: --container-position;
+  left: --container-position;
+}
+
+.c-notification__container--bottom-right {
+  right: --container-position;
+  bottom: --container-position;
+  left: auto;
+}

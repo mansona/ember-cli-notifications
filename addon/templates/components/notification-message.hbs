@@ -1,18 +1,18 @@
-<div class="c-notification__icon">
-  <span>
-    <i class={{notificationIcon}}></i>
-  </span>
-</div>
-<div class="c-notification__content">
-  {{#if notification.htmlContent}}
-    {{{notification.message}}}
-  {{else}}
-    {{notification.message}}
-  {{/if}}
+<div class="flex items-stretch">
+  <div class={{styles.c-notification__icon}}>
+    <i class={{notificationIcon}}>&times;</i>
+  </div>
+  <div class={{styles.c-notification__content}}>
+    <div class="mr2">
+      {{#if notification.htmlContent}}
+        {{{notification.message}}}
+      {{else}}
+        {{notification.message}}
+      {{/if}}
+    </div>
+    <span class={{styles.c-notification__close}} {{action "removeNotification"}} title="Dismiss this notification">&times;</span>
+  </div>
 </div>
 {{#if notification.autoClear}}
-  <div class="c-notification__countdown" style={{notificationClearDuration}}></div>
+  <div class={{styles.c-notification__countdown}} style={{notificationClearDuration}}></div>
 {{/if}}
-<span class="c-notification__close" {{action "removeNotification"}} title="Dismiss this notification">
-  <i class={{closeIcon}}></i>
-</span>
