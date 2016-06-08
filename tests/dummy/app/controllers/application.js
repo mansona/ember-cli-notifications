@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { computed } = Ember;
+
 export default Ember.Controller.extend({
   message: 'Notification message',
   htmlMessage: '<b>HTML notification message</b>',
@@ -11,9 +13,9 @@ export default Ember.Controller.extend({
 
   notifications: Ember.inject.service('notification-messages'),
 
-  disableTimeoutInput: Ember.computed.not('autoClear'),
+  disableTimeoutInput: computed.not('autoClear'),
 
-  computedMessage: Ember.computed('htmlContent', function() {
+  computedMessage: computed('htmlContent', function() {
     if (this.get('htmlContent')) return this.get('htmlMessage');
 
     return this.get('message');
