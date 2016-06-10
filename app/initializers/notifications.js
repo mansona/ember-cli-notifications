@@ -8,6 +8,7 @@ export default {
         let application = arguments[1] || arguments[0];
         if (Ember.Service) {
           application.register('service:notification-messages', NotificationMessagesService);
+          application.inject('component:notification-container', 'notifications', 'service:notification-messages');
           application.inject('component:notification-message', 'notifications', 'service:notification-messages');
           return;
         }
