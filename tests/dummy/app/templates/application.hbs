@@ -1,4 +1,4 @@
-{{notification-container notifications=notifications position=position}}
+{{notification-container position=position}}
 <div class="bg-blue white py4">
   <div class="container px2">
     <div class="mb3">
@@ -26,33 +26,38 @@ ember install ember-cli-notifications
   <div class="py2">
     <h2>Basic usage</h2>
     <hr>
-    <p>Include the component in your template.</p>
+    <p>Include the container component in your template.</p>
     <p>Optionally, change the position of the notifications container.</p>
     <p class="h5"><i>Default value is top</i></p>
     {{#themed-syntax lang="htmlbars" theme="dark" class="h5"}}
 &#123;&#123;notification-container notifications=notifications position="top-right"&#125;&#125;
     {{/themed-syntax}}
 
+    <p>Inject the notifications service where required.</p>
+    {{#themed-syntax lang="htmlbars" theme="dark" class="h5"}}
+notifications: Ember.inject.service('notification-messages')
+    {{/themed-syntax}}
+
     <p>There are four styles of notification available.</p>
     {{#themed-syntax lang="js" theme="dark" class="h5"}}
 // Info
-this.notifications.info('You have one unread message');
+this.get('notifications').info('You have one unread message');
 
 // Error
-this.notifications.error('Something went wrong');
+this.get('notifications').error('Something went wrong');
 
 // Success
-this.notifications.success('Saved successfully!');
+this.get('notifications').success('Saved successfully!');
 
 // Warning
-this.notifications.warning('You have unsaved changes');
+this.get('notifications').warning('You have unsaved changes');
     {{/themed-syntax}}
 
     <h3>htmlContent</h3>
     <p>You can enable basic HTML markup for notification messages.</p>
     <p><b>Warning:</b> This introduces a potential security risk since the notification message will no longer be escaped by Ember.</p>
     {{#themed-syntax lang="js" theme="dark" class="h5"}}
-this.notifications.info('You have &lt;b&gt;one&lt;/b&gt; unread message', {
+this.get('notifications').info('You have &lt;b&gt;one&lt;/b&gt; unread message', {
   htmlContent: true
 });
     {{/themed-syntax}}
@@ -129,34 +134,34 @@ this.notifications.info('You have &lt;b&gt;one&lt;/b&gt; unread message', {
     <p>If true, inherits the default <b>clearDuration</b> value unless specified.</p>
     <p class="h5"><i>Default value is false</i></p>
     {{#themed-syntax lang="js" theme="dark" class="h5"}}
-this.notifications.success('Saved successfully!', {
+this.get('notifications').success('Saved successfully!', {
   autoClear: true
 });
     {{/themed-syntax}}
     <p>Set a global default value.</p>
     {{#themed-syntax lang="js" theme="dark" class="h5"}}
-this.notifications.setDefaultAutoClear(true);
+this.get('notifications').setDefaultAutoClear(true);
     {{/themed-syntax}}
 
     <h3>clearDuration</h3>
     <p>Specify a duration (ms) before the notification clears. This will take precedence over the global default value.</p>
     <p class="h5"><i>Default value is 3200</i></p>
     {{#themed-syntax lang="js" theme="dark" class="h5"}}
-this.notifications.success('Saved successfully!', {
+this.get('notifications').success('Saved successfully!', {
   autoClear: true,
   clearDuration: 1200
 });
     {{/themed-syntax}}
     <p>Set a global default value.</p>
     {{#themed-syntax lang="js" theme="dark" class="h5"}}
-this.notifications.setDefaultClearNotification(1200);
+this.get('notifications').setDefaultClearNotification(1200);
     {{/themed-syntax}}
 
     <h3>clearAll</h3>
     <p>You can remove all present notifications before adding a new one.</p>
     {{#themed-syntax lang="js" theme="dark" class="h5"}}
-this.notifications.clearAll();
-this.notifications.success('Saved successfully!', {
+this.get('notifications').clearAll();
+this.get('notifications').success('Saved successfully!', {
   autoClear: true
 });
     {{/themed-syntax}}
@@ -186,7 +191,7 @@ this.notifications.success('Saved successfully!', {
     <hr>
     <p>Add the ability to click the notification for a callback.</p>
     {{#themed-syntax lang="js" theme="dark" class="h5"}}
-this.notifications.error('Something went wrong. Click to try again', {
+this.get('notifications').error('Something went wrong. Click to try again', {
   onClick: (notification) => {
     this.get('model').save();
   }
