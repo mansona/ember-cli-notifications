@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const { Controller, computed, inject: { service } } = Ember;
+
+export default Controller.extend({
   message: 'Notification message',
   htmlMessage: '<b>HTML notification message</b>',
   type: 'success',
@@ -9,11 +11,11 @@ export default Ember.Controller.extend({
   htmlContent: false,
   position: 'top',
 
-  notifications: Ember.inject.service('notification-messages'),
+  notifications: service('notification-messages'),
 
-  disableTimeoutInput: Ember.computed.not('autoClear'),
+  disableTimeoutInput: computed.not('autoClear'),
 
-  computedMessage: Ember.computed('htmlContent', function() {
+  computedMessage: computed('htmlContent', function() {
     if (this.get('htmlContent')) return this.get('htmlMessage');
 
     return this.get('message');

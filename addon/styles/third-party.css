@@ -1,0 +1,19 @@
+/* Base */
+@import "basscss";
+
+/* Colors */
+@import "basscss-colors";
+@import "basscss-background-colors";
+
+/* Values */
+@value --green as --green-value from './globals';
+@value --blue as --blue-value from './globals';
+@value --orange as --orange-value from './globals';
+@value --red as --red-value from './globals';
+
+:root {
+  --green: --green-value;
+  --blue: --blue-value;
+  --orange: --orange-value;
+  --red: --red-value;
+}
