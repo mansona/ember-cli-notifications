@@ -6,6 +6,9 @@ module.exports = {
 
   options: {
     cssModules: {
+      postcssOptions: {
+        map: true
+      },
       plugins: {
         before: [
           require('stylelint'),
