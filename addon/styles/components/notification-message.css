@@ -1,14 +1,12 @@
-/*Values*/
+/* Values */
 @value --icon-width: 30px;
 @value --icon-position: 10px;
 @value --icon-color: color(#fff a(.74));
 @value --icon-lighten-background: color(#fff a(.2));
-
 @value --countdown-lighten-background: color(#fff a(.4));
-
 @value --notification-max-height: 800px;
 
-/*Base*/
+/* Base */
 .c-notification {
   composes: relative overflow-hidden rounded mb2 from global;
   max-height: --notification-max-height;
@@ -59,7 +57,7 @@
   animation: notification-countdown linear 1;
 }
 
-/*Theme*/
+/* Theme */
 .c-notification--info {
   composes: bg-blue white from global;
 }
@@ -76,8 +74,7 @@
   composes: bg-red white from global;
 }
 
-
-/*Keyframes*/
+/* Keyframes */
 @keyframes notification-show {
   0% {
     opacity: 0;

@@ -6,11 +6,17 @@ module.exports = {
 
   options: {
     cssModules: {
-      plugins: [
-        require('postcss-import'),
-        require('postcss-cssnext'),
-        require('postcss-nested')
-      ]
+      plugins: {
+        before: [
+          require('stylelint'),
+          require('postcss-reporter')
+        ],
+        after: [
+          require('postcss-import'),
+          require('postcss-cssnext'),
+          require('postcss-nested')
+        ]
+      }
     }
   },
 

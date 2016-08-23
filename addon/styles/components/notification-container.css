@@ -1,10 +1,10 @@
-/*Values*/
+/* Values */
 @value --container-position: 10px;
 @value --container-zindex: 1060;
 @value --container-width: 80%;
 @value --container-max-with: 400px;
 
-/*Base*/
+/* Base */
 .c-notification__container {
   composes: mx-auto fixed from global;
   z-index: --container-zindex;
@@ -12,7 +12,7 @@
   max-width: --container-max-with;
 }
 
-/*Position*/
+/* Position */
 .c-notification__container--top {
   composes: right-0 left-0 from global;
   top: --container-position;
