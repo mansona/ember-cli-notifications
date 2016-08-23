@@ -19,7 +19,7 @@
   <div class="py2">
     <h2>Installation</h2>
     <hr>
-    {{#themed-syntax lang="bash" theme="dark" class="h5"}}
+    {{#themed-syntax lang="bash" theme="dark" class="h5" withBuffers=false}}
 ember install ember-cli-notifications
     {{/themed-syntax}}
   </div>
@@ -29,17 +29,17 @@ ember install ember-cli-notifications
     <p>Include the container component in your template.</p>
     <p>Optionally, change the position of the notifications container.</p>
     <p class="h5"><i>Default value is top</i></p>
-    {{#themed-syntax lang="htmlbars" theme="dark" class="h5"}}
+    {{#themed-syntax lang="htmlbars" theme="dark" class="h5" withBuffers=false}}
 &#123;&#123;notification-container notifications=notifications position="top-right"&#125;&#125;
     {{/themed-syntax}}
 
     <p>Inject the notifications service where required.</p>
-    {{#themed-syntax lang="htmlbars" theme="dark" class="h5"}}
+    {{#themed-syntax lang="htmlbars" theme="dark" class="h5" withBuffers=false}}
 notifications: Ember.inject.service('notification-messages')
     {{/themed-syntax}}
 
     <p>There are four styles of notification available.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 // Info
 this.get('notifications').info('You have one unread message');
 
@@ -56,7 +56,7 @@ this.get('notifications').warning('You have unsaved changes');
     <h3>htmlContent</h3>
     <p>You can enable basic HTML markup for notification messages.</p>
     <p><b>Warning:</b> This introduces a potential security risk since the notification message will no longer be escaped by Ember.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 this.get('notifications').info('You have &lt;b&gt;one&lt;/b&gt; unread message', {
   htmlContent: true
 });
@@ -133,33 +133,33 @@ this.get('notifications').info('You have &lt;b&gt;one&lt;/b&gt; unread message',
     <p>Set a notification to automatically clear. This will take precedence over the global default value.</p>
     <p>If true, inherits the default <b>clearDuration</b> value unless specified.</p>
     <p class="h5"><i>Default value is false</i></p>
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 this.get('notifications').success('Saved successfully!', {
   autoClear: true
 });
     {{/themed-syntax}}
     <p>Set a global default value.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 this.get('notifications').setDefaultAutoClear(true);
     {{/themed-syntax}}
 
     <h3>clearDuration</h3>
     <p>Specify a duration (ms) before the notification clears. This will take precedence over the global default value.</p>
     <p class="h5"><i>Default value is 3200</i></p>
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 this.get('notifications').success('Saved successfully!', {
   autoClear: true,
   clearDuration: 1200
 });
     {{/themed-syntax}}
     <p>Set a global default value.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 this.get('notifications').setDefaultClearNotification(1200);
     {{/themed-syntax}}
 
     <h3>clearAll</h3>
     <p>You can remove all present notifications before adding a new one.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 this.get('notifications').clearAll();
 this.get('notifications').success('Saved successfully!', {
   autoClear: true
@@ -190,7 +190,7 @@ this.get('notifications').success('Saved successfully!', {
     <h2>Notification with callback</h2>
     <hr>
     <p>Add the ability to click the notification for a callback.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 this.get('notifications').error('Something went wrong. Click to try again', {
   onClick: (notification) => {
     this.get('model').save();
@@ -206,7 +206,7 @@ this.get('notifications').error('Something went wrong. Click to try again', {
 
     <p>If Font Awesome is not already included in the consuming application, add the following to your environment config file.</p>
 
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 var ENV = {
   'ember-cli-notifications': {
     includeFontAwesome: true
@@ -216,7 +216,7 @@ var ENV = {
 
     <p>Alternatively, the notifications can use the <a href="http://getbootstrap.com/components/#glyphicons" target="_blank">Glyphicons</a> icon package. Glyphicons will <b>not</b> added to your application via this addon.</p>
 
-    {{#themed-syntax lang="js" theme="dark" class="h5"}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 var ENV = {
   'ember-cli-notifications': {
     icons: 'bootstrap'
