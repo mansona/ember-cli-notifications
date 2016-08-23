@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -17,12 +17,6 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-
-    // Allow inline styling for animation duration
-    contentSecurityPolicy: {
-      'style-src': "'self' 'unsafe-inline'",
-    },
-
     'ember-cli-notifications': {
       includeFontAwesome: true
     }
@@ -49,8 +43,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.locationType = 'hash';
-    ENV.baseURL = '/ember-cli-notifications/';
+    ENV.rootURL = '/ember-cli-notifications';
   }
 
   return ENV;
