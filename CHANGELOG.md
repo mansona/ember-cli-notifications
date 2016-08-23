@@ -1,3 +1,8 @@
+### 4.0.0
+
+* [#87](https://github.com/Blooie/ember-cli-notifications/pull/87) [ENHANCEMENT] Use PostCSS for CSS build.
+* [#84](https://github.com/Blooie/ember-cli-notifications/pull/84) [ENHANCEMENT] Update service initializer.
+
 ### 3.3.1
 
 * [#83](https://github.com/Blooie/ember-cli-notifications/pull/83) [ENHANCEMENT] New demo, interactive docs.
