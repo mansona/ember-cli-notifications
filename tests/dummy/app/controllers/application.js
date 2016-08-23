@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
+const { Controller, computed, inject: { service } } = Ember;
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   message: 'Notification message',
   htmlMessage: '<b>HTML notification message</b>',
   type: 'success',
@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
   htmlContent: false,
   position: 'top',
 
-  notifications: Ember.inject.service('notification-messages'),
+  notifications: service('notification-messages'),
 
   disableTimeoutInput: computed.not('autoClear'),
 

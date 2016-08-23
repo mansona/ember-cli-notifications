@@ -1,3 +1,1 @@
-@import "basscss";
-@import "basscss-colors";
-@import "basscss-background-colors";
+@after-modue "./third-party";
