@@ -10,9 +10,6 @@ module.exports = {
         map: true
       },
       plugins: {
-        before: [
-          require('postcss-reporter')
-        ],
         after: [
           require('postcss-import'),
           require('postcss-cssnext'),
