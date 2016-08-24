@@ -11,7 +11,6 @@ module.exports = {
       },
       plugins: {
         before: [
-          require('stylelint'),
           require('postcss-reporter')
         ],
         after: [
