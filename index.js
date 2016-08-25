@@ -9,13 +9,11 @@ module.exports = {
       postcssOptions: {
         map: true
       },
-      plugins: {
-        after: [
-          require('postcss-import'),
-          require('postcss-cssnext'),
-          require('postcss-nested')
-        ]
-      }
+      plugins: [
+        require('postcss-import'),
+        require('postcss-cssnext'),
+        require('postcss-nested')
+      ]
     }
   },
 
