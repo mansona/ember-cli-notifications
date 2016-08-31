@@ -1,3 +1,7 @@
+### 4.0.6
+
+* [#97](https://github.com/Blooie/ember-cli-notifications/pull/97) [BUGFIX] Fixing import issues.
+
 ### 4.0.0
 
 * [#87](https://github.com/Blooie/ember-cli-notifications/pull/87) [ENHANCEMENT] Use PostCSS for CSS build.
