@@ -79,7 +79,7 @@ export default Ember.Component.extend({
   },
 
   processedType: computed('notification.type', function() {
-    if (this.get('notification.type') && Ember.A(['info', 'success', 'warning', 'error']).contains(this.get('notification.type'))) {
+    if (this.get('notification.type') && Ember.A(['info', 'success', 'warning', 'error']).includes(this.get('notification.type'))) {
       return this.get(`styles.c-notification--${this.get('notification.type')}`);
     }
   }),
