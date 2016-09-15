@@ -14,6 +14,8 @@ Interactive documentation can be found [here].
 notifications: Ember.inject.service('notification-messages')
 ```
 
+See the documentation for a sample initializer to inject the service in all controllers.
+
 ## Installation
 
 ```shell

@@ -34,8 +34,20 @@ ember install ember-cli-notifications
     {{/themed-syntax}}
 
     <p>Inject the notifications service where required.</p>
-    {{#themed-syntax lang="htmlbars" theme="dark" class="h5" withBuffers=false}}
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 notifications: Ember.inject.service('notification-messages')
+    {{/themed-syntax}}
+
+    <p>Or inject it everywhere with an initializer (app/initializers/inject-notifications.js):</p>
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
+export function initialize(application) {
+  application.inject('controller', 'notifications', 'service:notification-messages');
+}
+
+export default {
+  name: 'inject-notifications',
+  initialize
+};
     {{/themed-syntax}}
 
     <p>There are four styles of notification available.</p>
