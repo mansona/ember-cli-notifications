@@ -1,3 +1,7 @@
+### 4.0.8
+
+* [#99](https://github.com/Blooie/ember-cli-notifications/pull/99) Add documentation for injector initializer.
+
 ### 4.0.6
 
 * [#97](https://github.com/Blooie/ember-cli-notifications/pull/97) [BUGFIX] Fixing import issues.
