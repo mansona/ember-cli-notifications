@@ -67,7 +67,7 @@
     "basscss-colors": "^2.2.0",
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.3",
-    "ember-css-modules": "0.4.3",
+    "ember-css-modules": "0.5.0",
     "ember-runtime-enumerable-includes-polyfill": "^1.0.1",
     "postcss-cssnext": "^2.6.0",
     "postcss-import": "^8.1.2",
