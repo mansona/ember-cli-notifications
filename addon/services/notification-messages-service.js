@@ -39,6 +39,7 @@ export default Ember.ArrayProxy.extend({
         message: message,
         type: 'error'
       }, options));
+      return this;
     },
 
     success(message, options) {
@@ -46,6 +47,7 @@ export default Ember.ArrayProxy.extend({
         message: message,
         type: 'success'
       }, options));
+      return this;
     },
 
     info(message, options) {
@@ -53,6 +55,7 @@ export default Ember.ArrayProxy.extend({
         message: message,
         type: 'info'
       }, options));
+      return this;
     },
 
     warning(message, options) {
@@ -60,6 +63,7 @@ export default Ember.ArrayProxy.extend({
         message: message,
         type: 'warning'
       }, options));
+      return this;
     },
 
     removeNotification(notification) {
@@ -96,6 +100,7 @@ export default Ember.ArrayProxy.extend({
 
     clearAll() {
         this.set('content', Ember.A());
+        return this;
     },
 
     setDefaultAutoClear(autoClear) {
@@ -104,6 +109,7 @@ export default Ember.ArrayProxy.extend({
       }
 
       this.set('defaultAutoClear', autoClear);
+      return this;
     },
 
     setDefaultClearNotification(clearDuration) {
@@ -112,5 +118,6 @@ export default Ember.ArrayProxy.extend({
       }
 
       this.set('defaultClearDuration', clearDuration);
+      return this;
     }
 });
