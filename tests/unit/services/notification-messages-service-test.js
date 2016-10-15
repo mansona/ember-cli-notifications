@@ -13,6 +13,4 @@ test('it supports fluent syntax', function(assert) {
   assert.equal(service.warning('test'), service, msg);
   assert.equal(service.warning('test'), service, msg);
   assert.equal(service.clearAll(), service, msg);
-  assert.equal(service.setDefaultAutoClear(true), service, msg);
-  assert.equal(service.setDefaultClearNotification(1000), service, msg);
 });
