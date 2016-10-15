@@ -244,6 +244,20 @@ var ENV = {
 }
     {{/themed-syntax}}
   </div>
+  <div class="py2">
+    <h2>Extend</h2>
+    <hr>
+    <p>The <b>notification-messages-service</b> service can be imported into the consuming app and extended.</p>
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
+// app/services/notifications.js
+import NotificationsService from 'ember-cli-notifications/services/notification-messages-service';
+
+export default NotificationsService.extend({
+  // Extend the imported service
+});
+    {{/themed-syntax}}
+    <p>Be sure to inject the <i>new</i> service into your app.</p>
+  </div>
 </div>
 <footer class="bg-darken-1 py3">
   <div class="max-width-4 mx-auto px2">
