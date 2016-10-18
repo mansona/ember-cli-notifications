@@ -10,12 +10,7 @@ module.exports = {
         map: true
       },
       plugins: [
-        require('postcss-import')({
-          root: __dirname,
-          path: ['node_modules']
-        }),
-        require('postcss-cssnext'),
-        require('postcss-nested')
+        require('postcss-cssnext')
       ]
     }
   },

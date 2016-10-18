@@ -5,13 +5,31 @@
 @value --icon-lighten-background: color(#fff a(.2));
 @value --countdown-lighten-background: color(#fff a(.4));
 @value --notification-max-height: 800px;
+@value --notification-border-radius: 3px;
+
+/* Colours */
+@value --red from '../addon';
+@value --blue from '../addon';
+@value --green from '../addon';
+@value --orange from '../addon';
+
+/* Spacing */
+@value --spacing-1 from '../addon';
+@value --spacing-2 from '../addon';
 
 /* Base */
 .c-notification {
-  composes: relative overflow-hidden rounded mb2 from global;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  border-radius: --notification-border-radius;
+  border-bottom: 1rem;
+  color: white;
   max-height: --notification-max-height;
   animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
   animation-fill-mode: forwards;
+  margin-bottom: --spacing-2;
 }
 
 .c-notification--clickable {
@@ -23,7 +41,12 @@
 }
 
 .c-notification__content {
-  composes: flex flex-auto justify-between py1 px2 from global;
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  justify-content: space-between;
+  padding: --spacing-1 --spacing-2;
   word-break: break-word;
 
   a {
@@ -33,13 +56,17 @@
 }
 
 .c-notification__icon {
-  composes: flex-none py1 center from global;
+  padding: --spacing-1 0;
+  text-align: center;
+  flex: none;
   background-color: --icon-lighten-background;
   width: --icon-width;
   color: --icon-color;
 }
 
 .c-notification__close {
+  margin-left: --spacing-2;
+  align-self: flex-start;
   opacity: .5;
   cursor: pointer;
 
@@ -50,7 +77,8 @@
 }
 
 .c-notification__countdown {
-  composes: absolute bottom-0 from global;
+  position: absolute;
+  bottom: 0;
   background-color: --countdown-lighten-background;
   width: 0;
   height: 4px;
@@ -59,19 +87,23 @@
 
 /* Theme */
 .c-notification--info {
-  composes: bg-blue white from global;
+  composes: c-notification;
+  background-color: --blue;
 }
 
 .c-notification--success {
-  composes: bg-green white from global;
+  composes: c-notification;
+  background-color: --green;
 }
 
 .c-notification--warning {
-  composes: bg-orange white from global;
+  composes: c-notification;
+  background-color: --orange;
 }
 
 .c-notification--error {
-  composes: bg-red white from global;
+  composes: c-notification;
+  background-color: --red;
 }
 
 /* Keyframes */
