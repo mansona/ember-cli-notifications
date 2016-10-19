@@ -2,14 +2,13 @@ import Ember from 'ember';
 import layout from '../templates/components/notification-message';
 import styles from '../styles/components/notification-message';
 
-const { computed } = Ember;
+const { Component, computed } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   styles,
 
-  classNameBindings: [
-    'styles.c-notification',
+  localClassNameBindings: [
     'dismissClass',
     'clickableClass',
     'processedType'
@@ -19,10 +18,14 @@ export default Ember.Component.extend({
 
   dismissClass: computed('notification.dismiss', function() {
     if (!this.get('notification.dismiss')) return this.get('styles.c-notification--in');
+
+    return false;
   }),
 
   clickableClass: computed('notification.onClick', function() {
     if (this.get('notification.onClick')) return this.get('styles.c-notification--clickable');
+
+    return false;
   }),
 
   closeIcon: computed('icons', function() {

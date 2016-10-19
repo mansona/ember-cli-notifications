@@ -6,7 +6,8 @@
 
 /* Base */
 .c-notification__container {
-  composes: mx-auto fixed from global;
+  position: fixed;
+  margin: 0 auto;
   z-index: --container-zindex;
   width: --container-width;
   max-width: --container-max-with;
@@ -14,34 +15,42 @@
 
 /* Position */
 .c-notification__container--top {
-  composes: right-0 left-0 from global;
+  composes: c-notification__container;
   top: --container-position;
+  right: 0;
+  left: 0;
 }
 
 .c-notification__container--top-left {
+  composes: c-notification__container;
   top: --container-position;
   right: auto;
   left: --container-position;
 }
 
 .c-notification__container--top-right {
+  composes: c-notification__container;
   top: --container-position;
   right: --container-position;
   left: auto;
 }
 
 .c-notification__container--bottom {
-  composes: right-0 left-0 from global;
+  composes: c-notification__container;
+  right: 0;
   bottom: --container-position;
+  left: 0;
 }
 
 .c-notification__container--bottom-left {
+  composes: c-notification__container;
   right: auto;
   bottom: --container-position;
   left: --container-position;
 }
 
 .c-notification__container--bottom-right {
+  composes: c-notification__container;
   right: --container-position;
   bottom: --container-position;
   left: auto;
