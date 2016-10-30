@@ -199,6 +199,17 @@ this.get('notifications').success('Saved successfully!', {
     </div>
   </div>
   <div class="py2">
+    <h2>Notification with custom CSS</h2>
+    <hr>
+    <p>Pass a string of CSS classes to the notification component.</p>
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
+this.get('notifications').success('Saved successfully!', {
+  autoClear: true,
+  cssClasses: 'profile-saved-success-notification'
+});
+    {{/themed-syntax}}
+  </div>
+  <div class="py2">
     <h2>Notification with callback</h2>
     <hr>
     <p>Add the ability to click the notification for a callback.</p>

@@ -10,6 +10,7 @@ export default Controller.extend({
   clearDuration: 2400,
   htmlContent: false,
   position: 'top',
+  cssClasses: 'profile-saved-success-notification',
 
   notifications: service('notification-messages'),
 
@@ -27,6 +28,7 @@ export default Controller.extend({
         this.get('notifications').clearAll();
       }
       this.get('notifications').addNotification({
+        cssClasses: this.get('cssClasses'),
         message: this.get('computedMessage'),
         type: this.get('type'),
         autoClear: this.get('autoClear'),
