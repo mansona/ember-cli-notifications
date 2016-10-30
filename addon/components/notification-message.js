@@ -14,6 +14,10 @@ export default Component.extend({
     'processedType'
   ],
 
+  classNameBindings: [
+    'notification.cssClasses'
+  ],
+
   paused: false,
 
   dismissClass: computed('notification.dismiss', function() {
