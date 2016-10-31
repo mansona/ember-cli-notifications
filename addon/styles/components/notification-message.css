@@ -79,6 +79,7 @@
 .c-notification__countdown {
   position: absolute;
   bottom: 0;
+  left: 0;
   background-color: --countdown-lighten-background;
   width: 0;
   height: 4px;
