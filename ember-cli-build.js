@@ -6,9 +6,7 @@ module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
     cssModules: {
       plugins: [
-        require('postcss-import'),
-        require('postcss-cssnext'),
-        require('postcss-nested')
+        require('postcss-import')
       ]
     }
   });

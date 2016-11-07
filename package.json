@@ -24,11 +24,11 @@
   "devDependencies": {
     "basscss": "^8.0.1",
     "basscss-background-colors": "^2.1.0",
-    "basscss-colors": "^2.2.0",
     "basscss-basic": "^1.0.0",
     "basscss-btn": "^1.1.1",
     "basscss-btn-outline": "^1.1.0",
     "basscss-btn-primary": "^1.1.0",
+    "basscss-colors": "^2.2.0",
     "basscss-darken": "^1.1.0",
     "basscss-forms": "^1.0.0",
     "broccoli-asset-rev": "^2.4.2",
@@ -53,6 +53,7 @@
     "ember-resolver": "^2.0.3",
     "ember-themed-syntax": "0.0.6",
     "loader.js": "^4.0.1",
+    "postcss-import": "^8.1.2",
     "postcss-reporter": "^1.4.1",
     "stylelint": "^7.1.0",
     "stylelint-config-standard": "^12.0.0"
