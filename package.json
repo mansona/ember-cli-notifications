@@ -48,6 +48,7 @@
     "ember-data": "^2.7.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
+    "ember-get-config": "0.1.11",
     "ember-load-initializers": "^0.5.1",
     "ember-radio-button": "1.0.7",
     "ember-resolver": "^2.0.3",

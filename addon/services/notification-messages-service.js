@@ -1,12 +1,23 @@
 import Ember from 'ember';
+import config from 'ember-get-config';
 
 const assign = Ember.assign || Ember.merge;
+const globals = config['ember-cli-notifications']; // Import app config object
+
+// Set global values for user configurable options
+function setGlobal(property, value) {
+  // If the value exists in app config object, set that as global
+  if (property) return property;
+
+  // Otherwise return the default value
+  return value;
+}
 
 export default Ember.ArrayProxy.extend({
     content: Ember.A(),
 
-    defaultClearDuration: 3200,
-    defaultAutoClear: false,
+    globalAutoClear: setGlobal(globals.autoClear, false),
+    globalClearDuration: setGlobal(globals.clearDuration, 3200),
 
     addNotification(options) {
         // If no message is set, throw an error
@@ -17,8 +28,8 @@ export default Ember.ArrayProxy.extend({
         const notification = Ember.Object.create({
             message: options.message,
             type: options.type || 'info', // info, success, warning, error
-            autoClear: (Ember.isEmpty(options.autoClear) ? this.get('defaultAutoClear') : options.autoClear),
-            clearDuration: options.clearDuration || this.get('defaultClearDuration'),
+            autoClear: (Ember.isEmpty(options.autoClear) ? this.get('globalAutoClear') : options.autoClear),
+            clearDuration: options.clearDuration || this.get('globalClearDuration'),
             onClick: options.onClick,
             htmlContent: options.htmlContent || false,
             cssClasses: options.cssClasses
@@ -40,6 +51,7 @@ export default Ember.ArrayProxy.extend({
         message: message,
         type: 'error'
       }, options));
+      return this;
     },
 
     success(message, options) {
@@ -47,6 +59,7 @@ export default Ember.ArrayProxy.extend({
         message: message,
         type: 'success'
       }, options));
+      return this;
     },
 
     info(message, options) {
@@ -54,6 +67,7 @@ export default Ember.ArrayProxy.extend({
         message: message,
         type: 'info'
       }, options));
+      return this;
     },
 
     warning(message, options) {
@@ -61,6 +75,7 @@ export default Ember.ArrayProxy.extend({
         message: message,
         type: 'warning'
       }, options));
+      return this;
     },
 
     removeNotification(notification) {
@@ -97,21 +112,6 @@ export default Ember.ArrayProxy.extend({
 
     clearAll() {
         this.set('content', Ember.A());
-    },
-
-    setDefaultAutoClear(autoClear) {
-      if (Ember.typeOf(autoClear) !== 'boolean') {
-        throw new Error('Default auto clear preference must be a boolean');
-      }
-
-      this.set('defaultAutoClear', autoClear);
-    },
-
-    setDefaultClearNotification(clearDuration) {
-      if (Ember.typeOf(clearDuration) !== 'number') {
-        throw new Error('Clear duration must be a number');
-      }
-
-      this.set('defaultClearDuration', clearDuration);
+        return this;
     }
 });
