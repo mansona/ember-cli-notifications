@@ -107,7 +107,7 @@ export default Ember.ArrayProxy.extend({
       this.set('defaultAutoClear', autoClear);
     },
 
-    setDefaultClearNotification(clearDuration) {
+    setDefaultClearDuration(clearDuration) {
       if (Ember.typeOf(clearDuration) !== 'number') {
         throw new Error('Clear duration must be a number');
       }
