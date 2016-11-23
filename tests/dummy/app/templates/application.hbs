@@ -220,13 +220,17 @@ this.get('notifications').error('Something went wrong. Click to try again', {
     <h2>Config</h2>
     <hr>
     <h3>Globals</h3>
-    <p>Set the global default values for <b>autoClear</b> and <b>clearDuration</b>.</p>
+    <p>Set the global default values for <b>autoClear</b>, <b>clearDuration</b> and configure the colour variables.</p>
     {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 // config/environment.js
 var ENV = {
   'ember-cli-notifications': {
     autoClear: true,
-    clearDuration: 2400
+    clearDuration: 2400,
+    redColour: '#ff0000', // Accepts any legal CSS colour value
+    blueColour: 'rgba(0, 0, 255, 1)',
+    greenColour: 'green',
+    orangeColour: 'orange'
   }
 }
     {{/themed-syntax}}
