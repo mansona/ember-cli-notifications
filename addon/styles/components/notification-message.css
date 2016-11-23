@@ -67,7 +67,7 @@
 .c-notification__close {
   margin-left: --spacing-2;
   align-self: flex-start;
-  opacity: .5;
+  opacity: .74;
   cursor: pointer;
 
   &:hover,
