@@ -15,15 +15,33 @@ module.exports = {
     }
   },
 
-  included: function(app) {
-    this._super.included.call(this, app);
+  included(app) {
+    const projectConfig = this.project.config(app.env);
+    const config = projectConfig['ember-cli-notifications'];
 
-    this.importFontAwesome(app);
+    this.importFontAwesome(config, app);
+    this.assignCssVariables(config);
+
+    this._super.included.apply(this, arguments);
   },
 
-  importFontAwesome: function(app) {
-    var projectConfig = this.project.config(app.env);
-    var config = projectConfig['ember-cli-notifications'] || { includeFontAwesome: false };
+  assignCssVariables(config) {
+    this.options = Object.assign({}, this.options, {
+      cssModules: {
+        virtualModules: {
+          'ember-cli-notifications-variables': {
+            '--red': config.redColour || '#e74c3c',
+            '--blue': config.blueColour || '#3ea2ff',
+            '--green': config.greenColour || '#64ce83',
+            '--orange': config.orangeColour || '#ff7f48',
+          }
+        }
+      }
+    });
+  },
+
+  importFontAwesome(configObject, app) {
+    const config = configObject || { includeFontAwesome: false };
 
     if (config.includeFontAwesome) {
       app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.eot', {

@@ -8,14 +8,14 @@
 @value --notification-border-radius: 3px;
 
 /* Colours */
-@value --red from '../addon';
-@value --blue from '../addon';
-@value --green from '../addon';
-@value --orange from '../addon';
+@value --red from 'ember-cli-notifications-variables';
+@value --blue from 'ember-cli-notifications-variables';
+@value --green from 'ember-cli-notifications-variables';
+@value --orange from 'ember-cli-notifications-variables';
 
 /* Spacing */
-@value --spacing-1 from '../addon';
-@value --spacing-2 from '../addon';
+@value --spacing-1: .5rem;
+@value --spacing-2: 1rem;
 
 /* Base */
 .c-notification {
