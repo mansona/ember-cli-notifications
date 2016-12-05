@@ -8,7 +8,7 @@ export default Component.extend({
   layout,
   styles,
 
-  localClassNameBindings: ['computedPosition'],
+  classNameBindings: ['computedPosition'],
 
   computedPosition: computed('position', function() {
     if (this.get('position')) return this.get(`styles.c-notification__container--${this.get('position')}`);
