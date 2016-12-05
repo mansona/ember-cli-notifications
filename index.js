@@ -30,10 +30,10 @@ module.exports = {
       cssModules: {
         virtualModules: {
           'ember-cli-notifications-variables': {
-            '--red': config.redColour || '#e74c3c',
-            '--blue': config.blueColour || '#3ea2ff',
-            '--green': config.greenColour || '#64ce83',
-            '--orange': config.orangeColour || '#ff7f48',
+            '--error-colour': config.errorColour || '#e74c3c',
+            '--info-colour': config.infoColour || '#3ea2ff',
+            '--success-colour': config.successColour || '#64ce83',
+            '--warn-colour': config.warnColour || '#ff7f48',
           }
         }
       }

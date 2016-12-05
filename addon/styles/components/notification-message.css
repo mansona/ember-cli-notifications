@@ -8,10 +8,10 @@
 @value --notification-border-radius: 3px;
 
 /* Colours */
-@value --red from 'ember-cli-notifications-variables';
-@value --blue from 'ember-cli-notifications-variables';
-@value --green from 'ember-cli-notifications-variables';
-@value --orange from 'ember-cli-notifications-variables';
+@value --error-colour from 'ember-cli-notifications-variables';
+@value --info-colour from 'ember-cli-notifications-variables';
+@value --success-colour from 'ember-cli-notifications-variables';
+@value --warn-colour from 'ember-cli-notifications-variables';
 
 /* Spacing */
 @value --spacing-1: .5rem;
@@ -89,22 +89,22 @@
 /* Theme */
 .c-notification--info {
   composes: c-notification;
-  background-color: --blue;
+  background-color: --info-colour;
 }
 
 .c-notification--success {
   composes: c-notification;
-  background-color: --green;
+  background-color: --success-colour;
 }
 
 .c-notification--warning {
   composes: c-notification;
-  background-color: --orange;
+  background-color: --warn-colour;
 }
 
 .c-notification--error {
   composes: c-notification;
-  background-color: --red;
+  background-color: --error-colour;
 }
 
 /* Keyframes */
