@@ -8,13 +8,10 @@ export default Component.extend({
   layout,
   styles,
 
-  localClassNameBindings: [
+  classNameBindings: [
     'dismissClass',
     'clickableClass',
-    'processedType'
-  ],
-
-  classNameBindings: [
+    'processedType',
     'notification.cssClasses'
   ],
 

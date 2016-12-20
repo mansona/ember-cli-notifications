@@ -1,14 +1,14 @@
 {
   "name": "ember-cli-notifications",
   "dependencies": {
-    "ember": "~2.7.0",
-    "ember-cli-shims": "0.1.1",
     "ember-qunit-notifications": "0.1.0",
     "highlightjs": "^9.4.0",
     "code-highlight-linenums": "^0.2.0"
   },
   "devDependencies": {
     "font-awesome": "~4.5.0",
-    "hljs-themes": "^0.0.7"
+    "hljs-themes": "^0.0.7",
+    "ember": "~2.10.0",
+    "ember-cli-shims": "0.1.3"
   }
 }
