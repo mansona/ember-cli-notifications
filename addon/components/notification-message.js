@@ -63,9 +63,10 @@ export default Component.extend({
     }
   }),
 
-  mouseDown() {
+  mouseDown(event) {
     if (this.get('notification.onClick')) {
-      this.get('notification.onClick')(this.get('notification'));
+      var isDissmised = event.target.className === this.get('closeIcon');
+      this.get('notification.onClick')(this.get('notification'), isDissmised, event);
     }
   },
   mouseEnter() {
