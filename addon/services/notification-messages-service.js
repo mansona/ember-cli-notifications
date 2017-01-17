@@ -96,7 +96,9 @@ export default Ember.ArrayProxy.extend({
     },
 
     clearAll() {
-        this.set('content', Ember.A());
+        this.get('content').forEach(notification => {
+            this.removeNotification(notification);
+        });
     },
 
     setDefaultAutoClear(autoClear) {
