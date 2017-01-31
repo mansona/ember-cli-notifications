@@ -68,6 +68,25 @@ this.get('notifications').success('Saved successfully!');
 this.get('notifications').warning('You have unsaved changes');
     {{/themed-syntax}}
 
+    <h3>component</h3>
+    <p>A custom component may be used for rendering the message</p>
+
+    {{#themed-syntax lang="htmlbars" theme="dark" class="h5" withBuffers=false}}
+&lt;h1&gt;&#123;&#123;message.title&#125;&#125;&lt;/h1&gt;
+&lt;span class='count'&gt;&#123;&#123;message.count&#125;&#125;&lt;/span&gt;
+    {{/themed-syntax}}
+
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
+let message = {
+  title: 'You have unread messages',
+  count: 3,
+};
+
+this.get('notifications').info(message, {
+  component: 'unread-message'
+});
+    {{/themed-syntax}}
+
     <h3>htmlContent</h3>
     <p>You can enable basic HTML markup for notification messages.</p>
     <p><b>Warning:</b> This introduces a potential security risk since the notification message will no longer be escaped by Ember.</p>
