@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 const assign = Ember.assign || Ember.merge;
 
-export default Ember.ArrayProxy.extend({
+const NotificationMessagesService = Ember.ArrayProxy.extend({
     content: Ember.A(),
 
     defaultClearDuration: 3200,
@@ -117,3 +117,9 @@ export default Ember.ArrayProxy.extend({
       this.set('defaultClearDuration', clearDuration);
     }
 });
+
+NotificationMessagesService.reopenClass({
+    isServiceFactory: true,
+});
+
+export default NotificationMessagesService;
