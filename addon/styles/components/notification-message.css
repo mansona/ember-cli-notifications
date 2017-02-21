@@ -48,11 +48,6 @@
   justify-content: space-between;
   padding: --spacing-1 --spacing-2;
   word-break: break-word;
-
-  a {
-    color: #fff;
-    text-decoration: underline;
-  }
 }
 
 .c-notification__icon {
