@@ -1,17 +1,9 @@
 #!/bin/sh
-npm run test-css 2> errors.txt > /dev/null
+VAR=$((npm run test-css > /dev/null) 2>&1)
 
-ls
-ls dist
-ls dist/assets/
-
-echo wtf!?
-
-cat errors.txt
-
-if [ -s errors.txt ]
+if [ -n "$VAR" ]
 then
-  cat errors.txt
+  echo $VAR;
   exit 1
 else
   exit 0
