@@ -1,6 +1,12 @@
 #!/bin/sh
 npm run test-css 2> errors.txt > /dev/null
 
+ls
+ls dist
+ls dist/assets/
+
+echo wtf!?
+
 cat errors.txt
 
 if [ -s errors.txt ]
