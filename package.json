@@ -10,6 +10,7 @@
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each",
+    "test-css": "cleancss dist/assets/*.css",
     "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push; git checkout -"
   },
   "repository": {
@@ -32,6 +33,7 @@
     "basscss-darken": "^1.1.0",
     "basscss-forms": "^1.0.0",
     "broccoli-asset-rev": "^2.4.5",
+    "clean-css-cli": "^4.0.8",
     "ember-ajax": "^2.4.1",
     "ember-cli": "2.10.0",
     "ember-cli-app-version": "^2.0.0",
