@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 VAR=$((npm run test-css > /dev/null) 2>&1)
 
 if [ -n "$VAR" ]
