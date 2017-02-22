@@ -1,6 +1,8 @@
 #!/bin/sh
 npm run test-css 2> errors.txt > /dev/null
 
+cat errors.txt
+
 if [ -s errors.txt ]
 then
   cat errors.txt
