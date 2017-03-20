@@ -68,7 +68,7 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.7",
     "ember-cli-htmlbars": "^1.0.10",
-    "ember-css-modules": "^0.6.4",
+    "ember-css-modules": "^0.6.5",
     "ember-runtime-enumerable-includes-polyfill": "^1.0.1",
     "postcss-cssnext": "^2.6.0"
   },
