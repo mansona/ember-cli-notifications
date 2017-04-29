@@ -49,7 +49,7 @@
   padding: --spacing-1 --spacing-2;
   word-break: break-word;
 
-  a {
+  & a {
     color: #fff;
     text-decoration: underline;
   }
