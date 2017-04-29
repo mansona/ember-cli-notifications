@@ -1204,7 +1204,7 @@ broccoli-config-replace@^1.1.2:
     debug "^2.2.0"
     fs-extra "^0.24.0"
 
-broccoli-css-modules@^0.5.3:
+broccoli-css-modules@^0.5.5:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/broccoli-css-modules/-/broccoli-css-modules-0.5.5.tgz#c355ae4279c1062f9cae1c6954d2f49ac9700859"
   dependencies:
@@ -2339,12 +2339,12 @@ ember-computed-decorators@0.2.2:
   dependencies:
     ember-cli-babel "^5.1.5"
 
-ember-css-modules@^0.6.4:
-  version "0.6.5"
-  resolved "https://registry.yarnpkg.com/ember-css-modules/-/ember-css-modules-0.6.5.tgz#89c8f9bb71d1e99e692a2a5d3cca4bf4a2813dfb"
+ember-css-modules@0.7.0-beta.1:
+  version "0.7.0-beta.1"
+  resolved "https://registry.yarnpkg.com/ember-css-modules/-/ember-css-modules-0.7.0-beta.1.tgz#7fb6885a23fc0e222b76d2bee6bbbb0c01956540"
   dependencies:
     broccoli-concat "^3.2.2"
-    broccoli-css-modules "^0.5.3"
+    broccoli-css-modules "^0.5.5"
     broccoli-funnel "^1.0.7"
     broccoli-merge-trees "^2.0.0"
     debug "^2.6.3"
