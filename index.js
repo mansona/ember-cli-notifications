@@ -1,6 +1,12 @@
 /* eslint-env node */
 'use strict';
 
+const Funnel = require('broccoli-funnel');
+const path = require('path');
+const fs = require('fs');
+
+const faPath = path.dirname(require.resolve('font-awesome/package.json'));
+
 module.exports = {
   name: 'ember-cli-notifications',
 
@@ -15,33 +21,46 @@ module.exports = {
     }
   },
 
-  included: function(app) {
-    this._super.included.call(this, app);
+  treeForVendor() {
+    return new Funnel(faPath, {
+      destDir: 'font-awesome',
+      include: ['css/*', `fonts/*`]
+    });
+  },
+
+  included(app) {
+    this._super.included.apply(this, arguments);
+
+    // see: https://github.com/ember-cli/ember-cli/issues/3718
+    if (typeof app.import !== 'function' && app.app) {
+      app = app.app;
+    }
+
+    this.app = app;
 
     this.importFontAwesome(app);
   },
 
-  importFontAwesome: function(app) {
-    var projectConfig = this.project.config(app.env);
-    var config = projectConfig['ember-cli-notifications'] || { includeFontAwesome: false };
+  importFontAwesome(app) {
+    const cssPath = 'vendor/font-awesome/css';
+    const fontsPath = 'vendor/font-awesome/fonts';
+    const absoluteFontsPath = path.join(faPath, 'fonts');
+    const fontsToImport = fs.readdirSync(absoluteFontsPath);
+
+    const projectConfig = this.project.config(app.env);
+    const config = projectConfig['ember-cli-notifications'] || { includeFontAwesome: false };
 
     if (config.includeFontAwesome) {
-      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.eot', {
-        destDir: 'fonts'
+      fontsToImport.forEach((fontFilename) => {
+        app.import(
+          path.join(fontsPath, fontFilename),
+          { destDir: '/fonts' }
+        );
       });
-      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.svg', {
-        destDir: 'fonts'
+      app.import({
+        development: path.join(cssPath, 'font-awesome.css'),
+        production: path.join(cssPath, 'font-awesome.min.css')
       });
-      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.ttf', {
-        destDir: 'fonts'
-      });
-      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.woff', {
-        destDir: 'fonts'
-      });
-      app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.woff2', {
-        destDir: 'fonts'
-      });
-      app.import(app.bowerDirectory + '/font-awesome/css/font-awesome.css');
     }
   }
 };
