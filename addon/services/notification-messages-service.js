@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 const assign = Ember.assign || Ember.merge;
 
-export default Ember.ArrayProxy.extend({
+const NotificationMessagesService = Ember.ArrayProxy.extend({
     content: Ember.A(),
 
     defaultClearDuration: 3200,
@@ -36,28 +36,28 @@ export default Ember.ArrayProxy.extend({
 
     // Helper methods for each type of notification
     error(message, options) {
-      this.addNotification(assign({
+      return this.addNotification(assign({
         message: message,
         type: 'error'
       }, options));
     },
 
     success(message, options) {
-      this.addNotification(assign({
+      return this.addNotification(assign({
         message: message,
         type: 'success'
       }, options));
     },
 
     info(message, options) {
-      this.addNotification(assign({
+      return this.addNotification(assign({
         message: message,
         type: 'info'
       }, options));
     },
 
     warning(message, options) {
-      this.addNotification(assign({
+      return this.addNotification(assign({
         message: message,
         type: 'warning'
       }, options));
@@ -117,3 +117,9 @@ export default Ember.ArrayProxy.extend({
       this.set('defaultClearDuration', clearDuration);
     }
 });
+
+NotificationMessagesService.reopenClass({
+    isServiceFactory: true,
+});
+
+export default NotificationMessagesService;
