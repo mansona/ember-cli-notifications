@@ -41,8 +41,10 @@ notifications: Ember.inject.service('notification-messages')
     <p>Or inject it everywhere with an initializer (app/initializers/inject-notifications.js):</p>
     {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 export function initialize(application) {
-  application.inject('controller', 'notifications', 'service:notification-messages');
-}
+  ['controller', 'component', 'route'].forEach(injectionTarget => {
+    application.inject(injectionTarget, 'notifications', 'notification-messages:service');
+  });
+};
 
 export default {
   name: 'inject-notifications',
