@@ -1,6 +1,6 @@
 /* Values */
 @value --container-position: 10px;
-@value --container-zindex: 1060;
+@value --container-position: 10px;
 @value --container-width: 80%;
 @value --container-max-with: 400px;
 
@@ -8,7 +8,6 @@
 .c-notification__container {
   position: fixed;
   margin: 0 auto;
-  z-index: --container-zindex;
   width: --container-width;
   max-width: --container-max-with;
 }
