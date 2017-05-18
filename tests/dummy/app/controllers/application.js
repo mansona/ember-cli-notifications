@@ -10,6 +10,7 @@ export default Controller.extend({
   clearDuration: 2400,
   htmlContent: false,
   position: 'top',
+  zindex: '9999',
   cssClasses: 'profile-saved-success-notification',
 
   notifications: service('notification-messages'),
