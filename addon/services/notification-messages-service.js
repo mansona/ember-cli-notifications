@@ -118,7 +118,7 @@ const NotificationMessagesService = ArrayProxy.extend({
 });
 
 NotificationMessagesService.reopenClass({
-    isServiceFactory: true,
+  isServiceFactory: true
 });
 
 export default NotificationMessagesService;
