@@ -96,9 +96,11 @@ const NotificationMessagesService = Ember.ArrayProxy.extend({
     },
 
     clearAll() {
-        this.get('content').forEach(notification => {
-            this.removeNotification(notification);
-        });
+      this.get('content').forEach(notification => {
+          this.removeNotification(notification);
+      });
+
+      return this;
     },
 
     setDefaultAutoClear(autoClear) {
@@ -107,6 +109,8 @@ const NotificationMessagesService = Ember.ArrayProxy.extend({
       }
 
       this.set('defaultAutoClear', autoClear);
+
+      return this;
     },
 
     setDefaultClearDuration(clearDuration) {
@@ -115,6 +119,8 @@ const NotificationMessagesService = Ember.ArrayProxy.extend({
       }
 
       this.set('defaultClearDuration', clearDuration);
+
+      return this;
     }
 });
 

@@ -174,8 +174,7 @@ this.get('notifications').setDefaultClearDuration(1200);
     <h3>clearAll</h3>
     <p>You can remove all present notifications before adding a new one.</p>
     {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-this.get('notifications').clearAll();
-this.get('notifications').success('Saved successfully!', {
+this.get('notifications').clearAll().success('Saved successfully!', {
   autoClear: true
 });
     {{/themed-syntax}}
