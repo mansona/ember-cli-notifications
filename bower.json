@@ -3,7 +3,6 @@
   "dependencies": {},
   "devDependencies": {
     "code-highlight-linenums": "^0.2.0",
-    "font-awesome": "~4.5.0",
     "highlightjs": "^9.4.0",
     "hljs-themes": "^0.0.7"
   }
