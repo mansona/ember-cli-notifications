@@ -23,7 +23,6 @@ module.exports = function(environment) {
     },
 
     'ember-cli-notifications': {
-      includeFontAwesome: true,
       autoClear: false,
       clearDuration: 2400
     }
