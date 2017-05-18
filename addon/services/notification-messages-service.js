@@ -36,28 +36,28 @@ export default Ember.ArrayProxy.extend({
 
     // Helper methods for each type of notification
     error(message, options) {
-      this.addNotification(assign({
+      return this.addNotification(assign({
         message: message,
         type: 'error'
       }, options));
     },
 
     success(message, options) {
-      this.addNotification(assign({
+      return this.addNotification(assign({
         message: message,
         type: 'success'
       }, options));
     },
 
     info(message, options) {
-      this.addNotification(assign({
+      return this.addNotification(assign({
         message: message,
         type: 'info'
       }, options));
     },
 
     warning(message, options) {
-      this.addNotification(assign({
+      return this.addNotification(assign({
         message: message,
         type: 'warning'
       }, options));
