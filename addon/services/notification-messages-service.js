@@ -17,6 +17,7 @@ const NotificationMessagesService = Ember.ArrayProxy.extend({
         const notification = Ember.Object.create({
             message: options.message,
             type: options.type || 'info', // info, success, warning, error
+            component: options.component,
             autoClear: (Ember.isEmpty(options.autoClear) ? this.get('defaultAutoClear') : options.autoClear),
             clearDuration: options.clearDuration || this.get('defaultClearDuration'),
             onClick: options.onClick,
