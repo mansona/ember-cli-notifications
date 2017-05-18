@@ -7,7 +7,7 @@ export default Controller.extend({
   htmlMessage: '<b>HTML notification message</b>',
   type: 'success',
   autoClear: true,
-  clearDuration: 2400,
+  clearDuration: 2800,
   htmlContent: false,
   position: 'top',
   zindex: '9999',

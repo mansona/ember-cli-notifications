@@ -38,8 +38,9 @@ ember install ember-cli-notifications
 notifications: Ember.inject.service('notification-messages')
     {{/themed-syntax}}
 
-    <p>Or inject it everywhere with an initializer (app/initializers/inject-notifications.js):</p>
+    <p>Or inject it everywhere with an initializer.</p>
     {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
+// app/initializers/inject-notifications.js
 export function initialize(application) {
   ['controller', 'component', 'route'].forEach(injectionTarget => {
     application.inject(injectionTarget, 'notifications', 'notification-messages:service');
@@ -152,10 +153,6 @@ this.get('notifications').success('Saved successfully!', {
   autoClear: true
 });
     {{/themed-syntax}}
-    <p>Set a global default value.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-this.get('notifications').setDefaultAutoClear(true);
-    {{/themed-syntax}}
 
     <h3>clearDuration</h3>
     <p>Specify a duration (ms) before the notification clears. This will take precedence over the global default value.</p>
@@ -165,10 +162,6 @@ this.get('notifications').success('Saved successfully!', {
   autoClear: true,
   clearDuration: 1200
 });
-    {{/themed-syntax}}
-    <p>Set a global default value.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-this.get('notifications').setDefaultClearDuration(1200);
     {{/themed-syntax}}
 
     <h3>clearAll</h3>
@@ -225,12 +218,24 @@ this.get('notifications').error('Something went wrong. Click to try again', {
   <div class="py2">
     <h2>Config</h2>
     <hr>
+    <h3>Globals</h3>
+    <p>Set the global default values for <b>autoClear</b> and <b>clearDuration</b>.</p>
+    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
+// config/environment.js
+var ENV = {
+  'ember-cli-notifications': {
+    autoClear: true,
+    clearDuration: 2400
+  }
+}
+    {{/themed-syntax}}
     <h3>Icons</h3>
     <p><a href="http://fontawesome.io/" target="_blank">Font Awesome</a> is a requirement to display the icons on the notifications.</p>
 
     <p>If Font Awesome is not already included in the consuming application, add the following to your environment config file.</p>
 
     {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
+// config/environment.js
 var ENV = {
   'ember-cli-notifications': {
     includeFontAwesome: true
@@ -241,6 +246,7 @@ var ENV = {
     <p>Alternatively, the notifications can use the <a href="http://getbootstrap.com/components/#glyphicons" target="_blank">Glyphicons</a> icon package. Glyphicons will <b>not</b> added to your application via this addon.</p>
 
     {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
+// config/environment.js
 var ENV = {
   'ember-cli-notifications': {
     icons: 'bootstrap'
