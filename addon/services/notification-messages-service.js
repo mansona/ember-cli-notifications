@@ -8,26 +8,12 @@ const {
   ArrayProxy,
   A,
   Object,
-  isEmpty,
+  getWithDefault,
   run
 } = Ember;
 
-// Set global values for user configurable options
-function setGlobal(property, value) {
-  let global = value;
-
-  // If the value exists in app config object, set that as global
-  if (property) global = property;
-
-  // Otherwise return the default value
-  return global;
-}
-
 const NotificationMessagesService = ArrayProxy.extend({
   content: A(),
-
-  globalAutoClear: setGlobal(globals.autoClear, false),
-  globalClearDuration: setGlobal(globals.clearDuration, 3200),
 
   // Method for adding a notification
   addNotification(options) {
@@ -39,8 +25,8 @@ const NotificationMessagesService = ArrayProxy.extend({
     const notification = Object.create({
       message: options.message,
       type: options.type || 'info',
-      autoClear: (isEmpty(options.autoClear) ? this.get('globalAutoClear') : options.autoClear),
-      clearDuration: (isEmpty(options.clearDuration) ? this.get('globalClearDuration') : options.clearDuration),
+      autoClear: options.autoClear || getWithDefault(globals, 'autoClear', false),
+      clearDuration: options.clearDuration || getWithDefault(globals, 'clearDuration', 5000),
       onClick: options.onClick,
       htmlContent: options.htmlContent || false,
       cssClasses: options.cssClasses
