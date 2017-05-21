@@ -230,15 +230,15 @@ var ENV = {
 }
     {{/themed-syntax}}
     <h3>Icons</h3>
-    <p><a href="http://fontawesome.io/" target="_blank">Font Awesome</a> is a requirement to display the icons on the notifications.</p>
+    <p><a href="http://fontawesome.io/" target="_blank">Font Awesome</a> is a requirement to display the icons on the notifications and is installed as a dependency.</p>
 
-    <p>If Font Awesome is not already included in the consuming application, add the following to your environment config file.</p>
+    <p>If you don't want to import the Font Awesome assets into the consuming application, add the following to the app config file.</p>
 
     {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 // config/environment.js
 var ENV = {
   'ember-cli-notifications': {
-    includeFontAwesome: true
+    includeFontAwesome: false
   }
 }
     {{/themed-syntax}}
