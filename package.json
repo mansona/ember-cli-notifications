@@ -29,10 +29,10 @@
     "broccoli-funnel": "^1.2.0",
     "ember-cli-babel": "^5.1.7",
     "ember-cli-htmlbars": "^1.1.1",
-    "ember-css-modules": "0.7.0",
+    "ember-css-modules": "0.7.2",
     "ember-runtime-enumerable-includes-polyfill": "^2.0.0",
     "font-awesome": "^4.7.0",
-    "postcss-cssnext": "^2.6.0"
+    "postcss-cssnext": "^3.0.2"
   },
   "devDependencies": {
     "basscss": "^8.0.1",
