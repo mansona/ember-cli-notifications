@@ -63,7 +63,7 @@
     "ember-radio-button": "1.1.1",
     "ember-resolver": "^2.0.3",
     "ember-source": "~2.12.0",
-    "ember-themed-syntax": "0.0.7",
+    "ember-themed-syntax": "0.1.0",
     "loader.js": "^4.2.3",
     "postcss-import": "^10.0.0"
   },
