@@ -7,7 +7,6 @@ const globals = config['ember-cli-notifications']; // Import app config object
 const {
   ArrayProxy,
   A,
-  Object,
   isEmpty,
   getWithDefault,
   run
@@ -23,7 +22,7 @@ const NotificationMessagesService = ArrayProxy.extend({
       throw new Error("No notification message set");
     }
 
-    const notification = Object.create({
+    const notification = Ember.Object.create({
       message: options.message,
       type: options.type || 'info',
       autoClear: (isEmpty(options.autoClear) ? getWithDefault(globals, 'autoClear', false) : options.autoClear),
