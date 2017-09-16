@@ -68,7 +68,7 @@
     "highlightjs": "^9.10.0",
     "hljs-themes": "^1.0.0",
     "loader.js": "^4.2.3",
-    "postcss-import": "^10.0.0"
+    "postcss-import": "^11.0.0"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
