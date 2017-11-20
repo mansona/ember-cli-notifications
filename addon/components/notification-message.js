@@ -1,8 +1,10 @@
+import { htmlSafe } from '@ember/string';
+import { A } from '@ember/array';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import Ember from 'ember';
 import layout from '../templates/components/notification-message';
 import styles from '../styles/components/notification-message';
-
-const { Component, computed } = Ember;
 
 export default Component.extend({
   layout,
@@ -83,7 +85,7 @@ export default Component.extend({
   },
 
   processedType: computed('notification.type', function() {
-    if (this.get('notification.type') && Ember.A(['info', 'success', 'warning', 'error']).includes(this.get('notification.type'))) {
+    if (this.get('notification.type') && A(['info', 'success', 'warning', 'error']).includes(this.get('notification.type'))) {
       return this.get(`styles.c-notification--${this.get('notification.type')}`);
     }
   }),
@@ -92,7 +94,7 @@ export default Component.extend({
   notificationClearDuration: computed('paused', 'notification.clearDuration', function() {
     const duration = Ember.Handlebars.Utils.escapeExpression(this.get('notification.clearDuration'));
     const playState = this.get('paused') ? 'paused' : 'running';
-    return Ember.String.htmlSafe(`animation-duration: ${duration}ms; -webkit-animation-duration: ${duration}ms; animation-play-state: ${playState}; -webkit-animation-play-state: ${playState}`);
+    return htmlSafe(`animation-duration: ${duration}ms; -webkit-animation-duration: ${duration}ms; animation-play-state: ${playState}; -webkit-animation-play-state: ${playState}`);
   }),
 
   actions: {
