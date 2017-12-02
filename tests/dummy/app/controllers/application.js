@@ -1,6 +1,7 @@
-import Ember from 'ember';
-
-const { Controller, computed, inject: { service } } = Ember;
+import { not } from '@ember/object/computed';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   message: 'Notification message',
@@ -15,7 +16,7 @@ export default Controller.extend({
 
   notifications: service('notification-messages'),
 
-  disableTimeoutInput: computed.not('autoClear'),
+  disableTimeoutInput: not('autoClear'),
 
   computedMessage: computed('htmlContent', function() {
     if (this.get('htmlContent')) return this.get('htmlMessage');

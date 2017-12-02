@@ -42,7 +42,7 @@ module.exports = {
     this.app = app;
 
     // Don't import Font Awesome assets if specified in consuming app
-    if (config.includeFontAwesome !== false) {
+    if (config && config.includeFontAwesome && config.includeFontAwesome !== false) {
       this.importFontAwesome(app);
     }
   },

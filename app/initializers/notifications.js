@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Service from '@ember/service';
 import NotificationMessagesService from 'ember-cli-notifications/services/notification-messages-service';
 
 export default {
@@ -6,7 +6,7 @@ export default {
 
     initialize() {
         let application = arguments[1] || arguments[0];
-        if (Ember.Service) {
+        if (Service) {
           application.register('service:notification-messages', NotificationMessagesService);
           application.inject('component:notification-container', 'notifications', 'service:notification-messages');
           application.inject('component:notification-message', 'notifications', 'service:notification-messages');

@@ -1,16 +1,13 @@
-import Ember from 'ember';
+import { assign, merge } from '@ember/polyfills';
+import ArrayProxy from '@ember/array/proxy';
+import { A } from '@ember/array';
+import { isEmpty } from '@ember/utils';
+import EmberObject, { getWithDefault } from '@ember/object';
+import { run } from '@ember/runloop';
 import config from 'ember-get-config';
 
-const assign = Ember.assign || Ember.merge;
+const notificationAssign = assign || merge;
 const globals = config['ember-cli-notifications']; // Import app config object
-
-const {
-  ArrayProxy,
-  A,
-  isEmpty,
-  getWithDefault,
-  run
-} = Ember;
 
 const NotificationMessagesService = ArrayProxy.extend({
   content: A(),
@@ -22,7 +19,7 @@ const NotificationMessagesService = ArrayProxy.extend({
       throw new Error("No notification message set");
     }
 
-    const notification = Ember.Object.create({
+    const notification = EmberObject.create({
       message: options.message,
       type: options.type || 'info',
       autoClear: (isEmpty(options.autoClear) ? getWithDefault(globals, 'autoClear', false) : options.autoClear),
@@ -45,28 +42,28 @@ const NotificationMessagesService = ArrayProxy.extend({
 
   // Helper methods for each type of notification
   error(message, options) {
-    return this.addNotification(assign({
+    return this.addNotification(notificationAssign({
       message: message,
       type: 'error'
     }, options));
   },
 
   success(message, options) {
-    return this.addNotification(assign({
+    return this.addNotification(notificationAssign({
       message: message,
       type: 'success'
     }, options));
   },
 
   info(message, options) {
-    return this.addNotification(assign({
+    return this.addNotification(notificationAssign({
       message: message,
       type: 'info'
     }, options));
   },
 
   warning(message, options) {
-    return this.addNotification(assign({
+    return this.addNotification(notificationAssign({
       message: message,
       type: 'warning'
     }, options));
