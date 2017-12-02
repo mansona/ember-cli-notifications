@@ -7,7 +7,6 @@ const globals = config['ember-cli-notifications']; // Import app config object
 const {
   ArrayProxy,
   A,
-  isEmpty,
   getWithDefault,
   run
 } = Ember;
@@ -15,32 +14,45 @@ const {
 const NotificationMessagesService = ArrayProxy.extend({
   content: A(),
 
-  // Method for adding a notification
-  addNotification(options) {
-    // If no message is set, throw an error
-    if (!options.message) {
-      throw new Error("No notification message set");
+  _setupNotification(options, notification=Ember.Object.create()) {
+    if (Object.keys(notification).length === 0) {
+      // If no message is set, throw an error
+      if (!options.message) {
+        throw new Error("No notification message set");
+      }
+
+      // set default values for new notification
+      notification.setProperties({
+        type: 'info',
+        autoClear: getWithDefault(globals, 'autoClear', false),
+        clearDuration: getWithDefault(globals, 'clearDuration', 5000),
+        htmlContent: false,
+      });
     }
 
-    const notification = Ember.Object.create({
-      message: options.message,
-      type: options.type || 'info',
-      autoClear: (isEmpty(options.autoClear) ? getWithDefault(globals, 'autoClear', false) : options.autoClear),
-      clearDuration: options.clearDuration || getWithDefault(globals, 'clearDuration', 5000),
-      onClick: options.onClick,
-      htmlContent: options.htmlContent || false,
-      cssClasses: options.cssClasses
+    Object.keys(options).forEach((key) => {
+      if (key in options) {
+        notification.set(key, options[key]);
+      }
     });
 
-    this.pushObject(notification);
-
-    if (notification.autoClear) {
+    if (options.autoClear || options.clearDuration) {
       notification.set('remaining', notification.get('clearDuration'));
-
       this.setupAutoClear(notification);
     }
 
     return notification;
+  },
+
+  addNotification(options) {
+    return this.pushObject(this._setupNotification(options));
+  },
+
+  changeNotification(notification, options) {
+    if (!notification) {
+      return;
+    }
+    return this._setupNotification(options, notification);
   },
 
   // Helper methods for each type of notification
