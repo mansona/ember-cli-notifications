@@ -43,3 +43,15 @@ script:
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+jobs:
+  include:
+  - stage: NPM Release
+    if: tag =~ ^v
+    deploy:
+      provider: npm
+      email: jonathan@steele.pro
+      api_key:
+        secure: hDfA9gKe/qenuULf+J1/s/V35z/7kJP7es6CTS4PXbLliE2ydX5hll+VJUtuJgUENM3k8pvLrVzmxHzRnCJ2OVbcrOnx3DTzEqU3JHX2tdgnlx/XbM+P14RKQLlfKL4muXRuI6jtg6TyEmLQj2Lxwsw9BsWAiINa4LeBMy3zPGs=
+      on:
+        tags: true
+        repo: stonecircle/ember-cli-notifications
