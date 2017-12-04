@@ -7,11 +7,12 @@ export default Controller.extend({
   message: 'Notification message',
   htmlMessage: '<b>HTML notification message</b>',
   type: 'success',
-  autoClear: true,
+  autoClear: false,
   clearDuration: 2800,
   htmlContent: false,
   position: 'top',
   zindex: '9999',
+  clearAll: true,
   cssClasses: 'profile-saved-success-notification',
 
   notifications: service('notification-messages'),

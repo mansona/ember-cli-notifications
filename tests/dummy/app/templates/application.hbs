@@ -89,7 +89,7 @@ this.get('notifications').info('You have &lt;b&gt;one&lt;/b&gt; unread message',
         </div>
         <div class="px2">
           <h4>Type</h4>
-          <div class="sm-flex mxn1">
+          <div data-test-radio-html class="sm-flex mxn1">
             <div class="px1 mb1">
               {{radio-button value="success" groupValue=type}}
               <label>Success</label>
@@ -138,7 +138,7 @@ this.get('notifications').info('You have &lt;b&gt;one&lt;/b&gt; unread message',
           </div>
         </div>
       </div>
-      <button class="btn btn-primary" {{action "showNotifcation"}}>Show</button>
+      <button class="btn btn-primary" data-test-button-html-show {{action "showNotifcation"}}>Show</button>
     </div>
   </div>
   <div class="py2">
