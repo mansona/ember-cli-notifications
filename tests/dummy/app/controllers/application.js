@@ -37,6 +37,9 @@ export default Controller.extend({
         clearDuration: this.get('clearDuration'),
         htmlContent: this.get('htmlContent')
       });
+    },
+    showDefaultWarning() {
+      this.get('notifications').warning("Don't panic; this is only a test.");
     }
   }
 });
