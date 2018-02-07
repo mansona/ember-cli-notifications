@@ -1,8 +1,10 @@
 import NotificationMessage from 'ember-cli-notifications/components/notification-message';
-import ENV from '../config/environment';
-
-const config = ENV['ember-cli-notifications'] || {};
+import { getOwner } from '@ember/application';
+import { computed } from '@ember/object';
 
 export default NotificationMessage.extend({
-  icons: config.icons || 'font-awesome'
+  icons: computed(function() {
+    const config = getOwner(this).resolveRegistration('config:environment')['ember-cli-notifications'] || {};
+    return config.icons || 'font-awesome';
+  })
 });

@@ -1,16 +1,22 @@
+import { getOwner } from '@ember/application';
+import { A } from '@ember/array';
+import EmberObject, { computed } from '@ember/object';
 import { assign, merge } from '@ember/polyfills';
 import ArrayProxy from '@ember/array/proxy';
-import { A } from '@ember/array';
-import { isEmpty } from '@ember/utils';
-import EmberObject, { getWithDefault } from '@ember/object';
 import { run } from '@ember/runloop';
-import config from 'ember-get-config';
 
 const notificationAssign = assign || merge;
-const globals = config['ember-cli-notifications']; // Import app config object
 
 const NotificationMessagesService = ArrayProxy.extend({
   content: A(),
+
+  _defaultOptions: computed(function() {
+    const envOptions = getOwner(this).resolveRegistration('config:environment')['ember-cli-notifications'];
+    return notificationAssign({
+      autoClear: false,
+      clearDuration: 5000
+    }, envOptions);
+  }),
 
   // Method for adding a notification
   addNotification(options) {
@@ -19,11 +25,14 @@ const NotificationMessagesService = ArrayProxy.extend({
       throw new Error("No notification message set");
     }
 
+    // Override defaults with environment and override that with passed-in values
+    const { autoClear, clearDuration } = notificationAssign(this.get('_defaultOptions'), options);
+
     const notification = EmberObject.create({
       message: options.message,
       type: options.type || 'info',
-      autoClear: (isEmpty(options.autoClear) ? getWithDefault(globals, 'autoClear', false) : options.autoClear),
-      clearDuration: options.clearDuration || getWithDefault(globals, 'clearDuration', 5000),
+      autoClear,
+      clearDuration,
       onClick: options.onClick,
       htmlContent: options.htmlContent || false,
       cssClasses: options.cssClasses
