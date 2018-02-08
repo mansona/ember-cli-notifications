@@ -65,11 +65,13 @@ export default Component.extend({
     }
   }),
 
-  mouseDown() {
+  mouseDown(event) {
     if (this.get('notification.onClick')) {
-      this.get('notification.onClick')(this.get('notification'));
+      let isDissmised = event ? event.target.className === this.get('closeIcon') : undefined;
+      this.get('notification.onClick')(this.get('notification'), isDissmised, event);
     }
   },
+  
   mouseEnter() {
     if (this.get('notification.autoClear')) {
       this.set('paused', true);
