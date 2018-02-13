@@ -56,13 +56,13 @@ export default Component.extend({
     if (icons === 'custom') {
       switch (this.get('notification.type')){
         case "info":
-          return this.get('info-icon');
+          return this.get('infoIcon');
         case "success":
-          return this.get('success-icon');
+          return this.get('successIcon');
         case "warning":
-          return this.get('warning-icon');
+          return this.get('warningIcon');
         case "error":
-          return this.get('error-icon');
+          return this.get('errorIcon');
       }
     }
 
