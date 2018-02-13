@@ -53,6 +53,19 @@ export default Component.extend({
       }
     }
 
+    if (icons === 'custom') {
+      switch (this.get('notification.type')){
+        case "info":
+          return this.get('info-icon');
+        case "success":
+          return this.get('success-icon');
+        case "warning":
+          return this.get('warning-icon');
+        case "error":
+          return this.get('error-icon');
+      }
+    }
+
     switch (this.get('notification.type')){
       case "info":
         return 'fa fa-info-circle';
