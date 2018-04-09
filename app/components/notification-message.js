@@ -8,5 +8,6 @@ export default NotificationMessage.extend({
   successIcon: config.successIcon || 'fa fa-check',
   infoIcon: config.infoIcon || 'fa fa-info-circle',
   warningIcon: config.warningIcon || 'fa fa-warning',
-  errorIcon: config.errorIcon || 'fa fa-exclamation-circle'
+  errorIcon: config.errorIcon || 'fa fa-exclamation-circle',
+  closeIcon: config.closeIcon || 'fa fa-times'
 });

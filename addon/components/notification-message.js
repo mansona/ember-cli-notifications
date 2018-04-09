@@ -34,6 +34,8 @@ export default Component.extend({
   closeIcon: computed('icons', function() {
     if (this.get('icons') === 'bootstrap') return 'glyphicon glyphicon-remove';
 
+    if (icons === 'custom') return this.get('closeIcon');
+
     return 'fa fa-times';
   }),
 
