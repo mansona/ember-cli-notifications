@@ -53,7 +53,7 @@ jobs:
     if: tag =~ ^v
     deploy:
       provider: npm
-      email: jonathan@steele.pro
+      email: chris@stonecircle.io
       api_key:
         secure: hDfA9gKe/qenuULf+J1/s/V35z/7kJP7es6CTS4PXbLliE2ydX5hll+VJUtuJgUENM3k8pvLrVzmxHzRnCJ2OVbcrOnx3DTzEqU3JHX2tdgnlx/XbM+P14RKQLlfKL4muXRuI6jtg6TyEmLQj2Lxwsw9BsWAiINa4LeBMy3zPGs=
       on:
