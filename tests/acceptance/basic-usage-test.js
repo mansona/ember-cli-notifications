@@ -1,53 +1,46 @@
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
+import { find, click, visit } from '@ember/test-helpers';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 
-moduleForAcceptance('Acceptance | basic usage', {
-  needs: ['service:notification-messages']
-});
+module('Acceptance | basic usage', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('click show works with no config changes', function(assert) {
-  visit('/');
+  test('click show works with no config changes', async function(assert) {
+    await visit('/');
 
-  click('[data-test-button-html-show]');
+    await click('[data-test-button-html-show]');
 
-  andThen(function() {
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').text().trim(), 'Notification message');
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').attr('data-test-notification-message'), 'success');
+    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
+    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'success');
   });
-});
 
-test('info message works', function(assert) {
-  visit('/');
+  test('info message works', async function(assert) {
+    await visit('/');
 
-  click('[data-test-radio-html] [value="info"]');
-  click('[data-test-button-html-show]');
+    await click('[data-test-radio-html] [value="info"]');
+    await click('[data-test-button-html-show]');
 
-  andThen(function() {
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').text().trim(), 'Notification message');
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').attr('data-test-notification-message'), 'info');
+    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
+    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'info');
   });
-});
 
-test('error message works', function(assert) {
-  visit('/');
+  test('error message works', async function(assert) {
+    await visit('/');
 
-  click('[data-test-radio-html] [value="error"]');
-  click('[data-test-button-html-show]');
+    await click('[data-test-radio-html] [value="error"]');
+    await click('[data-test-button-html-show]');
 
-  andThen(function() {
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').text().trim(), 'Notification message');
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').attr('data-test-notification-message'), 'error');
+    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
+    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'error');
   });
-});
 
-test('warning message works', function(assert) {
-  visit('/');
+  test('warning message works', async function(assert) {
+    await visit('/');
 
-  click('[data-test-radio-html] [value="warning"]');
-  click('[data-test-button-html-show]');
+    await click('[data-test-radio-html] [value="warning"]');
+    await click('[data-test-button-html-show]');
 
-  andThen(function() {
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').text().trim(), 'Notification message');
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').attr('data-test-notification-message'), 'warning');
+    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
+    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'warning');
   });
 });
