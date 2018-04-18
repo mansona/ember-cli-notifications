@@ -1,8 +1,10 @@
 import NotificationMessage from 'ember-cli-notifications/components/notification-message';
-import ENV from '../config/environment';
 
-const config = ENV['ember-cli-notifications'] || {};
+import config from 'ember-get-config';
 
 export default NotificationMessage.extend({
-  icons: config.icons || 'font-awesome'
+  init() {
+    this._super(...arguments);
+    this.icons = config['ember-cli-notifications'].icons || 'font-awesome'
+  }
 });
