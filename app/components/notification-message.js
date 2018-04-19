@@ -2,9 +2,11 @@ import NotificationMessage from 'ember-cli-notifications/components/notification
 
 import config from 'ember-get-config';
 
+const globals = config['ember-cli-notifications'] || {}; // Import app config object
+
 export default NotificationMessage.extend({
   init() {
     this._super(...arguments);
-    this.icons = config['ember-cli-notifications'].icons || 'font-awesome'
+    this.icons = globals.icons || 'font-awesome'
   }
 });

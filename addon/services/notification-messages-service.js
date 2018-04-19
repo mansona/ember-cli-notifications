@@ -7,7 +7,7 @@ import { run } from '@ember/runloop';
 import config from 'ember-get-config';
 
 const notificationAssign = assign || merge;
-const globals = config['ember-cli-notifications']; // Import app config object
+const globals = config['ember-cli-notifications'] || {}; // Import app config object
 
 const NotificationMessagesService = ArrayProxy.extend({
   content: A(),
