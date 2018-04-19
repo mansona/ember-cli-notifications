@@ -7,8 +7,10 @@ module('Integration | Component | notification container', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // setup an empty notification-messages-service
-    this.owner.register('service:notification-messages-service', {});
+    let notificationMessages = this.owner.lookup('service:notification-messages-service');
+
+    // fix strange setup bug
+    notificationMessages.clearAll();
 
     await render(hbs`{{notification-container}}`);
 
