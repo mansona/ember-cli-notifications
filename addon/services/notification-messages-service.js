@@ -114,6 +114,10 @@ const NotificationMessagesService = ArrayProxy.extend({
 
   setDefaultAutoClear(autoClear) {
     set(globals, 'autoClear', autoClear);
+  },
+
+  setDefaultClearDuration(clearDuration) {
+    set(globals, 'clearDuration', clearDuration);
   }
 });
 
