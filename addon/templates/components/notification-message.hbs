@@ -1,4 +1,4 @@
-<div local-class="c-notification__icon">
+<div local-class="c-notification__icon {{if notification.darken 'darken'}}">
   <i class="{{notificationIcon}}"></i>
 </div>
 <div local-class="c-notification__content">
@@ -12,5 +12,5 @@
   </div>
 </div>
 {{#if notification.autoClear}}
-  <div local-class="c-notification__countdown" style={{notificationClearDuration}}></div>
+  <div local-class="c-notification__countdown {{if notification.darken 'darken'}}" style={{notificationClearDuration}}></div>
 {{/if}}

@@ -4,6 +4,9 @@
 @value --icon-color: color(#fff a(.74));
 @value --icon-lighten-background: color(#fff a(.2));
 @value --countdown-lighten-background: color(#fff a(.4));
+@value --icon-darken-color: color(#000 a(.74));
+@value --icon-darken-background: color(#000 a(.2));
+@value --countdown-darken-background: color(#000 a(.4));
 @value --notification-max-height: 800px;
 @value --notification-border-radius: 3px;
 
@@ -62,6 +65,11 @@
   background-color: --icon-lighten-background;
   width: --icon-width;
   color: --icon-color;
+
+  &.darken {
+    background-color: --icon-darken-background;
+    color: --icon-darken-color;
+  }
 }
 
 .c-notification__close {
@@ -84,6 +92,10 @@
   width: 0;
   height: 4px;
   animation: notification-countdown linear 1;
+
+  &.darken {
+    background-color: --countdown-darken-background;
+  }
 }
 
 /* Theme */

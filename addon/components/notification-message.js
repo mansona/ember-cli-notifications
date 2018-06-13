@@ -17,7 +17,18 @@ export default Component.extend({
     'notification.cssClasses'
   ],
 
-  attributeBindings: ['notification.type:data-test-notification-message'],
+  attributeBindings: ['notification.type:data-test-notification-message', 'style'],
+
+  style: computed('notification.bgColor', 'notification.textColor', function() {
+    const colorScheme = [],
+          bgColor = this.get('notification.bgColor'),
+          textColor = this.get('notification.textColor');
+
+    if (bgColor) { colorScheme.push(`background-color: ${bgColor}`) }
+    if (textColor) { colorScheme.push(`color: ${textColor}`) }
+
+    return htmlSafe(colorScheme.join(';'));
+  }),
 
   paused: false,
 
