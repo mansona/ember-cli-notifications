@@ -1,3 +1,9 @@
-{{#each notifications as |notification|}}
-  {{notification-message notification=notification}}
-{{/each}}
+{{#if (has-block)}}
+  {{yield (hash
+    notifications=notifications
+  )}}
+{{else}}
+  {{#each notifications as |notification|}}
+    {{notification-message notification=notification}}
+  {{/each}}
+{{/if}}
