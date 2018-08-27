@@ -29,7 +29,9 @@ const NotificationMessagesService = ArrayProxy.extend({
       cssClasses: options.cssClasses
     });
 
-    this.pushObject(notification);
+    const insertAtTop = options.stackNotifications || getWithDefault(globals, 'stackNotifications', false);
+    const arrayOperation = (insertAtTop ? this.unshiftObject : this.pushObject).bind(this);
+    arrayOperation(notification);
 
     if (notification.autoClear) {
       notification.set('remaining', notification.get('clearDuration'));
