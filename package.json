@@ -31,7 +31,7 @@
     "broccoli-funnel": "^2.0.1",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
-    "ember-css-modules": "^0.7.10",
+    "ember-css-modules": "^1.0.0",
     "ember-get-config": "^0.2.4",
     "ember-runtime-enumerable-includes-polyfill": "^2.0.0",
     "font-awesome": "^4.7.0",
