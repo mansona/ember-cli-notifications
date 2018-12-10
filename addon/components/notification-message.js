@@ -7,7 +7,7 @@ import config from 'ember-get-config';
 import layout from '../templates/components/notification-message';
 import styles from '../styles/components/notification-message';
 
-const iconGlobals = (config['ember-cli-notifications'] || {}).iconClasses || {});
+const iconGlobals = (config['ember-cli-notifications'] || {}).iconClasses || {};
 
 const iconDefaults = {
   close:   'fa fa-times',
