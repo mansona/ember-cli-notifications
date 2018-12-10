@@ -1,10 +1,21 @@
 import { htmlSafe } from '@ember/string';
 import { A } from '@ember/array';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { computed, getWithDefault } from '@ember/object';
 import Ember from 'ember';
+import config from 'ember-get-config';
 import layout from '../templates/components/notification-message';
 import styles from '../styles/components/notification-message';
+
+const iconGlobals = (config['ember-cli-notifications'] || {}).iconClasses || {});
+
+const iconDefaults = {
+  close:   'fa fa-times',
+  info:    'fa fa-info-circle',
+  success: 'fa fa-check',
+  warning: 'fa fa-warning',
+  error:   'fa fa-exclamation-triangle'
+};
 
 export default Component.extend({
   layout,
@@ -33,38 +44,14 @@ export default Component.extend({
     return false;
   }),
 
-  closeIcon: computed('icons', function() {
-    if (this.get('icons') === 'bootstrap') return 'glyphicon glyphicon-remove';
-
-    return 'fa fa-times';
+  closeIcon: computed(() => {
+    return getWithDefault(iconGlobals, 'close', iconDefaults.close);
   }),
 
   // Set icon depending on notification type
-  notificationIcon: computed('notification.type', 'icons', function() {
-    const icons = this.get('icons');
-
-    if (icons === 'bootstrap') {
-      switch (this.get('notification.type')){
-        case "info":
-          return 'glyphicon glyphicon-info-sign';
-        case "success":
-          return 'glyphicon glyphicon-ok-sign';
-        case "warning":
-        case "error":
-          return 'glyphicon glyphicon-exclamation-sign';
-      }
-    }
-
-    switch (this.get('notification.type')){
-      case "info":
-        return 'fa fa-info-circle';
-      case "success":
-        return 'fa fa-check';
-      case "warning":
-        return 'fa fa-warning';
-      case "error":
-        return 'fa fa-exclamation-circle';
-    }
+  notificationIcon: computed('notification.type', function() {
+    let type = this.get('notification.type');
+    return getWithDefault(iconGlobals, type, iconDefaults[type]);
   }),
 
   mouseDown() {
@@ -72,6 +59,7 @@ export default Component.extend({
       this.get('notification.onClick')(this.get('notification'));
     }
   },
+
   mouseEnter() {
     if (this.get('notification.autoClear')) {
       this.set('paused', true);
