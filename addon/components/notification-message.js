@@ -51,7 +51,7 @@ export default Component.extend({
   // Set icon depending on notification type
   notificationIcon: computed('notification.type', function() {
     let type = this.get('notification.type');
-    return getWithDefault(iconGlobals, type, iconDefaults[type]);
+    return type && getWithDefault(iconGlobals, type, iconDefaults[type]);
   }),
 
   mouseDown() {
