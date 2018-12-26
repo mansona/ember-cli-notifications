@@ -1,7 +1,8 @@
 import { htmlSafe } from '@ember/string';
 import { A } from '@ember/array';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { computed, get } from '@ember/object';
+import { equal } from '@ember/object/computed';
 import Ember from 'ember';
 import layout from '../templates/components/notification-message';
 import styles from '../styles/components/notification-message';
@@ -33,8 +34,13 @@ export default Component.extend({
     return false;
   }),
 
+  canShowSVG: equal('icons', 'svg'),
+
   closeIcon: computed('icons', function() {
-    if (this.get('icons') === 'bootstrap') return 'glyphicon glyphicon-remove';
+    const icons = this.get('icons');
+    if (icons === 'bootstrap') return 'glyphicon glyphicon-remove';
+
+    if(icons === 'svg') return 'close';
 
     return 'fa fa-times';
   }),
@@ -42,9 +48,12 @@ export default Component.extend({
   // Set icon depending on notification type
   notificationIcon: computed('notification.type', 'icons', function() {
     const icons = this.get('icons');
+    const notificationType = this.get('notification.type');
+
+    if(icons == 'svg') return get(this.get('svgs'), notificationType);
 
     if (icons === 'bootstrap') {
-      switch (this.get('notification.type')){
+      switch (notificationType){
         case "info":
           return 'glyphicon glyphicon-info-sign';
         case "success":
@@ -55,7 +64,7 @@ export default Component.extend({
       }
     }
 
-    switch (this.get('notification.type')){
+    switch (notificationType){
       case "info":
         return 'fa fa-info-circle';
       case "success":

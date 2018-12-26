@@ -64,6 +64,12 @@
   color: --icon-color;
 }
 
+.c-notification__svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
+}
+
 .c-notification__close {
   margin-left: --spacing-2;
   align-self: flex-start;
