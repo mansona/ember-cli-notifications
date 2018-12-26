@@ -25,7 +25,7 @@ module.exports = function(environment) {
     'ember-cli-notifications': {
       autoClear: false,
       clearDuration: 2400,
-      includeFontAwesome: true,
+      icons: 'svg'
     }
   };
 

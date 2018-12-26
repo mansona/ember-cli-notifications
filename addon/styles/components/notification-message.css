@@ -45,6 +45,12 @@
   color: var(--icon-color);
 }
 
+.ember-cli-notifications-notification__container .c-notification__svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
+}
+
 .ember-cli-notifications-notification__container .c-notification__close {
   margin-left: var(--spacing-2);
   align-self: flex-start;

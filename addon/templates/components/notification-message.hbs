@@ -1,5 +1,19 @@
 <div class="c-notification__icon">
-  <i class={{notificationIcon}}></i>
+  {{#if canShowSVG}}
+    <svg class="c-notification__svg" fill="#FFFFFF" viewBox="0 0 24 24" height="48" width="48" xmlns="http://www.w3.org/2000/svg">
+      {{#if (equal notificationIcon 'success')}}
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+      {{else if (equal notificationIcon 'warning')}}
+        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+      {{else if (equal notificationIcon 'info')}}
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+      {{else if (equal notificationIcon 'error')}}
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+      {{/if}}
+    </svg>
+  {{else}}
+    <i class={{notificationIcon}}></i>
+  {{/if}}
 </div>
 <div class="c-notification__content">
   {{#if notification.htmlContent}}
@@ -8,9 +22,14 @@
     {{notification.message}}
   {{/if}}
   <div class="c-notification__close" {{action "removeNotification"}} title="Dismiss this notification">
-    <i class={{closeIcon}}></i>
+    {{#if canShowSVG}}
+      <svg class="c-notification__svg" name="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="1024" height="1024" fill="#FFF"><path d="M21.734 19.64l-2.097 2.094a.983.983 0 0 1-1.395 0L13 16.496l-5.238 5.238a.988.988 0 0 1-1.399 0l-2.097-2.093a.988.988 0 0 1 0-1.399L9.504 13 4.266 7.762a.995.995 0 0 1 0-1.399l2.097-2.097a.988.988 0 0 1 1.399 0L13 9.508l5.242-5.242a.983.983 0 0 1 1.395 0l2.097 2.093a.996.996 0 0 1 .004 1.403L16.496 13l5.238 5.242a.988.988 0 0 1 0 1.399z"/></svg>
+    {{else}}
+      <i class={{closeIcon}}></i>
+    {{/if}}
   </div>
 </div>
+
 {{#if notification.autoClear}}
   <div class="c-notification__countdown" style={{notificationClearDuration}}></div>
 {{/if}}
