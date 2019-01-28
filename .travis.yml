@@ -3,10 +3,14 @@ language: node_js
 node_js:
   # we recommend testing addons with the same minimum supported node version as Ember CLI
   # so that your addon works for all apps
-  - "4"
+  - "6"
 
 sudo: false
 dist: trusty
+
+branches:
+  only:
+    - "master"
 
 addons:
   chrome: stable
@@ -24,6 +28,8 @@ env:
     # as well as latest stable release (bonus points to beta/canary)
     - EMBER_TRY_SCENARIO=ember-lts-2.8
     - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-lts-2.16
+    - EMBER_TRY_SCENARIO=ember-lts-2.18
     - EMBER_TRY_SCENARIO=ember-release
     - EMBER_TRY_SCENARIO=ember-beta
     - EMBER_TRY_SCENARIO=ember-canary
@@ -36,10 +42,26 @@ matrix:
 
 before_install:
   - npm config set spin false
-  - npm install -g npm@5
+  - npm install -g npm@6
   - npm --version
 
+install:
+  - npm ci
+
 script:
+  - npm run lint:js
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+jobs:
+  include:
+  - stage: NPM Release
+    if: tag =~ ^v
+    deploy:
+      provider: npm
+      email: chris@stonecircle.io
+      api_key:
+        secure: hDfA9gKe/qenuULf+J1/s/V35z/7kJP7es6CTS4PXbLliE2ydX5hll+VJUtuJgUENM3k8pvLrVzmxHzRnCJ2OVbcrOnx3DTzEqU3JHX2tdgnlx/XbM+P14RKQLlfKL4muXRuI6jtg6TyEmLQj2Lxwsw9BsWAiINa4LeBMy3zPGs=
+      on:
+        tags: true
+        repo: stonecircle/ember-cli-notifications

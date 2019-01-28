@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = function(environment) {
@@ -25,7 +24,8 @@ module.exports = function(environment) {
 
     'ember-cli-notifications': {
       autoClear: false,
-      clearDuration: 2400
+      clearDuration: 2400,
+      includeFontAwesome: true,
     }
   };
 
@@ -46,6 +46,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {

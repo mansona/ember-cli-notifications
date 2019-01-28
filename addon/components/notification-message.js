@@ -17,6 +17,8 @@ export default Component.extend({
     'notification.cssClasses'
   ],
 
+  attributeBindings: ['notification.type:data-test-notification-message'],
+
   paused: false,
 
   dismissClass: computed('notification.dismiss', function() {

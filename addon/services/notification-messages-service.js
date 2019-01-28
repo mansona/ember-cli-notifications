@@ -2,12 +2,12 @@ import { assign, merge } from '@ember/polyfills';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
 import { isEmpty } from '@ember/utils';
-import EmberObject, { getWithDefault } from '@ember/object';
+import EmberObject, { getWithDefault, set } from '@ember/object';
 import { run } from '@ember/runloop';
 import config from 'ember-get-config';
 
 const notificationAssign = assign || merge;
-const globals = config['ember-cli-notifications']; // Import app config object
+const globals = config['ember-cli-notifications'] || {}; // Import app config object
 
 const NotificationMessagesService = ArrayProxy.extend({
   content: A(),
@@ -110,6 +110,14 @@ const NotificationMessagesService = ArrayProxy.extend({
     });
 
     return this;
+  },
+
+  setDefaultAutoClear(autoClear) {
+    set(globals, 'autoClear', autoClear);
+  },
+
+  setDefaultClearDuration(clearDuration) {
+    set(globals, 'clearDuration', clearDuration);
   }
 });
 
