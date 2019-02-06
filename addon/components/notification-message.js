@@ -5,6 +5,8 @@ import { computed } from '@ember/object';
 import Ember from 'ember';
 import layout from '../templates/components/notification-message';
 import styles from '../styles/components/notification-message';
+import { dom } from '@fortawesome/fontawesome-svg-core';
+import { next } from '@ember/runloop';
 
 export default Component.extend({
   layout,
@@ -34,10 +36,31 @@ export default Component.extend({
   }),
 
   closeIcon: computed('icons', function() {
-    if (this.get('icons') === 'bootstrap') return 'glyphicon glyphicon-remove';
-
-    return 'fa fa-times';
+    switch(this.get('icons')) {
+      case 'bootstrap':
+        return 'glyphicon glyphicon-remove';
+      case 'fa-5':
+        return 'fas fa-times';
+      default:
+        return 'fa fa-times';
+    }
   }),
+
+  /**
+   * Convert `<i>` into SVG icons
+   * Uses: https://fontawesome.com/how-to-use/with-the-api/methods/dom-i2svg
+   */
+  didRender() {
+    this._super(...arguments);
+
+    if (dom && 'fa-5' === this.get('icons')) {
+      next(() => {
+        if (this.element) {
+          dom.i2svg({ node: this.element });
+        }
+      });
+    }
+  },
 
   // Set icon depending on notification type
   notificationIcon: computed('notification.type', 'icons', function() {
@@ -52,6 +75,19 @@ export default Component.extend({
         case "warning":
         case "error":
           return 'glyphicon glyphicon-exclamation-sign';
+      }
+    }
+
+    if (icons === 'fa-5') {
+      switch (this.get('notification.type')){
+        case "info":
+          return 'fas fa-info-circle';
+        case "success":
+          return 'fas fa-check';
+        case "warning":
+          return 'fas fa-exclamation-triangle';
+        case "error":
+          return 'fas fa-exclamation-circle';
       }
     }
 
