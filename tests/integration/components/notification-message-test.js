@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | notification message', function(hooks) {
@@ -12,6 +12,6 @@ module('Integration | Component | notification message', function(hooks) {
 
     await render(hbs`{{notification-message}}`);
 
-    assert.equal(find('*').textContent.trim(), '');
+    assert.dom('*').hasText('');
   });
 });

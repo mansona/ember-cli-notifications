@@ -1,3 +1,5 @@
+{{! template-lint-disable block-indentation}}
+
 {{notification-container position=position zindex=zindex}}
 <div class="bg-blue white py4">
   <div class="max-width-4 mx-auto px2">
@@ -7,10 +9,10 @@
     </div>
     <div class="flex mxn1">
       <div class="px1">
-        <a class="btn btn-outline" href="https://github.com/ynnoj/ember-cli-notifications" target="_blank">GitHub</a>
+        <a class="btn btn-outline" href="https://github.com/ynnoj/ember-cli-notifications" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
       <div class="px1">
-        <a class="btn btn-outline" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank">npm</a>
+        <a class="btn btn-outline" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank" rel="noopener noreferrer">npm</a>
       </div>
     </div>
   </div>
@@ -230,7 +232,7 @@ var ENV = {
 }
     {{/themed-syntax}}
     <h3>Icons</h3>
-    <p><a href="http://fontawesome.io/" target="_blank">Font Awesome</a> is a requirement to display the icons on the notifications and is installed as a dependency.</p>
+    <p><a href="http://fontawesome.io/" target="_blank" rel="noopener noreferrer">Font Awesome</a> is a requirement to display the icons on the notifications and is installed as a dependency.</p>
 
     <p>If you don't want to import the Font Awesome assets into the consuming application, add the following to the app config file.</p>
 
@@ -243,7 +245,7 @@ var ENV = {
 }
     {{/themed-syntax}}
 
-    <p>Alternatively, the notifications can use the <a href="http://getbootstrap.com/components/#glyphicons" target="_blank">Glyphicons</a> icon package. Glyphicons will <b>not</b> added to your application via this addon.</p>
+    <p>Alternatively, the notifications can use the <a href="http://getbootstrap.com/components/#glyphicons" target="_blank" rel="noopener noreferrer">Glyphicons</a> icon package. Glyphicons will <b>not</b> added to your application via this addon.</p>
 
     {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 // config/environment.js
@@ -274,8 +276,8 @@ export default NotificationsService.extend({
     <div class="sm-flex items-center">
       <div class="flex-auto">
         <ul class="list-reset mxn1">
-          <li class="inline-block px1"><a class="bold" href="https://github.com/ynnoj/ember-cli-notifications" target="_blank">GitHub</a></li>
-          <li class="inline-block px1"><a class="bold" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank">npm</a></li>
+          <li class="inline-block px1"><a class="bold" href="https://github.com/ynnoj/ember-cli-notifications" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li class="inline-block px1"><a class="bold" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank" rel="noopener noreferrer">npm</a></li>
         </ul>
       </div>
       <p class="h5">&copy; Stone Circle 2016</p>

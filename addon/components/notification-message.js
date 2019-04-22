@@ -92,6 +92,11 @@ export default Component.extend({
     }
   }),
 
+  notifcationMessage: computed('notification.message', function() {
+    let message = this.get('notification.message') || '';
+    return htmlSafe(message);
+  }),
+
   // Apply the clear animation duration rule inline
   notificationClearDuration: computed('paused', 'notification.clearDuration', function() {
     const duration = Ember.Handlebars.Utils.escapeExpression(this.get('notification.clearDuration'));

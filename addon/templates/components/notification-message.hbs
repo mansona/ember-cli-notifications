@@ -1,14 +1,10 @@
 <div local-class="c-notification__icon">
-  <i class="{{notificationIcon}}"></i>
+  <i class={{notificationIcon}}></i>
 </div>
 <div local-class="c-notification__content">
-  {{#if notification.htmlContent}}
-    {{{notification.message}}}
-  {{else}}
-    {{notification.message}}
-  {{/if}}
+  {{notifcationMessage}}
   <div local-class="c-notification__close" {{action "removeNotification"}} title="Dismiss this notification">
-    <i class="{{closeIcon}}"></i>
+    <i class={{closeIcon}}></i>
   </div>
 </div>
 {{#if notification.autoClear}}
