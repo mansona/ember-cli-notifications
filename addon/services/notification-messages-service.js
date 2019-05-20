@@ -23,7 +23,7 @@ const NotificationMessagesService = ArrayProxy.extend({
       message: options.message,
       type: options.type || 'info',
       autoClear: (isEmpty(options.autoClear) ? getWithDefault(globals, 'autoClear', false) : options.autoClear),
-      clearDuration: options.clearDuration || getWithDefault(globals, 'clearDuration', 5000),
+      clearDuration: options.clearDuration || getWithDefault(globals, 'clearDuration', 3200),
       onClick: options.onClick,
       htmlContent: options.htmlContent || false,
       cssClasses: options.cssClasses

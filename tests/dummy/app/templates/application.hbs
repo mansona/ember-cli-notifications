@@ -28,7 +28,7 @@ ember install ember-cli-notifications
     <hr>
     <p>Include the container component in your template.</p>
     <p>Optionally, change the position or z-index value of the notifications container.</p>
-    <p class="h5"><i>Default values are top, 1060</i></p>
+    <p class="h5"><i>Default value is top</i></p>
     {{#themed-syntax lang="htmlbars" theme="dark" class="h5" withBuffers=false}}
 &#123;&#123;notification-container position="top-right" zindex="9999"&#125;&#125;
     {{/themed-syntax}}
@@ -54,6 +54,7 @@ export default {
     {{/themed-syntax}}
 
     <p>There are four styles of notification available.</p>
+    <p class="h5"><i>Default value is info</i></p>
     {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
 // Info
 this.get('notifications').info('You have one unread message');
