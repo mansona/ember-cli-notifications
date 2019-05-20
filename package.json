@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stonecircle/ember-cli-notifications"
+    "url": "https://github.com/ynnoj/ember-cli-notifications"
   },
   "scripts": {
     "build": "ember build",
@@ -82,7 +82,7 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://stonecircle.github.io/ember-cli-notifications"
+    "demoURL": "http://ynnoj.github.io/ember-cli-notifications"
   },
   "greenkeeper": {
     "ignore": [
