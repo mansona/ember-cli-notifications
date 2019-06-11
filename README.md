@@ -8,6 +8,27 @@
 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-notifications.svg)](http://emberobserver.com/addons/ember-cli-notifications)
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 
+Compatibility
+------------------------------------------------------------------------------
+
+* Ember.js v2.18 or above
+* Ember CLI v2.13 or above
+* Node.js v8 or above
+
+
+Installation
+------------------------------------------------------------------------------
+
+```
+ember install my-addon
+```
+
+
+Usage
+------------------------------------------------------------------------------
+
+[Longer description of how to use the addon in apps.]
+
 An [Ember CLI] addon that adds [Atom] inspired notification messages to your app.
 
 Interactive documentation can be found [here].
@@ -25,6 +46,8 @@ As of 4.0.0, the addon is service based. You will need to inject the service int
 ```js
 notifications: Ember.inject.service('notification-messages')
 ```
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
 See the [documentation] for a sample initializer to inject the service into all controllers, routes and components.
 
