@@ -2,7 +2,9 @@
   <i class="{{notificationIcon}}"></i>
 </div>
 <div local-class="c-notification__content">
-  {{#if notification.htmlContent}}
+  {{#if notification.component}}
+    {{component notification.component message=notification.message}}
+  {{else if notification.htmlContent}}
     {{{notification.message}}}
   {{else}}
     {{notification.message}}
