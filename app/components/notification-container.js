@@ -1,1 +1,3 @@
-export { default } from 'ember-cli-notifications/components/notification-container';
+export {
+  default
+} from 'ember-cli-notifications/components/notification-container'

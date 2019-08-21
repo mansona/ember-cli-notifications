@@ -1,19 +1,21 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { module, test } from 'qunit'
+import { setupRenderingTest } from 'ember-qunit'
+import { render, find } from '@ember/test-helpers'
+import hbs from 'htmlbars-inline-precompile'
 
 module('Integration | Component | notification container', function(hooks) {
-  setupRenderingTest(hooks);
+  setupRenderingTest(hooks)
 
   test('it renders', async function(assert) {
-    let notificationMessages = this.owner.lookup('service:notification-messages-service');
+    let notificationMessages = this.owner.lookup(
+      'service:notification-messages-service'
+    )
 
     // fix strange setup bug
-    notificationMessages.clearAll();
+    notificationMessages.clearAll()
 
-    await render(hbs`{{notification-container}}`);
+    await render(hbs`{{notification-container}}`)
 
-    assert.equal(find('*').textContent.trim(), '');
-  });
-});
+    assert.equal(find('*').textContent.trim(), '')
+  })
+})
