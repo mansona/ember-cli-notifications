@@ -8,7 +8,7 @@
 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-notifications.svg)](http://emberobserver.com/addons/ember-cli-notifications)
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 
-An [Ember CLI] addon that adds [Atom] inspired notification messages to your app.
+An [ember-cli] addon that adds [atom] inspired notification messages to your app.
 
 Interactive documentation can be found [here].
 
@@ -28,7 +28,7 @@ notifications: Ember.inject.service('notification-messages')
 
 See the [documentation] for a sample initializer to inject the service into all controllers, routes and components.
 
-[Ember CLI]: http://ember-cli.com
-[Atom]: https://github.com/atom/notifications
+[ember-cli]: http://ember-cli.com
+[atom]: https://github.com/atom/notifications
 [here]: http://ynnoj.github.io/ember-cli-notifications
 [documentation]: http://ynnoj.github.io/ember-cli-notifications

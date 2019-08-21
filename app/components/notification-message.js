@@ -1,12 +1,12 @@
-import NotificationMessage from 'ember-cli-notifications/components/notification-message';
+import NotificationMessage from 'ember-cli-notifications/components/notification-message'
 
-import config from 'ember-get-config';
+import config from 'ember-get-config'
 
-const globals = config['ember-cli-notifications'] || {}; // Import app config object
+const globals = config['ember-cli-notifications'] || {} // Import app config object
 
 export default NotificationMessage.extend({
   init() {
-    this._super(...arguments);
+    this._super(...arguments)
     this.icons = globals.icons || 'font-awesome'
   }
-});
+})
