@@ -7,7 +7,7 @@ const fs = require('fs');
 const faPath = path.dirname(require.resolve('font-awesome/package.json'));
 
 module.exports = {
-  name: 'ember-cli-notifications',
+  name: require('./package').name,
 
   options: {
     cssModules: {
