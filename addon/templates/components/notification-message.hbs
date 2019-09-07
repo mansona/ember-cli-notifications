@@ -7,9 +7,9 @@
          this.notification.cssClasses
         }}
   data-test-notification-message={{this.notification.type}}
-  {{on 'mousedown' this.onMouseDown}}
-  {{on 'mouseenter' this.onMouseEnter}}
-  {{on 'mouseleave' this.onMouseLeave}}
+  {{on 'mousedown' (action 'onMouseDown')}}
+  {{on 'mouseenter' (action 'onMouseEnter')}}
+  {{on 'mouseleave' (action 'onMouseLeave')}}
 >
   <div class={{get this.styles "c-notification__icon"}}>
     <i class="{{notificationIcon}}"></i>

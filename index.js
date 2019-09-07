@@ -30,6 +30,7 @@ module.exports = {
   included(app) {
     const projectConfig = this.project.config(app.env);
     const config = projectConfig['ember-cli-notifications'];
+    config.icons = config.icons || 'fa-5';
 
     this._super.included.apply(this, arguments);
 
@@ -44,39 +45,6 @@ module.exports = {
     if (config && config.includeFontAwesome && config.includeFontAwesome !== false && config.icons !== 'fa-5') {
       this.importFontAwesome(app);
     }
-
-    // let basscssPackages = [
-    //   'basscss',
-    //   // 'basscss-align',
-    //   // 'basscss-background-colors',
-    //   'basscss-basic',
-    //   // 'basscss-border',
-    //   'basscss-btn',
-    //   'basscss-btn-outline',
-    //   'basscss-btn-primary',
-    //   'basscss-colors',
-    //   'basscss-background-colors',
-    //   'basscss-darken',
-    //   // 'basscss-flexbox',
-    //   'basscss-forms',
-    //   // 'basscss-grid',
-    //   // 'basscss-hide',
-    //   // 'basscss-layout',
-    //   // 'basscss-margin',
-    //   // 'basscss-padding',
-    //   // 'basscss-position',
-    //   // 'basscss-type-scale',
-    //   // 'basscss-typography',
-    // ];
-
-    // basscssPackages.forEach(css => {
-    //   let cssPath = path.dirname(require.resolve(`${css}/package.json`));
-    //   let cssPackage = require(`${cssPath}/package.json`);
-    //   let main = cssPackage.main || require.resolve(`${cssPath}/index.css`);
-
-    //   app.import(`${cssPath}/${main}`, { destDir: '/public' });
-    // });
-    
   },
 
   importFontAwesome(app) {
