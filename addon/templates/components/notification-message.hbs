@@ -1,5 +1,6 @@
 <div
   class={{concat
+         (get this.styles "c-notification") ' '
          this.dismissClass ' '
          this.clickableClass ' '
          this.processedType ' '
@@ -10,20 +11,27 @@
   {{on 'mouseenter' this.onMouseEnter}}
   {{on 'mouseleave' this.onMouseLeave}}
 >
-  <div local-class="c-notification__icon">
+  <div class={{get this.styles "c-notification__icon"}}>
     <i class="{{notificationIcon}}"></i>
   </div>
-  <div local-class="c-notification__content">
+  <div class={{get this.styles "c-notification__content"}}>
     {{#if notification.htmlContent}}
       {{{notification.message}}}
     {{else}}
       {{notification.message}}
     {{/if}}
-    <div local-class="c-notification__close" {{action "removeNotification"}} title="Dismiss this notification">
+    <div 
+      class={{get this.styles "c-notification__close"}} 
+      {{action "removeNotification"}} 
+      title="Dismiss this notification">
       <i class="{{closeIcon}}"></i>
     </div>
   </div>
   {{#if notification.autoClear}}
-    <div local-class="c-notification__countdown" style={{notificationClearDuration}}></div>
+    <div 
+      class={{get this.styles "c-notification__countdown"}} 
+      style={{notificationClearDuration}}
+    >
+    </div>
   {{/if}}
 </div>
