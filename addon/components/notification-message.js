@@ -9,15 +9,7 @@ import styles from '../styles/components/notification-message';
 export default Component.extend({
   layout,
   styles,
-
-  classNameBindings: [
-    'dismissClass',
-    'clickableClass',
-    'processedType',
-    'notification.cssClasses'
-  ],
-
-  attributeBindings: ['notification.type:data-test-notification-message'],
+  tagName: '',
 
   paused: false,
 
@@ -67,25 +59,6 @@ export default Component.extend({
     }
   }),
 
-  mouseDown() {
-    if (this.get('notification.onClick')) {
-      this.get('notification.onClick')(this.get('notification'));
-    }
-  },
-  mouseEnter() {
-    if (this.get('notification.autoClear')) {
-      this.set('paused', true);
-      this.notifications.pauseAutoClear(this.get('notification'));
-    }
-  },
-
-  mouseLeave() {
-    if (this.get('notification.autoClear')) {
-      this.set('paused', false);
-      this.notifications.setupAutoClear(this.get('notification'));
-    }
-  },
-
   processedType: computed('notification.type', function() {
     if (this.get('notification.type') && A(['info', 'success', 'warning', 'error']).includes(this.get('notification.type'))) {
       return this.get(`styles.c-notification--${this.get('notification.type')}`);
@@ -102,6 +75,25 @@ export default Component.extend({
   actions: {
     removeNotification() {
       this.notifications.removeNotification(this.get('notification'));
-    }
+    },
+
+    onMouseDown() {
+      if (this.get('notification.onClick')) {
+        this.get('notification.onClick')(this.get('notification'));
+      }
+    },
+    onMouseEnter() {
+      if (this.get('notification.autoClear')) {
+        this.set('paused', true);
+        this.notifications.pauseAutoClear(this.get('notification'));
+      }
+    },
+
+    onMouseLeave() {
+      if (this.get('notification.autoClear')) {
+        this.set('paused', false);
+        this.notifications.setupAutoClear(this.get('notification'));
+      }
+    },
   }
 });
