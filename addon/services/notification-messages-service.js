@@ -19,6 +19,13 @@ const NotificationMessagesService = ArrayProxy.extend({
       throw new Error("No notification message set");
     }
 
+    const defaultClasses = getWithDefault(globals, 'message-class', false);
+    let { cssClasses } = options;
+
+    if (defaultClasses) {
+      cssClasses += ` ${defaultClasses}`;
+    }
+
     const notification = EmberObject.create({
       message: options.message,
       type: options.type || 'info',
@@ -26,7 +33,7 @@ const NotificationMessagesService = ArrayProxy.extend({
       clearDuration: options.clearDuration || getWithDefault(globals, 'clearDuration', 3200),
       onClick: options.onClick,
       htmlContent: options.htmlContent || false,
-      cssClasses: options.cssClasses
+      cssClasses,
     });
 
     this.pushObject(notification);
