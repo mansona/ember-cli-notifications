@@ -10,9 +10,11 @@ export default Component.extend({
   styles,
 
   classNameBindings: ['computedPosition'],
-  attributeBindings: ['computedStyle:style', 'position:data-test-notification-container'],
+  attributeBindings: ['computedStyle:style', 'position:data-test-notification-container', 'ariaLive:aria-live', 'role'],
 
   zindex: '1060',
+  role: 'status',
+  ariaLive: 'polite',
 
   computedPosition: computed('position', function() {
     return this.get(`styles.c-notification__container--${this.get('position')}`);
