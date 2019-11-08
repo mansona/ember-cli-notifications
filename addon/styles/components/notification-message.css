@@ -67,11 +67,13 @@
 .c-notification__close {
   margin-left: --spacing-2;
   align-self: flex-start;
-  opacity: .74;
+  background-color: rgba(0,0,0,0);
+  border-width: 0;
   cursor: pointer;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     opacity: 1;
   }
 }
