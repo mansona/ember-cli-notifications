@@ -1,24 +1,36 @@
 # ember-cli-notifications
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/stonecircle/ember-cli-notifications.svg)](https://greenkeeper.io/)
-
 [![Download count all time](https://img.shields.io/npm/dt/ember-cli-notifications.svg)](https://www.npmjs.com/package/ember-cli-notifications)
 [![NPM package](https://img.shields.io/npm/v/ember-cli-notifications.svg)](https://www.npmjs.com/package/ember-cli-notifications)
 [![Build Status](https://travis-ci.org/ynnoj/ember-cli-notifications.svg?branch=master)](https://travis-ci.org/ynnoj/ember-cli-notifications)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-notifications.svg)](http://emberobserver.com/addons/ember-cli-notifications)
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 
-An [Ember CLI] addon that adds [Atom] inspired notification messages to your app.
 
-Interactive documentation can be found [here].
+Compatibility
+------------------------------------------------------------------------------
 
-## Installation
+* Ember.js v3.4 or above
+* Ember CLI v2.13 or above
+* Node.js v8 or above
 
-```shell
+
+Installation
+------------------------------------------------------------------------------
+
+```
 ember install ember-cli-notifications
 ```
 
-## 4.0.0
+
+Usage
+------------------------------------------------------------------------------
+
+An [Ember CLI](http://ember-cli.com) addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
+
+Interactive documentation can be found [here](https://ember-cli-notifications.netlify.com).
+
+### 4.0.0
 
 As of 4.0.0, the addon is service based. You will need to inject the service into your consuming app.
 
@@ -26,9 +38,8 @@ As of 4.0.0, the addon is service based. You will need to inject the service int
 notifications: Ember.inject.service('notification-messages')
 ```
 
-See the [documentation] for a sample initializer to inject the service into all controllers, routes and components.
+See the [documentation](https://ember-cli-notifications.netlify.com) for a sample initializer to inject the service into all controllers, routes and components.
 
-[Ember CLI]: http://ember-cli.com
-[Atom]: https://github.com/atom/notifications
-[here]: http://ynnoj.github.io/ember-cli-notifications
-[documentation]: http://ynnoj.github.io/ember-cli-notifications
+Contributing
+------------------------------------------------------------------------------
+See the [Contributing](CONTRIBUTING.md) guide for details.
