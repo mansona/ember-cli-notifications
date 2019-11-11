@@ -18,6 +18,9 @@ module.exports = function(defaults) {
         ]
       }
     },
+    minifyCSS: {
+      enabled: false
+    },
     'ember-prism': {
       'components': ['bash', 'javascript', 'handlebars', 'markup-templating'],
       'plugins': ['line-highlight']
