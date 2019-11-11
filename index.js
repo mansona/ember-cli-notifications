@@ -4,19 +4,27 @@ const Funnel = require('broccoli-funnel');
 const path = require('path');
 const fs = require('fs');
 
+const PresetEnv = require('postcss-preset-env');
+
 const faPath = path.dirname(require.resolve('font-awesome/package.json'));
 
 module.exports = {
   name: require('./package').name,
 
   options: {
-    cssModules: {
-      postcssOptions: {
-        map: true
-      },
-      plugins: [
-        require('postcss-cssnext')
-      ]
+    postcssOptions: {
+      compile: {
+        enabled: true,
+        plugins: [
+          {
+            module: PresetEnv,
+            options: { stage: 3 },
+            features: {
+              'nesting-rules': true
+            }
+          }
+        ]
+      }
     }
   },
 
