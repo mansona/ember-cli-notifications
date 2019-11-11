@@ -1,11 +1,16 @@
-import { htmlSafe } from '@ember/string';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import Ember from 'ember';
+
+import { htmlSafe } from '@ember/string';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+
 import layout from '../templates/components/notification-message';
 
 export default Component.extend({
   layout,
+
+  notifications: service(),
 
   classNameBindings: [
     'dismissClass',
