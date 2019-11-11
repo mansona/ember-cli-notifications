@@ -1,56 +1,66 @@
-/* Values */
-@value --container-position: 10px;
-@value --container-position: 10px;
-@value --container-width: 80%;
-@value --container-max-with: 400px;
-
 /* Base */
-.c-notification__container {
+.ember-cli-notifications-notification__container {
+  --container-position: 10px;
+  --container-width: 80%;
+  --container-max-with: 400px;
+
+  --icon-width: 30px;
+  --icon-position: 10px;
+  --icon-color: rgba(255, 255, 255, 0.74);
+  --icon-lighten-background: rgba(255, 255, 255, 0.2);
+  --countdown-lighten-background: rgba(255, 255, 255, 0.4);
+  --notification-max-height: 800px;
+  --notification-border-radius: 3px;
+
+  /* Colours */
+  --green: #64ce83;
+  --blue: #3ea2ff;
+  --orange: #ff7f48;
+  --red: #e74c3c;
+
+  /* Spacing */
+  --spacing-1: .5rem;
+  --spacing-2: 1rem;
+
   position: fixed;
   margin: 0 auto;
-  width: --container-width;
-  max-width: --container-max-with;
+  width: var(--container-width);
+  max-width: var(--container-max-with);
 }
 
 /* Position */
-.c-notification__container--top {
-  composes: c-notification__container;
-  top: --container-position;
+.ember-cli-notifications-notification__container--top {
+  top: var(--container-position);
   right: 0;
   left: 0;
 }
 
-.c-notification__container--top-left {
-  composes: c-notification__container;
-  top: --container-position;
+.ember-cli-notifications-notification__container--top-left {
+  top: var(--container-position);
   right: auto;
-  left: --container-position;
+  left: var(--container-position);
 }
 
-.c-notification__container--top-right {
-  composes: c-notification__container;
-  top: --container-position;
-  right: --container-position;
+.ember-cli-notifications-notification__container--top-right {
+  top: var(--container-position);
+  right: var(--container-position);
   left: auto;
 }
 
-.c-notification__container--bottom {
-  composes: c-notification__container;
+.ember-cli-notifications-notification__container--bottom {
   right: 0;
-  bottom: --container-position;
+  bottom: var(--container-position);
   left: 0;
 }
 
-.c-notification__container--bottom-left {
-  composes: c-notification__container;
+.ember-cli-notifications-notification__container--bottom-left {
   right: auto;
-  bottom: --container-position;
-  left: --container-position;
+  bottom: var(--container-position);
+  left: var(--container-position);
 }
 
-.c-notification__container--bottom-right {
-  composes: c-notification__container;
-  right: --container-position;
-  bottom: --container-position;
+.ember-cli-notifications-notification__container--bottom-right {
+  right: var(--container-position);
+  bottom: var(--container-position);
   left: auto;
 }

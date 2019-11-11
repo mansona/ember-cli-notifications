@@ -32,11 +32,10 @@
     "broccoli-funnel": "^2.0.1",
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.0",
-    "ember-css-modules": "^0.7.10",
+    "ember-cli-postcss": "^5.0.0",
     "ember-get-config": "^0.2.4",
-    "ember-runtime-enumerable-includes-polyfill": "^2.0.0",
     "font-awesome": "^4.7.0",
-    "postcss-cssnext": "^3.0.2"
+    "postcss-preset-env": "^6.7.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.0.0",
@@ -68,7 +67,6 @@
     "highlightjs": "^9.10.0",
     "hljs-themes": "^1.0.0",
     "loader.js": "^4.7.0",
-    "postcss-import": "^11.1.0",
     "qunit-dom": "^0.9.0"
   },
   "engines": {
@@ -76,29 +74,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://ynnoj.github.io/ember-cli-notifications"
-  },
-  "greenkeeper": {
-    "ignore": [
-      "broccoli-asset-rev",
-      "ember-ajax",
-      "ember-cli",
-      "ember-cli-babel",
-      "ember-cli-dependency-checker",
-      "ember-cli-eslint",
-      "ember-cli-htmlbars",
-      "ember-cli-htmlbars-inline-precompile",
-      "ember-cli-inject-live-reload",
-      "ember-cli-qunit",
-      "ember-cli-shims",
-      "ember-cli-sri",
-      "ember-cli-uglify",
-      "ember-disable-prototype-extensions",
-      "ember-export-application-global",
-      "ember-load-initializers",
-      "ember-resolver",
-      "ember-source",
-      "loader.js"
-    ]
+    "demoURL": "https://ember-cli-notifications.netlify.com"
   }
 }

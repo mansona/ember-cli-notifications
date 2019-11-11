@@ -1,20 +1,18 @@
 import { htmlSafe } from '@ember/string';
-import { A } from '@ember/array';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import Ember from 'ember';
 import layout from '../templates/components/notification-message';
-import styles from '../styles/components/notification-message';
 
 export default Component.extend({
   layout,
-  styles,
 
   classNameBindings: [
     'dismissClass',
     'clickableClass',
     'processedType',
-    'notification.cssClasses'
+    'notification.cssClasses',
+    ':c-notification'
   ],
 
   attributeBindings: ['notification.type:data-test-notification-message'],
@@ -22,13 +20,13 @@ export default Component.extend({
   paused: false,
 
   dismissClass: computed('notification.dismiss', function() {
-    if (!this.get('notification.dismiss')) return this.get('styles.c-notification--in');
+    if (!this.get('notification.dismiss')) return 'c-notification--in';
 
     return false;
   }),
 
   clickableClass: computed('notification.onClick', function() {
-    if (this.get('notification.onClick')) return this.get('styles.c-notification--clickable');
+    if (this.get('notification.onClick')) return 'c-notification--clickable';
 
     return false;
   }),
@@ -65,6 +63,8 @@ export default Component.extend({
       case "error":
         return 'fa fa-exclamation-circle';
     }
+
+    return '';
   }),
 
   mouseDown() {
@@ -87,9 +87,11 @@ export default Component.extend({
   },
 
   processedType: computed('notification.type', function() {
-    if (this.get('notification.type') && A(['info', 'success', 'warning', 'error']).includes(this.get('notification.type'))) {
-      return this.get(`styles.c-notification--${this.get('notification.type')}`);
+    if (this.get('notification.type') && ['info', 'success', 'warning', 'error'].indexOf(this.get('notification.type')) !== -1 ) {
+      return `c-notification--${this.get('notification.type')}`;
     }
+
+    return '';
   }),
 
   // Apply the clear animation duration rule inline
