@@ -215,29 +215,8 @@ var ENV = {
   }
 }
 </CodeBlock>
-    <h3>Icons</h3>
-    <p><a href="http://fontawesome.io/" target="_blank" rel="noopener">Font Awesome</a> is a requirement to display the icons on the notifications and is installed as a dependency.</p>
-
-    <p>If you don't want to import the Font Awesome assets into the consuming application, add the following to the app config file.</p>
-
-<CodeBlock @language="js">// config/environment.js
-var ENV = {
-  'ember-cli-notifications': {
-    includeFontAwesome: false
-  }
-}
-</CodeBlock>
-
-    <p>Alternatively, the notifications can use the <a href="http://getbootstrap.com/components/#glyphicons" target="_blank" rel="noopener">Glyphicons</a> icon package. Glyphicons will <b>not</b> added to your application via this addon.</p>
-
-<CodeBlock @language="js">// config/environment.js
-var ENV = {
-  'ember-cli-notifications': {
-    icons: 'bootstrap'
-  }
-}
-</CodeBlock>
   </div>
+
   <div class="py2">
     <h2>Extend</h2>
     <hr>
