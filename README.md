@@ -30,15 +30,46 @@ An [Ember CLI](http://ember-cli.com) addon that adds [Atom](https://github.com/a
 
 Interactive documentation can be found [here](https://ember-cli-notifications.netlify.com).
 
-### 4.0.0
+### Upgrading to 5.0.0
 
-As of 4.0.0, the addon is service based. You will need to inject the service into your consuming app.
+#### Icons and FontAwesome
+
+As of 5.0.0 we no longer depend on Font Awesome so you can remove any configuration you have related to the icons:
 
 ```js
-notifications: Ember.inject.service('notification-messages')
+var ENV = {
+  'ember-cli-notifications': {
+    includeFontAwesome: true
+  }
+}
 ```
 
-See the [documentation](https://ember-cli-notifications.netlify.com) for a sample initializer to inject the service into all controllers, routes and components.
+or
+
+```js
+var ENV = {
+  'ember-cli-notifications': {
+    icons: 'bootstrap'
+  }
+}
+```
+
+#### Service Name
+
+We have also updated the name of the service to be simply `notifications` so you can now inject the notifications service with a much simpler inject statement:
+
+```js
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
+
+export default Controller.extend({
+  notifications: service(),
+});
+```
+
+#### Removing CSS modules
+
+We have removed the use of CSS Modules so you can now override the styles more effectively without needing as many hacks. You can remove any strange hacks that you might have implemented in your app to override styles.
 
 Contributing
 ------------------------------------------------------------------------------
