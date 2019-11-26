@@ -30,5 +30,5 @@ See the [documentation] for a sample initializer to inject the service into all 
 
 [Ember CLI]: http://ember-cli.com
 [Atom]: https://github.com/atom/notifications
-[here]: http://ynnoj.github.io/ember-cli-notifications
-[documentation]: http://ynnoj.github.io/ember-cli-notifications
+[here]: http://mansona.github.io/ember-cli-notifications
+[documentation]: http://mansona.github.io/ember-cli-notifications/
