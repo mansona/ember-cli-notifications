@@ -1,7 +1,7 @@
 'use strict';
 
 const PresetEnv = require('postcss-preset-env');
-
+const styleDir = require('path').join(__dirname, 'addon', 'styles');
 
 module.exports = {
   name: require('./package').name,
@@ -10,6 +10,7 @@ module.exports = {
     postcssOptions: {
       compile: {
         enabled: true,
+        includePaths: [styleDir],
         plugins: [
           {
             module: PresetEnv,
