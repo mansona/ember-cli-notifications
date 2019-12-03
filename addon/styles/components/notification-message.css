@@ -48,11 +48,11 @@
   justify-content: space-between;
   padding: --spacing-1 --spacing-2;
   word-break: break-word;
+}
 
-  & a {
-    color: #fff;
-    text-decoration: underline;
-  }
+a.c-notification__content {
+  color: #fff;
+  text-decoration: underline;
 }
 
 .c-notification__icon {
@@ -69,11 +69,10 @@
   align-self: flex-start;
   opacity: .74;
   cursor: pointer;
+}
 
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
+.c-notification__close:hover, .c-notification__close:focus {
+  opacity: 1;
 }
 
 .c-notification__countdown {
@@ -152,6 +151,6 @@
   }
 
   100% {
-    width: 0%;
+    width: 0;
   }
 }
