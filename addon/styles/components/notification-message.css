@@ -56,11 +56,11 @@
   align-self: flex-start;
   opacity: .74;
   cursor: pointer;
+}
 
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
+.ember-cli-notifications-notification__container .c-notification__close:hover,
+.ember-cli-notifications-notification__container .c-notification__close:focus {
+  opacity: 1;
 }
 
 .ember-cli-notifications-notification__container .c-notification__countdown {
