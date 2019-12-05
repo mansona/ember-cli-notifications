@@ -1,5 +1,6 @@
 'use strict';
 
+const CssImport = require('postcss-import');
 const PresetEnv = require('postcss-preset-env');
 const styleDir = require('path').join(__dirname, 'addon', 'styles');
 
@@ -12,6 +13,7 @@ module.exports = {
         enabled: true,
         includePaths: [styleDir],
         plugins: [
+          { module: CssImport },
           {
             module: PresetEnv,
             options: { stage: 3 },
