@@ -33,7 +33,6 @@
     "ember-cli-htmlbars": "^4.0.0",
     "ember-cli-postcss": "^5.0.0",
     "ember-get-config": "^0.2.4",
-    "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0"
   },
   "devDependencies": {
