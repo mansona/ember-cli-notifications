@@ -7,7 +7,7 @@
   border-radius: var(--notification-border-radius);
   border-bottom: 1rem;
   color: white;
-  max-height: var(--notification-max-height;);
+  max-height: var(--notification-max-height);
   animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
   animation-fill-mode: forwards;
   margin-bottom: var(--spacing-2);
@@ -106,7 +106,7 @@
 @keyframes notification-shrink {
   0% {
     opacity: 0;
-    max-height: var(--notification-max-height;);
+    max-height: var(--notification-max-height);
     transform: scale(.8);
   }
 
