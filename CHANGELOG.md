@@ -1,4 +1,10 @@
 
+6.0.0 / 2020-01-09
+==================
+
+  * remove support for Ember < 2.18
+  * fix issue with clicking close running onClick handler #259 from @mansona
+
 5.1.0 / 2020-01-09
 ==================
 
