@@ -1,4 +1,9 @@
 
+5.1.0 / 2020-01-09
+==================
+
+  * update dependencies with ember-cli-update from @mansona
+
 5.0.0 / 2020-01-09
 ==================
   * renaming service to simply 'notifications'
