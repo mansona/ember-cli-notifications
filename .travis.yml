@@ -37,12 +37,18 @@ jobs:
 
   include:
     # runs linting and tests with current locked deps
-
     - stage: "Tests"
       name: "Tests"
       script:
         - npm run lint:hbs
         - npm run lint:js
+        - npm test
+
+    - stage: "Additional Tests"
+      name: "Floating Dependencies"
+      install:
+        - npm install --no-package-lock
+      script:
         - npm test
 
     # we recommend new addons test the current and previous LTS
@@ -53,10 +59,19 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-lts-2.18
     - env: EMBER_TRY_SCENARIO=ember-lts-3.4
     - env: EMBER_TRY_SCENARIO=ember-lts-3.8
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.12
     - env: EMBER_TRY_SCENARIO=ember-release
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+    - env: EMBER_TRY_SCENARIO=ember-classic
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.8
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.12
+    - env: EMBER_TRY_SCENARIO=ember-release
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+    - env: EMBER_TRY_SCENARIO=ember-classic
 
 install:
   - npm ci
