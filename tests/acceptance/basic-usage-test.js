@@ -55,5 +55,7 @@ module('Acceptance | basic usage', function(hooks) {
 
     assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
     assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'success');
+
+    notificationService.setDefaultAutoClear(false);
   })
 });

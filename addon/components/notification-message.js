@@ -50,11 +50,6 @@ export default Component.extend({
     return '';
   }),
 
-  mouseDown() {
-    if (this.get('notification.onClick')) {
-      this.get('notification.onClick')(this.get('notification'));
-    }
-  },
   mouseEnter() {
     if (this.get('notification.autoClear')) {
       this.set('paused', true);
@@ -85,8 +80,14 @@ export default Component.extend({
   }),
 
   actions: {
+    handleOnClick() {
+      if (this.get('notification.onClick')) {
+        this.get('notification.onClick')(this.get('notification'));
+      }
+    },
+
     removeNotification() {
-      this.notifications.removeNotification(this.get('notification'));
+      this.get('notifications').removeNotification(this.get('notification'));
     }
   }
 });

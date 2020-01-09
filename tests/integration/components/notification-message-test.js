@@ -1,34 +1,42 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
+import { render, click, settled } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | notification message', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('clicking the notification calls the callback defined on the notification message', async function(assert) {
+    assert.expect(1);
 
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
+    await render(hbs`<NotificationContainer />`);
+    let notifications = this.owner.lookup('service:notifications');
 
-    let svgs = {
-      'success': 'success',
-      'warning': 'warning',
-      'info': 'info',
-      'error': 'error',
-    };
-
-    let notification = {
-      type: 'info',
-    }
-
-    this.setProperties({
-      'svgs': svgs,
-      notification
+    notifications.error('Something went wrong. Click to try again', {
+      onClick() {
+        assert.ok(true);
+      }
     });
 
-    await render(hbs`{{notification-message svgs=svgs notification=notification}}`);
+    await settled();
 
-    assert.equal(find('*').textContent.trim(), '');
+    await click('.c-notification__content');
+  });
+
+  test('clicking the notification close button does not call the callback defined on the notification message', async function(assert) {
+    assert.expect(0);
+
+    await render(hbs`<NotificationContainer />`);
+    let notifications = this.owner.lookup('service:notifications');
+
+    notifications.error('Something went wrong. Click to try again', {
+      onClick() {
+        throw new Error('this should not be run!');
+      }
+    });
+
+    await settled();
+    await click('.c-notification__close');
+    await settled();
   });
 });
