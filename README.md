@@ -2,9 +2,9 @@
 
 [![Download count all time](https://img.shields.io/npm/dt/ember-cli-notifications.svg)](https://www.npmjs.com/package/ember-cli-notifications)
 [![NPM package](https://img.shields.io/npm/v/ember-cli-notifications.svg)](https://www.npmjs.com/package/ember-cli-notifications)
-[![Build Status](https://travis-ci.org/ynnoj/ember-cli-notifications.svg?branch=master)](https://travis-ci.org/ynnoj/ember-cli-notifications)
+[![Build Status](https://travis-ci.org/mansona/ember-cli-notifications.svg?branch=master)](https://travis-ci.org/mansona/ember-cli-notifications)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-notifications.svg)](http://emberobserver.com/addons/ember-cli-notifications)
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2d7784a2ad1c27cb8250/maintainability)](https://codeclimate.com/github/mansona/ember-cli-notifications/maintainability)
 
 
 Compatibility
@@ -26,7 +26,7 @@ ember install ember-cli-notifications
 Usage
 ------------------------------------------------------------------------------
 
-An [Ember CLI](http://ember-cli.com) addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
+An [Ember](http://emberjs.com) addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
 
 Interactive documentation can be found [here](https://ember-cli-notifications.netlify.com).
 
