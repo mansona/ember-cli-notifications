@@ -3,11 +3,11 @@
   "version": "5.0.0-2",
   "description": "Atom inspired notification messages for ember-cli",
   "keywords": [
-    "ember-addon",
+    "alerts",
     "ember",
+    "ember-addon",
     "ember-cli",
-    "notifications",
-    "alerts"
+    "notifications"
   ],
   "repository": {
     "type": "git",
@@ -73,5 +73,9 @@
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "demoURL": "https://ember-cli-notifications.netlify.com"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/mansona"
   }
 }
