@@ -1,21 +1,22 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';
+import { inject as service } from '@ember/service';
+
 import layout from '../templates/components/notification-container';
-import styles from '../styles/components/notification-container';
 
 export default Component.extend({
-  position: 'top',
   layout,
-  styles,
+  position: 'top',
+  notifications: service(),
 
-  classNameBindings: ['computedPosition'],
+  classNameBindings: ['computedPosition', ':ember-cli-notifications-notification__container'],
   attributeBindings: ['computedStyle:style', 'position:data-test-notification-container'],
 
   zindex: '1060',
 
   computedPosition: computed('position', function() {
-    return this.get(`styles.c-notification__container--${this.get('position')}`);
+    return `ember-cli-notifications-notification__container--${this.get('position')}`;
   }),
 
   computedStyle: computed('zindex', function() {

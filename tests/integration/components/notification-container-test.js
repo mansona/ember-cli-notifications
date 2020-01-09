@@ -7,7 +7,7 @@ module('Integration | Component | notification container', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    let notificationMessages = this.owner.lookup('service:notification-messages-service');
+    let notificationMessages = this.owner.lookup('service:notifications');
 
     // fix strange setup bug
     notificationMessages.clearAll();

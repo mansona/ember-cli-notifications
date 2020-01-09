@@ -1,9 +1,2 @@
-/* Colors */
-@value --green: #64ce83;
-@value --blue: #3ea2ff;
-@value --orange: #ff7f48;
-@value --red: #e74c3c;
-
-/* Spacing */
-@value --spacing-1: .5rem;
-@value --spacing-2: 1rem;
+@import 'components/notification-container.css';
+@import 'components/notification-message.css';

@@ -1,110 +1,93 @@
 /* Values */
-@value --icon-width: 30px;
-@value --icon-position: 10px;
-@value --icon-color: color(#fff a(.74));
-@value --icon-lighten-background: color(#fff a(.2));
-@value --countdown-lighten-background: color(#fff a(.4));
-@value --notification-max-height: 800px;
-@value --notification-border-radius: 3px;
-
-/* Colours */
-@value --red from '../addon';
-@value --blue from '../addon';
-@value --green from '../addon';
-@value --orange from '../addon';
-
-/* Spacing */
-@value --spacing-1 from '../addon';
-@value --spacing-2 from '../addon';
-
-/* Base */
-.c-notification {
+.ember-cli-notifications-notification__container .c-notification {
   display: flex;
   align-items: stretch;
   position: relative;
   overflow: hidden;
-  border-radius: --notification-border-radius;
+  border-radius: var(--notification-border-radius);
   border-bottom: 1rem;
   color: white;
-  max-height: --notification-max-height;
+  max-height: var(--notification-max-height);
   animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
   animation-fill-mode: forwards;
-  margin-bottom: --spacing-2;
+  margin-bottom: var(--spacing-2);
 }
 
-.c-notification--clickable {
+.ember-cli-notifications-notification__container .c-notification--clickable {
   cursor: pointer;
 }
 
-.c-notification--in {
+.ember-cli-notifications-notification__container .c-notification--in {
   animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
 }
 
-.c-notification__content {
+.ember-cli-notifications-notification__container .c-notification__content {
   display: flex;
   flex: 1 1 auto;
   min-width: 0;
   min-height: 0;
   justify-content: space-between;
-  padding: --spacing-1 --spacing-2;
+  padding: var(--spacing-1) var(--spacing-2);
   word-break: break-word;
-
-  & a {
-    color: #fff;
-    text-decoration: underline;
-  }
 }
 
-.c-notification__icon {
-  padding: --spacing-1 0;
+.ember-cli-notifications-notification__container .c-notification__content a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.ember-cli-notifications-notification__container .c-notification__icon {
+  padding: var(--spacing-1) 0;
   text-align: center;
   flex: none;
-  background-color: --icon-lighten-background;
-  width: --icon-width;
-  color: --icon-color;
+  background-color: var(--icon-lighten-background);
+  width: var(--icon-width);
+  color: var(--icon-color);
 }
 
-.c-notification__close {
-  margin-left: --spacing-2;
+.ember-cli-notifications-notification__container .c-notification__svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
+}
+
+.ember-cli-notifications-notification__container .c-notification__close {
+  margin-left: var(--spacing-2);
   align-self: flex-start;
   opacity: .74;
   cursor: pointer;
-
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
 }
 
-.c-notification__countdown {
+.ember-cli-notifications-notification__container .c-notification__close:hover,
+.ember-cli-notifications-notification__container .c-notification__close:focus {
+  opacity: 1;
+}
+
+.ember-cli-notifications-notification__container .c-notification__countdown {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: --countdown-lighten-background;
+  background-color: var(--countdown-lighten-background);
   width: 0;
   height: 4px;
   animation: notification-countdown linear 1;
 }
 
 /* Theme */
-.c-notification--info {
-  composes: c-notification;
-  background-color: --blue;
+.ember-cli-notifications-notification__container .c-notification--info {
+  background-color: var(--blue);
 }
 
-.c-notification--success {
-  composes: c-notification;
-  background-color: --green;
+.ember-cli-notifications-notification__container .c-notification--success {
+  background-color: var(--green);
 }
 
-.c-notification--warning {
-  composes: c-notification;
-  background-color: --orange;
+.ember-cli-notifications-notification__container .c-notification--warning {
+  background-color: var(--orange);
 }
 
-.c-notification--error {
-  composes: c-notification;
-  background-color: --red;
+.ember-cli-notifications-notification__container .c-notification--error {
+  background-color: var(--red);
 }
 
 /* Keyframes */
@@ -123,7 +106,7 @@
 @keyframes notification-shrink {
   0% {
     opacity: 0;
-    max-height: --notification-max-height;
+    max-height: var(--notification-max-height);
     transform: scale(.8);
   }
 

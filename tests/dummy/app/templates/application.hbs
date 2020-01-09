@@ -7,10 +7,10 @@
     </div>
     <div class="flex mxn1">
       <div class="px1">
-        <a class="btn btn-outline" href="https://github.com/ynnoj/ember-cli-notifications" target="_blank">GitHub</a>
+        <a class="btn btn-outline" href="https://github.com/ynnoj/ember-cli-notifications" target="_blank" rel="noopener">GitHub</a>
       </div>
       <div class="px1">
-        <a class="btn btn-outline" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank">npm</a>
+        <a class="btn btn-outline" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank" rel="noopener">npm</a>
       </div>
     </div>
   </div>
@@ -19,9 +19,7 @@
   <div class="py2">
     <h2>Installation</h2>
     <hr>
-    {{#themed-syntax lang="bash" theme="dark" class="h5" withBuffers=false}}
-ember install ember-cli-notifications
-    {{/themed-syntax}}
+    <CodeBlock @language="bash" @code="ember install ember-cli-notifications" />
   </div>
   <div class="py2">
     <h2>Basic usage</h2>
@@ -29,18 +27,18 @@ ember install ember-cli-notifications
     <p>Include the container component in your template.</p>
     <p>Optionally, change the position or z-index value of the notifications container.</p>
     <p class="h5"><i>Default value is top</i></p>
-    {{#themed-syntax lang="htmlbars" theme="dark" class="h5" withBuffers=false}}
-&#123;&#123;notification-container position="top-right" zindex="9999"&#125;&#125;
-    {{/themed-syntax}}
+    <CodeBlock @language="handlebars">&#123;&#123;notification-container position="top-right" zindex="9999"&#125;&#125;</CodeBlock>
 
     <p>Inject the notifications service where required.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-notifications: Ember.inject.service('notification-messages')
-    {{/themed-syntax}}
+    <CodeBlock @language="js">import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
+
+export default Controller.extend({
+  notifications: service(),
+});</CodeBlock>
 
     <p>Or inject it everywhere with an initializer.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-// app/initializers/inject-notifications.js
+<CodeBlock @language="js">// app/initializers/inject-notifications.js
 export function initialize(application) {
   ['controller', 'component', 'route'].forEach(injectionTarget => {
     application.inject(injectionTarget, 'notifications', 'notification-messages:service');
@@ -51,32 +49,30 @@ export default {
   name: 'inject-notifications',
   initialize
 };
-    {{/themed-syntax}}
+</CodeBlock>
 
     <p>There are four styles of notification available.</p>
     <p class="h5"><i>Default value is info</i></p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-// Info
-this.get('notifications').info('You have one unread message');
+    <CodeBlock @language="js">// Info
+this.notifications.info('You have one unread message');
 
 // Error
-this.get('notifications').error('Something went wrong');
+this.notifications.error('Something went wrong');
 
 // Success
-this.get('notifications').success('Saved successfully!');
+this.notifications.success('Saved successfully!');
 
 // Warning
-this.get('notifications').warning('You have unsaved changes');
-    {{/themed-syntax}}
+this.notifications.warning('You have unsaved changes');
+</CodeBlock>
 
     <h3>htmlContent</h3>
     <p>You can enable basic HTML markup for notification messages.</p>
     <p><b>Warning:</b> This introduces a potential security risk since the notification message will no longer be escaped by Ember.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-this.get('notifications').info('You have &lt;b&gt;one&lt;/b&gt; unread message', {
+<CodeBlock @language="js">this.notifications.info('You have &lt;b&gt;one&lt;/b&gt; unread message', {
   htmlContent: true
 });
-    {{/themed-syntax}}
+</CodeBlock>
 
     <div class="bg-darken-1 rounded p2 mb3">
       <div class="mxn2 mb3">
@@ -92,19 +88,19 @@ this.get('notifications').info('You have &lt;b&gt;one&lt;/b&gt; unread message',
           <h4>Type</h4>
           <div data-test-radio-html class="sm-flex mxn1">
             <div class="px1 mb1">
-              {{radio-button value="success" groupValue=type}}
+              {{radio-button value="success" checked=type}}
               <label>Success</label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="info" groupValue=type}}
+              {{radio-button value="info" checked=type}}
               <label>Info</label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="error" groupValue=type}}
+              {{radio-button value="error" checked=type}}
               <label>Error</label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="warning" groupValue=type}}
+              {{radio-button value="warning" checked=type}}
               <label>Warning</label>
             </div>
           </div>
@@ -113,27 +109,27 @@ this.get('notifications').info('You have &lt;b&gt;one&lt;/b&gt; unread message',
           <h4>Position</h4>
           <div class="sm-flex mxn1">
             <div class="px1 mb1">
-              {{radio-button value="top" groupValue=position}}
+              {{radio-button value="top" checked=position}}
               <label>top</label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="top-left" groupValue=position}}
+              {{radio-button value="top-left" checked=position}}
               <label>top-left</label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="top-right" groupValue=position}}
+              {{radio-button value="top-right" checked=position}}
               <label>top-right</label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="bottom" groupValue=position}}
+              {{radio-button value="bottom" checked=position}}
               <label>bottom</label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="bottom-left" groupValue=position}}
+              {{radio-button value="bottom-left" checked=position}}
               <label>bottom-left</label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="bottom-right" groupValue=position}}
+              {{radio-button value="bottom-right" checked=position}}
               <label>bottom-right</label>
             </div>
           </div>
@@ -149,29 +145,26 @@ this.get('notifications').info('You have &lt;b&gt;one&lt;/b&gt; unread message',
     <p>Set a notification to automatically clear. This will take precedence over the global default value.</p>
     <p>If true, inherits the default <b>clearDuration</b> value unless specified.</p>
     <p class="h5"><i>Default value is false</i></p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-this.get('notifications').success('Saved successfully!', {
+<CodeBlock @language="js">this.notifications.success('Saved successfully!', {
   autoClear: true
 });
-    {{/themed-syntax}}
+</CodeBlock>
 
     <h3>clearDuration</h3>
     <p>Specify a duration (ms) before the notification clears. This will take precedence over the global default value.</p>
     <p class="h5"><i>Default value is 3200</i></p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-this.get('notifications').success('Saved successfully!', {
+<CodeBlock @language="js">this.notifications.success('Saved successfully!', {
   autoClear: true,
   clearDuration: 1200
 });
-    {{/themed-syntax}}
+</CodeBlock>
 
     <h3>clearAll</h3>
     <p>You can remove all present notifications before adding a new one.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-this.get('notifications').clearAll().success('Saved successfully!', {
+<CodeBlock @language="js">this.notifications.clearAll().success('Saved successfully!', {
   autoClear: true
 });
-    {{/themed-syntax}}
+</CodeBlock>
 
     <div class="bg-darken-1 rounded p2 mb3">
       <div class="mxn2 mb3">
@@ -197,76 +190,49 @@ this.get('notifications').clearAll().success('Saved successfully!', {
     <h2>Notification with custom CSS</h2>
     <hr>
     <p>Pass a string of CSS classes to the notification component.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-this.get('notifications').success('Saved successfully!', {
+<CodeBlock @language="js">this.notifications.success('Saved successfully!', {
   autoClear: true,
   cssClasses: 'profile-saved-success-notification'
 });
-    {{/themed-syntax}}
+</CodeBlock>
   </div>
   <div class="py2">
     <h2>Notification with callback</h2>
     <hr>
     <p>Add the ability to click the notification for a callback.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-this.get('notifications').error('Something went wrong. Click to try again', {
+<CodeBlock @language="js">this.notifications.error('Something went wrong. Click to try again', {
   onClick: (notification) => {
     this.get('model').save();
   }
 });
-    {{/themed-syntax}}
+</CodeBlock>
   </div>
   <div class="py2">
     <h2>Config</h2>
     <hr>
     <h3>Globals</h3>
     <p>Set the global default values for <b>autoClear</b> and <b>clearDuration</b>.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-// config/environment.js
+<CodeBlock @language="js">// config/environment.js
 var ENV = {
   'ember-cli-notifications': {
     autoClear: true,
     clearDuration: 2400
   }
 }
-    {{/themed-syntax}}
-    <h3>Icons</h3>
-    <p><a href="http://fontawesome.io/" target="_blank">Font Awesome</a> is a requirement to display the icons on the notifications and is installed as a dependency.</p>
-
-    <p>If you don't want to import the Font Awesome assets into the consuming application, add the following to the app config file.</p>
-
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-// config/environment.js
-var ENV = {
-  'ember-cli-notifications': {
-    includeFontAwesome: false
-  }
-}
-    {{/themed-syntax}}
-
-    <p>Alternatively, the notifications can use the <a href="http://getbootstrap.com/components/#glyphicons" target="_blank">Glyphicons</a> icon package. Glyphicons will <b>not</b> added to your application via this addon.</p>
-
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-// config/environment.js
-var ENV = {
-  'ember-cli-notifications': {
-    icons: 'bootstrap'
-  }
-}
-    {{/themed-syntax}}
+</CodeBlock>
   </div>
+
   <div class="py2">
     <h2>Extend</h2>
     <hr>
-    <p>The <b>notification-messages-service</b> service can be imported into the consuming app and extended.</p>
-    {{#themed-syntax lang="js" theme="dark" class="h5" withBuffers=false}}
-// app/services/notifications.js
-import NotificationsService from 'ember-cli-notifications/services/notification-messages-service';
+    <p>The <b>notifications</b> service can be imported into the consuming app and extended.</p>
+    <CodeBlock @language="js">// app/services/notifications.js
+import NotificationsService from 'ember-cli-notifications/services/notifications';
 
 export default NotificationsService.extend({
   // Extend the imported service
 });
-    {{/themed-syntax}}
+</CodeBlock>
     <p>Be sure to inject the <i>new</i> service into your app.</p>
   </div>
 </div>
@@ -275,11 +241,11 @@ export default NotificationsService.extend({
     <div class="sm-flex items-center">
       <div class="flex-auto">
         <ul class="list-reset mxn1">
-          <li class="inline-block px1"><a class="bold" href="https://github.com/ynnoj/ember-cli-notifications" target="_blank">GitHub</a></li>
-          <li class="inline-block px1"><a class="bold" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank">npm</a></li>
+          <li class="inline-block px1"><a class="bold" href="https://github.com/ynnoj/ember-cli-notifications" target="_blank" rel="noopener">GitHub</a></li>
+          <li class="inline-block px1"><a class="bold" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank" rel="noopener">npm</a></li>
         </ul>
       </div>
-      <p class="h5">&copy; Stone Circle 2016</p>
+      <p class="h5">&copy; Chris Manson 2019</p>
     </div>
   </div>
 </footer>

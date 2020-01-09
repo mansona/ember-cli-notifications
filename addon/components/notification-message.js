@@ -1,20 +1,23 @@
-import { htmlSafe } from '@ember/string';
-import { A } from '@ember/array';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import Ember from 'ember';
+
+import { htmlSafe } from '@ember/string';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+
 import layout from '../templates/components/notification-message';
-import styles from '../styles/components/notification-message';
 
 export default Component.extend({
   layout,
-  styles,
+
+  notifications: service(),
 
   classNameBindings: [
     'dismissClass',
     'clickableClass',
     'processedType',
-    'notification.cssClasses'
+    'notification.cssClasses',
+    ':c-notification'
   ],
 
   attributeBindings: ['notification.type:data-test-notification-message'],
@@ -22,49 +25,29 @@ export default Component.extend({
   paused: false,
 
   dismissClass: computed('notification.dismiss', function() {
-    if (!this.get('notification.dismiss')) return this.get('styles.c-notification--in');
+    if (!this.get('notification.dismiss')) return 'c-notification--in';
 
     return false;
   }),
 
   clickableClass: computed('notification.onClick', function() {
-    if (this.get('notification.onClick')) return this.get('styles.c-notification--clickable');
+    if (this.get('notification.onClick')) return 'c-notification--clickable';
 
     return false;
   }),
 
-  closeIcon: computed('icons', function() {
-    if (this.get('icons') === 'bootstrap') return 'glyphicon glyphicon-remove';
-
-    return 'fa fa-times';
-  }),
-
-  // Set icon depending on notification type
-  notificationIcon: computed('notification.type', 'icons', function() {
-    const icons = this.get('icons');
-
-    if (icons === 'bootstrap') {
-      switch (this.get('notification.type')){
-        case "info":
-          return 'glyphicon glyphicon-info-sign';
-        case "success":
-          return 'glyphicon glyphicon-ok-sign';
-        case "warning":
-        case "error":
-          return 'glyphicon glyphicon-exclamation-sign';
-      }
-    }
-
-    switch (this.get('notification.type')){
-      case "info":
-        return 'fa fa-info-circle';
-      case "success":
-        return 'fa fa-check';
-      case "warning":
-        return 'fa fa-warning';
+  notificationSVGPath: computed('notification.type', function() {
+    switch(this.get('notification.type')) {
       case "error":
-        return 'fa fa-exclamation-circle';
+      case "info":
+        return 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z';
+      case "success":
+        return 'M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z';
+      case "warning":
+        return 'M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z';
     }
+
+    return '';
   }),
 
   mouseDown() {
@@ -87,9 +70,11 @@ export default Component.extend({
   },
 
   processedType: computed('notification.type', function() {
-    if (this.get('notification.type') && A(['info', 'success', 'warning', 'error']).includes(this.get('notification.type'))) {
-      return this.get(`styles.c-notification--${this.get('notification.type')}`);
+    if (this.get('notification.type') && ['info', 'success', 'warning', 'error'].indexOf(this.get('notification.type')) !== -1 ) {
+      return `c-notification--${this.get('notification.type')}`;
     }
+
+    return '';
   }),
 
   // Apply the clear animation duration rule inline
