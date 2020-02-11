@@ -1,4 +1,9 @@
 
+6.1.0-0 / 2020-02-11
+==================
+
+  * manually running postcss and adding it to vendor #262 from @mansona
+
 6.0.0 / 2020-01-09
 ==================
 
