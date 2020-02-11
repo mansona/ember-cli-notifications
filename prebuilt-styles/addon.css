@@ -1,2 +1,5 @@
+/* Globals */
+@import 'prebuilt-styles/global.css';
+
 @import 'components/notification-container.css';
 @import 'components/notification-message.css';

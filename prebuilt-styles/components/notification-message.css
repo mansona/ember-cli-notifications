@@ -75,19 +75,19 @@
 
 /* Theme */
 .ember-cli-notifications-notification__container .c-notification--info {
-  background-color: var(--blue);
+  background-color: var(--color-blue);
 }
 
 .ember-cli-notifications-notification__container .c-notification--success {
-  background-color: var(--green);
+  background-color: var(--color-green);
 }
 
 .ember-cli-notifications-notification__container .c-notification--warning {
-  background-color: var(--orange);
+  background-color: var(--color-orange);
 }
 
 .ember-cli-notifications-notification__container .c-notification--error {
-  background-color: var(--red);
+  background-color: var(--color-red);
 }
 
 /* Keyframes */

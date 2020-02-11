@@ -1,0 +1,239 @@
+:root {
+  /* Vertical rhythm is based on multiples of 8. */
+
+  --font-family-sans: "Inter var", "Inter web", -apple-system,
+    BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji;
+  --font-family-mono: SFMono-Regular, Consolas, Liberation Mono, Menlo,
+    monospace;
+
+  --color-white: #fff;
+  --color-gray-100: #f4f6f8;
+  --color-gray-200: #ebeef2;
+  --color-gray-300: #dce0e6;
+  --color-gray-400: #bec4cc;
+  --color-gray-500: #8f949f;
+  --color-gray-600: #6a707a;
+  --color-gray-700: #42474f;
+  --color-gray-800: #2b2d34;
+  --color-gray-900: #1c1e24;
+  --color-black: #000;
+  --color-white-40: rgba(255, 255, 255, 0.4);
+
+  --color-brand: #e04e39;
+  --color-brand-text: #ffd7d2;
+  --color-brand-hc-light: #ff5c44;
+  --color-brand-hc-dark: #cf2d20;
+  --color-brand-40: rgba(224, 78, 57, 0.4);
+
+  --color-gray: #a2a3a8;
+  --color-success: #d9f9e3;
+  --color-danger: #ffd8e1;
+  --color-warning: #fcffc9;
+  --color-info: #e3eefc;
+  --color-green: #64ce83;
+  --color-blue: #3ea2ff;
+  --color-orange: #ff7f48;
+  --color-red: #e74c3c;
+
+  --font-size-sm: 0.8125rem; /* 13px, use sparsly! */
+  --font-size-base: 0.9375rem; /* p = 15px */
+  --font-size-md: 0.9375rem; /* h3 = 15px */
+  --font-size-lg: 1.1875rem; /* h2 = 19px */
+  --font-size-xl: 1.5625rem; /* h1 = 25px */
+  --font-size-hero-1: 1.8754rem; /* display 1 = 30px */
+  --font-size-hero-2: 0.9375rem; /* display 2 = 15px */
+
+  --line-height-xs: calc(16 / 13); /* 16px */
+  --line-height-base: 1.6; /* 24px */
+  --line-height-md: 1.6; /* 24px */
+  --line-height-lg: calc(24 / 19); /* 24px */
+  --line-height-xl: 2; /* 32px */
+  --line-height-hero-1: calc(32 / 30); /* 32px */
+  --line-height-hero-2: 1.6; /* 24px */
+
+  --font-weight-1: 200;
+  --font-weight-2: 400;
+  --font-weight-3: 600;
+
+  --spacing-1: 0.5rem; /* 8px */
+  --spacing-2: 1rem; /* 16px */
+  --spacing-3: 1.5rem; /* 24px */
+  --spacing-4: 2.5rem; /* 40px */
+  --spacing-5: 3.5rem; /* 56px */
+  --spacing-6: 4rem; /* 64px */
+
+  --container-width: 60.75rem;
+  --grid-gap-sm: var(--spacing-2);
+  --grid-gap-md: var(--spacing-3);
+  --grid-gap-lg: var(--spacing-4);
+  --grid-margin: 0.75rem;
+
+  --radius: 0.3125rem;
+  --radius-lg: 0.625rem;
+
+
+  --color-button-text: var(--color-white);
+  --color-button-bg: var(--color-brand);
+  --color-button-bg-hover: var(--color-brand-hc-dark);
+  --color-button-secondary-text: var(--color-brand);
+  --color-button-secondary-bg: var(--color-white);
+  --color-button-secondary-bg-hover: var(--color-brand);
+  --color-button-secondary-text-hover: var(--color-white);
+
+  --color-link: var(--color-brand-hc-dark);
+  --color-link-hover: var(--color-brand);
+
+  --focus: 0 0 0px 3px rgba(25, 116, 220, 0.8);
+
+  --container-position: 10px;
+  --container-width: 80%;
+  --container-max-with: 400px;
+
+  --icon-width: 30px;
+  --icon-position: 10px;
+  --icon-color: rgba(255, 255, 255, 0.74);
+  --icon-lighten-background: rgba(255, 255, 255, 0.2);
+  --countdown-lighten-background: rgba(255, 255, 255, 0.4);
+  --notification-max-height: 800px;
+  --notification-border-radius: 3px;
+
+
+}
+
+@media (min-width: 1008px) {
+  /* Vertical rhythm is based on multiples of 9. */
+
+  :root {
+    --font-size-sm: 0.875rem; /* 14px, use sparsly! */
+    --font-size-base: 1rem; /* 16px */
+    --font-size-md: 1.0625rem; /* 17px */
+    --font-size-lg: 1.25rem; /* 20px */
+    --font-size-xl: 2.25rem; /* 36px */
+    --font-size-hero-1: 3rem; /* 48px */
+    --font-size-hero-2: 1.125rem; /* 18px */
+
+    --line-height-xs: calc(16 / 14); /* 16px */
+    --line-height-base: 1.6875; /* 27px */
+    --line-height-md: calc(27 / 17); /* 27px */
+    --line-height-lg: 1.35; /* 27px */
+    --line-height-xl: 1.25; /* 45px */
+    --line-height-hero-1: 1.125; /* 54px */
+    --line-height-hero-2: 1.5; /* 27px */
+
+    --spacing-1: 0.5625rem; /* 9px */
+    --spacing-2: 1.125rem; /* 18px */
+    --spacing-3: 1.6875rem; /* 27px */
+    --spacing-4: 2.25rem; /* 36px */
+    --spacing-5: 3.375rem; /* 54px */
+    --spacing-6: 4.5rem; /* 72px */
+
+    --grid-gap-sm: var(--spacing-3); /* 27px */
+    --grid-gap-md: 2.25rem; /* 36px */
+    --grid-gap-lg: var(--spacing-4); /* 54px */
+  }
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-sans);
+  background: var(--color-white);
+  color: var(--color-gray-700);
+  border: 0;
+}
+
+body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+a {
+  color: var(--color-brand-hc-dark);
+  text-decoration: underline;
+}
+
+main {
+  background-color: var(--color-gray-100);
+}
+
+main a,
+main a:link,
+main a:visited {
+  color: var(--color-link);
+  text-decoration: none;
+  background: no-repeat left bottom
+    linear-gradient(var(--color-brand-40), var(--color-brand-40));
+  background-size: 100% 0.1875rem;
+}
+
+main a:focus,
+main a:hover,
+main a:active,
+main .active {
+  color: var(--color-link-hover);
+}
+
+*:focus {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-2);
+  margin: 0 0 2rem 0;
+  color: var(--color-gray-900);
+}
+
+strong {
+  font-weight: var(--font-weight-3);
+}
+
+figure,
+figcaption {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+figcaption {
+  margin-top: var(--spacing-1);
+  color: var(--color-gray-600);
+}
+
+pre,
+code {
+  font-family: var(--font-family-mono);
+}
+
+/*
+@media (max-width: 1280px) and (min-width: 421px) {
+  body,
+  html {
+  }
+}
+
+@media (max-width: 520px) {
+  body,
+  html {
+  }
+}
+*/
+
+/* move beyond this point */
+
+.content-section {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  border: 1px solid #ccc;
+}
