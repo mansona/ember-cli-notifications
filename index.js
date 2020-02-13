@@ -5,7 +5,7 @@ const PresetEnv = require('postcss-preset-env');
 var broccoliPostCSS = require('broccoli-postcss')
 const mergeTrees = require('broccoli-merge-trees');
 var get = require('lodash.get');
-
+const { join } = require('path');
 
 module.exports = {
   name: require('./package').name,
@@ -17,10 +17,11 @@ module.exports = {
     // sure that it isn't missing
     let overrideBrowserslist = get(this, 'app.project._targets.browsers');
 
-    let newFile = broccoliPostCSS('prebuilt-styles', {
+    let newFile = broccoliPostCSS(join(__dirname, 'prebuilt-styles'), {
       plugins: [
         CssImport({
-          path: 'prebuilt-styles'
+          path: join(__dirname, 'prebuilt-styles'),
+          addModulesDirectories: [__dirname]
         }),
         PresetEnv({
           stage: 3,
