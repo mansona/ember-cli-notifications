@@ -1,4 +1,9 @@
 
+6.1.0 / 2020-02-15
+==================
+
+  * Fix mouseEnter/Leave deprecations #263 from @Shajansheriff
+
 6.0.0 / 2020-01-09
 ==================
 
