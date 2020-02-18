@@ -4,13 +4,13 @@
   align-items: stretch;
   position: relative;
   overflow: hidden;
-  border-radius: var(--notification-border-radius);
+  border-radius: var(--ecn-notification-border-radius);
   border-bottom: 1rem;
   color: white;
-  max-height: var(--notification-max-height);
+  max-height: var(--ecn-notification-max-height);
   animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
   animation-fill-mode: forwards;
-  margin-bottom: var(--spacing-2);
+  margin-bottom: var(--ecn-spacing-2);
 }
 
 .ember-cli-notifications-notification__container .c-notification--clickable {
@@ -27,7 +27,7 @@
   min-width: 0;
   min-height: 0;
   justify-content: space-between;
-  padding: var(--spacing-1) var(--spacing-2);
+  padding: var(--ecn-spacing-1) var(--ecn-spacing-2);
   word-break: break-word;
 }
 
@@ -37,12 +37,12 @@
 }
 
 .ember-cli-notifications-notification__container .c-notification__icon {
-  padding: var(--spacing-1) 0;
+  padding: var(--ecn-spacing-1) 0;
   text-align: center;
   flex: none;
-  background-color: var(--icon-lighten-background);
-  width: var(--icon-width);
-  color: var(--icon-color);
+  background-color: var(--ecn-icon-lighten-background);
+  width: var(--ecn-icon-width);
+  color: var(--ecn-icon-color);
 }
 
 .ember-cli-notifications-notification__container .c-notification__svg {
@@ -52,7 +52,7 @@
 }
 
 .ember-cli-notifications-notification__container .c-notification__close {
-  margin-left: var(--spacing-2);
+  margin-left: var(--ecn-spacing-2);
   align-self: flex-start;
   opacity: .74;
   cursor: pointer;
@@ -67,7 +67,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: var(--countdown-lighten-background);
+  background-color: var(--ecn-countdown-lighten-background);
   width: 0;
   height: 4px;
   animation: notification-countdown linear 1;
@@ -75,19 +75,19 @@
 
 /* Theme */
 .ember-cli-notifications-notification__container .c-notification--info {
-  background-color: var(--blue);
+  background-color: var(--ecn-blue);
 }
 
 .ember-cli-notifications-notification__container .c-notification--success {
-  background-color: var(--green);
+  background-color: var(--ecn-green);
 }
 
 .ember-cli-notifications-notification__container .c-notification--warning {
-  background-color: var(--orange);
+  background-color: var(--ecn-orange);
 }
 
 .ember-cli-notifications-notification__container .c-notification--error {
-  background-color: var(--red);
+  background-color: var(--ecn-red);
 }
 
 /* Keyframes */
@@ -106,7 +106,7 @@
 @keyframes notification-shrink {
   0% {
     opacity: 0;
-    max-height: var(--notification-max-height);
+    max-height: var(--ecn-notification-max-height);
     transform: scale(.8);
   }
 
