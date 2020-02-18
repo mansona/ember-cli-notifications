@@ -1,27 +1,5 @@
 /* Base */
 .ember-cli-notifications-notification__container {
-  --container-position: 10px;
-  --container-width: 80%;
-  --container-max-with: 400px;
-
-  --icon-width: 30px;
-  --icon-position: 10px;
-  --icon-color: rgba(255, 255, 255, 0.74);
-  --icon-lighten-background: rgba(255, 255, 255, 0.2);
-  --countdown-lighten-background: rgba(255, 255, 255, 0.4);
-  --notification-max-height: 800px;
-  --notification-border-radius: 3px;
-
-  /* Colours */
-  --green: #64ce83;
-  --blue: #3ea2ff;
-  --orange: #ff7f48;
-  --red: #e74c3c;
-
-  /* Spacing */
-  --spacing-1: .5rem;
-  --spacing-2: 1rem;
-
   position: fixed;
   margin: 0 auto;
   width: var(--container-width);
