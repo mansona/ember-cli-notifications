@@ -1,5 +1,5 @@
 
-6.2.0-0 / 2020-02-11
+6.2.0 / 2020-02-11
 ==================
 
   * manually running postcss and adding it to vendor #262 from @mansona
