@@ -9,7 +9,7 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
@@ -25,7 +25,7 @@ module.exports = function(environment) {
     'ember-cli-notifications': {
       autoClear: false,
       clearDuration: 2400,
-      includeFontAwesome: true,
+      icons: 'svg'
     }
   };
 
@@ -50,7 +50,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = '/ember-cli-notifications';
+    // production config
   }
 
   return ENV;

@@ -1,5 +1,5 @@
+import Service from '@ember/service';
 import { assign, merge } from '@ember/polyfills';
-import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
 import { isEmpty } from '@ember/utils';
 import EmberObject, { getWithDefault, set } from '@ember/object';
@@ -7,9 +7,10 @@ import { run } from '@ember/runloop';
 import config from 'ember-get-config';
 
 const notificationAssign = assign || merge;
+
 const globals = config['ember-cli-notifications'] || {}; // Import app config object
 
-const NotificationMessagesService = ArrayProxy.extend({
+export default Service.extend({
   content: A(),
 
   // Method for adding a notification
@@ -23,13 +24,13 @@ const NotificationMessagesService = ArrayProxy.extend({
       message: options.message,
       type: options.type || 'info',
       autoClear: (isEmpty(options.autoClear) ? getWithDefault(globals, 'autoClear', false) : options.autoClear),
-      clearDuration: options.clearDuration || getWithDefault(globals, 'clearDuration', 5000),
+      clearDuration: options.clearDuration || getWithDefault(globals, 'clearDuration', 3200),
       onClick: options.onClick,
       htmlContent: options.htmlContent || false,
       cssClasses: options.cssClasses
     });
 
-    this.pushObject(notification);
+    this.content.pushObject(notification);
 
     if (notification.autoClear) {
       notification.set('remaining', notification.get('clearDuration'));
@@ -78,7 +79,7 @@ const NotificationMessagesService = ArrayProxy.extend({
 
     // Delay removal from DOM for dismissal animation
     run.later(this, () => {
-      this.removeObject(notification);
+      this.content.removeObject(notification);
     }, 500);
   },
 
@@ -87,7 +88,7 @@ const NotificationMessagesService = ArrayProxy.extend({
 
     const timer = run.later(this, () => {
       // Hasn't been closed manually
-      if (this.indexOf(notification) >= 0) {
+      if (this.content.indexOf(notification) >= 0) {
           this.removeNotification(notification);
       }
     }, notification.get('remaining'));
@@ -120,9 +121,3 @@ const NotificationMessagesService = ArrayProxy.extend({
     set(globals, 'clearDuration', clearDuration);
   }
 });
-
-NotificationMessagesService.reopenClass({
-  isServiceFactory: true
-});
-
-export default NotificationMessagesService;

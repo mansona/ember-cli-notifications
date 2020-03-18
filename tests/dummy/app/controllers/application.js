@@ -15,7 +15,7 @@ export default Controller.extend({
   clearAll: true,
   cssClasses: 'profile-saved-success-notification',
 
-  notifications: service('notification-messages'),
+  notifications: service(),
 
   disableTimeoutInput: not('autoClear'),
 

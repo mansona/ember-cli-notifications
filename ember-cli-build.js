@@ -2,12 +2,15 @@
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
+
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
-    cssModules: {
-      plugins: [
-        require('postcss-import')
-      ]
+    minifyCSS: {
+      enabled: false
+    },
+    'ember-prism': {
+      'components': ['bash', 'javascript', 'handlebars', 'markup-templating'],
+      'plugins': ['line-highlight']
     }
   });
 

@@ -1,66 +1,43 @@
 'use strict';
 
-const Funnel = require('broccoli-funnel');
-const path = require('path');
-const fs = require('fs');
-
-const faPath = path.dirname(require.resolve('font-awesome/package.json'));
+const CssImport = require('postcss-import');
+const PresetEnv = require('postcss-preset-env');
+const broccoliPostCSS = require('broccoli-postcss')
+const mergeTrees = require('broccoli-merge-trees');
+const funnel = require('broccoli-funnel');
+const get = require('lodash.get');
+const { join } = require('path');
 
 module.exports = {
-  name: 'ember-cli-notifications',
+  name: require('./package').name,
 
-  options: {
-    cssModules: {
-      postcssOptions: {
-        map: true
-      },
+  treeForAddon() {
+    var tree = this._super(...arguments);
+
+    const addonWithoutStyles = funnel(tree, {
+      exclude: ['**/*.css'],
+    });
+
+    const addonStyles = funnel(tree, {
+      include: ['**/*.css']
+    });
+
+    // I don't know exactly why targets is private so I am using `get()` to make
+    // sure that it isn't missing
+    let overrideBrowserslist = get(this, 'app.project._targets.browsers');
+
+    let processedStyles = broccoliPostCSS(addonStyles, {
       plugins: [
-        require('postcss-cssnext')
-      ]
-    }
+        CssImport({
+          path: join(__dirname, 'addon', 'styles'),
+        }),
+        PresetEnv({
+          stage: 3,
+          features: { 'nesting-rules': true },
+          overrideBrowserslist,
+        })
+      ]});
+
+    return mergeTrees([addonWithoutStyles, processedStyles]);
   },
-
-  treeForVendor() {
-    return new Funnel(faPath, {
-      destDir: 'font-awesome',
-      include: ['css/*', `fonts/*`]
-    });
-  },
-
-  included(app) {
-    const projectConfig = this.project.config(app.env);
-    const config = projectConfig['ember-cli-notifications'];
-
-    this._super.included.apply(this, arguments);
-
-    // see: https://github.com/ember-cli/ember-cli/issues/3718
-    if (typeof app.import !== 'function' && app.app) {
-      app = app.app;
-    }
-
-    this.app = app;
-
-    // Don't import Font Awesome assets if specified in consuming app
-    if (config && config.includeFontAwesome && config.includeFontAwesome !== false) {
-      this.importFontAwesome(app);
-    }
-  },
-
-  importFontAwesome(app) {
-    const cssPath = 'vendor/font-awesome/css';
-    const fontsPath = 'vendor/font-awesome/fonts';
-    const absoluteFontsPath = path.join(faPath, 'fonts');
-    const fontsToImport = fs.readdirSync(absoluteFontsPath);
-
-    fontsToImport.forEach((fontFilename) => {
-      app.import(
-        path.join(fontsPath, fontFilename),
-        { destDir: '/fonts' }
-      );
-    });
-    app.import({
-      development: path.join(cssPath, 'font-awesome.css'),
-      production: path.join(cssPath, 'font-awesome.min.css')
-    });
-  }
 };
