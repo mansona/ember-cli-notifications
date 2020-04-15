@@ -11,7 +11,6 @@ export default Controller.extend({
   clearDuration: 2800,
   htmlContent: false,
   position: 'top',
-  zindex: '9999',
   clearAll: true,
   cssClasses: 'profile-saved-success-notification',
 
