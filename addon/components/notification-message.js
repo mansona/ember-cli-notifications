@@ -63,7 +63,9 @@ export default Component.extend({
       }
     },
 
-    removeNotification() {
+    removeNotification(e) {
+      // clicking the notification close should not call the `onClick` callback defined on the notification message
+      e.stopPropagation();
       this.get('notifications').removeNotification(this.get('notification'));
     },
 
