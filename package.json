@@ -21,6 +21,7 @@
   },
   "scripts": {
     "build": "ember build",
+    "changelog": "auto-changelog --template changelog.template --unreleased-only --prepend --load-github-issue-data --github-cache-dir .changelog",
     "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push; git checkout -",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
@@ -29,6 +30,7 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
+    "auto-changelog": "github:mansona/auto-changelog#epic",
     "broccoli-funnel": "^3.0.2",
     "broccoli-merge-trees": "^4.1.0",
     "broccoli-postcss": "^5.0.0",
