@@ -14,7 +14,7 @@ export default Service.extend({
   init() {
     this._super(...arguments);
     this.set('content', A());
-  }
+  },
 
   // Method for adding a notification
   addNotification(options) {
