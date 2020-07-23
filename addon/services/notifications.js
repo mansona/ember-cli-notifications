@@ -11,7 +11,10 @@ const notificationAssign = assign || merge;
 const globals = config['ember-cli-notifications'] || {}; // Import app config object
 
 export default Service.extend({
-  content: A(),
+  init() {
+    this._super(...arguments);
+    this.set('content', A());
+  },
 
   // Method for adding a notification
   addNotification(options) {
