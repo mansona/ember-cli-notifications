@@ -7,10 +7,10 @@
     </div>
     <div class="flex mxn1">
       <div class="px1">
-        <a class="btn btn-outline" href="https://github.com/mansona/ember-cli-notifications" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-outline" href="https://github.com/mansona/ember-cli-notifications" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
       <div class="px1">
-        <a class="btn btn-outline" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank" rel="noopener">npm</a>
+        <a class="btn btn-outline" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank" rel="noopener noreferrer">npm</a>
       </div>
     </div>
   </div>
@@ -135,7 +135,7 @@ this.notifications.warning('You have unsaved changes');
           </div>
         </div>
       </div>
-      <button class="btn btn-primary" data-test-button-html-show {{action "showNotifcation"}}>Show</button>
+      <button type="button" class="btn btn-primary" data-test-button-html-show {{action "showNotifcation"}}>Show</button>
     </div>
   </div>
   <div class="py2">
@@ -183,7 +183,7 @@ this.notifications.warning('You have unsaved changes');
           <label>Enable</label>
         </div>
       </div>
-      <button class="btn btn-primary" {{action "showNotifcation"}}>Show</button>
+      <button type="button" class="btn btn-primary" {{action "showNotifcation"}}>Show</button>
     </div>
   </div>
   <div class="py2">
@@ -241,8 +241,8 @@ export default NotificationsService.extend({
     <div class="sm-flex items-center">
       <div class="flex-auto">
         <ul class="list-reset mxn1">
-          <li class="inline-block px1"><a class="bold" href="https://github.com/mansona/ember-cli-notifications" target="_blank" rel="noopener">GitHub</a></li>
-          <li class="inline-block px1"><a class="bold" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank" rel="noopener">npm</a></li>
+          <li class="inline-block px1"><a class="bold" href="https://github.com/mansona/ember-cli-notifications" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li class="inline-block px1"><a class="bold" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank" rel="noopener noreferrer">npm</a></li>
         </ul>
       </div>
       <p class="h5">&copy; Chris Manson 2019</p>

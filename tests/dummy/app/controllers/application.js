@@ -19,7 +19,7 @@ export default Controller.extend({
 
   disableTimeoutInput: not('autoClear'),
 
-  computedMessage: computed('htmlContent', function() {
+  computedMessage: computed('htmlContent', 'htmlMessage', 'message', function() {
     if (this.get('htmlContent')) return this.get('htmlMessage');
 
     return this.get('message');
