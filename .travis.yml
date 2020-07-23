@@ -39,8 +39,15 @@ jobs:
     - stage: "Tests"
       name: "Tests"
       script:
-        - npm run lint
         - npm run test:ember
+
+    # ember-template-lint seems to need node 10
+    - stage: "Linting"
+      name: "Linting"
+      script:
+        - npm run lint
+      node_js:
+        - "10"
 
     - stage: "Additional Tests"
       name: "Floating Dependencies"
