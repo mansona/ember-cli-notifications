@@ -1,3 +1,8 @@
+6.3.0 / 2020-07-23
+==================
+
+  * services/notifications: Use new `content` array for each service instance #279 from @Turbo87
+  * Add configuration option to exclude all CSS #275 from @pichfl
 
 6.2.0 / 2020-02-11
 ==================
