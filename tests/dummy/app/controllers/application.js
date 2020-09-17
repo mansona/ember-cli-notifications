@@ -19,24 +19,24 @@ export default Controller.extend({
 
   disableTimeoutInput: not('autoClear'),
 
-  computedMessage: computed('htmlContent', function() {
-    if (this.get('htmlContent')) return this.get('htmlMessage');
+  computedMessage: computed('htmlContent', 'htmlMessage', 'message', function() {
+    if (this.htmlContent) return this.htmlMessage;
 
-    return this.get('message');
+    return this.message;
   }),
 
   actions: {
     showNotifcation() {
-      if (this.get('clearAll')) {
-        this.get('notifications').clearAll();
+      if (this.clearAll) {
+        this.notifications.clearAll();
       }
-      this.get('notifications').addNotification({
-        cssClasses: this.get('cssClasses'),
-        message: this.get('computedMessage'),
-        type: this.get('type'),
-        autoClear: this.get('autoClear'),
-        clearDuration: this.get('clearDuration'),
-        htmlContent: this.get('htmlContent')
+      this.notifications.addNotification({
+        cssClasses: this.cssClasses,
+        message: this.computedMessage,
+        type: this.type,
+        autoClear: this.autoClear,
+        clearDuration: this.clearDuration,
+        htmlContent: this.htmlContent
       });
     }
   }

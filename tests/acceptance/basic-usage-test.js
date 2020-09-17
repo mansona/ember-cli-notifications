@@ -1,4 +1,4 @@
-import { find, click, visit } from '@ember/test-helpers';
+import { click, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 
@@ -10,8 +10,8 @@ module('Acceptance | basic usage', function(hooks) {
 
     await click('[data-test-button-html-show]');
 
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'success');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasText('Notification message');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasAttribute('data-test-notification-message', 'success');
   });
 
   test('info message works', async function(assert) {
@@ -20,8 +20,8 @@ module('Acceptance | basic usage', function(hooks) {
     await click('[data-test-radio-html] [value="info"]');
     await click('[data-test-button-html-show]');
 
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'info');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasText('Notification message');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasAttribute('data-test-notification-message', 'info');
   });
 
   test('error message works', async function(assert) {
@@ -30,8 +30,8 @@ module('Acceptance | basic usage', function(hooks) {
     await click('[data-test-radio-html] [value="error"]');
     await click('[data-test-button-html-show]');
 
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'error');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasText('Notification message');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasAttribute('data-test-notification-message', 'error');
   });
 
   test('warning message works', async function(assert) {
@@ -40,8 +40,8 @@ module('Acceptance | basic usage', function(hooks) {
     await click('[data-test-radio-html] [value="warning"]');
     await click('[data-test-button-html-show]');
 
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'warning');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasText('Notification message');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasAttribute('data-test-notification-message', 'warning');
   });
 
   test('make sure setDefaultAutoClear is working', async function(assert) {
@@ -53,8 +53,8 @@ module('Acceptance | basic usage', function(hooks) {
 
     await click('[data-test-button-html-show]');
 
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').textContent.trim(), 'Notification message');
-    assert.equal(find('[data-test-notification-container] [data-test-notification-message]').getAttribute('data-test-notification-message'), 'success');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasText('Notification message');
+    assert.dom('[data-test-notification-container] [data-test-notification-message]').hasAttribute('data-test-notification-message', 'success');
 
     notificationService.setDefaultAutoClear(false);
   })

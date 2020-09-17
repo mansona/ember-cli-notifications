@@ -9,6 +9,6 @@ module('Integration | Helper | equal', function(hooks) {
   test('it renders', async function(assert) {
     await render(hbs`{{equal 'success' 'success'}}`);
 
-    assert.equal(this.element.textContent.trim(), "true");
+    assert.dom(this.element).hasText('true');
   });
 });

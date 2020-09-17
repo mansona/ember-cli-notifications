@@ -16,10 +16,10 @@ export default Component.extend({
   zindex: '1060',
 
   computedPosition: computed('position', function() {
-    return `ember-cli-notifications-notification__container--${this.get('position')}`;
+    return `ember-cli-notifications-notification__container--${this.position}`;
   }),
 
   computedStyle: computed('zindex', function() {
-    return htmlSafe(`z-index: ${this.get('zindex')};`);
+    return htmlSafe(`z-index: ${this.zindex};`);
   })
 });

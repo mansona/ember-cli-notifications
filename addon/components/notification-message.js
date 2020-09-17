@@ -15,19 +15,19 @@ export default Component.extend({
   paused: false,
 
   dismissClass: computed('notification.dismiss', function() {
-    if (!this.get('notification.dismiss')) return 'c-notification--in';
+    if (!this.notification.dismiss) return 'c-notification--in';
 
     return false;
   }),
 
   clickableClass: computed('notification.onClick', function() {
-    if (this.get('notification.onClick')) return 'c-notification--clickable';
+    if (this.notification.onClick) return 'c-notification--clickable';
 
     return false;
   }),
 
   notificationSVGPath: computed('notification.type', function() {
-    switch(this.get('notification.type')) {
+    switch(this.notification.type) {
       case "error":
       case "info":
         return 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z';
@@ -42,8 +42,8 @@ export default Component.extend({
 
 
   processedType: computed('notification.type', function() {
-    if (this.get('notification.type') && ['info', 'success', 'warning', 'error'].indexOf(this.get('notification.type')) !== -1 ) {
-      return `c-notification--${this.get('notification.type')}`;
+    if (this.notification.type && ['info', 'success', 'warning', 'error'].indexOf(this.notification.type) !== -1 ) {
+      return `c-notification--${this.notification.type}`;
     }
 
     return '';
@@ -51,33 +51,33 @@ export default Component.extend({
 
   // Apply the clear animation duration rule inline
   notificationClearDuration: computed('paused', 'notification.clearDuration', function() {
-    const duration = Ember.Handlebars.Utils.escapeExpression(this.get('notification.clearDuration'));
-    const playState = this.get('paused') ? 'paused' : 'running';
+    const duration = Ember.Handlebars.Utils.escapeExpression(this.notification.clearDuration);
+    const playState = this.paused ? 'paused' : 'running';
     return htmlSafe(`animation-duration: ${duration}ms; -webkit-animation-duration: ${duration}ms; animation-play-state: ${playState}; -webkit-animation-play-state: ${playState}`);
   }),
 
   actions: {
     handleOnClick() {
-      if (this.get('notification.onClick')) {
-        this.get('notification.onClick')(this.get('notification'));
+      if (this.notification.onClick) {
+        this.notification.onClick(this.notification);
       }
     },
 
     removeNotification() {
-      this.get('notifications').removeNotification(this.get('notification'));
+      this.notifications.removeNotification(this.notification);
     },
 
     handleMouseEnter() {
-      if (this.get('notification.autoClear')) {
+      if (this.notification.autoClear) {
         this.set('paused', true);
-        this.notifications.pauseAutoClear(this.get('notification'));
+        this.notifications.pauseAutoClear(this.notification);
       }
     },
 
     handleMouseLeave() {
-      if (this.get('notification.autoClear')) {
+      if (this.notification.autoClear) {
         this.set('paused', false);
-        this.notifications.setupAutoClear(this.get('notification'));
+        this.notifications.setupAutoClear(this.notification);
       }
     },
   }
