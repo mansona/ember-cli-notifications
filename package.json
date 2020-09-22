@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-notifications",
-  "version": "6.3.0",
+  "version": "6.3.1",
   "description": "Atom inspired notification messages for ember-cli",
   "keywords": [
     "alerts",
@@ -30,7 +30,7 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "auto-changelog": "github:mansona/auto-changelog#epic",
+    "auto-changelog": "git+https://github.com/mansona/auto-changelog.git#epic",
     "broccoli-funnel": "^3.0.2",
     "broccoli-merge-trees": "^4.1.0",
     "broccoli-postcss": "^5.0.0",
