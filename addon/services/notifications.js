@@ -1,7 +1,6 @@
 import Service from '@ember/service';
 import { assign, merge } from '@ember/polyfills';
 import { A } from '@ember/array';
-import { isEmpty } from '@ember/utils';
 import EmberObject, { set } from '@ember/object';
 import { run } from '@ember/runloop';
 import config from 'ember-get-config';
@@ -26,8 +25,8 @@ export default Service.extend({
     const notification = EmberObject.create({
       message: options.message,
       type: options.type || 'info',
-      autoClear: (isEmpty(options.autoClear) ? (globals.autoClear ?? false) : options.autoClear),
-      clearDuration: options.clearDuration || globals.clearDuration ?? 3200,
+      autoClear: options.autoClear ?? globals.autoClear ?? false,
+      clearDuration: options.clearDuration ?? globals.clearDuration ?? 3200,
       onClick: options.onClick,
       htmlContent: options.htmlContent || false,
       cssClasses: options.cssClasses
