@@ -6,10 +6,4 @@ x.x.x / {{isoDate}}
       * {{#if commit.breaking}}**Breaking change:** {{/if}}{{message}} #{{id}} from @{{githubIssue.user.login}}
     {{/each}}
   {{/if}}
-
-  {{#if fixes}}
-    {{#each fixes}}
-      * FIX: {{#if commit.breaking}}**Breaking change:** {{/if}}{{commit.subject}}{{#each fixes}} {{#if href}}[`#{{id}}`]({{href}}){{/if}}{{/each}}
-    {{/each}}
-  {{/if}}
 {{/each}}
