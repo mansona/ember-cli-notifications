@@ -23,12 +23,11 @@ export default Service.extend({
       throw new Error("No notification message set");
     }
 
-    const defaultAutoClear = typeof globals.autoClear === 'boolean' ? globals.autoClear : false;
     const notification = EmberObject.create({
       message: options.message,
       type: options.type || 'info',
-      autoClear: (isEmpty(options.autoClear) ? defaultAutoClear : options.autoClear),
-      clearDuration: options.clearDuration || globals.clearDuration || 3200,
+      autoClear: (isEmpty(options.autoClear) ? (globals.autoClear ?? false) : options.autoClear),
+      clearDuration: options.clearDuration || globals.clearDuration ?? 3200,
       onClick: options.onClick,
       htmlContent: options.htmlContent || false,
       cssClasses: options.cssClasses
