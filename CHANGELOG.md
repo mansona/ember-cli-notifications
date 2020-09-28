@@ -1,3 +1,8 @@
+6.3.1 / 2020-09-28
+==================
+
+  * FIX: Merge pull request #287 from jacobq/remove-getWithDefault [`#286`](https://github.com/mansona/ember-cli-notifications/issues/286)
+
 6.3.0 / 2020-07-23
 ==================
 
