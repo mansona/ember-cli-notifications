@@ -80,28 +80,38 @@ this.notifications.warning('You have unsaved changes');
           <h4>Message</h4>
           {{input class="input" type="text" value=computedMessage}}
           <div class="mt1">
-            {{input type="checkbox" checked=htmlContent}}
-            <label class="h5">Enable HTML content</label>
+            <label class="h5">
+              {{input type="checkbox" checked=htmlContent}}
+              Enable HTML content
+            </label>
           </div>
         </div>
         <div class="px2">
           <h4>Type</h4>
           <div data-test-radio-html class="sm-flex mxn1">
             <div class="px1 mb1">
-              {{radio-button value="success" checked=type}}
-              <label>Success</label>
+              <label>
+                {{radio-button value="success" checked=type}}
+                Success
+              </label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="info" checked=type}}
-              <label>Info</label>
+              <label>
+                {{radio-button value="info" checked=type}}
+                Info
+              </label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="error" checked=type}}
-              <label>Error</label>
+              <label>
+                {{radio-button value="error" checked=type}}
+                Error
+              </label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="warning" checked=type}}
-              <label>Warning</label>
+              <label>
+                {{radio-button value="warning" checked=type}}
+                Warning
+              </label>
             </div>
           </div>
         </div>
@@ -109,28 +119,40 @@ this.notifications.warning('You have unsaved changes');
           <h4>Position</h4>
           <div class="sm-flex mxn1">
             <div class="px1 mb1">
-              {{radio-button value="top" checked=position}}
-              <label>top</label>
+              <label>
+                {{radio-button value="top" checked=position}}
+                top
+              </label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="top-left" checked=position}}
-              <label>top-left</label>
+              <label>
+                {{radio-button value="top-left" checked=position}}
+                top-left
+              </label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="top-right" checked=position}}
-              <label>top-right</label>
+              <label>
+                {{radio-button value="top-right" checked=position}}
+                top-right
+              </label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="bottom" checked=position}}
-              <label>bottom</label>
+              <label>
+                {{radio-button value="bottom" checked=position}}
+                bottom
+              </label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="bottom-left" checked=position}}
-              <label>bottom-left</label>
+              <label>
+                {{radio-button value="bottom-left" checked=position}}
+                bottom-left
+              </label>
             </div>
             <div class="px1 mb1">
-              {{radio-button value="bottom-right" checked=position}}
-              <label>bottom-right</label>
+              <label>
+                {{radio-button value="bottom-right" checked=position}}
+                bottom-right
+              </label>
             </div>
           </div>
         </div>
@@ -170,8 +192,10 @@ this.notifications.warning('You have unsaved changes');
       <div class="mxn2 mb3">
         <div class="px2">
           <h4>Clear automatically</h4>
-          {{input type="checkbox" checked=autoClear}}
-          <label>Enable</label>
+          <label>
+            {{input type="checkbox" checked=autoClear}}
+            Enable
+          </label>
           <div class="mt1">
             <label class="label">Timeout (ms)</label>
             {{input class="input" type="number" value=clearDuration disabled=disableTimeoutInput}}
@@ -179,8 +203,10 @@ this.notifications.warning('You have unsaved changes');
         </div>
         <div class="px2">
           <h4>Clear all</h4>
-          {{input type="checkbox" checked=clearAll}}
-          <label>Enable</label>
+          <label>
+            {{input type="checkbox" checked=clearAll}}
+            Enable
+          </label>
         </div>
       </div>
       <button class="btn btn-primary" {{action "showNotifcation"}}>Show</button>
