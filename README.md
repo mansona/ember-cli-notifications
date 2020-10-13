@@ -54,7 +54,7 @@ var ENV = {
 }
 ```
 
-#### Service Name
+#### Service Name
 
 We have also updated the name of the service to be simply `notifications` so you can now inject the notifications service with a much simpler inject statement:
 
