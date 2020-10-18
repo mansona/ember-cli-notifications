@@ -30,7 +30,6 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "auto-changelog": "github:mansona/auto-changelog#epic",
     "broccoli-funnel": "^3.0.2",
     "broccoli-merge-trees": "^4.1.0",
     "broccoli-postcss": "^5.0.0",
@@ -44,6 +43,7 @@
   "devDependencies": {
     "@ember/optional-features": "^1.1.0",
     "@glimmer/component": "^1.0.0",
+    "auto-changelog": "github:mansona/auto-changelog#epic",
     "babel-eslint": "^10.0.3",
     "broccoli-asset-rev": "^3.0.0",
     "code-highlight-linenums": "^0.2.1",
