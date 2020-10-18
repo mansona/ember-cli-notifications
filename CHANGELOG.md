@@ -1,3 +1,10 @@
+6.3.2 / 2020-10-18
+==================
+
+  * fix: move auto-chagnelog to devDependencies
+  * README: Fix "Service Name" header syntax #294 from @Turbo87
+  * fix: avoid overriding globals.clearDuration when it's 0 #292 from @jacobq
+
 6.3.1 / 2020-09-28
 ==================
 
