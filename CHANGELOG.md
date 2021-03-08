@@ -1,3 +1,8 @@
+6.3.3 / 2021-03-08
+==================
+
+  * Replace TravisCI with GitHub Actions #303 from @Turbo87
+
 6.3.2 / 2020-10-18
 ==================
 
