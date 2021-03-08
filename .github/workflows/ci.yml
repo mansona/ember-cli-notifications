@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 8.x
+          node-version: 12.x
 
       - run: npm ci
       - run: npm run lint:hbs
@@ -34,7 +34,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v1
         with:
-          node-version: 8.x
+          node-version: 12.x
 
       - run: npm ci
       - run: npm test
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v1
         with:
-          node-version: 8.x
+          node-version: 12.x
 
       - run: npm install --no-package-lock
       - run: npm test
@@ -73,7 +73,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v1
         with:
-          node-version: 8.x
+          node-version: 12.x
 
       - run: npm ci
 
