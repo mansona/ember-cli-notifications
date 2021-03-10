@@ -8,11 +8,18 @@ export default NotificationMessage.extend({
   init() {
     this._super(...arguments);
     this.icons = globals.icons || 'svg';
+    if (this.icons === 'custom') {
+      this.successIcon = globals.successIcon;
+      this.infoIcon = globals.infoIcon;
+      this.warningIcon = globals.warningIcon;
+      this.errorIcon = globals.errorIcon;
+      this.closeIcon = globals.closeIcon;
+    }
     this.svgs = {
-        'success': 'success',
-        'warning': 'warning',
-        'info': 'info',
-        'error': 'error',
+      'success': 'success',
+      'warning': 'warning',
+      'info': 'info',
+      'error': 'error',
     };
   }
 });
