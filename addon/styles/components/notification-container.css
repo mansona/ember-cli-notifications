@@ -2,6 +2,7 @@
   --ecn-container-position: 10px;
   --ecn-container-width: 80%;
   --ecn-container-max-with: 400px;
+  --ecn-container-z-index: 1060;
 
   --ecn-icon-width: 30px;
   --ecn-icon-position: 10px;
@@ -28,6 +29,7 @@
   margin: 0 auto;
   width: var(--ecn-container-width);
   max-width: var(--ecn-container-max-with);
+  z-index: var(--ecn-container-z-index),
 }
 
 /* Position */

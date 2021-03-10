@@ -49,6 +49,7 @@
     "code-highlight-linenums": "^0.2.1",
     "ember-angle-bracket-invocation-polyfill": "^2.0.2",
     "ember-cli": "~3.15.1",
+    "ember-cli-content-security-policy": "^2.0.0-1",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-eslint": "^5.1.0",
     "ember-cli-github-pages": "^0.2.0",
