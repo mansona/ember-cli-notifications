@@ -1,10 +1,13 @@
-<div class="c-notification {{this.dismissClass}} {{this.clickableClass}} {{this.processedType}} {{this.notification.cssClasses}}"
+<div
+  class="c-notification {{this.dismissClass}} {{this.clickableClass}} {{this.processedType}} {{this.notification.cssClasses}}"
+  data-test-notification-message={{notification.type}}
   {{on "mouseenter" (action "handleMouseEnter")}}
-  {{on "mouseleave" (action "handleMouseLeave")}} data-test-notification-message={{notification.type}}>
+  {{on "mouseleave" (action "handleMouseLeave")}}
+>
   <div class="c-notification__icon">
-    {{#if notificationSVGPath}}
+    {{#if this.notificationSVGPath}}
       <svg class="c-notification__svg" fill="#FFFFFF" viewBox="0 0 24 24" height="48" width="48" xmlns="http://www.w3.org/2000/svg">
-        <path d={{notificationSVGPath}}></path>
+        <path d={{this.notificationSVGPath}}></path>
       </svg>
     {{/if}}
   </div>
@@ -20,6 +23,6 @@
   </div>
 
   {{#if notification.autoClear}}
-    <div class="c-notification__countdown" style={{notificationClearDuration}}></div>
+    <div class="c-notification__countdown" style={{this.notificationClearDuration}}></div>
   {{/if}}
 </div>
