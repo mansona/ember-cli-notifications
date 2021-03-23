@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-notifications",
-  "version": "6.3.3",
+  "version": "6.3.4",
   "description": "Atom inspired notification messages for ember-cli",
   "keywords": [
     "alerts",
