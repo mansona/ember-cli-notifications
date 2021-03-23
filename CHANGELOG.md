@@ -1,3 +1,11 @@
+6.3.4 / 2021-03-23
+==================
+
+  * Move on-modifier from devDependencies to dependencies  #271 from @Shajansheriff
+  * Wraps dummy-application interactive config inputs in label tags #293 from @JamesS-M
+  * Use `this` in the template #305 from @pichfl
+  * Import `htmlSafe` from '@ember/template' rather than '@ember/string' #302 from @gilest
+
 6.3.3 / 2021-03-08
 ==================
 
