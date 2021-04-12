@@ -14,5 +14,13 @@ module.exports = function(defaults) {
     }
   });
 
-  return app.toTree();
+  const { maybeEmbroider } = require('@embroider/test-setup');
+  return maybeEmbroider(app, {
+    // Needed for IE11 https://github.com/embroider-build/embroider/issues/731
+    skipBabel: [
+      {
+        package: 'qunit'
+      }
+    ]
+  });
 };
