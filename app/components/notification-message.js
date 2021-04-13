@@ -1,3 +1,4 @@
+/* eslint-disable ember/require-tagless-components, prettier/prettier */
 import NotificationMessage from 'ember-cli-notifications/components/notification-message';
 
 import config from 'ember-get-config';

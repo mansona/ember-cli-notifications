@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-classic-components, ember/no-classic-classes, prettier/prettier, ember/no-get, ember/no-actions-hash */
 import Component from '@ember/component';
 import Ember from 'ember';
 
