@@ -32,7 +32,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: mansona/npm-lockfile-version@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: 8.x
 
@@ -45,7 +46,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: 8.x
 
@@ -64,10 +65,14 @@ jobs:
           - ember-lts-3.4
           - ember-lts-3.8
           - ember-lts-3.12
+          - ember-lts-3.16
+          - ember-lts-3.20
           - ember-release
           - ember-beta
           - ember-default-with-jquery
           - ember-classic
+          - embroider-safe
+          - embroider-optimized
 
     steps:
       - uses: actions/checkout@v2
