@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { resolve } from 'rsvp';
 import { module } from 'qunit';
 import startApp from '../helpers/start-app';

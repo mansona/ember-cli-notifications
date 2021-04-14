@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-classic-classes, prettier/prettier, ember/no-get */
 import Service from '@ember/service';
 import { assign, merge } from '@ember/polyfills';
 import { A } from '@ember/array';
