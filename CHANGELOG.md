@@ -1,3 +1,9 @@
+7.0.0 / 2021-06-22
+==================
+
+  * Relax `ember-get-config` requirement to allow v0.3.x #312 from @Turbo87
+  * [BREAKING] Update ember using ember-cli-update and drop support for Node 8, Ember 2.18, and Ember 3.4 #308 from @mansona
+
 6.3.4 / 2021-03-23
 ==================
 
