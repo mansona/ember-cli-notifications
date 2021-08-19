@@ -4,7 +4,8 @@
   --ecn-container-max-with: 400px;
   --ecn-container-z-index: 1060;
 
-  --ecn-icon-color: rgba(255, 255, 255, 0.74);
+  --ecn-icon-color: currentColor;
+  --ecn-icon-opacity: 0.74;
   --ecn-icon-lighten-background: rgba(255, 255, 255, 0.2);
   --ecn-countdown-lighten-background: rgba(255, 255, 255, 0.4);
   --ecn-notification-max-height: 800px;
@@ -16,10 +17,15 @@
   --ecn-orange: #ff7f48;
   --ecn-red: #e74c3c;
 
-  --ecn-error: var(--ecn-red);
-  --ecn-info: var(--ecn-blue);
-  --ecn-success: var(--ecn-green);
-  --ecn-warning: var(--ecn-orange);
+  --ecn-background-error: var(--ecn-red);
+  --ecn-background-info: var(--ecn-blue);
+  --ecn-background-success: var(--ecn-green);
+  --ecn-background-warning: var(--ecn-orange);
+
+  --ecn-text-error: #fff;
+  --ecn-text-info: #fff;
+  --ecn-text-success: #fff;
+  --ecn-text-warning: #fff;
 
   /* Spacing */
   --ecn-spacing-1: 0.5em;

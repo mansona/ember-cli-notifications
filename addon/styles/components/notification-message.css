@@ -60,6 +60,7 @@
 .ecn_container .ecn_notification_icon {
   background-color: var(--ecn-icon-lighten-background);
   color: var(--ecn-icon-color);
+  opacity: var(--ecn-icon-opacity);
 }
 
 .ecn_container .ecn_notification_icon svg,
@@ -99,19 +100,23 @@
 
 /* Theme */
 .ecn_container .ecn_notification-info {
-  background-color: var(--ecn-info);
+  background-color: var(--ecn-background-info);
+  color: var(--ecn-text-info);
 }
 
 .ecn_container .ecn_notification-success {
-  background-color: var(--ecn-success);
+  background-color: var(--ecn-background-success);
+  color: var(--ecn-text-success);
 }
 
 .ecn_container .ecn_notification-warning {
-  background-color: var(--ecn-warning);
+  background-color: var(--ecn-background-warning);
+  color: var(--ecn-text-warning);
 }
 
 .ecn_container .ecn_notification-error {
-  background-color: var(--ecn-error);
+  background-color: var(--ecn-background-error);
+  color: var(--ecn-text-error);
 }
 
 /* Keyframes */
