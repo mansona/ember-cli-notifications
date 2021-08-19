@@ -1,6 +1,8 @@
 <div
   class="ecn_container {{this.positionClass}}"
   style={{this.inlineStyle}}
+  role="status"
+  aria-live="polite"
   data-test-notification-container
 >
   {{#each this.notifications.content as |notification|}}
