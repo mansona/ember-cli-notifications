@@ -6,6 +6,8 @@
 
   --ecn-icon-color: currentColor;
   --ecn-icon-opacity: 0.74;
+  --ecn-close-color: currentColor;
+  --ecn-close-opacity: 0.74;
   --ecn-icon-lighten-background: rgba(255, 255, 255, 0.2);
   --ecn-countdown-lighten-background: rgba(255, 255, 255, 0.4);
   --ecn-notification-max-height: 800px;

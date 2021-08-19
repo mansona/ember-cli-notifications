@@ -80,7 +80,8 @@
   cursor: pointer;
   margin: 0;
   padding: 10px;
-  opacity: 0.74;
+  color: var(--ecn-close-color);
+  opacity: var(--ecn-close-opacity);
 }
 
 .ecn_container .ecn_notification_close:hover,
