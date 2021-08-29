@@ -1,4 +1,4 @@
-/* eslint-disable ember/require-tagless-components, prettier/prettier */
+/* eslint-disable ember/require-tagless-components */
 import NotificationMessage from 'ember-cli-notifications/components/notification-message';
 
 import config from 'ember-get-config';
@@ -10,10 +10,10 @@ export default NotificationMessage.extend({
     this._super(...arguments);
     this.icons = globals.icons || 'svg';
     this.svgs = {
-        'success': 'success',
-        'warning': 'warning',
-        'info': 'info',
-        'error': 'error',
+      success: 'success',
+      warning: 'warning',
+      info: 'info',
+      error: 'error',
     };
-  }
+  },
 });

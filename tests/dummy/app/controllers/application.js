@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-classic-classes, ember/require-computed-property-dependencies, prettier/prettier, ember/no-get, ember/no-actions-hash */
+/* eslint-disable ember/no-classic-classes, ember/require-computed-property-dependencies, ember/no-get, ember/no-actions-hash */
 import { not } from '@ember/object/computed';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
@@ -20,7 +20,7 @@ export default Controller.extend({
 
   disableTimeoutInput: not('autoClear'),
 
-  computedMessage: computed('htmlContent', function() {
+  computedMessage: computed('htmlContent', function () {
     if (this.get('htmlContent')) return this.get('htmlMessage');
 
     return this.get('message');
@@ -37,8 +37,8 @@ export default Controller.extend({
         type: this.get('type'),
         autoClear: this.get('autoClear'),
         clearDuration: this.get('clearDuration'),
-        htmlContent: this.get('htmlContent')
+        htmlContent: this.get('htmlContent'),
       });
-    }
-  }
+    },
+  },
 });

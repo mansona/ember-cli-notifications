@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 'use strict';
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
@@ -6,12 +5,12 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
     minifyCSS: {
-      enabled: false
+      enabled: false,
     },
     'ember-prism': {
-      'components': ['bash', 'javascript', 'handlebars', 'markup-templating'],
-      'plugins': ['line-highlight']
-    }
+      components: ['bash', 'javascript', 'handlebars', 'markup-templating'],
+      plugins: ['line-highlight'],
+    },
   });
 
   /*
@@ -26,8 +25,8 @@ module.exports = function (defaults) {
     // Needed for IE11 https://github.com/embroider-build/embroider/issues/731
     skipBabel: [
       {
-        package: 'qunit'
-      }
-    ]
+        package: 'qunit',
+      },
+    ],
   });
 };

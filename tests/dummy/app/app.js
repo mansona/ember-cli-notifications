@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-classic-classes, prettier/prettier */
+/* eslint-disable ember/no-classic-classes */
 import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
@@ -7,7 +7,7 @@ import config from 'dummy/config/environment';
 const App = Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
-  Resolver
+  Resolver,
 });
 
 loadInitializers(App, config.modulePrefix);
