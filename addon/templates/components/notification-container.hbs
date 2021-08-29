@@ -1,4 +1,3 @@
-{{! template-lint-disable no-curly-component-invocation }}
 {{#each this.notifications.content as |notification|}}
-  {{notification-message notification=notification}}
+  <NotificationMessage @notification={{notification}} />
 {{/each}}
