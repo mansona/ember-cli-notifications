@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 'use strict';
 
 module.exports = function (environment) {
@@ -26,8 +25,8 @@ module.exports = function (environment) {
     'ember-cli-notifications': {
       autoClear: false,
       clearDuration: 2400,
-      icons: 'svg'
-    }
+      icons: 'svg',
+    },
   };
 
   if (environment === 'development') {

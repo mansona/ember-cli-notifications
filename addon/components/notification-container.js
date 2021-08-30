@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-classic-components, ember/no-classic-classes, ember/require-tagless-components, prettier/prettier, ember/no-get */
+/* eslint-disable ember/no-classic-components, ember/no-classic-classes, ember/require-tagless-components, ember/no-get */
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/template';
@@ -11,16 +11,24 @@ export default Component.extend({
   position: 'top',
   notifications: service(),
 
-  classNameBindings: ['computedPosition', ':ember-cli-notifications-notification__container'],
-  attributeBindings: ['computedStyle:style', 'position:data-test-notification-container'],
+  classNameBindings: [
+    'computedPosition',
+    ':ember-cli-notifications-notification__container',
+  ],
+  attributeBindings: [
+    'computedStyle:style',
+    'position:data-test-notification-container',
+  ],
 
   zindex: '1060',
 
-  computedPosition: computed('position', function() {
-    return `ember-cli-notifications-notification__container--${this.get('position')}`;
+  computedPosition: computed('position', function () {
+    return `ember-cli-notifications-notification__container--${this.get(
+      'position'
+    )}`;
   }),
 
-  computedStyle: computed('zindex', function() {
+  computedStyle: computed('zindex', function () {
     return htmlSafe(`z-index: ${this.get('zindex')};`);
-  })
+  }),
 });
