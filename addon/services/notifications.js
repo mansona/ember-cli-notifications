@@ -1,20 +1,14 @@
 /* eslint-disable ember/no-classic-classes, ember/no-get */
 import Service from '@ember/service';
-import { assign, merge } from '@ember/polyfills';
 import { A } from '@ember/array';
 import EmberObject, { set } from '@ember/object';
 import { later, cancel } from '@ember/runloop';
 import config from 'ember-get-config';
 
-const notificationAssign = assign || merge;
-
 const globals = config['ember-cli-notifications'] || {}; // Import app config object
 
-export default Service.extend({
-  init() {
-    this._super(...arguments);
-    this.set('content', A());
-  },
+export default class NotificationsService extends Service {
+  content = A();
 
   // Method for adding a notification
   addNotification(options) {
@@ -36,62 +30,46 @@ export default Service.extend({
     this.content.pushObject(notification);
 
     if (notification.autoClear) {
-      notification.set('remaining', notification.get('clearDuration'));
+      set(notification, 'remaining', notification.clearDuration);
 
       this.setupAutoClear(notification);
     }
 
     return notification;
-  },
+  }
 
   // Helper methods for each type of notification
   error(message, options) {
-    return this.addNotification(
-      notificationAssign(
-        {
-          message: message,
-          type: 'error',
-        },
-        options
-      )
-    );
-  },
+    return this.addNotification({
+      ...options,
+      message,
+      type: 'error',
+    });
+  }
 
   success(message, options) {
-    return this.addNotification(
-      notificationAssign(
-        {
-          message: message,
-          type: 'success',
-        },
-        options
-      )
-    );
-  },
+    return this.addNotification({
+      ...options,
+      message,
+      type: 'success',
+    });
+  }
 
   info(message, options) {
-    return this.addNotification(
-      notificationAssign(
-        {
-          message: message,
-          type: 'info',
-        },
-        options
-      )
-    );
-  },
+    return this.addNotification({
+      ...options,
+      message,
+      type: 'info',
+    });
+  }
 
   warning(message, options) {
-    return this.addNotification(
-      notificationAssign(
-        {
-          message: message,
-          type: 'warning',
-        },
-        options
-      )
-    );
-  },
+    return this.addNotification({
+      ...options,
+      message,
+      type: 'warning',
+    });
+  }
 
   removeNotification(notification) {
     if (!notification) {
@@ -108,7 +86,7 @@ export default Service.extend({
       },
       500
     );
-  },
+  }
 
   setupAutoClear(notification) {
     notification.set('startTime', Date.now());
@@ -121,34 +99,34 @@ export default Service.extend({
           this.removeNotification(notification);
         }
       },
-      notification.get('remaining')
+      notification.remaining
     );
 
-    notification.set('timer', timer);
-  },
+    set(notification, 'timer', timer);
+  }
 
   pauseAutoClear(notification) {
-    cancel(notification.get('timer'));
+    cancel(notification.timer);
 
-    const elapsed = Date.now() - notification.get('startTime');
-    const remaining = notification.get('clearDuration') - elapsed;
+    const elapsed = Date.now() - notification.startTime;
+    const remaining = notification.clearDuration - elapsed;
 
-    notification.set('remaining', remaining);
-  },
+    set(notification, 'remaining', remaining);
+  }
 
   clearAll() {
-    this.get('content').forEach((notification) => {
+    this.content.forEach((notification) => {
       this.removeNotification(notification);
     });
 
     return this;
-  },
+  }
 
   setDefaultAutoClear(autoClear) {
     set(globals, 'autoClear', autoClear);
-  },
+  }
 
   setDefaultClearDuration(clearDuration) {
     set(globals, 'clearDuration', clearDuration);
-  },
-});
+  }
+}
