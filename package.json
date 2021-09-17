@@ -53,7 +53,7 @@
     "@embroider/test-setup": "^0.37.0",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
-    "auto-changelog": "github:mansona/auto-changelog#epic",
+    "auto-changelog": "https://git@github.com/mansona/auto-changelog.git#epic",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "code-highlight-linenums": "^0.2.1",
