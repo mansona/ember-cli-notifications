@@ -3,7 +3,7 @@ import Service from '@ember/service';
 import { assign, merge } from '@ember/polyfills';
 import { A } from '@ember/array';
 import EmberObject, { set } from '@ember/object';
-import { run } from '@ember/runloop';
+import { later, cancel } from '@ember/runloop';
 import config from 'ember-get-config';
 
 const notificationAssign = assign || merge;
@@ -101,7 +101,7 @@ export default Service.extend({
     notification.set('dismiss', true);
 
     // Delay removal from DOM for dismissal animation
-    run.later(
+    later(
       this,
       () => {
         this.content.removeObject(notification);
@@ -113,7 +113,7 @@ export default Service.extend({
   setupAutoClear(notification) {
     notification.set('startTime', Date.now());
 
-    const timer = run.later(
+    const timer = later(
       this,
       () => {
         // Hasn't been closed manually
@@ -128,7 +128,7 @@ export default Service.extend({
   },
 
   pauseAutoClear(notification) {
-    run.cancel(notification.get('timer'));
+    cancel(notification.get('timer'));
 
     const elapsed = Date.now() - notification.get('startTime');
     const remaining = notification.get('clearDuration') - elapsed;

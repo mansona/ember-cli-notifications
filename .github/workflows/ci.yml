@@ -56,6 +56,7 @@ jobs:
   try-scenarios:
     name: "ember-try: ${{ matrix.ember-try-scenario }}"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: test
     strategy:
       fail-fast: false
@@ -72,6 +73,8 @@ jobs:
           - ember-classic
           - embroider-safe
           - embroider-optimized
+          - no-deprecations
+          - ember-release-no-deprecations
 
     steps:
       - uses: actions/checkout@v2
