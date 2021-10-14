@@ -56,6 +56,7 @@ jobs:
   try-scenarios:
     name: "ember-try: ${{ matrix.ember-try-scenario }}"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: test
     strategy:
       fail-fast: false
