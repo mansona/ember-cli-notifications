@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 10.x
-
+          node-version: 12.x
+      - run: npm i -g npm@7
       - run: npm ci
       - run: npm run lint:hbs
       - run: npm run lint:js
@@ -35,8 +35,8 @@ jobs:
       - uses: mansona/npm-lockfile-version@v1
       - uses: actions/setup-node@v2
         with:
-          node-version: 10.x
-
+          node-version: 12.x
+      - run: npm i -g npm@7
       - run: npm ci
       - run: npm test
 
@@ -48,8 +48,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 10.x
-
+          node-version: 12.x
+      - run: npm i -g npm@7
       - run: npm install --no-package-lock
       - run: npm test
 
@@ -66,6 +66,7 @@ jobs:
           - ember-lts-3.12
           - ember-lts-3.16
           - ember-lts-3.20
+          - ember-lts-3.24
           - ember-release
           - ember-beta
           - ember-canary
@@ -80,8 +81,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 10.x
-
+          node-version: 12.x
+      - run: npm i -g npm@7
       - run: npm ci
 
       - name: test

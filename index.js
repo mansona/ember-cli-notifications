@@ -2,7 +2,7 @@
 
 const CssImport = require('postcss-import');
 const PresetEnv = require('postcss-preset-env');
-const broccoliPostCSS = require('broccoli-postcss');
+const BroccoliPostCSS = require('broccoli-postcss');
 const mergeTrees = require('broccoli-merge-trees');
 const funnel = require('broccoli-funnel');
 const get = require('lodash.get');
@@ -34,7 +34,7 @@ module.exports = {
     // sure that it isn't missing
     let overrideBrowserslist = get(this, 'app.project._targets.browsers');
 
-    let processedStyles = broccoliPostCSS(addonStyles, {
+    let processedStyles = new BroccoliPostCSS(addonStyles, {
       plugins: [
         CssImport({
           path: join(__dirname, 'addon', 'styles'),
