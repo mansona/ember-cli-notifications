@@ -22,7 +22,55 @@
   --ecn-blue: #3ea2ff;
   --ecn-orange: #ff7f48;
   --ecn-red: #e74c3c;
+}
 
+/* Keyframes */
+@keyframes notification-show {
+  0% {
+    opacity: 0;
+    transform: perspective(450px) translate(0, -30px) rotateX(90deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(450px) translate(0, 0) rotateX(0deg);
+  }
+}
+
+@keyframes notification-out {
+  0% {
+    opacity: 0;
+    max-height: var(--ecn-notification-max-height);
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
+    max-height: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes notification-hide {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes notification-countdown {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
 }
 
 /* Base */
