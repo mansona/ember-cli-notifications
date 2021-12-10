@@ -1,6 +1,5 @@
 <div
-  class="ember-cli-notifications-notification__container {{this.positionClass}}"
-  style={{this.inlineStyle}}
+  class="ecn_container ecn_container-{{this.position}}"
   data-test-notification-container={{this.position}}
 >
   {{#each this.notifications.content as |notification|}}

@@ -1,5 +1,5 @@
 {{! template-lint-disable link-rel-noopener no-action no-unbalanced-curlies require-button-type require-input-label }}
-<NotificationContainer @position={{this.position}} @zindex={{this.zindex}} />
+<NotificationContainer @position={{this.position}} />
 <div class="bg-blue white py4">
   <div class="max-width-4 mx-auto px2">
     <div class="mb3">
@@ -26,9 +26,9 @@
     <h2>Basic usage</h2>
     <hr>
     <p>Include the container component in your template.</p>
-    <p>Optionally, change the position or z-index value of the notifications container.</p>
-    <p class="h5"><i>Default value is top</i></p>
-    <CodeBlock @language="handlebars">&#123;&#123;notification-container position="top-right" zindex="9999"&#125;&#125;</CodeBlock>
+    <p>Optionally, change the position of the notifications container. The default value is <code>top</code>.</p>
+    <CodeBlock @language="handlebars">&#123;&#123;notification-container position="top-right"&#125;&#125;</CodeBlock>
+    <p>To change the <code>z-index</code> of the container, override the CSS custom property <code>--ecn-container-zindex</code>. The default value is <code>9999</code>.</p>
 
     <p>Inject the notifications service where required.</p>
     <CodeBlock @language="js">import Controller from '@ember/controller';
