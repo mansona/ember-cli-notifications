@@ -32,7 +32,8 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
-    "ember-compatibility-test": "ember try:each"
+    "ember-compatibility-test": "ember try:each",
+    "ember": "ember"
   },
   "dependencies": {
     "broccoli-funnel": "^3.0.2",
