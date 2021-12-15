@@ -7,6 +7,7 @@
     {{@notification.cssClasses}}"
   data-test-notification-message={{@notification.type}}
   role="alert"
+  {{on "animationend" this.handleAnimationEnd}}
   {{on "mouseenter" this.handleMouseEnter}}
   {{on "mouseleave" this.handleMouseLeave}}
 >

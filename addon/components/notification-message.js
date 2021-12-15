@@ -88,7 +88,8 @@ export default class NotificationMessage extends Component {
   removeNotification(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.notifications.removeNotification(this.notification);
+
+    this.notifications.dismissNotification(this.notification);
   }
 
   @action
@@ -108,6 +109,19 @@ export default class NotificationMessage extends Component {
     if (notification.autoClear) {
       set(this, 'paused', false);
       this.notifications.setupAutoClear(notification);
+    }
+  }
+
+  @action
+  handleAnimationEnd({ animationName }) {
+    let notification = this.notification;
+
+    if (!notification.dismiss) {
+      return;
+    }
+
+    if (animationName.endsWith('-out')) {
+      this.notifications.removeNotification(notification);
     }
   }
 }
