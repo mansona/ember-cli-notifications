@@ -20,7 +20,11 @@
   <div class="py2">
     <h2>Installation</h2>
     <hr>
-    <CodeBlock @language="bash" @code="ember install ember-cli-notifications" />
+
+```bash
+ember install ember-cli-notifications
+```
+
   </div>
   <div class="py2">
     <h2>Basic usage</h2>
@@ -28,18 +32,26 @@
     <p>Include the container component in your template.</p>
     <p>Optionally, change the position or z-index value of the notifications container.</p>
     <p class="h5"><i>Default value is top</i></p>
-    <CodeBlock @language="handlebars">&#123;&#123;notification-container position="top-right" zindex="9999"&#125;&#125;</CodeBlock>
+
+```handlebars{data-execute=false}
+{{notification-container position="top-right" zindex="9999"}}
+```
 
     <p>Inject the notifications service where required.</p>
-    <CodeBlock @language="js">import Controller from '@ember/controller';
+
+```js
+import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   notifications: service(),
-});</CodeBlock>
+});
+```
 
     <p>Or inject it everywhere with an initializer.</p>
-<CodeBlock @language="js">// app/initializers/inject-notifications.js
+
+```js
+// app/initializers/inject-notifications.js
 export function initialize(application) {
   ['controller', 'component', 'route'].forEach(injectionTarget => {
     application.inject(injectionTarget, 'notifications', 'notification-messages:service');
@@ -50,11 +62,12 @@ export default {
   name: 'inject-notifications',
   initialize
 };
-</CodeBlock>
+```
 
     <p>There are four styles of notification available.</p>
     <p class="h5"><i>Default value is info</i></p>
-    <CodeBlock @language="js">// Info
+
+```js
 this.notifications.info('You have one unread message');
 
 // Error
@@ -65,21 +78,27 @@ this.notifications.success('Saved successfully!');
 
 // Warning
 this.notifications.warning('You have unsaved changes');
-</CodeBlock>
+```
 
     <h3>htmlContent</h3>
     <p>You can enable basic HTML markup for notification messages.</p>
     <p><b>Warning:</b> This introduces a potential security risk since the notification message will no longer be escaped by Ember.</p>
-<CodeBlock @language="js">this.notifications.info('You have &lt;b&gt;one&lt;/b&gt; unread message', {
+
+```js
+this.notifications.info('You have <b>one</b> unread message', {
   htmlContent: true
 });
-</CodeBlock>
+```
 
     <div class="bg-darken-1 rounded p2 mb3">
       <div class="mxn2 mb3">
         <div class="px2">
           <h4>Message</h4>
-          <Input class="input" @type="text" @value={{this.computedMessage}} />
+          {{#if this.htmlContent}}
+            <Input class="input" @type="text" @value={{this.htmlMessage}} />
+          {{else}}
+            <Input class="input" @type="text" @value={{this.message}} />
+          {{/if}}
           <div class="mt1">
             <label class="h5">
               <Input @type="checkbox" @checked={{this.htmlContent}} />
@@ -158,7 +177,7 @@ this.notifications.warning('You have unsaved changes');
           </div>
         </div>
       </div>
-      <button class="btn btn-primary" data-test-button-html-show {{action "showNotifcation"}}>Show</button>
+      <button class="btn btn-primary" data-test-button-html-show {{on "click" this.showNotifcation}}>Show</button>
     </div>
   </div>
   <div class="py2">
@@ -168,26 +187,32 @@ this.notifications.warning('You have unsaved changes');
     <p>Set a notification to automatically clear. This will take precedence over the global default value.</p>
     <p>If true, inherits the default <b>clearDuration</b> value unless specified.</p>
     <p class="h5"><i>Default value is false</i></p>
-<CodeBlock @language="js">this.notifications.success('Saved successfully!', {
+
+```js
+this.notifications.success('Saved successfully!', {
   autoClear: true
 });
-</CodeBlock>
+```
 
     <h3>clearDuration</h3>
     <p>Specify a duration (ms) before the notification clears. This will take precedence over the global default value.</p>
     <p class="h5"><i>Default value is 3200</i></p>
-<CodeBlock @language="js">this.notifications.success('Saved successfully!', {
+
+```js
+this.notifications.success('Saved successfully!', {
   autoClear: true,
   clearDuration: 1200
 });
-</CodeBlock>
+```
 
     <h3>clearAll</h3>
     <p>You can remove all present notifications before adding a new one.</p>
-<CodeBlock @language="js">this.notifications.clearAll().success('Saved successfully!', {
+
+```js
+this.notifications.clearAll().success('Saved successfully!', {
   autoClear: true
 });
-</CodeBlock>
+```
 
     <div class="bg-darken-1 rounded p2 mb3">
       <div class="mxn2 mb3">
@@ -217,62 +242,58 @@ this.notifications.warning('You have unsaved changes');
     <h2>Notification with custom CSS</h2>
     <hr>
     <p>Pass a string of CSS classes to the notification component.</p>
-<CodeBlock @language="js">this.notifications.success('Saved successfully!', {
+
+```js
+this.notifications.success('Saved successfully!', {
   autoClear: true,
   cssClasses: 'profile-saved-success-notification'
 });
-</CodeBlock>
+```
+
   </div>
   <div class="py2">
     <h2>Notification with callback</h2>
     <hr>
     <p>Add the ability to click the notification for a callback.</p>
-<CodeBlock @language="js">this.notifications.error('Something went wrong. Click to try again', {
+
+```js
+this.notifications.error('Something went wrong. Click to try again', {
   onClick: (notification) => {
     this.get('model').save();
   }
 });
-</CodeBlock>
+```
   </div>
   <div class="py2">
     <h2>Config</h2>
     <hr>
     <h3>Globals</h3>
     <p>Set the global default values for <b>autoClear</b> and <b>clearDuration</b>.</p>
-<CodeBlock @language="js">// config/environment.js
+
+```js
+// config/environment.js
 var ENV = {
   'ember-cli-notifications': {
     autoClear: true,
     clearDuration: 2400
   }
 }
-</CodeBlock>
+```
   </div>
 
   <div class="py2">
     <h2>Extend</h2>
     <hr>
     <p>The <b>notifications</b> service can be imported into the consuming app and extended.</p>
-    <CodeBlock @language="js">// app/services/notifications.js
+```js
+// app/services/notifications.js
 import NotificationsService from 'ember-cli-notifications/services/notifications';
 
 export default NotificationsService.extend({
   // Extend the imported service
 });
-</CodeBlock>
+```
+
     <p>Be sure to inject the <i>new</i> service into your app.</p>
   </div>
 </div>
-<footer class="bg-darken-1 py3">
-  <div class="max-width-4 mx-auto px2">
-    <div class="sm-flex items-center">
-      <div class="flex-auto">
-        <ul class="list-reset mxn1">
-          <li class="inline-block px1"><a class="bold" href="https://github.com/mansona/ember-cli-notifications" target="_blank" rel="noopener">GitHub</a></li>
-          <li class="inline-block px1"><a class="bold" href="https://www.npmjs.com/package/ember-cli-notifications" target="_blank" rel="noopener">npm</a></li>
-        </ul>
-      </div>
-      <p class="h5">&copy; Chris Manson 2019</p>
-    </div>
-  </div>
-</footer>

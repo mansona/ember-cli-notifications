@@ -5,7 +5,8 @@ module.exports = function (environment) {
     modulePrefix: 'dummy',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'trailing-history',
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -27,6 +28,26 @@ module.exports = function (environment) {
       clearDuration: 2400,
       icons: 'svg',
     },
+
+    'field-guide': {
+      name: 'ember-cli-notifications',
+      copyright: '© Chris Manson 2021',
+      tagLine: 'Atom inspired notifications for ember-cli',
+
+      social: [
+        {
+          name: 'github',
+          title: 'ember-cli-notifications Repository',
+          link: 'https://github.com/mansona/ember-cli-notifications',
+        },
+        {
+          name: 'npm',
+          link: 'https://www.npmjs.com/package/ember-cli-notifications',
+        },
+      ],
+    },
+
+    historySupportMiddleware: true,
   };
 
   if (environment === 'development') {
