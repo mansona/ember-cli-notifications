@@ -1,5 +1,3 @@
-{{! template-lint-disable link-rel-noopener no-action no-unbalanced-curlies require-button-type require-input-label }}
-<NotificationContainer @position={{this.position}} @zindex={{this.zindex}} />
 <div class="bg-blue white py4">
   <div class="max-width-4 mx-auto px2">
     <div class="mb3">
@@ -297,3 +295,5 @@ export default NotificationsService.extend({
     <p>Be sure to inject the <i>new</i> service into your app.</p>
   </div>
 </div>
+
+<NotificationContainer @position={{this.position}} @zindex={{this.zindex}} />
