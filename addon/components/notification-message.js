@@ -1,6 +1,6 @@
 /* eslint-disable ember/no-classic-components, ember/no-computed-properties-in-native-classes */
 import Component from '@ember/component';
-import { htmlSafe } from '@ember/template';
+import { htmlSafe, isHTMLSafe } from '@ember/template';
 import { action, computed, set } from '@ember/object';
 import { inject as service } from '@ember/service';
 
@@ -14,6 +14,17 @@ export default class NotificationMessage extends Component {
   @service notifications;
 
   paused = false;
+
+  @computed('notification.{htmlContent,message}')
+  get message() {
+    const { htmlContent, message } = this.notification;
+
+    if (isHTMLSafe(message) || !htmlContent) {
+      return message;
+    }
+
+    return htmlSafe(message);
+  }
 
   @computed('notification.dismiss')
   get dismissClass() {
