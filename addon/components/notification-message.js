@@ -15,6 +15,12 @@ export default class NotificationMessage extends Component {
 
   paused = false;
 
+  @computed('notification.{htmlContent,message}')
+  get message() {
+    const { htmlContent, message } = this.notification;
+    return htmlContent ? htmlSafe(message) : message;
+  }
+
   @computed('notification.dismiss')
   get dismissClass() {
     return !this.notification.dismiss ? 'c-notification--in' : '';
