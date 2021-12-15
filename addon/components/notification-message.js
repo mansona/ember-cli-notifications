@@ -6,6 +6,8 @@ import { inject as service } from '@ember/service';
 
 import layout from '../templates/components/notification-message';
 
+const availableTypes = ['info', 'success', 'warning', 'error'];
+
 export default class NotificationMessage extends Component {
   layout = layout;
   tagName = '';
@@ -24,29 +26,34 @@ export default class NotificationMessage extends Component {
   }
 
   @computed('notification.type')
-  get notificationSVGPath() {
-    switch (this.notification.type) {
-      case 'error':
-      case 'info':
-        return 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z';
-      case 'success':
-        return 'M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z';
-      case 'warning':
-        return 'M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z';
-    }
-
-    return '';
-  }
-
-  @computed('notification.type')
-  get processedType() {
+  get validType() {
     let type = this.notification.type;
 
-    if (type && ['info', 'success', 'warning', 'error'].indexOf(type) !== -1) {
-      return `c-notification--${this.notification.type}`;
+    if (!type || availableTypes.indexOf(type) === -1) {
+      return '';
     }
 
-    return '';
+    return type;
+  }
+
+  @computed('validType')
+  get isInfo() {
+    return this.validType === 'info';
+  }
+
+  @computed('validType')
+  get isSuccess() {
+    return this.validType === 'success';
+  }
+
+  @computed('validType')
+  get isWarning() {
+    return this.validType === 'warning';
+  }
+
+  @computed('validType')
+  get isError() {
+    return this.validType === 'error';
   }
 
   // Apply the clear animation duration rule inline
