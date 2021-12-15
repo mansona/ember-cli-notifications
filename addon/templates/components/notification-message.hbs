@@ -1,42 +1,49 @@
-{{! template-lint-disable no-invalid-interactive no-triple-curlies }}
+{{! template-lint-disable no-invalid-interactive }}
 <div
-  class="c-notification
-    {{this.dismissClass}}
+  class="ecn_notification
+    {{if this.validType (concat "ecn_notification-" this.validType) ""}}
     {{this.clickableClass}}
-    {{if this.validType (concat "c-notification--" this.validType) ""}}
+    {{this.dismissClass}}
     {{@notification.cssClasses}}"
   data-test-notification-message={{@notification.type}}
+  role="alert"
   {{on "mouseenter" this.handleMouseEnter}}
   {{on "mouseleave" this.handleMouseLeave}}
 >
-  <div class="c-notification__icon">
+  <div class="ecn_notification_body">
     {{#if this.validType}}
-      {{#if this.isInfo}}
-        <EcnIconInfo class="c-notification__svg" />
-      {{else if this.isSuccess}}
-        <EcnIconSuccess class="c-notification__svg" />
-      {{else if this.isWarning}}
-        <EcnIconWarning class="c-notification__svg" />
-      {{else if this.isError}}
-        <EcnIconError class="c-notification__svg" />
-      {{/if}}
+      <div class="ecn_icon ecn_icon-type" data-test-notification-icon>
+        {{#if this.isInfo}}
+          <EcnIconInfo />
+        {{else if this.isSuccess}}
+          <EcnIconSuccess />
+        {{else if this.isWarning}}
+          <EcnIconWarning />
+        {{else if this.isError}}
+          <EcnIconError />
+        {{/if}}
+      </div>
     {{/if}}
-  </div>
-  <div class="c-notification__content" {{on "click" this.handleOnClick}}>
-    {{this.message}}
+
     <div
-      class="c-notification__close"
+      class="ecn_content"
+      {{on "click" this.handleOnClick}}
+      role={{if @notification.onClick "button"}}
+      data-test-notification-content
+    >
+      {{this.message}}
+    </div>
+
+    <div
+      class="ecn_icon ecn_icon-close"
       {{on "click" this.removeNotification}}
       title="Dismiss this notification"
     >
-      <EcnIconClose class="c-notification__svg" />
+      <EcnIconClose />
     </div>
-  </div>
 
-  {{#if @notification.autoClear}}
-    <div
-      class="c-notification__countdown"
-      style={{this.notificationClearDuration}}
-    ></div>
-  {{/if}}
+    {{#if @notification.autoClear}}
+      <div class="ecn_countdown" style={{this.notificationClearDuration}}></div>
+    {{/if}}
+  </div>
 </div>

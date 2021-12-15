@@ -23,7 +23,9 @@ export default class NotificationMessage extends Component {
 
   @computed('notification.dismiss')
   get dismissClass() {
-    return !this.notification.dismiss ? 'c-notification--in' : '';
+    return this.notification.dismiss
+      ? 'ecn_notification-out'
+      : 'ecn_notification-in';
   }
 
   @computed('notification.onClick')
@@ -78,6 +80,7 @@ export default class NotificationMessage extends Component {
   @action
   handleOnClick(event) {
     event.preventDefault();
+
     this.notification.onClick?.(this.notification);
   }
 
@@ -90,17 +93,21 @@ export default class NotificationMessage extends Component {
 
   @action
   handleMouseEnter() {
-    if (this.notification.autoClear) {
+    let notification = this.notification;
+
+    if (notification.autoClear) {
       set(this, 'paused', true);
-      this.notifications.pauseAutoClear(this.notification);
+      this.notifications.pauseAutoClear(notification);
     }
   }
 
   @action
   handleMouseLeave() {
-    if (this.notification.autoClear) {
+    let notification = this.notification;
+
+    if (notification.autoClear) {
       set(this, 'paused', false);
-      this.notifications.setupAutoClear(this.notification);
+      this.notifications.setupAutoClear(notification);
     }
   }
 }

@@ -9,19 +9,53 @@
   --ecn-container-width: 80%;
   --ecn-container-max-with: 400px;
 
+  /* Notifications */
   --ecn-icon-width: 30px;
   --ecn-icon-position: 10px;
-  --ecn-icon-color: rgba(255, 255, 255, 0.74);
+  --ecn-icon-color: inherit;
+  --ecn-icon-opacity: 0.74;
   --ecn-icon-lighten-background: rgba(255, 255, 255, 0.2);
   --ecn-countdown-lighten-background: rgba(255, 255, 255, 0.4);
   --ecn-notification-max-height: 800px;
-  --ecn-notification-border-radius: 3px;
+  --ecn-notification-border-radius: 4px;
 
   /* Colours */
-  --ecn-green: #64ce83;
-  --ecn-blue: #3ea2ff;
-  --ecn-orange: #ff7f48;
-  --ecn-red: #e74c3c;
+  --ecn-green: #22c55e;
+  --ecn-blue: #0ea5e9;
+  --ecn-orange: #f97316;
+  --ecn-red: #ef4444;
+  --ecn-white: #fff;
+
+  /* Types */
+  --ecn-success-background: var(--ecn-green);
+  --ecn-info-background: var(--ecn-blue);
+  --ecn-warning-background: var(--ecn-orange);
+  --ecn-error-background: var(--ecn-red);
+  --ecn-success-text: var(--ecn-white);
+  --ecn-info-text: var(--ecn-white);
+  --ecn-warning-text: var(--ecn-white);
+  --ecn-error-text: var(--ecn-white);
+
+  /* Animation */
+  --ecn-animation-in: notification-show 180ms 0ms
+    cubic-bezier(0.175, 0.885, 0.32, 1.27499);
+  --ecn-animation-out: notification-hide 250ms
+      cubic-bezier(0.33859, -0.42, 1, -0.22),
+    notification-out 250ms 250ms cubic-bezier(0.5, 0, 0, 1);
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ecn-animation-in: notification-show 0.001ms;
+    --ecn-animation-out: notification-out 0.001ms;
+  }
+}
+
+/* Apply reduced motion in tests */
+#ember-testing {
+  --ecn-animation-in: notification-show 0.001ms;
+  --ecn-animation-out: notification-out 0.001ms;
 }
 
 /* Keyframes */

@@ -1,69 +1,102 @@
 /* Values */
-.ember-cli-notifications-notification__container .c-notification {
+.ecn_notification {
+  position: relative;
+  max-height: var(--ecn-notification-max-height);
+  color: white;
+  border-radius: var(--ecn-notification-border-radius);
+  box-shadow: 0 3px 12px -4px rgba(20,20,20,0.5), 0 2px 2px 0 rgba(20,20,20,0.08);
+  font-size: 1em;
+  line-height: 1.5em;
+  animation: var(--ecn-animation-out);
+  animation-fill-mode: forwards;
+}
+
+.ecn_notification + .ecn_notification {
+  margin-top: var(--ecn-spacing-2);
+}
+
+.ecn_notification-info {
+  background-color: var(--ecn-info-background);
+  color: var(--ecn-info-text);
+}
+
+.ecn_notification-success {
+  background-color: var(--ecn-success-background);
+  color: var(--ecn-success-text);
+}
+
+.ecn_notification-warning {
+  background-color: var(--ecn-warning-background);
+  color: var(--ecn-warning-text);
+}
+
+.ecn_notification-error {
+  background-color: var(--ecn-error-background);
+  color: var(--ecn-error-text);
+}
+
+.ecn_notification.ecn_notification-in {
+  animation: var(--ecn-animation-in);
+}
+
+.ecn_notification_body {
   display: flex;
   align-items: stretch;
-  position: relative;
+  justify-content: stretch;
   overflow: hidden;
-  border-radius: var(--ecn-notification-border-radius);
-  border-bottom: 1rem;
-  color: white;
-  max-height: var(--ecn-notification-max-height);
-  animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
-  animation-fill-mode: forwards;
-  margin-bottom: var(--ecn-spacing-2);
 }
 
-.ember-cli-notifications-notification__container .c-notification--clickable {
-  cursor: pointer;
-}
-
-.ember-cli-notifications-notification__container .c-notification--in {
-  animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
-}
-
-.ember-cli-notifications-notification__container .c-notification__content {
-  display: flex;
+.ecn_content {
   flex: 1 1 auto;
-  min-width: 0;
-  min-height: 0;
-  justify-content: space-between;
   padding: var(--ecn-spacing-1) var(--ecn-spacing-2);
   word-break: break-word;
+  vertical-align: middle;
 }
 
-.ember-cli-notifications-notification__container .c-notification__content a {
-  color: #fff;
+.ecn_content a {
+  color: currentColor;
   text-decoration: underline;
+  font-weight: 700;
 }
 
-.ember-cli-notifications-notification__container .c-notification__icon {
-  padding: var(--ecn-spacing-1) 0;
-  text-align: center;
+.ecn_icon {
+  display: flex;
+  flex-flow: column;
   flex: none;
+  padding: var(--ecn-spacing-1);
+  opacity: var(--ecn-icon-opacity, 1);
+}
+
+.ecn_icon-type {
   background-color: var(--ecn-icon-lighten-background);
-  width: var(--ecn-icon-width);
-  color: var(--ecn-icon-color);
+  color: var(--ecn-icon-color, inherit);
 }
 
-.ember-cli-notifications-notification__container .c-notification__svg {
-  width: 16px;
-  height: 16px;
-  vertical-align: text-top;
+.ecn_icon svg {
+  display: block;
+  height: 1.5em;
 }
 
-.ember-cli-notifications-notification__container .c-notification__close {
-  margin-left: var(--ecn-spacing-2);
-  align-self: flex-start;
-  opacity: .74;
+.ecn_icon-close {
+  margin: 0 0 0 var(--ecn-spacing-2);
+  padding: var(--ecn-spacing-1);
+  background: transparent;
+  color: inherit;
+  border: 0;
+  border-radius: 0;
+  font-size: inherit;
+  line-height: inherit;
+  appearance: none;
   cursor: pointer;
+  transition: 0.2s opacity ease;
 }
 
-.ember-cli-notifications-notification__container .c-notification__close:hover,
-.ember-cli-notifications-notification__container .c-notification__close:focus {
+.ecn_icon-close:hover,
+.ecn_icon-close:focus {
   opacity: 1;
 }
 
-.ember-cli-notifications-notification__container .c-notification__countdown {
+.ecn_countdown {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -72,21 +105,3 @@
   height: 4px;
   animation: notification-countdown linear 1;
 }
-
-/* Theme */
-.ember-cli-notifications-notification__container .c-notification--info {
-  background-color: var(--ecn-blue);
-}
-
-.ember-cli-notifications-notification__container .c-notification--success {
-  background-color: var(--ecn-green);
-}
-
-.ember-cli-notifications-notification__container .c-notification--warning {
-  background-color: var(--ecn-orange);
-}
-
-.ember-cli-notifications-notification__container .c-notification--error {
-  background-color: var(--ecn-red);
-}
-
