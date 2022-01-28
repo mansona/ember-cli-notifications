@@ -1,3 +1,15 @@
+8.0.0 / 2022-01-28
+==================
+  * Replace overridable icon paths with overridable icon components #324 from @pichfl
+  * BREAKING: Remove obsolete `equals` helper #326 from @pichfl
+  * Breaking: Drop support for Node 10 and Modernize syntax #320 from @pichfl
+  * add no-deprecations ember-try scenarios #322 from @mansona
+  * Fix `no-curly-component-invocation` issues #319 from @Turbo87
+  * update lint-to-the-future #318 from @mansona
+  * Fix `prettier` issues #315 from @Turbo87
+  * Fix `implicit-this` issues #314 from @Turbo87
+  * add fail-fast: false for ember-try scenarios #317 from @mansona
+
 7.0.0 / 2021-06-22
 ==================
 
