@@ -71,8 +71,13 @@ export default class NotificationMessage extends Component {
 
   @action
   handleOnClick(event) {
-    event.preventDefault();
-    this.notification.onClick?.(this.notification);
+    // If a handler was provided then use it instead of the default handler,
+    // otherwise take no action to avoid breaking native functionality in
+    // things like <a href="...">link</a> and <details><summary>twisty</summary>lorem ipsum</details
+    if (typeof this.notification.onClick === 'function') {
+      event.preventDefault();
+      this.notification.onClick(this.notification);
+    }
   }
 
   @action
