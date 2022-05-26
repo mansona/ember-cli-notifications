@@ -38,19 +38,7 @@ export default Controller.extend({
   notifications: service(),
 });</CodeBlock>
 
-    <p>Or inject it everywhere with an initializer.</p>
-<CodeBlock @language="js">// app/initializers/inject-notifications.js
-export function initialize(application) {
-  ['controller', 'component', 'route'].forEach(injectionTarget => {
-    application.inject(injectionTarget, 'notifications', 'notification-messages:service');
-  });
-};
-
-export default {
-  name: 'inject-notifications',
-  initialize
-};
-</CodeBlock>
+    <p>Prior to Ember 4.0.0 it was also possible to inject it everywhere with an initializer. However, this has been <a href="https://deprecations.emberjs.com/v3.x/#toc_implicit-injections">deprecated</a> and will no longer work in Ember 4.0.0 or later.</p>
 
     <p>There are four styles of notification available.</p>
     <p class="h5"><i>Default value is info</i></p>
