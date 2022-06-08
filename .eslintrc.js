@@ -42,6 +42,7 @@ module.exports = {
         'addon/**',
         'addon-test-support/**',
         'app/**',
+        'docs/**',
         'tests/dummy/app/**',
       ],
       parserOptions: {
