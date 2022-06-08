@@ -15,9 +15,17 @@ export default class NotificationMessage extends Component {
 
   paused = false;
 
+  @computed('notification.{htmlContent,message}')
+  get message() {
+    const { htmlContent, message } = this.notification;
+    return htmlContent ? htmlSafe(message) : message;
+  }
+
   @computed('notification.dismiss')
   get dismissClass() {
-    return !this.notification.dismiss ? 'c-notification--in' : '';
+    return this.notification.dismiss
+      ? 'ecn_notification-out'
+      : 'ecn_notification-in';
   }
 
   @computed('notification.onClick')
@@ -72,6 +80,7 @@ export default class NotificationMessage extends Component {
   @action
   handleOnClick(event) {
     event.preventDefault();
+
     this.notification.onClick?.(this.notification);
   }
 
@@ -79,22 +88,40 @@ export default class NotificationMessage extends Component {
   removeNotification(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.notifications.removeNotification(this.notification);
+
+    this.notifications.dismissNotification(this.notification);
   }
 
   @action
   handleMouseEnter() {
-    if (this.notification.autoClear) {
+    let notification = this.notification;
+
+    if (notification.autoClear) {
       set(this, 'paused', true);
-      this.notifications.pauseAutoClear(this.notification);
+      this.notifications.pauseAutoClear(notification);
     }
   }
 
   @action
   handleMouseLeave() {
-    if (this.notification.autoClear) {
+    let notification = this.notification;
+
+    if (notification.autoClear) {
       set(this, 'paused', false);
-      this.notifications.setupAutoClear(this.notification);
+      this.notifications.setupAutoClear(notification);
+    }
+  }
+
+  @action
+  handleAnimationEnd({ animationName }) {
+    let notification = this.notification;
+
+    if (!notification.dismiss) {
+      return;
+    }
+
+    if (animationName.endsWith('-out')) {
+      this.notifications.removeNotification(notification);
     }
   }
 }

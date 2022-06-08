@@ -71,21 +71,16 @@ export default class NotificationsService extends Service {
     });
   }
 
+  dismissNotification(notification) {
+    set(notification, 'dismiss', true);
+  }
+
   removeNotification(notification) {
     if (!notification) {
       return;
     }
 
-    notification.set('dismiss', true);
-
-    // Delay removal from DOM for dismissal animation
-    later(
-      this,
-      () => {
-        this.content.removeObject(notification);
-      },
-      500
-    );
+    this.content.removeObject(notification);
   }
 
   setupAutoClear(notification) {
@@ -96,7 +91,7 @@ export default class NotificationsService extends Service {
       () => {
         // Hasn't been closed manually
         if (this.content.indexOf(notification) >= 0) {
-          this.removeNotification(notification);
+          this.dismissNotification(notification);
         }
       },
       notification.remaining
@@ -116,7 +111,7 @@ export default class NotificationsService extends Service {
 
   clearAll() {
     this.content.forEach((notification) => {
-      this.removeNotification(notification);
+      this.dismissNotification(notification);
     });
 
     return this;
