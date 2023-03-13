@@ -23,6 +23,7 @@ export default class NotificationsService extends Service {
       autoClear: options.autoClear ?? globals.autoClear ?? false,
       clearDuration: options.clearDuration ?? globals.clearDuration ?? 3200,
       onClick: options.onClick,
+      onDismiss: options.onDismiss,
       htmlContent: options.htmlContent || false,
       cssClasses: options.cssClasses,
     });

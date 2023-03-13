@@ -24,8 +24,8 @@ module('Integration | Component | notification message', function (hooks) {
     await click('.c-notification__content');
   });
 
-  test('clicking the notification close button does not call the callback defined on the notification message', async function (assert) {
-    assert.expect(0);
+  test('clicking the notification close button does not call the callback defined on the notification message, but does call the onDismiss callback defined on the notification message', async function (assert) {
+    assert.expect(1);
 
     await render(hbs`<NotificationContainer />`);
     let notifications = this.owner.lookup('service:notifications');
@@ -33,6 +33,9 @@ module('Integration | Component | notification message', function (hooks) {
     notifications.error('Something went wrong. Click to try again', {
       onClick() {
         throw new Error('this should not be run!');
+      },
+      onDismiss() {
+        assert.ok(true);
       },
     });
 

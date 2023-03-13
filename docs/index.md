@@ -262,6 +262,19 @@ this.notifications.error('Something went wrong. Click to try again', {
 });
 ```
   </div>
+    <div class="py2">
+    <h2>Notification with callback on dismiss button</h2>
+    <hr>
+    <p>Add the ability to add a callback when dismiss button is clicked.</p>
+
+```js
+this.notifications.error('Something went wrong. Click to try again', {
+  onDismiss: (notification) => {
+    this.hasClickedDismissOnError = true
+  }
+});
+```
+  </div>
   <div class="py2">
     <h2>Config</h2>
     <hr>
