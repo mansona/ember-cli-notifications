@@ -51,7 +51,7 @@
     "@babel/eslint-parser": "^7.16.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.6.0",
-    "@embroider/test-setup": "^0.47.1",
+    "@embroider/test-setup": "^2.1.1",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "auto-changelog": "https://git@github.com/mansona/auto-changelog.git#epic",
