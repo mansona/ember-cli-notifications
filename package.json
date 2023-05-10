@@ -42,7 +42,6 @@
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^6.0.0",
     "ember-decorators-polyfill": "^1.1.5",
-    "ember-get-config": "^0.5.0",
     "ember-on-modifier": "^1.0.0",
     "lodash.get": "^4.4.2",
     "postcss-import": "^14.0.2",

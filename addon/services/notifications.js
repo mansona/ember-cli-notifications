@@ -3,9 +3,12 @@ import Service from '@ember/service';
 import { A } from '@ember/array';
 import EmberObject, { set } from '@ember/object';
 import { later, cancel } from '@ember/runloop';
-import config from 'ember-get-config';
+import { getOwner } from '@ember/application';
 
-const globals = config['ember-cli-notifications'] || {}; // Import app config object
+function getGlobalConfig(instance) {
+  const config = getOwner(instance).resolveRegistration('config:environment');
+  return config['ember-cli-notifications'] || {}; // Import app config object
+}
 
 export default class NotificationsService extends Service {
   content = A();
@@ -16,6 +19,7 @@ export default class NotificationsService extends Service {
     if (!options.message) {
       throw new Error('No notification message set');
     }
+    const globals = getGlobalConfig(this);
 
     const notification = EmberObject.create({
       message: options.message,
@@ -123,10 +127,12 @@ export default class NotificationsService extends Service {
   }
 
   setDefaultAutoClear(autoClear) {
+    const globals = getGlobalConfig(this);
     set(globals, 'autoClear', autoClear);
   }
 
   setDefaultClearDuration(clearDuration) {
+    const globals = getGlobalConfig(this);
     set(globals, 'clearDuration', clearDuration);
   }
 }
