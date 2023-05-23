@@ -1,3 +1,4 @@
+/* stylelint-disable prettier/prettier, alpha-value-notation, color-function-notation, custom-property-empty-line-before, selector-class-pattern */
 :root {
   --ecn-container-position: 10px;
   --ecn-container-width: 80%;

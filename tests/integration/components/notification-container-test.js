@@ -12,7 +12,7 @@ module('Integration | Component | notification container', function (hooks) {
     // fix strange setup bug
     notificationMessages.clearAll();
 
-    await render(hbs`{{notification-container}}`);
+    await render(hbs`<NotificationContainer />`);
 
     assert.strictEqual(find('*').textContent.trim(), '');
   });

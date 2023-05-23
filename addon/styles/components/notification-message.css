@@ -1,3 +1,5 @@
+/* stylelint-disable prettier/prettier, number-max-precision, selector-class-pattern */
+
 /* Values */
 .ember-cli-notifications-notification__container .c-notification {
   display: flex;
