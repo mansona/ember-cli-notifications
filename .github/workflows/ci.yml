@@ -8,8 +8,8 @@ on:
   pull_request: {}
 
 concurrency:
-   group: ci-${{ github.head_ref || github.ref }}
-   cancel-in-progress: true
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 env:
   FORCE_COLOR: 1
@@ -23,7 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: mansona/npm-lockfile-version@v1
-      - uses: actions/setup-node@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
@@ -53,7 +54,7 @@ jobs:
     name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    needs: 'test'
+    needs: "test"
 
     strategy:
       fail-fast: false
@@ -67,7 +68,6 @@ jobs:
           - ember-beta
           - ember-canary
           - ember-classic
-          - ember-default-with-jquery
           - embroider-safe
           - embroider-optimized
           - no-deprecations
