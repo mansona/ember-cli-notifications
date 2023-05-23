@@ -14,6 +14,6 @@ module('Integration | Component | notification container', function (hooks) {
 
     await render(hbs`{{notification-container}}`);
 
-    assert.equal(find('*').textContent.trim(), '');
+    assert.strictEqual(find('*').textContent.trim(), '');
   });
 });

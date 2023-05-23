@@ -10,13 +10,13 @@ module('Acceptance | basic usage', function (hooks) {
 
     await click('[data-test-button-html-show]');
 
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).textContent.trim(),
       'Notification message'
     );
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).getAttribute('data-test-notification-message'),
@@ -30,13 +30,13 @@ module('Acceptance | basic usage', function (hooks) {
     await click('[data-test-radio-html] [value="info"]');
     await click('[data-test-button-html-show]');
 
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).textContent.trim(),
       'Notification message'
     );
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).getAttribute('data-test-notification-message'),
@@ -50,13 +50,13 @@ module('Acceptance | basic usage', function (hooks) {
     await click('[data-test-radio-html] [value="error"]');
     await click('[data-test-button-html-show]');
 
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).textContent.trim(),
       'Notification message'
     );
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).getAttribute('data-test-notification-message'),
@@ -70,13 +70,13 @@ module('Acceptance | basic usage', function (hooks) {
     await click('[data-test-radio-html] [value="warning"]');
     await click('[data-test-button-html-show]');
 
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).textContent.trim(),
       'Notification message'
     );
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).getAttribute('data-test-notification-message'),
@@ -93,13 +93,13 @@ module('Acceptance | basic usage', function (hooks) {
 
     await click('[data-test-button-html-show]');
 
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).textContent.trim(),
       'Notification message'
     );
-    assert.equal(
+    assert.strictEqual(
       find(
         '[data-test-notification-container] [data-test-notification-message]'
       ).getAttribute('data-test-notification-message'),
