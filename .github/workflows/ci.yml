@@ -10,6 +10,7 @@ on:
 
 env:
   FORCE_COLOR: 1
+  NODE_VERSION: 16.x
 
 jobs:
   lint:
@@ -17,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
-      - run: npm i -g npm@7
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
       - run: npm ci
       - run: npm run lint:hbs
       - run: npm run lint:js
@@ -31,12 +32,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: mansona/npm-lockfile-version@v1
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
-      - run: npm i -g npm@7
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
       - run: npm ci
       - run: npm run test:ember
 
@@ -45,11 +46,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
-      - run: npm i -g npm@7
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
       - run: npm install --no-package-lock
       - run: npm run test:ember
 
@@ -76,11 +77,11 @@ jobs:
           - ember-release-no-deprecations
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12.x
-      - run: npm i -g npm@7
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
       - run: npm ci
 
       - name: test
