@@ -23,11 +23,7 @@
     {{/if}}
   </div>
   <div class="c-notification__content" {{on "click" this.handleOnClick}}>
-    {{#if @notification.htmlContent}}
-      {{{@notification.message}}}
-    {{else}}
-      {{@notification.message}}
-    {{/if}}
+    {{this.message}}
     <div
       class="c-notification__close"
       {{on "click" this.removeNotification}}
