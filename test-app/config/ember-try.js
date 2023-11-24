@@ -13,6 +13,10 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.16.0',
+            'ember-cli': '~4.12.0',
+            'ember-qunit': '6.0.0',
+            '@ember/test-helpers': '^2.4.0',
+            'ember-resolver': '8.1.0',
           },
         },
       },
@@ -21,6 +25,10 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.20.5',
+            'ember-cli': '~4.12.0',
+            'ember-qunit': '6.0.0',
+            '@ember/test-helpers': '^2.4.0',
+            'ember-resolver': '8.1.0',
           },
         },
       },
@@ -29,6 +37,10 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.24.3',
+            'ember-cli': '~4.12.0',
+            'ember-qunit': '6.0.0',
+            '@ember/test-helpers': '^2.4.0',
+            'ember-resolver': '8.1.0',
           },
         },
       },
@@ -37,6 +49,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.28.0',
+            'ember-cli': '~4.12.0',
           },
         },
       },
@@ -100,6 +113,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.28.0',
+            'ember-cli': '~4.12.0',
           },
           ember: {
             edition: 'classic',
