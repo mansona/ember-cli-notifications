@@ -22,7 +22,6 @@ module.exports = function (defaults) {
 
   const { maybeEmbroider } = require('@embroider/test-setup');
   return maybeEmbroider(app, {
-    compatAdapters: new Map([['ember-get-config', null]]),
     // Needed for IE11 https://github.com/embroider-build/embroider/issues/731
     skipBabel: [
       {
