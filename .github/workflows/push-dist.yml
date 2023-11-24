@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: 16
           cache: pnpm
+      - run: pnpm i --frozen-lockfile
       - uses: kategengler/put-built-npm-package-contents-on-branch@v2.0.0
         with:
           branch: dist

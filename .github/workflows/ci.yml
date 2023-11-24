@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: 16
           cache: pnpm
+      - run: pnpm i --frozen-lockfile
       - name: Lint
         run: pnpm lint
       - name: Run Tests
@@ -65,6 +66,7 @@ jobs:
         with:
           node-version: 16
           cache: pnpm
+      - run: pnpm i --frozen-lockfile
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: test-app
