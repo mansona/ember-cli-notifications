@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-settled-after-test-helper */
+/* eslint-disable ember/no-settled-after-test-helper, qunit/require-expect */
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, settled } from '@ember/test-helpers';

@@ -1,3 +1,4 @@
+/* eslint-disable qunit/no-assert-equal */
 import { find, click, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
@@ -12,15 +13,15 @@ module('Acceptance | basic usage', function (hooks) {
 
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).textContent.trim(),
-      'Notification message'
+      'Notification message',
     );
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).getAttribute('data-test-notification-message'),
-      'success'
+      'success',
     );
   });
 
@@ -32,15 +33,15 @@ module('Acceptance | basic usage', function (hooks) {
 
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).textContent.trim(),
-      'Notification message'
+      'Notification message',
     );
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).getAttribute('data-test-notification-message'),
-      'info'
+      'info',
     );
   });
 
@@ -52,15 +53,15 @@ module('Acceptance | basic usage', function (hooks) {
 
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).textContent.trim(),
-      'Notification message'
+      'Notification message',
     );
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).getAttribute('data-test-notification-message'),
-      'error'
+      'error',
     );
   });
 
@@ -72,15 +73,15 @@ module('Acceptance | basic usage', function (hooks) {
 
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).textContent.trim(),
-      'Notification message'
+      'Notification message',
     );
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).getAttribute('data-test-notification-message'),
-      'warning'
+      'warning',
     );
   });
 
@@ -95,15 +96,15 @@ module('Acceptance | basic usage', function (hooks) {
 
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).textContent.trim(),
-      'Notification message'
+      'Notification message',
     );
     assert.equal(
       find(
-        '[data-test-notification-container] [data-test-notification-message]'
+        '[data-test-notification-container] [data-test-notification-message]',
       ).getAttribute('data-test-notification-message'),
-      'success'
+      'success',
     );
 
     notificationService.setDefaultAutoClear(false);
