@@ -79,6 +79,7 @@ export default class NotificationMessage extends Component {
   removeNotification(event) {
     event.preventDefault();
     event.stopPropagation();
+    this.notification.onDismiss?.(this.notification);
     this.notifications.removeNotification(this.notification);
   }
 
