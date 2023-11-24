@@ -101,9 +101,6 @@ importers:
       ember-modifier:
         specifier: ^4.1.0
         version: 4.1.0(ember-source@5.4.0)
-      ember-page-title:
-        specifier: ^8.0.0
-        version: 8.1.0(ember-source@5.4.0)
       ember-qunit:
         specifier: ^8.0.1
         version: 8.0.2(@ember/test-helpers@3.2.1)(ember-source@5.4.0)(qunit@2.20.0)
@@ -342,9 +339,6 @@ importers:
       ember-modifier:
         specifier: ^4.1.0
         version: 4.1.0(ember-source@5.4.0)
-      ember-page-title:
-        specifier: ^8.0.0
-        version: 8.1.0(ember-source@5.4.0)
       ember-qunit:
         specifier: ^8.0.1
         version: 8.0.2(@ember/test-helpers@3.2.1)(ember-source@5.4.0)(qunit@2.20.0)
@@ -357,6 +351,9 @@ importers:
       ember-source:
         specifier: ~5.4.0
         version: 5.4.0(@babel/core@7.23.3)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.89.0)
+      ember-source-channel-url:
+        specifier: ^3.0.0
+        version: 3.0.0
       ember-template-lint:
         specifier: ^5.11.2
         version: 5.13.0
@@ -7658,18 +7655,6 @@ packages:
       '@embroider/addon-shim': 1.8.7
       ember-cli-normalize-entity-name: 1.0.0
       ember-cli-string-utils: 1.1.0
-      ember-source: 5.4.0(@babel/core@7.23.3)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.89.0)
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /ember-page-title@8.1.0(ember-source@5.4.0):
-    resolution: {integrity: sha512-c5V4sWu+OSRhN6Fsa0M71PkdNpKkV7Lg9FwqogK3iE++R43G6ySLV/Ls0cE5K+IWS1om7XSPqcUvkfhrfZ3y0g==}
-    engines: {node: 16.* || >= 18}
-    peerDependencies:
-      ember-source: '>= 3.28.0'
-    dependencies:
-      '@embroider/addon-shim': 1.8.7
       ember-source: 5.4.0(@babel/core@7.23.3)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.89.0)
     transitivePeerDependencies:
       - supports-color
