@@ -1,0 +1,4 @@
+packages:
+  - 'ember-cli-notifications'
+  - 'docs-app'
+  - 'test-app'
