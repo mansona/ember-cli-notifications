@@ -7,24 +7,20 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/2d7784a2ad1c27cb8250/maintainability)](https://codeclimate.com/github/mansona/ember-cli-notifications/maintainability)
 
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
 * Ember.js v3.8 or above
 * Ember CLI v3.8 or above
-* Node.js v12 or above
 
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-cli-notifications
 ```
 
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 An [Ember](http://emberjs.com) addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
 
@@ -71,6 +67,6 @@ export default Controller.extend({
 
 We have removed the use of CSS Modules so you can now override the styles more effectively without needing as many hacks. You can remove any strange hacks that you might have implemented in your app to override styles.
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
+
 See the [Contributing](CONTRIBUTING.md) guide for details.

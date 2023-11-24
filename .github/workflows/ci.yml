@@ -3,73 +3,53 @@ name: CI
 on:
   push:
     branches:
-      - master
       - main
-      - "v*"
-  pull_request:
+      - master
+  pull_request: {}
 
-env:
-  FORCE_COLOR: 1
-  NODE_VERSION: 16.x
+concurrency:
+   group: ci-${{ github.head_ref || github.ref }}
+   cancel-in-progress: true
 
 jobs:
-  lint:
-    name: Linting
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-      - run: npm ci
-      - run: npm run lint:hbs
-      - run: npm run lint:js
-
   test:
-    name: Tests
+    name: "Tests"
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: mansona/npm-lockfile-version@v1
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-      - run: npm ci
-      - run: npm run test:ember
-
-  floating-dependencies:
-    name: Floating Dependencies
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+          version: 8
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-      - run: npm install --no-package-lock
-      - run: npm run test:ember
+          node-version: 16
+          cache: pnpm
+      - name: Lint
+        run: pnpm lint
+      - name: Run Tests
+        run: pnpm test
 
   try-scenarios:
-    name: "ember-try: ${{ matrix.ember-try-scenario }}"
+    name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    needs: test
+    needs: 'test'
+
     strategy:
       fail-fast: false
       matrix:
-        ember-try-scenario:
+        try-scenario:
           - ember-lts-3.16
           - ember-lts-3.20
           - ember-lts-3.24
+          - ember-lts-3.28
+          - ember-lts-4.4
+          - ember-lts-4.8
+          - ember-lts-4.12
           - ember-release
           - ember-beta
           - ember-canary
-          - ember-default-with-jquery
           - ember-classic
           - embroider-safe
           - embroider-optimized
@@ -77,12 +57,14 @@ jobs:
           - ember-release-no-deprecations
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
-      - run: npm ci
-
-      - name: test
-        run: node_modules/.bin/ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 16
+          cache: pnpm
+      - name: Run Tests
+        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        working-directory: test-app
