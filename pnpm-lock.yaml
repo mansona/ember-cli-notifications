@@ -360,6 +360,9 @@ importers:
       ember-template-lint:
         specifier: ^5.11.2
         version: 5.13.0
+      ember-try:
+        specifier: ^3.0.0
+        version: 3.0.0
       ember-welcome-page:
         specifier: ^7.0.2
         version: 7.0.2
