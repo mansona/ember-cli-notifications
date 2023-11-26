@@ -1,0 +1,62 @@
+name: Release Plan Review
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: 
+      - labeled
+
+concurrency:
+  group: plan-release-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prepare_release_notes:
+    name: Prepare Release Notes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      explanation: ${{ steps.explanation.outputs.text }}
+
+    steps:
+      - uses: actions/checkout@v4
+        # We need to download lots of history so that
+        # lerna-changelog can discover what's changed since the last release
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - run: pnpm install --frozen-lockfile
+      
+      - name: "Generate Explanation and Prep Changelogs"
+        id: explanation
+        run: |
+          set -x
+          
+          pnpm release-plan prepare
+          
+          echo 'text<<EOF' >> $GITHUB_OUTPUT
+          jq .description .release-plan.json -r >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+        env:
+          GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Prepare Release using 'release-plan'"
+          author: "github-actions[bot] <github-actions-bot@users.noreply.github.com>"
+          labels: "internal"
+          branch: release-preview
+          title: Release Preview
+          body: |
+            This PR is a preview of the release that [release-plan](https://github.com/embroider-build/release-plan) has prepared. To release you should just merge this PR 👍
+
+            -----------------------------------------
+
+            ${{ steps.explanation.outputs.text }}
