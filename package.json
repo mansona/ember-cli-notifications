@@ -1,6 +1,9 @@
 {
   "private": true,
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mansona/ember-cli-notifications.git"
+  },
   "license": "MIT",
   "author": "",
   "scripts": {
@@ -18,7 +21,8 @@
   "devDependencies": {
     "concurrently": "^8.2.0",
     "prettier": "^3.0.3",
-    "prettier-plugin-ember-template-tag": "^1.1.0"
+    "prettier-plugin-ember-template-tag": "^1.1.0",
+    "release-plan": "^0.3.0"
   },
   "pnpm": {
     "overrides": {
