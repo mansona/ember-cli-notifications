@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "ember-cli-notifications": {
+      "oldVersion": "8.0.0"
+    }
+  },
+  "description": "## Release (2023-11-26)\n\n\n\n#### :boom: Breaking Change\n* [#365](https://github.com/mansona/ember-cli-notifications/pull/365) move to a v2 addon ([@mansona](https://github.com/mansona))\n* [#327](https://github.com/mansona/ember-cli-notifications/pull/327) Breaking: Drop support for Ember < 3.16 and move to field-guide ([@mansona](https://github.com/mansona))\n\n#### :rocket: Enhancement\n* [#364](https://github.com/mansona/ember-cli-notifications/pull/364) Stop using `ember-get-config` ([@nlepage](https://github.com/nlepage))\n\n#### :house: Internal\n* [#367](https://github.com/mansona/ember-cli-notifications/pull/367) setup release-plan ([@mansona](https://github.com/mansona))\n* [#366](https://github.com/mansona/ember-cli-notifications/pull/366) fix lint-to-the-future CI job ([@mansona](https://github.com/mansona))\n* [#362](https://github.com/mansona/ember-cli-notifications/pull/362) Update minimum supported Node.js version to v16 (No longer relevant) ([@Turbo87](https://github.com/Turbo87))\n\n#### Committers: 3\n- Chris Manson ([@mansona](https://github.com/mansona))\n- Nicolas Lepage ([@nlepage](https://github.com/nlepage))\n- Tobias Bieniek ([@Turbo87](https://github.com/Turbo87))\n"
+}
