@@ -39,7 +39,7 @@ jobs:
         run: |
           set -x
 
-          pnpm release-plan prepare --singlePackage=ember-cli-notificaitons
+          pnpm release-plan prepare --singlePackage=ember-cli-notifications
 
           echo 'text<<EOF' >> $GITHUB_OUTPUT
           jq .description .release-plan.json -r >> $GITHUB_OUTPUT
