@@ -23,7 +23,7 @@ jobs:
       command: ${{ steps.check-release.outputs.command }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: 'main'
@@ -38,6 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: check-plan
     if: needs.check-plan.outputs.command == 'release'
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
@@ -46,14 +49,14 @@ jobs:
           node-version: 18
           # This creates an .npmrc that reads the NODE_AUTH_TOKEN environment variable
           registry-url: 'https://registry.npmjs.org'
-      
+
       - uses: pnpm/action-setup@v2
         with:
           version: 8
       - run: pnpm install --frozen-lockfile
       - name: npm publish
         run: pnpm release-plan publish
-      
+
         env:
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
