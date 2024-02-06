@@ -1,4 +1,14 @@
 # Changelog
+
+## Release (2024-02-06)
+
+
+
+#### :house: Internal
+* [#374](https://github.com/mansona/ember-cli-notifications/pull/374) update release-plan ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
 ## Release (2023-11-27)
 
 ember-cli-notifications 9.0.0 (major)
