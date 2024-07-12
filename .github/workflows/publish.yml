@@ -1,6 +1,6 @@
 # For every push to the master branch, this checks if the release-plan was
 # updated and if it was it will publish stable npm packages based on the
-# release plan
+# release plan
 
 name: Publish Stable
 
@@ -49,14 +49,14 @@ jobs:
           node-version: 18
           # This creates an .npmrc that reads the NODE_AUTH_TOKEN environment variable
           registry-url: 'https://registry.npmjs.org'
-
-      - uses: pnpm/action-setup@v2
+      
+      - uses: pnpm/action-setup@v3
         with:
           version: 8
       - run: pnpm install --frozen-lockfile
       - name: npm publish
         run: pnpm release-plan publish
-
+      
         env:
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
