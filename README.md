@@ -24,7 +24,7 @@ ember install ember-cli-notifications
 
 An [Ember](http://emberjs.com) addon that adds [Atom](https://github.com/atom/notifications) inspired notification messages to your app.
 
-Interactive documentation can be found [here](https://ember-cli-notifications.netlify.com).
+Interactive documentation can be found [here](https://ember-cli-notifications.netlify.app).
 
 ### Upgrading to 5.0.0
 
@@ -58,9 +58,9 @@ We have also updated the name of the service to be simply `notifications` so you
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
-export default Controller.extend({
-  notifications: service(),
-});
+export default class MyController extends Controller {
+  @service notifications;
+}
 ```
 
 #### Removing CSS modules
