@@ -1,12 +1,10 @@
 {
   "plugins": [
     "@embroider/addon-dev/template-colocation-plugin",
-    "@babel/plugin-transform-class-static-block",
     ["babel-plugin-ember-template-compilation", {
       "targetFormat": "hbs",
       "transforms": []
     }],
-    ["@babel/plugin-proposal-decorators", { "version": "legacy" }],
-    "@babel/plugin-proposal-class-properties"
+    ["module:decorator-transforms", { "runtime": { "import": "decorator-transforms/runtime" } }],
   ]
 }

@@ -15,18 +15,21 @@ jobs:
   push-dist:
     name: Push dist
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         with:
           version: 8
       - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18
           cache: pnpm
-      - run: pnpm i --frozen-lockfile
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
       - uses: kategengler/put-built-npm-package-contents-on-branch@v2.0.0
         with:
           branch: dist
           token: ${{ secrets.GITHUB_TOKEN }}
-          working-directory: ember-cli-notifications
+          working-directory: 'ember-cli-notifications'
