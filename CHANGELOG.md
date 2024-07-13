@@ -1,4 +1,19 @@
 # Changelog
+
+## Release (2024-07-13)
+
+
+
+#### :memo: Documentation
+* [#375](https://github.com/mansona/ember-cli-notifications/pull/375) README tweaks ([@mastastealth](https://github.com/mastastealth))
+
+#### :house: Internal
+* [#376](https://github.com/mansona/ember-cli-notifications/pull/376) update release-plan (again) ([@mansona](https://github.com/mansona))
+* [#374](https://github.com/mansona/ember-cli-notifications/pull/374) update release-plan ([@mansona](https://github.com/mansona))
+
+#### Committers: 2
+- Brian Franco ([@mastastealth](https://github.com/mastastealth))
+- Chris Manson ([@mansona](https://github.com/mansona))
 ## Release (2023-11-27)
 
 ember-cli-notifications 9.0.0 (major)
