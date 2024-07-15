@@ -1,4 +1,4 @@
-/* eslint-disable ember/no-classic-classes, ember/no-get, prettier/prettier */
+/* eslint-disable ember/no-classic-classes, ember/no-get, prettier/prettier, ember/no-runloop */
 import Service from '@ember/service';
 import { A } from '@ember/array';
 import EmberObject, { set } from '@ember/object';
