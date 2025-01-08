@@ -1,25 +1,17 @@
 {
   "solution": {
     "ember-cli-notifications": {
-      "impact": "major",
-      "oldVersion": "8.0.0",
-      "newVersion": "9.0.0",
+      "impact": "minor",
+      "oldVersion": "9.0.0",
+      "newVersion": "9.1.0",
       "constraints": [
-        {
-          "impact": "major",
-          "reason": "Appears in changelog section :boom: Breaking Change"
-        },
         {
           "impact": "minor",
           "reason": "Appears in changelog section :rocket: Enhancement"
-        },
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./ember-cli-notifications/package.json"
     }
   },
-  "description": "## Release (2023-11-27)\n\nember-cli-notifications 9.0.0 (major)\n\n#### :boom: Breaking Change\n* [#365](https://github.com/mansona/ember-cli-notifications/pull/365) move to a v2 addon ([@mansona](https://github.com/mansona))\n* [#327](https://github.com/mansona/ember-cli-notifications/pull/327) Drop support for Ember < 3.16 and move to field-guide ([@mansona](https://github.com/mansona))\n\n#### :rocket: Enhancement\n* [#364](https://github.com/mansona/ember-cli-notifications/pull/364) Stop using `ember-get-config` ([@nlepage](https://github.com/nlepage))\n\n#### :house: Internal\n* [#372](https://github.com/mansona/ember-cli-notifications/pull/372) fix typo in release-plan config ([@mansona](https://github.com/mansona))\n* [#371](https://github.com/mansona/ember-cli-notifications/pull/371) remove unreleased changelog entry ([@mansona](https://github.com/mansona))\n* [#370](https://github.com/mansona/ember-cli-notifications/pull/370) add --singlePackage to release-plan config ([@mansona](https://github.com/mansona))\n* [#368](https://github.com/mansona/ember-cli-notifications/pull/368) Release Preview ([@github-actions[bot]](https://github.com/apps/github-actions))\n* [#367](https://github.com/mansona/ember-cli-notifications/pull/367) setup release-plan ([@mansona](https://github.com/mansona))\n* [#366](https://github.com/mansona/ember-cli-notifications/pull/366) fix lint-to-the-future CI job ([@mansona](https://github.com/mansona))\n* [#362](https://github.com/mansona/ember-cli-notifications/pull/362) Update minimum supported Node.js version to v16 (No longer relevant) ([@Turbo87](https://github.com/Turbo87))\n\n#### Committers: 4\n- Chris Manson ([@mansona](https://github.com/mansona))\n- Nicolas Lepage ([@nlepage](https://github.com/nlepage))\n- Tobias Bieniek ([@Turbo87](https://github.com/Turbo87))\n- [@github-actions[bot]](https://github.com/apps/github-actions)\n"
+  "description": "## Release (2025-01-08)\n\nember-cli-notifications 9.1.0 (minor)\n\n#### :rocket: Enhancement\n* `docs-app`, `ember-cli-notifications`, `test-app`\n  * [#378](https://github.com/mansona/ember-cli-notifications/pull/378) Update addon blueprint using ember-cli-update ([@mansona](https://github.com/mansona))\n\n#### :memo: Documentation\n* [#375](https://github.com/mansona/ember-cli-notifications/pull/375) README tweaks ([@mastastealth](https://github.com/mastastealth))\n\n#### :house: Internal\n* [#379](https://github.com/mansona/ember-cli-notifications/pull/379) update release plan ([@mansona](https://github.com/mansona))\n* [#376](https://github.com/mansona/ember-cli-notifications/pull/376) update release-plan (again) ([@mansona](https://github.com/mansona))\n* [#374](https://github.com/mansona/ember-cli-notifications/pull/374) update release-plan ([@mansona](https://github.com/mansona))\n\n#### Committers: 2\n- Brian Franco ([@mastastealth](https://github.com/mastastealth))\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
 }
