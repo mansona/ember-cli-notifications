@@ -12,6 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-      - uses: mansona/lttf-dashboard@v1
+      - uses: actions/setup-node@v4
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
+          node-version: 18
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+        working-directory: ./ember-cli-notifications
+      - run: pnpm lint-to-the-future output -o lttfOutput --rootUrl `cut -d'/' -f2 <<< ${{ github.repository }}` --previous-results https://${{ github.repository_owner }}.github.io/`cut -d'/' -f2 <<< ${{ github.repository }}`/data.json
+        shell: bash
+        working-directory: ./ember-cli-notifications
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ember-cli-notifications/lttfOutput
