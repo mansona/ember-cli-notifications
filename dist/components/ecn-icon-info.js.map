@@ -1,0 +1,1 @@
+{"version":3,"file":"ecn-icon-info.js","sources":["../../src/components/ecn-icon-info.js"],"sourcesContent":["import templateOnly from '@ember/component/template-only';\nexport default templateOnly();\n"],"names":["setComponentTemplate","TEMPLATE","templateOnly"],"mappings":";;;;;;AACA,kBAAAA,oBAAA,CAAAC,QAAA,EAAeC,YAAY,EAAE,CAAA;;;;"}

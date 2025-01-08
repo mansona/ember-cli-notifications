@@ -1,0 +1,96 @@
+{
+  "name": "ember-cli-notifications",
+  "version": "9.1.0",
+  "description": "Atom inspired notification messages for ember-cli",
+  "keywords": [
+    "alerts",
+    "ember",
+    "ember-addon",
+    "ember-cli",
+    "notifications"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mansona/ember-cli-notifications"
+  },
+  "license": "MIT",
+  "author": "Chris Manson <chris@manson.ie>",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js",
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "start": "rollup --config --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.9",
+    "decorator-transforms": "^2.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/runtime": "^7.25.6",
+    "@embroider/addon-dev": "^7.1.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "babel-plugin-ember-template-compilation": "^2.2.5",
+    "concurrently": "^9.0.1",
+    "ember-source": "^5.4.0",
+    "ember-template-lint": "^6.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^12.3.1",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-n": "^17.10.3",
+    "eslint-plugin-prettier": "^5.2.1",
+    "lint-to-the-future": "^2.6.2",
+    "lint-to-the-future-ember-template": "^3.0.0",
+    "lint-to-the-future-eslint": "^2.2.0",
+    "postcss": "^8.4.31",
+    "postcss-preset-env": "^9.3.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-ember-template-tag": "^2.0.2",
+    "rollup": "^4.22.5",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "webpack": "^5.97.1"
+  },
+  "peerDependencies": {
+    "ember-source": ">= 3.8.0"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./components/ecn-icon-close.js": "./dist/_app_/components/ecn-icon-close.js",
+      "./components/ecn-icon-error.js": "./dist/_app_/components/ecn-icon-error.js",
+      "./components/ecn-icon-info.js": "./dist/_app_/components/ecn-icon-info.js",
+      "./components/ecn-icon-success.js": "./dist/_app_/components/ecn-icon-success.js",
+      "./components/ecn-icon-warning.js": "./dist/_app_/components/ecn-icon-warning.js",
+      "./components/notification-container.js": "./dist/_app_/components/notification-container.js",
+      "./components/notification-message.js": "./dist/_app_/components/notification-message.js",
+      "./services/notifications.js": "./dist/_app_/services/notifications.js"
+    }
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/mansona"
+  }
+}

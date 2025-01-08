@@ -1,0 +1,140 @@
+/* Values */
+.ember-cli-notifications-notification__container .c-notification {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--ecn-notification-border-radius);
+  border-bottom: 1rem;
+  color: white;
+  max-height: var(--ecn-notification-max-height);
+  animation: notification-hide 250ms cubic-bezier(.33859, -.42, 1, -.22), notification-shrink 250ms 250ms cubic-bezier(.5, 0, 0, 1);
+  animation-fill-mode: forwards;
+  margin-bottom: var(--ecn-spacing-2);
+}
+
+.ember-cli-notifications-notification__container .c-notification--clickable {
+  cursor: pointer;
+}
+
+.ember-cli-notifications-notification__container .c-notification--in {
+  animation: notification-show 180ms cubic-bezier(.175, .885, .32, 1.27499);
+}
+
+.ember-cli-notifications-notification__container .c-notification__content {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  justify-content: space-between;
+  padding: var(--ecn-spacing-1) var(--ecn-spacing-2);
+  word-break: break-word;
+}
+
+.ember-cli-notifications-notification__container .c-notification__content a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.ember-cli-notifications-notification__container .c-notification__icon {
+  padding: var(--ecn-spacing-1) 0;
+  text-align: center;
+  flex: none;
+  background-color: var(--ecn-icon-lighten-background);
+  width: var(--ecn-icon-width);
+  color: var(--ecn-icon-color);
+}
+
+.ember-cli-notifications-notification__container .c-notification__svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
+}
+
+.ember-cli-notifications-notification__container .c-notification__close {
+  margin-left: var(--ecn-spacing-2);
+  align-self: flex-start;
+  opacity: .74;
+  cursor: pointer;
+}
+
+.ember-cli-notifications-notification__container .c-notification__close:hover,
+.ember-cli-notifications-notification__container .c-notification__close:focus {
+  opacity: 1;
+}
+
+.ember-cli-notifications-notification__container .c-notification__countdown {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--ecn-countdown-lighten-background);
+  width: 0;
+  height: 4px;
+  animation: notification-countdown linear 1;
+}
+
+/* Theme */
+.ember-cli-notifications-notification__container .c-notification--info {
+  background-color: var(--ecn-blue);
+}
+
+.ember-cli-notifications-notification__container .c-notification--success {
+  background-color: var(--ecn-green);
+}
+
+.ember-cli-notifications-notification__container .c-notification--warning {
+  background-color: var(--ecn-orange);
+}
+
+.ember-cli-notifications-notification__container .c-notification--error {
+  background-color: var(--ecn-red);
+}
+
+/* Keyframes */
+@keyframes notification-show {
+  0% {
+    opacity: 0;
+    transform: perspective(450px) translate(0, -30px) rotateX(90deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(450px) translate(0, 0) rotateX(0deg);
+  }
+}
+
+@keyframes notification-shrink {
+  0% {
+    opacity: 0;
+    max-height: var(--ecn-notification-max-height);
+    transform: scale(.8);
+  }
+
+  100% {
+    opacity: 0;
+    max-height: 0;
+    transform: scale(.8);
+  }
+}
+
+@keyframes notification-hide {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(.8);
+  }
+}
+
+@keyframes notification-countdown {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}

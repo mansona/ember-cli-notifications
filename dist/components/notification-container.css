@@ -1,0 +1,68 @@
+:root {
+  --ecn-container-position: 10px;
+  --ecn-container-width: 80%;
+  --ecn-container-max-with: 400px;
+
+  --ecn-icon-width: 30px;
+  --ecn-icon-position: 10px;
+  --ecn-icon-color: rgba(255, 255, 255, 0.74);
+  --ecn-icon-lighten-background: rgba(255, 255, 255, 0.2);
+  --ecn-countdown-lighten-background: rgba(255, 255, 255, 0.4);
+  --ecn-notification-max-height: 800px;
+  --ecn-notification-border-radius: 3px;
+
+  /* Colours */
+  --ecn-green: #64ce83;
+  --ecn-blue: #3ea2ff;
+  --ecn-orange: #ff7f48;
+  --ecn-red: #e74c3c;
+
+  /* Spacing */
+  --ecn-spacing-1: .5rem;
+  --ecn-spacing-2: 1rem;
+}
+
+/* Base */
+.ember-cli-notifications-notification__container {
+  position: fixed;
+  margin: 0 auto;
+  width: var(--ecn-container-width);
+  max-width: var(--ecn-container-max-with);
+}
+
+/* Position */
+.ember-cli-notifications-notification__container--top {
+  top: var(--ecn-container-position);
+  right: 0;
+  left: 0;
+}
+
+.ember-cli-notifications-notification__container--top-left {
+  top: var(--ecn-container-position);
+  right: auto;
+  left: var(--ecn-container-position);
+}
+
+.ember-cli-notifications-notification__container--top-right {
+  top: var(--ecn-container-position);
+  right: var(--ecn-container-position);
+  left: auto;
+}
+
+.ember-cli-notifications-notification__container--bottom {
+  right: 0;
+  bottom: var(--ecn-container-position);
+  left: 0;
+}
+
+.ember-cli-notifications-notification__container--bottom-left {
+  right: auto;
+  bottom: var(--ecn-container-position);
+  left: var(--ecn-container-position);
+}
+
+.ember-cli-notifications-notification__container--bottom-right {
+  right: var(--ecn-container-position);
+  bottom: var(--ecn-container-position);
+  left: auto;
+}
