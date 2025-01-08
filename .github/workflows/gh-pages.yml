@@ -1,4 +1,4 @@
-name: github pages
+name: Lint to the Future Dashboard
 
 on:
   push:
@@ -8,21 +8,9 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - uses: mansona/lttf-dashboard@v1
         with:
-          version: 8
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 16
-          cache: pnpm
-      - run: pnpm i --frozen-lockfile
-      - run: npx lint-to-the-future output -o lttfOutput --rootUrl ember-cli-notifications --previous-results https://mansona.github.io/ember-cli-notifications/data.json
-        working-directory: ember-cli-notifications
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./ember-cli-notifications/lttfOutput
+          token: ${{secrets.GITHUB_TOKEN}}
