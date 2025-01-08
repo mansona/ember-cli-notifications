@@ -232,8 +232,8 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1(@types/eslint@7.29.0)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.4.2)
       lint-to-the-future:
-        specifier: ^2.6.1
-        version: 2.6.1(encoding@0.1.13)
+        specifier: ^2.6.2
+        version: 2.6.2(encoding@0.1.13)
       lint-to-the-future-ember-template:
         specifier: ^3.0.0
         version: 3.0.0(ember-template-lint@6.0.0)
@@ -5818,8 +5818,8 @@ packages:
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
 
-  lint-to-the-future@2.6.1:
-    resolution: {integrity: sha512-BRjkKzN0ivVp4eEYybpQR+I9dCeNrulQlbYQtUb3J9RFLN5DZ9GgcCIRicSBepZ7VHpiqrqy7AV2RNjhIf1OIw==}
+  lint-to-the-future@2.6.2:
+    resolution: {integrity: sha512-l8fmDddu7Gqp/gzIyYU+dVUDonaH/GIH9SnldoG+5bNqpdwQE+p4xS6sLuFo+N7MNTMXdq7HBUa9J3nrDkAzQg==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -16820,7 +16820,7 @@ snapshots:
       semver: 7.6.3
       walk-sync: 3.0.0
 
-  lint-to-the-future@2.6.1(encoding@0.1.13):
+  lint-to-the-future@2.6.2(encoding@0.1.13):
     dependencies:
       commander: 9.5.0
       fs-extra: 7.0.1
