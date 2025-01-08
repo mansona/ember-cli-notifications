@@ -30,13 +30,14 @@ jobs:
       - id: check-release
         run: if git diff --name-only HEAD HEAD~1 | grep -w -q ".release-plan.json"; then echo "command=release"; fi >> $GITHUB_OUTPUT
 
-  prepare_release_notes:
+  prepare-release-notes:
     name: Prepare Release Notes
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: check-plan
     permissions:
       contents: write
+      issues: read
       pull-requests: write
     outputs:
       explanation: ${{ steps.explanation.outputs.text }}
@@ -51,22 +52,17 @@ jobs:
         with:
           fetch-depth: 0
           ref: 'main'
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 8
+          cache: pnpm
       - run: pnpm install --frozen-lockfile
-      
       - name: "Generate Explanation and Prep Changelogs"
         id: explanation
         run: |
           set +e
-          
           pnpm release-plan prepare 2> >(tee -a release-plan-stderr.txt >&2)
-          
 
           if [ $? -ne 0 ]; then
             echo 'text<<EOF' >> $GITHUB_OUTPUT
@@ -81,7 +77,7 @@ jobs:
         env:
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: peter-evans/create-pull-request@v6
+      - uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "Prepare Release using 'release-plan'"
           labels: "internal"
