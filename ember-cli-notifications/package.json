@@ -57,7 +57,7 @@
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-n": "^17.10.3",
     "eslint-plugin-prettier": "^5.2.1",
-    "lint-to-the-future": "^2.6.1",
+    "lint-to-the-future": "^2.6.2",
     "lint-to-the-future-ember-template": "^3.0.0",
     "lint-to-the-future-eslint": "^2.2.0",
     "postcss": "^8.4.31",
