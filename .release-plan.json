@@ -1,17 +1,17 @@
 {
   "solution": {
     "ember-cli-notifications": {
-      "impact": "minor",
-      "oldVersion": "9.0.0",
-      "newVersion": "9.1.0",
+      "impact": "patch",
+      "oldVersion": "9.1.0",
+      "newVersion": "9.1.1",
       "constraints": [
         {
-          "impact": "minor",
-          "reason": "Appears in changelog section :rocket: Enhancement"
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./ember-cli-notifications/package.json"
     }
   },
-  "description": "## Release (2025-01-08)\n\nember-cli-notifications 9.1.0 (minor)\n\n#### :rocket: Enhancement\n* `docs-app`, `ember-cli-notifications`, `test-app`\n  * [#378](https://github.com/mansona/ember-cli-notifications/pull/378) Update addon blueprint using ember-cli-update ([@mansona](https://github.com/mansona))\n\n#### :memo: Documentation\n* [#375](https://github.com/mansona/ember-cli-notifications/pull/375) README tweaks ([@mastastealth](https://github.com/mastastealth))\n\n#### :house: Internal\n* [#379](https://github.com/mansona/ember-cli-notifications/pull/379) update release plan ([@mansona](https://github.com/mansona))\n* [#376](https://github.com/mansona/ember-cli-notifications/pull/376) update release-plan (again) ([@mansona](https://github.com/mansona))\n* [#374](https://github.com/mansona/ember-cli-notifications/pull/374) update release-plan ([@mansona](https://github.com/mansona))\n\n#### Committers: 2\n- Brian Franco ([@mastastealth](https://github.com/mastastealth))\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
+  "description": "## Release (2025-01-08)\n\nember-cli-notifications 9.1.1 (patch)\n\n#### :house: Internal\n* `ember-cli-notifications`\n  * [#383](https://github.com/mansona/ember-cli-notifications/pull/383) implement working-directory for lttf deploy ([@mansona](https://github.com/mansona))\n* Other\n  * [#382](https://github.com/mansona/ember-cli-notifications/pull/382) fix lttf dashboard deploy ([@mansona](https://github.com/mansona))\n  * [#380](https://github.com/mansona/ember-cli-notifications/pull/380) update lttf dashboard job ([@mansona](https://github.com/mansona))\n\n#### Committers: 1\n- Chris Manson ([@mansona](https://github.com/mansona))\n"
 }

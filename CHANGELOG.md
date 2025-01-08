@@ -2,6 +2,20 @@
 
 ## Release (2025-01-08)
 
+ember-cli-notifications 9.1.1 (patch)
+
+#### :house: Internal
+* `ember-cli-notifications`
+  * [#383](https://github.com/mansona/ember-cli-notifications/pull/383) implement working-directory for lttf deploy ([@mansona](https://github.com/mansona))
+* Other
+  * [#382](https://github.com/mansona/ember-cli-notifications/pull/382) fix lttf dashboard deploy ([@mansona](https://github.com/mansona))
+  * [#380](https://github.com/mansona/ember-cli-notifications/pull/380) update lttf dashboard job ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
+## Release (2025-01-08)
+
 ember-cli-notifications 9.1.0 (minor)
 
 #### :rocket: Enhancement
