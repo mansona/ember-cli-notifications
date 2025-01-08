@@ -232,13 +232,13 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1(@types/eslint@7.29.0)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.4.2)
       lint-to-the-future:
-        specifier: ^2.0.0
+        specifier: ^2.6.1
         version: 2.6.1(encoding@0.1.13)
       lint-to-the-future-ember-template:
-        specifier: ^1.2.0
-        version: 1.2.0(ember-template-lint@6.0.0)
+        specifier: ^3.0.0
+        version: 3.0.0(ember-template-lint@6.0.0)
       lint-to-the-future-eslint:
-        specifier: ^2.0.1
+        specifier: ^2.2.0
         version: 2.2.0(eslint@8.57.1)
       postcss:
         specifier: ^8.4.31
@@ -5803,11 +5803,11 @@ packages:
   linkify-it@4.0.1:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
 
-  lint-to-the-future-ember-template@1.2.0:
-    resolution: {integrity: sha512-MtbF3OITW2fh900RU08TQsrGt5ljvzYklvV3SEli4o1RqQ5oM4+yTsU4irvO3usmuO4C1lpXUAGZ6az7kqeXxw==}
-    engines: {node: 10.* || >= 12.*}
+  lint-to-the-future-ember-template@3.0.0:
+    resolution: {integrity: sha512-gFtm2jTnOslVoYPpgkcGk+lAKHZa/WHugU0kMJOR6H3b/mib0MYM8buXctSfnrTMqbWcp/XcCs74zUycJeWxiA==}
+    engines: {node: 18.* || 20.* || >= 22.*}
     peerDependencies:
-      ember-template-lint: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
+      ember-template-lint: ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
 
   lint-to-the-future-eslint@2.2.0:
     resolution: {integrity: sha512-qVAplasyGhUxtehl4Rfmj4qNiHx8axZKu9HtqbjeyRrcIRyXGcHr5UECJSRP0H4sraCk+wB1IuG0k7Mv2ax3Aw==}
@@ -16897,11 +16897,10 @@ snapshots:
     dependencies:
       uc.micro: 1.0.6
 
-  lint-to-the-future-ember-template@1.2.0(ember-template-lint@6.0.0):
+  lint-to-the-future-ember-template@3.0.0(ember-template-lint@6.0.0):
     dependencies:
+      content-tag: 3.1.0
       ember-template-lint: 6.0.0
-      esm: 3.2.25
-      import-cwd: 3.0.0
       walk-sync: 2.2.0
 
   lint-to-the-future-eslint@2.2.0(eslint@8.57.1):
