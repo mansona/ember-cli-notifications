@@ -27,8 +27,8 @@
   ],
   "scripts": {
     "build": "rollup --config",
-    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
-    "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
     "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
     "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js": "eslint . --cache",
@@ -38,38 +38,39 @@
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.0.0"
+    "@embroider/addon-shim": "^1.8.9",
+    "decorator-transforms": "^2.2.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.0",
-    "@babel/eslint-parser": "^7.19.1",
-    "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "@babel/plugin-proposal-decorators": "^7.20.13",
-    "@babel/plugin-transform-class-static-block": "^7.20.0",
-    "@babel/runtime": "^7.17.0",
-    "@embroider/addon-dev": "^4.1.0",
-    "@rollup/plugin-babel": "^6.0.3",
-    "babel-plugin-ember-template-compilation": "^2.2.0",
-    "concurrently": "^8.0.1",
-    "ember-template-lint": "^5.11.2",
-    "eslint": "^8.33.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-ember": "^11.11.1",
-    "eslint-plugin-n": "^16.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "lint-to-the-future": "^2.0.0",
-    "lint-to-the-future-ember-template": "^1.2.0",
-    "lint-to-the-future-eslint": "^2.0.1",
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/runtime": "^7.25.6",
+    "@embroider/addon-dev": "^7.1.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "babel-plugin-ember-template-compilation": "^2.2.5",
+    "concurrently": "^9.0.1",
+    "ember-source": "^5.4.0",
+    "ember-template-lint": "^6.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^12.3.1",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-n": "^17.10.3",
+    "eslint-plugin-prettier": "^5.2.1",
+    "lint-to-the-future": "^2.6.1",
+    "lint-to-the-future-ember-template": "^3.0.0",
+    "lint-to-the-future-eslint": "^2.2.0",
     "postcss": "^8.4.31",
     "postcss-preset-env": "^9.3.0",
-    "prettier": "^3.0.3",
-    "prettier-plugin-ember-template-tag": "^1.1.0",
-    "rollup": "^3.21.8",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-postcss": "^4.0.2"
+    "prettier": "^3.3.3",
+    "prettier-plugin-ember-template-tag": "^2.0.2",
+    "rollup": "^4.22.5",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "webpack": "^5.97.1"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+  "peerDependencies": {
+    "ember-source": ">= 3.8.0"
   },
   "ember": {
     "edition": "octane"

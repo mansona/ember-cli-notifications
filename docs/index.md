@@ -233,7 +233,7 @@ this.notifications.clearAll().success('Saved successfully!', {
           </label>
         </div>
       </div>
-      <button class="btn btn-primary" {{action "showNotifcation"}}>Show</button>
+      <button class="btn btn-primary" {{on "click" this.showNotifcation}}>Show</button>
     </div>
   </div>
   <div class="py2">
