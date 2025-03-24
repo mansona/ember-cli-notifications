@@ -5,7 +5,16 @@ import EmberObject, { set } from '@ember/object';
 import { later, cancel } from '@ember/runloop';
 import { getOwner } from '@ember/application';
 
+/**
+ * Manages notifications stack
+ * @class NotificationsService
+ * @public
+ */
 export default class NotificationsService extends Service {
+  /**
+   * The notifications array
+   * @type {array}
+   */
   content = A();
 
   constructor(...args) {
@@ -16,7 +25,18 @@ export default class NotificationsService extends Service {
     this.globals = config['ember-cli-notifications'] || {}; // Import app config object
   }
 
-  // Method for adding a notification
+  /**
+   * Add a notification
+   * @param {object} options - The options for the notification
+   * @param {string} options.message - The message to display
+   * @param {string} [options.type=info] - The type of notification (info, success, warning, error)
+   * @param {boolean} [options.autoClear=false] - Whether to automatically clear the notification
+   * @param {number} [options.clearDuration=3200] - The duration to wait before clearing the notification
+   * @param {callback} options.onClick - A callback function to run when the notification is clicked
+   * @param {boolean} [options.htmlContent=false] - Enable basic HTML markup for the notification message
+   * @param {string} options.cssClasses - Additional CSS classes to add to the notification
+   * @returns {object} - The notification object
+   */
   addNotification(options) {
     // If no message is set, throw an error
     if (!options.message) {
@@ -45,7 +65,12 @@ export default class NotificationsService extends Service {
     return notification;
   }
 
-  // Helper methods for each type of notification
+  /**
+   * Add an error notification
+   * @param {string} message - The message to display
+   * @param {object} options - The options for the notification
+   * @returns {function} - The addNotification method
+   */
   error(message, options) {
     return this.addNotification({
       ...options,
@@ -54,6 +79,12 @@ export default class NotificationsService extends Service {
     });
   }
 
+  /**
+   * Add a success notification
+   * @param {string} message - The message to display
+   * @param {object} options - The options for the notification
+   * @returns {function} - The addNotification method
+   */
   success(message, options) {
     return this.addNotification({
       ...options,
@@ -62,6 +93,12 @@ export default class NotificationsService extends Service {
     });
   }
 
+  /**
+   * Add an info notification
+   * @param {string} message - The message to display
+   * @param {object} options - The options for the notification
+   * @returns {function} - The addNotification method
+   */
   info(message, options) {
     return this.addNotification({
       ...options,
@@ -70,6 +107,12 @@ export default class NotificationsService extends Service {
     });
   }
 
+  /**
+   * Add a warning notification
+   * @param {string} message - The message to display
+   * @param {object} options - The options for the notification
+   * @returns {function} - The addNotification method
+   */
   warning(message, options) {
     return this.addNotification({
       ...options,
@@ -78,6 +121,11 @@ export default class NotificationsService extends Service {
     });
   }
 
+  /**
+   * Remove single notification
+   * @param {object} notification - The notification object to remove
+   * @returns {void}
+   */
   removeNotification(notification) {
     if (!notification) {
       return;
@@ -91,10 +139,15 @@ export default class NotificationsService extends Service {
       () => {
         this.content.removeObject(notification);
       },
-      500
+      500,
     );
   }
 
+  /**
+   * Setup auto clear for a notification
+   * @param {object} notification - The notification object to remove
+   * @returns {void}
+   */
   setupAutoClear(notification) {
     notification.set('startTime', Date.now());
 
@@ -106,12 +159,17 @@ export default class NotificationsService extends Service {
           this.removeNotification(notification);
         }
       },
-      notification.remaining
+      notification.remaining,
     );
 
     set(notification, 'timer', timer);
   }
 
+  /**
+   * Pause auto clear for a notification
+   * @param {object} notification - The notification object to pause auto clear for
+   * @returns {void}
+   */
   pauseAutoClear(notification) {
     cancel(notification.timer);
 
@@ -121,6 +179,10 @@ export default class NotificationsService extends Service {
     set(notification, 'remaining', remaining);
   }
 
+  /**
+   * Remove all present notifications
+   * @returns {class} - The NotificationsService class
+   */
   clearAll() {
     this.content.forEach((notification) => {
       this.removeNotification(notification);
@@ -129,10 +191,20 @@ export default class NotificationsService extends Service {
     return this;
   }
 
+  /**
+   * Set the default auto clear value
+   * @param {boolean} autoClear - The default auto clear value
+   * @returns {void}
+   */
   setDefaultAutoClear(autoClear) {
     this.globals.autoClear = autoClear;
   }
 
+  /**
+   * Set the default clear duration
+   * @param {number} clearDuration - The default clear duration
+   * @returns {void}
+   */
   setDefaultClearDuration(clearDuration) {
     this.globals.clearDuration = clearDuration;
   }
