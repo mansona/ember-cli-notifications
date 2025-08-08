@@ -36,12 +36,13 @@ ember install ember-cli-notifications
     <p>Inject the notifications service where required.</p>
 
 ```js
-import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
+import Component from '@glimmer/component';
+import { service } from '@ember/service';
 
-export default Controller.extend({
-  notifications: service(),
-});
+export default class IndexComponent extends Component {
+  @service notifications;
+}
+
 ```
 
     <p>Or inject it everywhere with an initializer.</p>

@@ -2,7 +2,9 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/template';
-import { inject as service } from '@ember/service';
+import * as emberService from '@ember/service';
+
+const service = emberService.service ?? emberService.inject;
 
 import './notification-container.css';
 
