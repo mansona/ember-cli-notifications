@@ -55,7 +55,7 @@ We have also updated the name of the service to be simply `notifications` so you
 
 ```js
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 export default class MyController extends Controller {
   @service notifications;

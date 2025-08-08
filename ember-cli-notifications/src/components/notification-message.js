@@ -2,7 +2,9 @@
 import Component from '@ember/component';
 import { htmlSafe } from '@ember/template';
 import { action, computed, set } from '@ember/object';
-import { inject as service } from '@ember/service';
+import * as emberService from '@ember/service';
+
+const service = emberService.service ?? emberService.inject;
 
 const availableTypes = ['info', 'success', 'warning', 'error'];
 
