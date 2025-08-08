@@ -1,6 +1,8 @@
 import Controller from '@ember/controller';
-import { service } from '@ember/service';
 import { action } from '@ember/object';
+import * as emberService from '@ember/service';
+
+const service = emberService.service ?? emberService.inject;
 
 export default class ApplicationController extends Controller {
   message = 'Notification message';
