@@ -73,7 +73,7 @@
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.1.0",
     "tracked-built-ins": "^3.3.0",
-    "webpack": "^5.95.0"
+    "webpack": "^5.104.1"
   },
   "engines": {
     "node": ">= 18"
